@@ -2,6 +2,10 @@
 
 Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
 
+## Demo
+
+[https://www.mirrorz.org](https://www.mirrorz.org). Currently `mirrorz.json` for each MirrorS is pre-generated, not real-time generated.
+
 ## Intro
 
 MirrorS are heterogeneous. It is hard for a single mirror to provide all mirrors, so differences occur.
