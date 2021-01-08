@@ -28,7 +28,7 @@ function mirrorz (json) {
           )
         )
     }
-		ul = $('#'+id);
+		ul = $('#'+$.escapeSelector(id));
     if ( ul.length == 0 ) {
       $('#mirrorz').append(
         $('<div>', {"class": "mirrorz-div"}).append(
