@@ -1,7 +1,7 @@
 import json
 import sys
-# import requests
-# import subprocess
+import requests
+import subprocess
 import re
 import sys
 
@@ -13,7 +13,8 @@ def iso(iso_orig: list) -> None:
     # modify iso_orig inplace
     for i in iso_orig:
         if not i.get("category"):
-            i["category"] = "os"  # now ustcmirror has no category and all iso are OS.
+            # now ustcmirror has no category and all iso are OS.
+            i["category"] = "os"
 
 
 def parse_content_meta(content_txt: str, meta: dict) -> dict:
@@ -55,14 +56,15 @@ def main():
     if len(sys.argv) < 5:
         print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog")
         sys.exit(0)
-    # site = json.loads(open(sys.argv[1]).read())
-    # meta = requests.get(sys.argv[2]).json()
-    # isolist = subprocess.check_output(sys.argv[3])
-    # content = subprocess.check_output(sys.argv[4])
     site = json.loads(open(sys.argv[1]).read())
-    meta = json.loads(open(sys.argv[2]).read())
-    isolist = json.loads(open(sys.argv[3]).read())
-    content_txt = open(sys.argv[4]).read()
+    meta = requests.get(sys.argv[2]).json()
+    isolist = json.loads(subprocess.check_output(
+        sys.argv[3], stderr=subprocess.DEVNULL).decode('utf-8'))
+    content_txt = subprocess.check_output(
+        sys.argv[4], stderr=subprocess.DEVNULL).decode('utf-8')
+    # meta = json.loads(open(sys.argv[2]).read())
+    # isolist = json.loads(open(sys.argv[3]).read())
+    # content_txt = open(sys.argv[4]).read()
 
     iso(isolist)
     mirrors = parse_content_meta(content_txt, meta)
@@ -72,6 +74,7 @@ def main():
     mirrorz["info"] = iso(isolist)
     mirrorz["mirrors"] = mirrors
     print(json.dumps(mirrorz))
+
 
 if __name__ == '__main__':
     main()
