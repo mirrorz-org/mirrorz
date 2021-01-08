@@ -12,7 +12,7 @@ To make things easy, MirrorZ is intended to include all the mirrorS, so a unifie
 
 ## Data Format v1 (draft)
 
-Each mirrorS participating in MirrorZ should provide a `mirrorz.json` with the following fields.
+Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the following fields.
 
 ```json
 {
@@ -58,18 +58,26 @@ Each mirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 ### Notes
 
 * `version` is optional for version 1
-* `site` provides the global info about one mirrorS
+* `site` provides the global info about one MirrorS
 * `site.url` should not end with slash `/`
 * `info` is used for category view
 * the name of `info.distro` should be agreed and have a mapping
 * `mirrors` is used for list view
 * the name of `mirrors.cname` should be agreed and have a mapping `cname.json`
-* `mirrors.desc` may differ for each mirrorS since there are `excludes` for some mirrorS
+* `mirrors.desc` may differ for each MirrorS since there are `excludes` for some MirrorS
 * `mirrors.desc` may be empty
 * if `mirrors.url` begins with a slash `/`, it should be appended to `site.url` to form a full url
 * `mirrors.status` should be agreed, currently some values are defined in `tunasync`
 * `mirrors.help` may be empty, or the same rule as `mirrors.url`
 * `mirrors.upstream` may be empty
+
+## Backend and FrontEnd
+
+For each MirrorS, it should provide a `mirrorz.json` in its domain and allow CORS of `www.mirrorz.org` on that file.
+
+The list of participating MirrorS should be maintained here.
+
+For the front end, currently a naive one is implemented using JQuery, one MirrorS may provide their FrontEnd for rendering, for example `www.mirrorz.org/{tuna,ustc,sjtug,hit}/index.html`.
 
 <!--
  vim: ts=2 sts=2 sw=2
