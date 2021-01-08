@@ -30,12 +30,32 @@ def status(sync):
     
     return s
 
-def help(sync):
+def help(name):
     l = ""
     for d in options["helps"]:
-        if sync["name"] == d["mirrorid"]:
+        if name == d["mirrorid"]:
             l = d["url"]
     return l
+
+def desc(name):
+    s = ""
+    for d in options["options"]["mirror_desc"]:
+        if name == d["name"]:
+            s = d["desc"]
+    return s
+
+def upstream(sync, tunasync):
+    if "upstream" in sync:
+        return sync["upstream"]
+    elif "link_to" in sync:
+        for other in tunasync:
+            if other["name"] == sync["link_to"]:
+                if "upstream" in other:
+                    return other["upstream"]
+                else:
+                    return ""
+    return ""
+
 
 def main():
     global options
@@ -56,20 +76,22 @@ def main():
         sync = tunasync[i]
         mirror = {
             "cname": name(sync["name"]),
+            "desc": desc(sync["name"]),
             "url": "/" + sync["name"],
             "status": status(sync),
-            "help": help(sync),
-            "upstream": sync["upstream"]
+            "help": help(sync["name"]),
+            "upstream": upstream(sync, tunasync)
         }
         mirrors.append(mirror)
 
     for unlisted in options["options"]["unlisted_mirrors"]:
         mirror = {
             "cname": name(unlisted["name"]),
+            "desc": desc(unlisted["name"]),
             "url": unlisted["url"],
             "status": status(unlisted),
-            "help": help(unlisted),
-            "upstream": ""
+            "help": help(unlisted["name"]),
+            "upstream": upstream(unlisted, tunasync)
         }
         mirrors.append(mirror)
     mirrorz["mirrors"] = mirrors
