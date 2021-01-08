@@ -73,11 +73,15 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 
 ## Backend and FrontEnd
 
-For each MirrorS, it should provide a `mirrorz.json` in its domain and allow CORS of `www.mirrorz.org` on that file.
+For each MirrorS, it should provide a `mirrorz.json` and allow CORS of `www.mirrorz.org` on that file.
 
 The list of participating MirrorS should be maintained here.
 
 For the front end, currently a naive one is implemented using JQuery, one MirrorS may provide their FrontEnd for rendering, for example `www.mirrorz.org/{tuna,ustc,sjtug,hit}/index.html`.
+
+`www.mirrorz.org` should only be statically generated.
+
+With user's consent, `www.mirrorz.org` may use Cookie or other methods to archive personalized rendering such as turning off some MirrorS when the json file is large and/or slow to download.
 
 <!--
  vim: ts=2 sts=2 sw=2
