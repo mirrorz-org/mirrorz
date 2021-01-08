@@ -39,7 +39,10 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
     # now we add data to content_list with meta!
     for i in meta:
         try:
-            ind = content_hash[i["name"]]
+            try:
+                ind = content_hash[i["name"]]
+            except KeyError:
+                ind = content_hash[i["name"].split(".")[0]]  # fix repo name like "kubernetes.apt"
             if i["syncing"]:
                 content_list[ind]["status"] = "Y"
             elif i["exitCode"] == 0:
@@ -71,7 +74,7 @@ def main():
 
     mirrorz = {}
     mirrorz["site"] = site
-    mirrorz["info"] = iso(isolist)
+    mirrorz["info"] = isolist
     mirrorz["mirrors"] = mirrors
     print(json.dumps(mirrorz))
 
