@@ -1,3 +1,5 @@
+---
+---
 function mirrorz (json) {
   site = json["site"]
 	$.each(json['mirrors'], function(i, e) {
@@ -44,12 +46,7 @@ function mirrorz (json) {
 }
 
 $(document).ready(() => {
-  $.each([
-    '/static/tuna/neo.json',
-    '/static/tuna/nano.json',
-    '/static/tuna/bfsu.json',
-    '/static/tuna/opentuna.json',
-  ],
+  $.each({% include mirrors.json %},
   (i, url) => {
     $.ajax({ 
       type: 'GET', 

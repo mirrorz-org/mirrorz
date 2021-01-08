@@ -18,7 +18,7 @@ def status(sync):
         "unknown": "U",
         "failed": "F",
         "fail": "F",
-        "paused": "U"
+        "paused": "P"
     }
     if "status" in sync and sync["status"] in d:
         s += d[sync["status"]]
@@ -74,6 +74,8 @@ def main():
     mirrors = []
     for i in range(len(tunasync)):
         sync = tunasync[i]
+        if sync["name"] == "":
+            continue
         mirror = {
             "cname": name(sync["name"]),
             "desc": desc(sync["name"]),
@@ -85,6 +87,8 @@ def main():
         mirrors.append(mirror)
 
     for unlisted in options["options"]["unlisted_mirrors"]:
+        if unlisted["name"] == "":
+            continue
         mirror = {
             "cname": name(unlisted["name"]),
             "desc": desc(unlisted["name"]),
