@@ -143,11 +143,14 @@ async function handleRequest(request) {
 
   const urls = generateURLs(params)
 
-  const site = await getJSON(urls["site"])
-  const tunasync = await getJSON(urls["tunasync"])
-  const info = await getJSON(urls["info"])
-  const options = await getJSON(urls["options"])
-  const cname = await getJSON(urls["cname"])
+  let [site, tunasync, info, options, cname] = 
+    await Promise.all([
+      getJSON(urls["site"]),
+      getJSON(urls["tunasync"]),
+      getJSON(urls["info"]),
+      getJSON(urls["options"]),
+      getJSON(urls["cname"])
+    ])
 
 	const mirrorz = {}
 	mirrorz["site"] = site
