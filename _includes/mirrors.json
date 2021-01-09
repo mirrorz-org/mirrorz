@@ -2,5 +2,6 @@
 "/static/tuna/neo.json",
 "/static/tuna/nano.json",
 "/static/tuna/opentuna.json",
-"/static/tuna/bfsu.json"
+"/static/tuna/bfsu.json",
+"https://mirrors.ustc.edu.cn/static/json/mirrorz.json"
 ]
