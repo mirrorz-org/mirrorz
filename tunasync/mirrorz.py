@@ -70,7 +70,13 @@ def main():
     cname = json.loads(open(sys.argv[5]).read())
     mirrorz = {}
     mirrorz["site"] = site
-    mirrorz["info"] = info
+    mirrorz["info"] = []
+    for inf in info:
+        mirrorz["info"].append({
+            "distro": name(inf["distro"]),
+            "category": inf["category"],
+            "urls": inf["urls"]
+        })
     mirrors = []
     for i in range(len(tunasync)):
         sync = tunasync[i]
