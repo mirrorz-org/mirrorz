@@ -12,7 +12,7 @@ MirrorS are heterogeneous. It is hard for a single mirror to provide all mirrors
 
 For end users, this is not a good experience as they need to search for available mirrors.
 
-To make things easy, MirrorZ is intended to include all the mirrorS, so a unified interface is needed.
+To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
 ## Data Format v1 (draft)
 
@@ -77,7 +77,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 
 ## Backend and FrontEnd
 
-For each MirrorS, it should provide a `mirrorz.json` and allow CORS of `www.mirrorz.org` on that file.
+For each MirrorS, it should provide a `mirrorz.json` and allow CORS of `www.mirrorz.org` on that file (CORS on all domains is recommended as some other sites may also use this; and useful for debuging).
 
 The list of participating MirrorS should be maintained here.
 
