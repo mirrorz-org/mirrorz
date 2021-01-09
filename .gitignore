@@ -1,3 +1,4 @@
 *.json
+*.xml
 _site/
 _tuna/

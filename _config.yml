@@ -8,6 +8,6 @@
 # Site settings
 title: mirrorz.org
 
-exclude: [tunasync, _tuna, README.md]
+exclude: [tunasync, _tuna, README.md, sjtug]
 
 # vim: ts=2 sts=2 sw=2 expandtab
