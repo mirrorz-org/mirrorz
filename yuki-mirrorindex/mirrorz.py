@@ -7,6 +7,7 @@ import sys
 
 
 content_regex = re.compile(r"\('(.+)', '(.*)', '(.*)', '(.+)'\)")
+options = {}
 
 
 def iso(iso_orig: list) -> None:
@@ -18,7 +19,7 @@ def iso(iso_orig: list) -> None:
 
 
 def parse_content_meta(content_txt: str, meta: dict) -> dict:
-    content_raw_list = content_txt.split("\n")
+    content_raw_list = content_txt.strip().split("\n")
     content_list = []
     content_hash = {}
     for i in content_raw_list:
@@ -38,11 +39,16 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
         })
     # now we add data to content_list with meta!
     for i in meta:
+        name = i["name"]
+        if name in options["skip"]:
+            continue
+        if options["rename_map"].get(name):
+            name = options["rename_map"][name]
         try:
             try:
-                ind = content_hash[i["name"]]
+                ind = content_hash[name]
             except KeyError:
-                ind = content_hash[i["name"].split(".")[0]]  # fix repo name like "kubernetes.apt"
+                ind = content_hash[name.split(".")[0]]  # fix repo name like "kubernetes.apt"
             if i["syncing"]:
                 content_list[ind]["status"] = "Y"
             elif i["exitCode"] == 0:
@@ -56,8 +62,9 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
 
 
 def main():
+    global options
     if len(sys.argv) < 5:
-        print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog")
+        print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog options.json")
         sys.exit(0)
     site = json.loads(open(sys.argv[1]).read())
     meta = requests.get(sys.argv[2]).json()
@@ -68,6 +75,7 @@ def main():
     # meta = json.loads(open(sys.argv[2]).read())
     # isolist = json.loads(open(sys.argv[3]).read())
     # content_txt = open(sys.argv[4]).read()
+    options = json.loads(open(sys.argv[5]).read())
 
     iso(isolist)
     mirrors = parse_content_meta(content_txt, meta)
