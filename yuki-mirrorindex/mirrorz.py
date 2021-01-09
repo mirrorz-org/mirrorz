@@ -31,10 +31,10 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
         content_list.append({
             "cname": name,
             "desc": "",  # now we don't have desc yet...
-            "url": f"https://mirrors.ustc.edu.cn/{name}",
+            "url": f"/{name}",
             "status": "U",
             "help": help_url,
-            "upstream": None
+            "upstream": ""
         })
     # now we add data to content_list with meta!
     for i in meta:
