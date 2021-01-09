@@ -1,7 +1,8 @@
 [
-"/static/tuna/neo.json",
-"/static/tuna/nano.json",
-"/static/tuna/opentuna.json",
-"/static/tuna/bfsu.json",
+"https://tuna.zenithal.workers.dev/",
+"https://tuna.zenithal.workers.dev/?bfsu",
+"https://tuna.zenithal.workers.dev/?nano",
+"https://tuna.zenithal.workers.dev/?neo",
+"https://tuna.zenithal.workers.dev/?opentuna",
 "https://mirrors.ustc.edu.cn/static/json/mirrorz.json"
 ]

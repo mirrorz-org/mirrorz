@@ -79,7 +79,9 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 
 For each MirrorS, it should provide a `mirrorz.json` and allow CORS of `www.mirrorz.org` on that file (CORS on all domains is recommended as some other sites may also use this; and useful for debuging).
 
-The list of participating MirrorS should be maintained here.
+MirrorS may provide `mirrorz.json` using their mirror servers, or any other valid url that reflects the real-time status of their mirror. For example, for tuna-series MirrorS, a CloudFlare worker is deployed.
+
+The list of participating MirrorS should be maintained in `_include/mirrors.json`.
 
 For the front end, currently a naive one is implemented using JQuery, one MirrorS may provide their FrontEnd for rendering, for example `www.mirrorz.org/{tuna,ustc,sjtug,hit}/index.html`.
 
