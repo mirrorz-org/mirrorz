@@ -65,9 +65,9 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * `site` provides the global info about one MirrorS
 * `site.url` should not end with slash `/`
 * `info` is used for category view
-* the name of `info.distro` should be agreed and have a mapping
+* the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`
 * `mirrors` is used for list view
-* the name of `mirrors.cname` should be agreed and have a mapping `cname.json`
+* the name of `mirrors.cname` should be agreed and have a mapping, maintained in `cname.json`
 * `mirrors.desc` may differ for each MirrorS since there are `excludes` for some MirrorS
 * `mirrors.desc` may be empty
 * if `mirrors.url` begins with a slash `/`, it should be appended to `site.url` to form a full url
