@@ -14,5 +14,6 @@
   "salt": "saltstack",
   "tdf": "libreoffice",
   "wine": "winehq",
-  "xbmc": "kodi"
+  "xbmc": "kodi",
+  "archive.raspberrypi.org": "raspberrypi"
 }

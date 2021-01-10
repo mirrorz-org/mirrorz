@@ -8,6 +8,14 @@ import sys
 
 content_regex = re.compile(r"\('(.+)', '(.*)', '(.*)', '(.+)'\)")
 options = {}
+cname = {}
+
+
+def name_func(name: str) -> str:
+    if name in cname:
+        return cname[name]
+    else:
+        return name
 
 
 def iso(iso_orig: list) -> None:
@@ -28,6 +36,7 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
             print(f"failed to parse content line {i}", file=sys.stderr)
             continue
         _, help_url, _, name = item.groups()
+        name = name_func(name)
         content_hash[name.lower()] = len(content_list)
         content_list.append({
             "cname": name,
@@ -42,8 +51,7 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
         name = i["name"]
         if name in options["skip"]:
             continue
-        if options["rename_map"].get(name):
-            name = options["rename_map"][name]
+        name = name_func(name)
         try:
             try:
                 ind = content_hash[name]
@@ -63,8 +71,9 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
 
 def main():
     global options
+    global cname
     if len(sys.argv) < 5:
-        print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog options.json")
+        print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog options.json cname.json")
         sys.exit(0)
     site = json.loads(open(sys.argv[1]).read())
     meta = requests.get(sys.argv[2]).json()
@@ -76,6 +85,7 @@ def main():
     # isolist = json.loads(open(sys.argv[3]).read())
     # content_txt = open(sys.argv[4]).read()
     options = json.loads(open(sys.argv[5]).read())
+    cname = json.loads(open(sys.argv[6]).read())
 
     iso(isolist)
     mirrors = parse_content_meta(content_txt, meta)
