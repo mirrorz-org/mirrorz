@@ -1,4 +1,18 @@
 {
   "PuTTY": "putty",
-  "putty": "putty"
+  "putty": "putty",
+  "aosp": "AOSP",
+  "armbian-dl": "armbian-releases",
+  "bioc": "bioconductor",
+  "crates.io-index": "crates.io-index.git",
+  "debian-multimedia": "deb-multimedia",
+  "lineageos": "lineageOS",
+  "mysql-repo": "mysql",
+  "postmarketos": "postmarketOS",
+  "postmarketos-images": "postmarketOS-images",
+  "qtproject": "qt",
+  "salt": "saltstack",
+  "tdf": "libreoffice",
+  "wine": "winehq",
+  "xbmc": "kodi"
 }
