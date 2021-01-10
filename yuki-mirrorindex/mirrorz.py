@@ -54,9 +54,9 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
         name = name_func(name)
         try:
             try:
-                ind = content_hash[name]
+                ind = content_hash[name.lower()]
             except KeyError:
-                ind = content_hash[name.split(".")[0]]  # fix repo name like "kubernetes.apt"
+                ind = content_hash[name.lower().split(".")[0]]  # fix repo name like "kubernetes.apt"
             if i["syncing"]:
                 content_list[ind]["status"] = "Y"
             elif i["exitCode"] == 0:
