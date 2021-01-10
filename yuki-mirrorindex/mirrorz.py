@@ -72,7 +72,7 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
 def main():
     global options
     global cname
-    if len(sys.argv) < 5:
+    if len(sys.argv) < 7:
         print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog options.json cname.json")
         sys.exit(0)
     site = json.loads(open(sys.argv[1]).read())
