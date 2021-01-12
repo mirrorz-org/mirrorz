@@ -56,6 +56,13 @@ def upstream(sync, tunasync):
                     return ""
     return ""
 
+def url(sync):
+    if "url" in sync:
+        return sync["url"]
+    for n in options["options"]["force_redirect_help_mirrors"]:
+        if n == sync["name"]:
+            return help(sync["name"])
+    return "/" + sync["name"]
 
 def main():
     global options
@@ -78,30 +85,16 @@ def main():
             "urls": inf["urls"]
         })
     mirrors = []
-    for i in range(len(tunasync)):
-        sync = tunasync[i]
+    for sync in tunasync + options["options"]["unlisted_mirrors"]:
         if sync["name"] == "":
             continue
         mirror = {
             "cname": name(sync["name"]),
             "desc": desc(sync["name"]),
-            "url": "/" + sync["name"],
+            "url": url(sync),
             "status": status(sync),
             "help": help(sync["name"]),
             "upstream": upstream(sync, tunasync)
-        }
-        mirrors.append(mirror)
-
-    for unlisted in options["options"]["unlisted_mirrors"]:
-        if unlisted["name"] == "":
-            continue
-        mirror = {
-            "cname": name(unlisted["name"]),
-            "desc": desc(unlisted["name"]),
-            "url": unlisted["url"],
-            "status": status(unlisted),
-            "help": help(unlisted["name"]),
-            "upstream": upstream(unlisted, tunasync)
         }
         mirrors.append(mirror)
     mirrorz["mirrors"] = mirrors
