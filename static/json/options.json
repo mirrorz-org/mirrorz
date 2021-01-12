@@ -847,6 +847,56 @@
                 "url": "https://aur.tuna.tsinghua.edu.cn/",
                 "upstream": "https://aur.archlinux.org/",
                 "is_master": true
+            },
+            {
+                "link_to": "osdn",
+                "name": "manjaro-cd",
+                "url": "/osdn/storage/g/m/ma/manjaro/"
+            },
+            {
+                "link_to": "osdn",
+                "name": "manjaro-arm-cd",
+                "url": "/osdn/storage/g/m/ma/manjaro-arm/"
+            },
+            {
+                "link_to": "osdn",
+                "name": "mxlinux-isos",
+                "url": "/osdn/storage/g/m/mx/mx-linux/ISOs/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "prometheus",
+                "url": "/github-release/prometheus/prometheus/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "iina",
+                "url": "/github-release/iina/iina/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "VSCodium",
+                "url": "/github-release/VSCodium/vscodium/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "FreeCAD",
+                "url": "/github-release/FreeCAD/FreeCAD/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "git-for-windows",
+                "url": "/github-release/git-for-windows/git/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "llvm-binary",
+                "url": "/github-release/llvm/llvm-project/"
+            },
+            {
+                "link_to": "github-release",
+                "name": "miniforge",
+                "url": "/github-release/conda-forge/miniforge/"
             }
         ],
         "force_redirect_help_mirrors": [
