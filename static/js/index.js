@@ -1,5 +1,16 @@
 ---
 ---
+
+function sortMirrorz() {
+	$('.mirrorz-div').sort(function(a, b) {
+	  if ($('h3', a).text().toLowerCase() < $('h3', b).text().toLowerCase()) {
+	    return -1;
+	  } else {
+	    return 1;
+	  }
+	}).appendTo('#mirrorz');
+}
+
 function mirrorz (json) {
   site = json["site"]
 	$.each(json['mirrors'], function(i, e) {
@@ -43,6 +54,7 @@ function mirrorz (json) {
       f(ul);
     }
 	});
+  sortMirrorz();
 }
 
 $(document).ready(() => {
@@ -55,13 +67,6 @@ $(document).ready(() => {
       success: mirrorz,
     });
   });
-	$('.mirrorz-div').sort(function(a, b) {
-	  if ($('h3', a).text() < $('h3', b).text()) {
-	    return -1;
-	  } else {
-	    return 1;
-	  }
-	}).appendTo('#mirrorz');
 });
 
 // vim: sts=2 ts=2 sw=2 expandtab
