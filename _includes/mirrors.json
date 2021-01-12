@@ -4,5 +4,7 @@
 "https://tuna.zenithal.workers.dev/?nano",
 "https://tuna.zenithal.workers.dev/?neo",
 "https://tuna.zenithal.workers.dev/?opentuna",
-"https://mirrors.ustc.edu.cn/static/json/mirrorz.json"
+"https://mirrors.ustc.edu.cn/static/json/mirrorz.json",
+"https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",
+"https://mirror.sjtu.edu.cn/mirrorz/zhiyuan.json"
 ]
