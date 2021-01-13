@@ -53,6 +53,10 @@ h3 {
   }
 }
 
+.filtered {
+  display: none;
+}
+
 .group {
   padding: 0 80px;
   &:hover .heading .material-icons {
