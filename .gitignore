@@ -1,5 +1,6 @@
 *.json
 !package.json
+!.babelrc.json
 /node_modules
 /dist
 /.parcel-cache
