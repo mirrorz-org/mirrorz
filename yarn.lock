@@ -702,7 +702,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-transform-runtime@^7.12.10":
+"@babel/plugin-transform-runtime@^7.12.10", "@babel/plugin-transform-runtime@^7.8.3":
   version "7.12.10"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.12.10.tgz#af0fded4e846c4b37078e8e5d06deac6cd848562"
   integrity sha512-xOrUfzPxw7+WDm9igMgQCbO3cJKymX7dFdsgRr1eu9n3KjjyU4pptIXbXPseQDquw+W+RuJEJMHKHNsPNNm3CA==
@@ -940,6 +940,14 @@
     "@babel/parser" "^7.0.0"
     "@parcel/source-map" "2.0.0-alpha.4.13"
     "@parcel/utils" "2.0.0-beta.1"
+
+"@parcel/babel-plugin-transform-runtime@^2.0.0-nightly.1823":
+  version "2.0.0-nightly.1823"
+  resolved "https://registry.yarnpkg.com/@parcel/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-2.0.0-nightly.1823.tgz#d33fbee16a96d0ef3e6199bf7a09081506b14ca9"
+  integrity sha512-jKl+ARPhOWVQfber+s9zmdWli4xOx8lXGOKLRR2FxunGdIA6ZZZ1TmNgGCM0PB9Ui6iSDZ9SzJ4FAVsGjckJrg==
+  dependencies:
+    "@babel/plugin-transform-runtime" "^7.8.3"
+    semver "^5.4.1"
 
 "@parcel/babel-preset-env@2.0.0-beta.1":
   version "2.0.0-beta.1"
