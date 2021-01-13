@@ -95,7 +95,7 @@ With user's consent, `www.mirrorz.org` may use Cookie or other methods to archiv
 
 For participating MirrorS, it should add and maintain their url to mirrorz json file in `_include/mirrors.json`, in the url `https` is needed, and the url should be widely accessible (not limited to campus) as all users of `mirrorz.org` would request that url.
 
-MirrorS may also contribute their `mirrorz.json` generating scripts. The standard script is `tunasync/mirrorz.py`, all the details are specified there and unclear points of the data format is explaned there.
+MirrorS may also contribute their `mirrorz.json` generating scripts in the directory `scripts`. The standard script is `scripts/tunasync/mirrorz.py`, all the details are specified there and unclear points of the data format is explaned there.
 
 If one adds directory, the directory should be recorded in the exclude list of `_config.yml`.
 
