@@ -75,11 +75,11 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * `mirrors.help` may be empty, or the same rule as `mirrors.url`
 * `mirrors.upstream` may be empty
 
-## Backend and FrontEnd
+## Backend and Frontend
 
-For each MirrorS, it should provide a `mirrorz.json` and allow CORS of `www.mirrorz.org` on that file (CORS on all domains is recommended as some other sites may also use this; and useful for debuging).
+For each MirrorS, it should provide a json file of the above format (recommended name `mirrorz.json`) and allow CORS of `www.mirrorz.org` on that file (CORS on all domains is recommended as some other sites may also use this; and useful for debuging).
 
-MirrorS may provide `mirrorz.json` using their mirror servers, or any other valid url that reflects the real-time status of their mirror. For example, for tuna-series MirrorS, a CloudFlare worker is deployed.
+MirrorS may provide `mirrorz.json` using their mirror servers, or any other valid url that reflects the real-time status of their mirror. For example, for TUNA-series MirrorS, a CloudFlare worker is deployed (currently another server `status.tuna.wiki` is used instead of CF worker as it is slow on generating json file).
 
 The list of participating MirrorS should be maintained in `_include/mirrors.json`.
 
@@ -88,6 +88,32 @@ For the front end, currently a naive one is implemented using JQuery, one Mirror
 `www.mirrorz.org` should only be statically generated.
 
 With user's consent, `www.mirrorz.org` may use Cookie or other methods to archive personalized rendering such as turning off some MirrorS when the json file is large and/or slow to download.
+
+## Contributing and Developing
+
+### MirrorS
+
+For participating MirrorS, it should add and maintain their url to mirrorz json file in `_include/mirrors.json`, in the url `https` is needed, and the url should be widely accessible (not limited to campus) as all users of `mirrorz.org` would request that url.
+
+MirrorS may also contribute their `mirrorz.json` generating scripts in the directory `scripts`. The standard script is `scripts/tunasync/mirrorz.py`, all the details are specified there and unclear points of the data format is explaned there.
+
+If one adds directory, the directory should be recorded in the exclude list of `_config.yml`.
+
+### Frontend
+
+Currently `jekyll` is used. The installation of jekyll is not documented here. One may use
+
+```
+jekyll s
+```
+
+to start a local server.
+
+For other frontend, like tuna-stylish frontend, they should be added using permlink like `/tuna/`.
+
+### Misc
+
+Currently `*.json` and `*.xml` is ignored in `.gitignore`, but not excluded in `_config.yml`. If one wants to commit a json file, they should use `git add -f`.
 
 <!--
  vim: ts=2 sts=2 sw=2
