@@ -1,8 +1,5 @@
 *.json
-*.xml
 !package.json
-_site/
-_tuna/
 /node_modules
 /dist
 /.parcel-cache
