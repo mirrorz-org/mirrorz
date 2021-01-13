@@ -8,6 +8,9 @@ const STATUS_MAPPING = {
   S: 'Success',
   P: 'Paused',
   Y: 'Syncing',
+  F: 'Failed',
+  N: 'New',
+  U: 'Unknown',
 }
 
 const Group = React.memo(({ group, entries }) => (
@@ -39,7 +42,9 @@ const Group = React.memo(({ group, entries }) => (
         {status && (
           <div class="status">
             <Icon>info</Icon>
-            {STATUS_MAPPING[status] ?? "Failed"}
+            {[...status].map((s) => {
+                return STATUS_MAPPING[s];
+            }).join("+") ?? "Unknown"}
           </div>
         )}
         {desc ? (
