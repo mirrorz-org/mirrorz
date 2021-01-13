@@ -2,13 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <title>Mirrorz.org</title>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/index.js"></script>
+    <link rel="stylesheet" href="./src/style.scss">
+    <script src="./src/index.jsx"></script>
   </head>
-  <body>
-    <div id="sites"></div>
-    <div id="mirrorz"></div>
-    <div id="infos"></div>
+  <body onload="bootstrap()">
+    <style>
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+    </style>
+    <noscript>You need javascript to view this page properly.</noscript>
+    <div id="app"><div class="loading">Loading...</div></div>
   </body>
 </html>

@@ -1,3 +1,5 @@
 *.json
-*.xml
-_site/
+!package.json
+/node_modules
+/dist
+/.parcel-cache
