@@ -36,10 +36,10 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
             print(f"failed to parse content line {i}", file=sys.stderr)
             continue
         _, help_url, _, name = item.groups()
-        name = name_func(name)
-        content_hash[name.lower()] = len(content_list)
+        cname = name_func(name)
+        content_hash[cname.lower()] = len(content_list)
         content_list.append({
-            "cname": name,
+            "cname": cname,
             "desc": "",  # now we don't have desc yet...
             "url": f"/{name}",
             "status": "U",
