@@ -4,6 +4,12 @@ import Icon from './Icon';
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 
+const STATUS_MAPPING = {
+  S: 'Success',
+  P: 'Paused',
+  Y: 'Syncing',
+}
+
 const Group = React.memo(({ group, entries }) => (
   <div class="group">
     <h2 class="heading" id={group}>
@@ -33,7 +39,7 @@ const Group = React.memo(({ group, entries }) => (
         {status && (
           <div class="status">
             <Icon>info</Icon>
-            {status}
+            {STATUS_MAPPING[status] ?? "Failed"}
           </div>
         )}
         {desc ? (
