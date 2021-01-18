@@ -7,4 +7,5 @@ export default [
   "https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",
   "https://mirror.sjtu.edu.cn/mirrorz/zhiyuan.json",
   "https://mirrors.hit.edu.cn/static/mirrorz.json",
+  "https://mirrors.dgut.edu.cn/static/mirrorz.json",
 ];
