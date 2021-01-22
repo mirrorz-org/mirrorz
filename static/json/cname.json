@@ -44,5 +44,9 @@
   "git/qemu.git": "qemu.git",
   "fedora/epel": "epel",
   "fedora/linux": "fedora",
-  "fedora-secondary": "fedora-altarch"
+  "fedora-secondary": "fedora-altarch",
+  "github/prometheus": "prometheus",
+  "github/FreeCAD": "FreeCAD",
+  "github/PowerShell": "PowerShell",
+  "github/rubyinstaller2": "rubyinstaller2"
 }
