@@ -8,6 +8,7 @@
   position: fixed;
   height: 100%;
   overflow: auto;
+  z-index: 100;
 }
 
 /* Sidebar links */
@@ -32,11 +33,7 @@
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-main {
-  margin-left: 100px;
-}
-
-.search {
+main,.search {
   margin-left: 100px;
 }
 
@@ -44,18 +41,14 @@ main {
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
-    height: auto;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
   }
   .sidebar h2 {float: left;}
-  main {margin-left: 0;}
-}
-
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .sidebar h2 {
-    text-align: center;
-    float: none;
+  main,.search {
+    margin-left: 0;
+    margin-top: 100px;
   }
 }
-
