@@ -44,7 +44,6 @@ td:last-child {
 }
 
 #app {
-  max-width: 1020px;
   padding: 40px 0;
   margin: 0 auto;
 }
@@ -162,4 +161,10 @@ main {
   input[value=""] + .material-icons {
     opacity: .38;
   }
+}
+
+.mirrors {
+  column-count: auto;
+  column-width: 600px;
+  column-rule-style: solid;
 }

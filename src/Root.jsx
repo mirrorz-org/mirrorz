@@ -190,11 +190,13 @@ export default React.memo(() => {
         <Icon>search</Icon>
       </div>
 
+      <div class="mirrors">
       {filtered.map(({ group, entries, filtered }) => (
         <div class={filtered ? "filtered" : ""} key={group}>
           <Group group={group} entries={entries} />
         </div>
       ))}
+      </div>
     </main>
   );
 });
