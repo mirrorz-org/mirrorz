@@ -10,7 +10,7 @@ const STATUS_MAPPING = {
   U: 'Unknown',
 }
 
-const Group = React.memo(({ group, entries }) => {
+const Group = React.memo(({ group, entries, filtered }) => {
   const [collapse, setCollapse] = useState(true);
   const toggleCollapse = useCallback(() => setCollapse(c => !c), []);
 
@@ -59,60 +59,56 @@ const Group = React.memo(({ group, entries }) => {
   }, [entries]);
 
   return (
-    <div className="group">
-      <table id={group} onClick={toggleCollapse}>
-        <tbody>
-          <tr>
-            <td>
-              <h2 className="heading">
-                <a href={`#${group}`}>
-                  {collapse ? 
-                  (<Icon>add</Icon>):
-                  (<Icon>remove</Icon>)
-                  }
-                </a>
-                {group}
-              </h2>
-            </td>
-            <td>
-                {summary}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      {entries.map(({ full, help, upstream, desc, status, source }, idx) => (
-        <div key={idx} className={collapse ? "collapsed": ""}>
-          <h3>
-            <a href={full} target="_blank">
-              {source}
-            </a>
-            {help && (
-              <a className="help" href={help} target="_blank">
-                <Icon>help</Icon>
-              </a>
-            )}
-          </h3>
-          {upstream && (
-            <div className="upstream">
-              <Icon>outbound</Icon>
-              <a href={upstream} target="_blank">{upstream}</a>
-            </div>
-          )}
-          {status && (
-            <div className="status">
-              <Icon>info</Icon>
-              {[...status].map((s) => {
-                  return STATUS_MAPPING[s];
-              }).join("+") ?? "Unknown"}
-            </div>
-          )}
-          {desc ? (
-            <div className="desc">{desc}</div>
-          ) : (
-            <div className="desc missing">无可奉告</div>
-          )}
+    <div className={"group" + (filtered ? " filtered" : "") + (collapse ? "" : " group-expanded")}>
+      <div className="group-header" id={group} onClick={toggleCollapse}>
+        <h2 className="heading">
+          <a href={`#${group}`}>
+            {collapse ?
+            (<Icon>add</Icon>):
+            (<Icon>remove</Icon>)
+            }
+          </a>
+          {group}
+        </h2>
+        <div>
+            {summary}
         </div>
-      ))}
+      </div>
+      <div className="group-items">
+        {entries.map(({ full, help, upstream, desc, status, source }, idx) => (
+          <div key={idx} className={collapse ? "collapsed": ""}>
+            <h3>
+              <a href={full} target="_blank">
+                {source}
+              </a>
+              {help && (
+                <a className="help" href={help} target="_blank">
+                  <Icon>help</Icon>
+                </a>
+              )}
+            </h3>
+            {upstream && (
+              <div className="upstream">
+                <Icon>outbound</Icon>
+                <a href={upstream} target="_blank">{upstream}</a>
+              </div>
+            )}
+            {status && (
+              <div className="status">
+                <Icon>info</Icon>
+                {[...status].map((s) => {
+                    return STATUS_MAPPING[s];
+                }).join("+") ?? "Unknown"}
+              </div>
+            )}
+            {desc ? (
+              <div className="desc">{desc}</div>
+            ) : (
+              <div className="desc missing">无可奉告</div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 });
@@ -160,9 +156,7 @@ export default React.memo(({ mirrors }) => {
 
       <div className="mirrors">
       {filtered.map(({ group, entries, filtered }) => (
-        <div className={filtered ? "filtered" : ""} key={group}>
-          <Group group={group} entries={entries} />
-        </div>
+          <Group key={group} filtered={filtered} group={group} entries={entries} />
       ))}
       </div>
     </div>
