@@ -13,49 +13,110 @@ const STATUS_MAPPING = {
   U: 'Unknown',
 }
 
-const Group = React.memo(({ group, entries }) => (
-  <div class="group">
-    <h2 class="heading" id={group}>
-      <a href={`#${group}`}>
-        <Icon>link</Icon>
-      </a>
-      {group}
-    </h2>
-    {entries.map(({ full, help, upstream, desc, status, source }, idx) => (
-      <div key={idx}>
-        <a href={full}>
-          <h3>
-            {source}
-            {help && (
-              <a class="help" href={help}>
-                <Icon>help</Icon>
-              </a>
-            )}
-          </h3>
-        </a>
-        {upstream && (
-          <div class="upstream">
-            <Icon>outbound</Icon>
-            <a href={upstream}>{upstream}</a>
-          </div>
+const Group = React.memo(({ group, entries }) => {
+  const [collapse, setCollapse] = useState(true);
+  const toggleCollapse = useCallback(() => setCollapse(c => !c), []);
+
+  const summary = useMemo(() => {
+    const mapper = new Map();
+    entries.map(({status}) => {
+      [...status].map((s) => {
+        if(!mapper.has(s)) mapper.set(s, 0);
+        mapper.set(s, mapper.get(s) + 1);
+      })
+    });
+    return (
+      <h2 class="summary">
+        {mapper.has("S") && (
+          <span class="success">
+            {mapper.get("S")}
+            <Icon>done</Icon>
+          </span>
         )}
-        {status && (
-          <div class="status">
+        {mapper.has("Y") && (
+          <span class="syncing">
+            {mapper.get("Y")}
+            <Icon>sync</Icon>
+          </span>
+        )}
+        {mapper.has("F") && (
+          <span class="failed">
+            {mapper.get("F")}
+            <Icon>error</Icon>
+          </span>
+        )}
+        {mapper.has("P") && (
+          <span class="paused">
+            {mapper.get("P")}
+            <Icon>pause</Icon>
+          </span>
+        )}
+        {mapper.has("U") && (
+          <span class="unknown">
+            {mapper.get("U")}
             <Icon>info</Icon>
-            {[...status].map((s) => {
-                return STATUS_MAPPING[s];
-            }).join("+") ?? "Unknown"}
-          </div>
+          </span>
         )}
-        {desc ? (
-          <div class="desc">{desc}</div>
-        ) : (
-          <div class="desc missing">无可奉告</div>
-        )}
-      </div>
-    ))}
-  </div>
-));
+      </h2>
+    )
+  }, [entries]);
+
+  return (
+    <div class="group">
+      <table id={group} onClick={toggleCollapse}>
+        <tr>
+          <td>
+            <h2 class="heading">
+              <a href={`#${group}`}>
+                {collapse ? 
+                (<Icon>add</Icon>):
+                (<Icon>remove</Icon>)
+                }
+              </a>
+              {group}
+            </h2>
+          </td>
+          <td>
+              {summary}
+          </td>
+        </tr>
+      </table>
+      {entries.map(({ full, help, upstream, desc, status, source }, idx) => (
+        <div key={idx} class={collapse ? "collapsed": ""}>
+          <a href={full} target="_blank">
+            <h3>
+              {source}
+              {help && (
+                <a class="help" href={help} target="_blank">
+                  <Icon>help</Icon>
+                </a>
+              )}
+            </h3>
+          </a>
+          {upstream && (
+            <div class="upstream">
+              <Icon>outbound</Icon>
+              <a href={upstream} target="_blank">{upstream}</a>
+            </div>
+          )}
+          {status && (
+            <div class="status">
+              <Icon>info</Icon>
+              {[...status].map((s) => {
+                  return STATUS_MAPPING[s];
+              }).join("+") ?? "Unknown"}
+            </div>
+          )}
+          {desc ? (
+            <div class="desc">{desc}</div>
+          ) : (
+            <div class="desc missing">无可奉告</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+});
 
 export default React.memo(() => {
   const [mirrors, setMirrors] = useState([]);

@@ -1,5 +1,6 @@
 @import "./fonts.scss";
 @import "./consts.scss";
+@import "./color.scss";
 
 body {
   margin: 0;
@@ -20,15 +21,26 @@ a {
 
 h2 {
   @include monospace;
-  margin: 40px 0 20px 0;
-  font-size: 32px;
+  margin: 10px 0 5px 0;
+  font-size: 24px;
 }
 
 h3 {
-  margin: 40px 0 10px 0;
-  font-size: 24px;
+  margin: 6px 0 3px 0;
+  font-size: 18px;
   display: flex;
   align-items: center;
+  .material-icons {
+    font-size: 18px;
+  }
+}
+
+table {
+  white-space: nowrap;
+}
+
+td:last-child {
+  width: 100%;
 }
 
 #app {
@@ -53,7 +65,15 @@ h3 {
   }
 }
 
+.summary {
+  text-align: right;
+}
+
 .filtered {
+  display: none;
+}
+
+.collapsed {
   display: none;
 }
 
@@ -77,15 +97,15 @@ h3 {
 }
 
 .upstream, .status {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 18px;
   
   display: flex;
   align-items: center;
 
   .material-icons {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 15px;
+    line-height: 18px;
     width: 30px;
     color: rgba(0,0,0,.38);
   }
