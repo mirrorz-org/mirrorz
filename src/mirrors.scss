@@ -1,11 +1,3 @@
-table {
-  white-space: nowrap;
-}
-
-td:last-child {
-  width: 100%;
-}
-
 .search {
   position: fixed;
   top: 0;
@@ -51,9 +43,9 @@ td:last-child {
 
 .mirrors {
   padding-top: 100px;
-  column-count: auto;
-  column-width: 600px;
-  column-rule-style: solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .upstream, .status {
@@ -103,9 +95,31 @@ td:last-child {
 
 .group {
   padding: 0 80px;
+  flex-basis: 440px;
+  flex-grow: 1;
+
+  &.group-expanded {
+    flex-basis: 100%;
+  }
+
   &:hover .heading .material-icons {
     display: inline-flex;
   }
+
+  &:hover .group-header {
+    background-color: rgba(0, 0, 0, .05);
+  }
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  cursor: default;
+}
+
+.group-items {
+  padding: 0 50px;
 }
 
 .desc {
