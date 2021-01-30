@@ -73,6 +73,7 @@ h3 {
 
 .group {
   flex-basis: 440px;
+  flex-grow: 1;
 
   &.group-expanded {
     flex-basis: 100%;
