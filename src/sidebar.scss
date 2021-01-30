@@ -1,0 +1,61 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar h2 {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin: 0;
+  padding: 25px;
+}
+
+/* Active/current link */
+.sidebar h2.active {
+  background-color: $primary;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar h2:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+main {
+  margin-left: 100px;
+}
+
+.search {
+  margin-left: 100px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar h2 {float: left;}
+  main {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar h2 {
+    text-align: center;
+    float: none;
+  }
+}
+

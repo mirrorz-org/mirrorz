@@ -8,6 +8,7 @@ const PROTO_REGEX = /(^https?:)?\/\//;
 export default React.memo(() => {
   const [mirrors, setMirrors] = useState([]);
   const [isoinfo, setIsoinfo] = useState([]);
+  const [page, setPage] = useState(2);
 
   // Load all mirror configurations
   useEffect(() => {
@@ -38,9 +39,19 @@ export default React.memo(() => {
     for (const mirror of MIRROR_URLS) initMirror(mirror);
   }, []);
 
+  // sidebar funcs
+  const toISO = useCallback(() => setPage(_ => 1), []);
+  const toList = useCallback(() => setPage(_ => 2), []);
+
   return (
-    <main>
-      <Mirrors mirrors={mirrors} />
-    </main>
+    <div>
+      <div className="sidebar">
+        <h2 className={page == 1? "active": ""} onClick={toISO}>ISO</h2>
+        <h2 className={page == 2? "active": ""} onClick={toList}>List</h2>
+      </div>
+      <main>
+        <Mirrors mirrors={mirrors} page={page}/>
+      </main>
+    </div>
   );
 });

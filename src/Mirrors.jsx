@@ -117,7 +117,7 @@ const Group = React.memo(({ group, entries }) => {
   );
 });
 
-export default React.memo(({ mirrors }) => {
+export default React.memo(({ mirrors, page }) => {
   const [filter, setFilter] = useState('');
 
   // Clustering
@@ -152,7 +152,7 @@ export default React.memo(({ mirrors }) => {
   console.log(`Sort`, end - begin);
 
   return (
-    <div className="mirrorz">
+    <div className={"mirrorz "+ (page != 2 ? "collapsed": "")}>
       <div className="search">
         <input value={filter} onChange={updateFilter} placeholder="Filter" />
         <Icon>search</Icon>
