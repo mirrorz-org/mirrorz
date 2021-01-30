@@ -2,13 +2,14 @@ import React, { useEffect, useState, useMemo, useCallback } from "react";
 import MIRROR_URLS from "./config/mirrors";
 import Icon from './Icon';
 import Mirrors from './Mirrors';
+import ISO from './ISO';
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 
 export default React.memo(() => {
   const [mirrors, setMirrors] = useState([]);
   const [isoinfo, setIsoinfo] = useState([]);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   // Load all mirror configurations
   useEffect(() => {
@@ -32,7 +33,20 @@ export default React.memo(() => {
       });
       setMirrors(original => original.concat(parsed));
 
-      setIsoinfo(original => original.concat(info));
+      const fullinfo = info.map(({ category, distro, urls }) => {
+        const fullUrls = urls.map(({ name, url }) => {
+          return {
+            name: name + " [" + site.abbr + "]",
+            url: url.match(PROTO_REGEX) ? url: site.url + url,
+          }
+        })
+        return {
+          category,
+          distro,
+          urls: fullUrls,
+        };
+      });
+      setIsoinfo(original => original.concat(fullinfo));
     }
 
     // Fires and forget
@@ -50,7 +64,8 @@ export default React.memo(() => {
         <h2 className={page == 2? "active": ""} onClick={toList}>List</h2>
       </div>
       <main>
-        <Mirrors mirrors={mirrors} page={page}/>
+        {page == 1 && <ISO isoinfo={isoinfo}/>}
+        {page == 2 && <Mirrors mirrors={mirrors}/>}
       </main>
     </div>
   );

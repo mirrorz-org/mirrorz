@@ -33,8 +33,14 @@
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-main,.search {
-  margin-left: 100px;
+main,.search,.category {
+  margin-left: 100px !important;
+  margin-top: 0 !important;
+}
+
+.distro {
+  margin-left: 100px !important;
+  margin-top: 100px !important;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -47,8 +53,12 @@ main,.search {
     height: 100px;
   }
   .sidebar h2 {float: left;}
-  main,.search {
-    margin-left: 0;
-    margin-top: 100px;
+  main,.search,.category {
+    margin-left: 0 !important;
+    margin-top: 100px !important;
+  }
+  .distro {
+    margin-left: 0px !important;
+    margin-top: 200px !important;
   }
 }
