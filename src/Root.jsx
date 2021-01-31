@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import MIRROR_URLS from "./config/mirrors";
 import Mirrors from "./Mirrors";
 import ISO from "./ISO";
@@ -62,6 +67,13 @@ export default React.memo(() => {
     // Fires and forget
     for (const mirror of MIRROR_URLS) initMirror(mirror);
   }, []);
+
+  const location = window.location;
+  const history = window.history;
+  if (location.hash !== "") {
+    const hash = location.hash.slice(1);
+    history.replaceState(null, "", `${hash}`);
+  }
 
   return (
     <Router>

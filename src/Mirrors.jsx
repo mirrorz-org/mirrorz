@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import {
-  Link,
-  useLocation,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import { Element, scroller } from 'react-scroll';
 import Icon from './Icon';
 
@@ -64,26 +60,26 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
     )
   }, [entries]);
 
-  let match = useRouteMatch();
+  const match = useRouteMatch();
 
   return (
     <div className={"group" + (filtered ? " filtered" : "") + (collapse ? "" : " group-expanded")}>
-      <div className="group-header" id={group} onClick={toggleCollapse}>
-        <Element name={group}>
-          <h2 className="heading">
-            <Link to={`${match.url}#${group}`}>
+      <Link to={`${match.url}/${group}`}>
+        <div className="group-header" id={group} onClick={toggleCollapse}>
+          <Element name={group}>
+            <h2 className="heading">
               {collapse ?
                 (<Icon>add</Icon>) :
                 (<Icon>remove</Icon>)
               }
-            </Link>
-            {group}
-          </h2>
-        </Element>
-        <div>
-          {summary}
+              {group}
+            </h2>
+          </Element>
+          <div>
+            {summary}
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="group-items">
         {collapse == false && entries.map(({ full, help, upstream, desc, status, source }, idx) => (
           <div key={idx}>
@@ -160,12 +156,13 @@ export default React.memo(({ mirrors }) => {
 
   const location = useLocation();
   useEffect(() => {
-    const group = location.hash.slice(1);
+    const pathnames = location.pathname.split("/")
+    const group = pathnames[pathnames.length - 1];
     setUnfolded(group);
     scroller.scrollTo(group, {
       duration: 500,
       smooth: true,
-      offset: -100,
+      offset: -220, // TODO: use the real header height
     });
   }, [location, filtered]);
 
