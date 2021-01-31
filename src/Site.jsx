@@ -47,7 +47,7 @@ const Summary = React.memo(({ parsed, num }) => {
 })
 
 export default React.memo(({ site }) => {
-  const [curr, setCurr] = useState("BFSU");
+  const [curr, setCurr] = useState("BFSU"); // w/o whitespaces
 
   const location = useLocation();
   useEffect(() => {
@@ -78,7 +78,7 @@ export default React.memo(({ site }) => {
       </div>
       <div className="site-content">
         {site.map(({ site, parsed }) => {
-          if (site.abbr != curr) 
+          if (site.abbr.replace(/\s/g, '') != curr)
             return;
           return parsed.map(({ cname, status }, idx) => (
           <div className="group-header" key={idx}>
