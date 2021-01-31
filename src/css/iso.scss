@@ -1,11 +1,13 @@
+@import "./consts.scss";
+
 .category {
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
   position: fixed;
-  height: 100px;
-  background-color: #f1f1f1;
+  height: $category;
+  background-color: $bar-bg;
   width: 100%;
   overflow: auto;
   z-index: 100;
@@ -13,33 +15,33 @@
 
 .category h2 {
   display: block;
-  color: black;
+  color: $bar-text;
   text-decoration: none;
   margin: 0;
   float: left;
-  width:100px;
-  height:100px;
+  width: $category;
+  height: $category;
+  line-height: $category;
   text-align: center;
-  line-height: 100px;
 }
 
 /* Active/current link */
 .category h2.active {
   background-color: $primary;
-  color: white;
+  color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
 .category h2:hover:not(.active) {
-  background-color: #555;
-  color: white;
+  background-color: $bar-bg-hover;
+  color: $bar-text-hover;
 }
 
 .urls {
-  margin-top: 120px;
-  margin-left: 220px;
+  margin-top: calc(#{$category} + 20px);
+  margin-left: calc(#{$distro} + 20px);
   column-count: auto;
-  column-width: 600px;
+  column-width: $column;
 }
 
 .urls a {
@@ -57,16 +59,16 @@
   top: 0;
   left: 0;
   position: fixed;
-  height: 100%;
-  background-color: #f1f1f1;
-  width: 200px;
+  height: calc(100% - #{$category});
+  background-color: $bar-bg;
+  width: $distro;
   overflow: auto;
   z-index: 100;
 }
 
 .distro h3 {
   display: block;
-  color: black;
+  color: $bar-text;
   text-decoration: none;
   margin: 0;
   padding: 25px;
@@ -76,13 +78,13 @@
 /* Active/current link */
 .distro h3.active {
   background-color: $primary;
-  color: white;
+  color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
 .distro h3:hover:not(.active) {
-  background-color: #555;
-  color: white;
+  background-color: $bar-bg-hover;
+  color: $bar-text-hover;
 }
 
 
