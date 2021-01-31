@@ -1,10 +1,13 @@
+@import "./consts.scss";
+@import "./fonts.scss";
+
 .search {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 100px;
-  background: change-color(mix(white, $primary, 75%), $alpha: .8);
+  background: change-color(mix(white, $primary, 75%), $alpha: 0.8);
   backdrop-filter: blur(4px);
   z-index: 100;
   border-top: $primary 5px solid;
@@ -33,11 +36,11 @@
     font-size: 32px;
     color: black;
     opacity: 1;
-    transition: opacity .2s ease;
+    transition: opacity 0.2s ease;
   }
 
   input[value=""] + .material-icons {
-    opacity: .38;
+    opacity: 0.38;
   }
 }
 
@@ -48,10 +51,11 @@
   justify-content: space-between;
 }
 
-.upstream, .status {
+.upstream,
+.status {
   font-size: 15px;
   line-height: 18px;
-  
+
   display: flex;
   align-items: center;
 
@@ -59,7 +63,7 @@
     font-size: 15px;
     line-height: 18px;
     width: 30px;
-    color: rgba(0,0,0,.38);
+    color: rgba(0, 0, 0, 0.38);
   }
 }
 
@@ -89,7 +93,8 @@
   text-align: right;
 }
 
-.filtered,.collapsed {
+.filtered,
+.collapsed {
   display: none;
 }
 
@@ -103,11 +108,11 @@
   }
 
   &:hover .group-header {
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   &.group-expanded .group-header {
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -125,12 +130,11 @@
 .desc {
   padding: 10px 20px;
   margin-top: 10px;
-  border-left: change-color($primary, $alpha: .2) 10px solid;
+  border-left: change-color($primary, $alpha: 0.2) 10px solid;
 
   &.missing {
-    color: rgba(0,0,0,.38);
+    color: rgba(0, 0, 0, 0.38);
     font-style: italic;
     filter: grayscale(1);
   }
 }
-

@@ -15,8 +15,8 @@ body {
 a {
   text-decoration: underline;
   color: $primary;
-  filter: grayscale(.5);
-  transition: filter .2s ease;
+  filter: grayscale(0.5);
+  transition: filter 0.2s ease;
 
   &:hover {
     filter: none;
@@ -43,4 +43,3 @@ h3 {
   padding: 0 0;
   margin: 0 auto;
 }
-
