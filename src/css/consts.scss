@@ -1,1 +1,19 @@
 $primary: rgb(21, 101, 138);
+$bar-bg: rgb(241, 241, 241);
+$bar-bg-hover: rgb(55, 55, 55);
+$bar-text: black;
+$bar-text-hover: white;
+$search-bg: change-color(mix(white, $primary, 75%), $alpha: .8);
+$search-icon: black;
+$list-item-icon: rgba(0,0,0,.38);
+$list-header-bg: rgba(0,0,0,.05);
+$desc: change-color($primary, $alpha: .2);
+$desc-missing: rgba(0,0,0,.38);
+
+$sidebar: 100px;
+$search: 100px;
+$category: 100px;
+$distro: 200px;
+$site-abbr: 300px;
+$column: 600px;
+$flexbox: 440px;

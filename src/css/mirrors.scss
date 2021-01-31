@@ -6,15 +6,15 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: change-color(mix(white, $primary, 75%), $alpha: 0.8);
+  height: $search;
+  background: $search-bg;
   backdrop-filter: blur(4px);
   z-index: 100;
   border-top: $primary 5px solid;
 
   input {
     @include monospace;
-    line-height: 100px;
+    line-height: $search;
     font-size: 36px;
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     font-size: 32px;
-    color: black;
+    color: $search-icon;
     opacity: 1;
     transition: opacity 0.2s ease;
   }
@@ -45,7 +45,7 @@
 }
 
 .mirrors {
-  padding-top: 100px;
+  padding-top: $search;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -63,7 +63,7 @@
     font-size: 15px;
     line-height: 18px;
     width: 30px;
-    color: rgba(0, 0, 0, 0.38);
+    color: $list-item-icon;
   }
 }
 
@@ -100,7 +100,7 @@
 
 .group {
   padding: 0 80px;
-  flex-basis: 440px;
+  flex-basis: $flexbox;
   flex-grow: 1;
 
   &:hover .heading .material-icons {
@@ -108,11 +108,11 @@
   }
 
   &:hover .group-header {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: $list-header-bg;
   }
 
   &.group-expanded .group-header {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: $list-header-bg;
   }
 }
 
@@ -130,10 +130,10 @@
 .desc {
   padding: 10px 20px;
   margin-top: 10px;
-  border-left: change-color($primary, $alpha: 0.2) 10px solid;
+  border-left: $desc 10px solid;
 
   &.missing {
-    color: rgba(0, 0, 0, 0.38);
+    color: $desc-missing;
     font-style: italic;
     filter: grayscale(1);
   }
