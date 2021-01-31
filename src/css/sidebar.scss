@@ -1,10 +1,12 @@
+@import "./consts.scss";
+
 .sidebar {
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
-  width: 100px;
-  background-color: #f1f1f1;
+  width: $sidebar;
+  background-color: $bar-bg;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -14,36 +16,36 @@
 /* Sidebar links */
 .sidebar h2 {
   display: block;
-  color: black;
+  color: $bar-text;
   text-decoration: none;
   margin: 0;
-  width:100px;
-  height:100px;
+  width: $sidebar;
+  height: $sidebar;
   text-align: center;
-  line-height: 100px;
+  line-height: $sidebar;
 }
 
 /* Active/current link */
 .sidebar h2.active {
   background-color: $primary;
-  color: white;
+  color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
 .sidebar h2:hover:not(.active) {
-  background-color: #555;
-  color: white;
+  background-color: $bar-bg-hover;
+  color: $bar-text-hover;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 main,.search,.category,.site-abbr {
-  margin-left: 100px !important;
+  margin-left: $sidebar !important;
   margin-top: 0 !important;
 }
 
 .distro {
-  margin-left: 100px !important;
-  margin-top: 100px !important;
+  margin-left: $sidebar !important;
+  margin-top: $sidebar !important;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -53,15 +55,15 @@ main,.search,.category,.site-abbr {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100px;
+    height: $sidebar;
   }
   .sidebar h2 {float: left;}
   main,.search,.category,.site-abbr {
     margin-left: 0 !important;
-    margin-top: 100px !important;
+    margin-top: $sidebar !important;
   }
   .distro {
     margin-left: 0px !important;
-    margin-top: 200px !important;
+    margin-top: calc(#{$sidebar} + #{$category}) !important;
   }
 }
