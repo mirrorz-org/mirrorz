@@ -98,15 +98,15 @@
   flex-basis: 440px;
   flex-grow: 1;
 
-  &.group-expanded {
-    flex-basis: 100%;
-  }
-
   &:hover .heading .material-icons {
     display: inline-flex;
   }
 
   &:hover .group-header {
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  &.group-expanded .group-header {
     background-color: rgba(0, 0, 0, .05);
   }
 }
