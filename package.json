@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "parcel index.html 404.html",
-    "build": "parcel build index.html 404.html",
+    "build": "parcel build --no-source-maps index.html 404.html",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
   }
 }
