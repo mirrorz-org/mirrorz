@@ -75,8 +75,8 @@ const Group = React.memo(({ group, entries, filtered }) => {
         </div>
       </div>
       <div className="group-items">
-        {entries.map(({ full, help, upstream, desc, status, source }, idx) => (
-          <div key={idx} className={collapse ? "collapsed": ""}>
+        {collapse == false && entries.map(({ full, help, upstream, desc, status, source }, idx) => (
+          <div key={idx}>
             <h3>
               <a href={full} target="_blank">
                 {source}
