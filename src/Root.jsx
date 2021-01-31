@@ -3,12 +3,14 @@ import MIRROR_URLS from "./config/mirrors";
 import Icon from './Icon';
 import Mirrors from './Mirrors';
 import ISO from './ISO';
+import Site from './Site';
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 
 export default React.memo(() => {
   const [mirrors, setMirrors] = useState([]);
   const [isoinfo, setIsoinfo] = useState([]);
+  const [site, setSite] = useState([]);
   const [page, setPage] = useState(1);
 
   // Load all mirror configurations
@@ -33,6 +35,8 @@ export default React.memo(() => {
       });
       setMirrors(original => original.concat(parsed));
 
+      setSite(original => original.concat([{ site, parsed }]));
+
       const fullinfo = info.map(({ category, distro, urls }) => {
         const fullUrls = urls.map(({ name, url }) => {
           return {
@@ -54,18 +58,21 @@ export default React.memo(() => {
   }, []);
 
   // sidebar funcs
-  const toISO = useCallback(() => setPage(_ => 1), []);
-  const toList = useCallback(() => setPage(_ => 2), []);
+  const toISO = useCallback(() => setPage(1), []);
+  const toList = useCallback(() => setPage(2), []);
+  const toSite = useCallback(() => setPage(3), []);
 
   return (
     <div>
       <div className="sidebar">
         <h2 className={page == 1? "active": ""} onClick={toISO}>ISO</h2>
         <h2 className={page == 2? "active": ""} onClick={toList}>List</h2>
+        <h2 className={page == 3? "active": ""} onClick={toSite}>Site</h2>
       </div>
       <main>
         {page == 1 && <ISO isoinfo={isoinfo}/>}
         {page == 2 && <Mirrors mirrors={mirrors}/>}
+        {page == 3 && <Site site={site}/>}
       </main>
     </div>
   );

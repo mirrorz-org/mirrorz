@@ -1,0 +1,40 @@
+.site-abbr {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  background-color: #f1f1f1;
+  width: 300px;
+  overflow: auto;
+  z-index: 100;
+}
+
+.site-abbr .group-header {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin: 0;
+  padding: 25px;
+  float: top;
+}
+
+/* Active/current link */
+.site-abbr .group-header.active {
+  background-color: $primary;
+  color: white;
+}
+
+/* Links on mouse-over */
+.site-abbr .group-header:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.site-content {
+  margin-top: 0px;
+  margin-left: 400px;
+  column-count: auto;
+  column-width: 600px;
+}

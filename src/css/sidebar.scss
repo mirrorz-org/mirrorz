@@ -36,7 +36,7 @@
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-main,.search,.category {
+main,.search,.category,.site-abbr {
   margin-left: 100px !important;
   margin-top: 0 !important;
 }
@@ -56,7 +56,7 @@ main,.search,.category {
     height: 100px;
   }
   .sidebar h2 {float: left;}
-  main,.search,.category {
+  main,.search,.category,.site-abbr {
     margin-left: 0 !important;
     margin-top: 100px !important;
   }
