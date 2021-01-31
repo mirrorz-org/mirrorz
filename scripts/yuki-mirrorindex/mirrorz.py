@@ -21,6 +21,7 @@ def name_func(name: str) -> str:
 def iso(iso_orig: list) -> None:
     # modify iso_orig inplace
     for i in iso_orig:
+        i["distro"] = name_func(i["distro"])
         if not i.get("category"):
             # now ustcmirror has no category and all iso are OS.
             i["category"] = "os"

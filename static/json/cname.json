@@ -48,5 +48,10 @@
   "github/prometheus": "prometheus",
   "github/FreeCAD": "FreeCAD",
   "github/PowerShell": "PowerShell",
-  "github/rubyinstaller2": "rubyinstaller2"
+  "github/rubyinstaller2": "rubyinstaller2",
+  "Archlinux": "Arch Linux",
+  "Kali Linux": "Kali",
+  "Debian（含非自由固件）": "Debian non-free",
+  "openSUSE Leap": "openSUSE",
+  "openSUSE Tumbleweed": "openSUSE"
 }
