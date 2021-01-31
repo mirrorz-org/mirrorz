@@ -1,0 +1,67 @@
+.sidebar {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  z-index: 100;
+}
+
+/* Sidebar links */
+.sidebar h2 {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin: 0;
+  width:100px;
+  height:100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* Active/current link */
+.sidebar h2.active {
+  background-color: $primary;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar h2:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+main,.search,.category,.site-abbr {
+  margin-left: 100px !important;
+  margin-top: 0 !important;
+}
+
+.distro {
+  margin-left: 100px !important;
+  margin-top: 100px !important;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+  }
+  .sidebar h2 {float: left;}
+  main,.search,.category,.site-abbr {
+    margin-left: 0 !important;
+    margin-top: 100px !important;
+  }
+  .distro {
+    margin-left: 0px !important;
+    margin-top: 200px !important;
+  }
+}

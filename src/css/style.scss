@@ -1,0 +1,46 @@
+@import "./fonts.scss";
+@import "./consts.scss";
+@import "./color.scss";
+@import "./sidebar.scss";
+@import "./mirrors.scss";
+@import "./iso.scss";
+@import "./site.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  @include sans;
+}
+
+a {
+  text-decoration: underline;
+  color: $primary;
+  filter: grayscale(.5);
+  transition: filter .2s ease;
+
+  &:hover {
+    filter: none;
+  }
+}
+
+h2 {
+  @include monospace;
+  margin: 10px 0 5px 0;
+  font-size: 24px;
+}
+
+h3 {
+  margin: 6px 0 3px 0;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  .material-icons {
+    font-size: 18px;
+  }
+}
+
+#app {
+  padding: 0 0;
+  margin: 0 auto;
+}
+

@@ -1,0 +1,88 @@
+.category {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100px;
+  background-color: #f1f1f1;
+  width: 100%;
+  overflow: auto;
+  z-index: 100;
+}
+
+.category h2 {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin: 0;
+  float: left;
+  width:100px;
+  height:100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* Active/current link */
+.category h2.active {
+  background-color: $primary;
+  color: white;
+}
+
+/* Links on mouse-over */
+.category h2:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.urls {
+  margin-top: 120px;
+  margin-left: 220px;
+  column-count: auto;
+  column-width: 600px;
+}
+
+.urls a {
+  font-size: 18px;
+  line-height: 20px;
+  margin-top: 3px;
+  margin-bottom: 2px;
+
+  text-decoration: none;
+}
+
+.distro {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  background-color: #f1f1f1;
+  width: 200px;
+  overflow: auto;
+  z-index: 100;
+}
+
+.distro h3 {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin: 0;
+  padding: 25px;
+  float: top;
+}
+
+/* Active/current link */
+.distro h3.active {
+  background-color: $primary;
+  color: white;
+}
+
+/* Links on mouse-over */
+.distro h3:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
