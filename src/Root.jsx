@@ -79,14 +79,14 @@ export default React.memo(() => {
     <Router>
       <div>
         <div className="sidebar">
-          <NavLink
-            exact
-            to="/iso"
+          <NavLink 
+            to="/"
             activeClassName="active"
             isActive={(_, location) => {
               if (
                 location.pathname === "/" ||
-                location.pathname.startsWith("/iso")
+                (!location.pathname.startsWith("/list") &&
+                !location.pathname.startsWith("/site"))
               ) {
                 return true;
               }
@@ -104,14 +104,14 @@ export default React.memo(() => {
         </div>
         <main>
           <Switch>
-            <Route exact path={["/", "/iso"]}>
-              <ISO isoinfo={isoinfo} />
-            </Route>
             <Route path="/list">
               <Mirrors mirrors={mirrors} />
             </Route>
             <Route path="/site">
               <Site site={site} />
+            </Route>
+            <Route path="*">
+              <ISO isoinfo={isoinfo} />
             </Route>
           </Switch>
         </main>

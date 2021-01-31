@@ -11,6 +11,13 @@
   width: $site-abbr;
   overflow: auto;
   z-index: 100;
+
+  a {
+    text-decoration: none;
+    color: $list-header-text;
+    filter: none;
+    transition: none;
+  }
 }
 
 .site-abbr .group-header {
