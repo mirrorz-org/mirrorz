@@ -14,6 +14,11 @@
 }
 
 .category h2 {
+  margin: 0;
+}
+
+.category a {
+  filter: none;
   display: block;
   color: $bar-text;
   text-decoration: none;
@@ -26,13 +31,13 @@
 }
 
 /* Active/current link */
-.category h2.active {
+.category a.active {
   background-color: $primary;
   color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
-.category h2:hover:not(.active) {
+.category a:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
 }
@@ -67,22 +72,28 @@
 }
 
 .distro h3 {
+  margin: 0;
+}
+
+.distro a {
+  filter: none;
   display: block;
   color: $bar-text;
   text-decoration: none;
   margin: 0;
-  padding: 25px;
+  padding: 0;
   float: top;
+  padding: 25px;
 }
 
 /* Active/current link */
-.distro h3.active {
+.distro a.active {
   background-color: $primary;
   color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
-.distro h3:hover:not(.active) {
+.distro a:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
 }

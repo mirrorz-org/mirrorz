@@ -7,8 +7,15 @@ $search-bg: change-color(mix(white, $primary, 75%), $alpha: .8);
 $search-icon: black;
 $list-item-icon: rgba(0,0,0,.38);
 $list-header-bg: rgba(0,0,0,.05);
+$list-header-text: black;
 $desc: change-color($primary, $alpha: .2);
 $desc-missing: rgba(0,0,0,.38);
+
+$success: green;
+$failed: red;
+$syncing: $primary;
+$unknown: gray;
+$paused: gray;
 
 $sidebar: 100px;
 $search: 100px;

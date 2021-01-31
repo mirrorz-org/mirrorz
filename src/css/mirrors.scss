@@ -103,6 +103,13 @@
   flex-basis: $flexbox;
   flex-grow: 1;
 
+  a {
+    text-decoration: none;
+    color: $list-header-text;
+    filter: none;
+    transition: none;
+  }
+
   &:hover .heading .material-icons {
     display: inline-flex;
   }

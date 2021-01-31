@@ -1,20 +1,22 @@
+@import "./consts.scss";
+
 .success {
-  color: green;
+  color: $success;
 }
 
 .failed {
-  color: red;
+  color: $failed;
 }
 
 .syncing {
-  color: blue;
+  color: $syncing;
 }
 
 .unknown {
-  color: gray;
+  color: $unknown;
 }
 
 .paused {
-  color: gray;
+  color: $paused;
 }
 
