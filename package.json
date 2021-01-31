@@ -16,23 +16,15 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "node-sass": "^5.0.0",
     "react": "17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scroll": "^1.8.1"
   },
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "lint:fix": "eslint --fix ./ --ignore-path .gitignore"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "{src,static,scripts}/**/*": [
-      "yarn run lint:fix",
-      "git add"
-    ]
+    "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
   }
 }
