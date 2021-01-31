@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import Icon from './Icon';
 
-const Summary = React.memo(({ parsed }) => {
+const Summary = React.memo(({ parsed, num }) => {
   const mapper = new Map();
   parsed.map(({status}) => {
     [...status].map((s) => {
@@ -13,31 +13,31 @@ const Summary = React.memo(({ parsed }) => {
     <h2 className="summary">
       {mapper.has("S") && (
         <span className="success">
-          {mapper.get("S")}
+          {num && mapper.get("S")}
           <Icon>done</Icon>
         </span>
       )}
       {mapper.has("Y") && (
         <span className="syncing">
-          {mapper.get("Y")}
+          {num && mapper.get("Y")}
           <Icon>sync</Icon>
         </span>
       )}
       {mapper.has("F") && (
         <span className="failed">
-          {mapper.get("F")}
+          {num && mapper.get("F")}
           <Icon>error</Icon>
         </span>
       )}
       {mapper.has("P") && (
         <span className="paused">
-          {mapper.get("P")}
+          {num && mapper.get("P")}
           <Icon>pause</Icon>
         </span>
       )}
       {mapper.has("U") && (
         <span className="unknown">
-          {mapper.get("U")}
+          {num && mapper.get("U")}
           <Icon>info</Icon>
         </span>
       )}
@@ -53,11 +53,12 @@ export default React.memo(({ site }) => {
       <div className="site-abbr">
         {site.map(({ site, parsed }) => (
           <div className={"group-header" + (site.abbr == curr ? " active" : "")} key={site.abbr} onClick={() => setCurr(site.abbr)}>
+            <img src={site.logo} className="logo"/>
             <h2 className="heading">
               {site.abbr}
             </h2>
             <div>
-              <Summary parsed={parsed}/>
+              <Summary parsed={parsed} num={true}/>
             </div>
           </div>
         ))}
@@ -72,7 +73,7 @@ export default React.memo(({ site }) => {
               {cname}
             </h2>
             <div>
-              <Summary parsed={[{ status }]}/>
+              <Summary parsed={[{ status }]} num={false}/>
             </div>
           </div>
         ))})}
