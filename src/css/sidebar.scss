@@ -15,6 +15,11 @@
 
 /* Sidebar links */
 .sidebar h2 {
+  margin: 0;
+}
+
+.sidebar a {
+  filter: none;
   display: block;
   color: $bar-text;
   text-decoration: none;
@@ -26,19 +31,22 @@
 }
 
 /* Active/current link */
-.sidebar h2.active {
+.sidebar a.active {
   background-color: $primary;
   color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
-.sidebar h2:hover:not(.active) {
+.sidebar a:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-main,.search,.category,.site-abbr {
+main,
+.search,
+.category,
+.site-abbr {
   margin-left: $sidebar !important;
   margin-top: 0 !important;
 }
@@ -57,8 +65,13 @@ main,.search,.category,.site-abbr {
     left: 0;
     height: $sidebar;
   }
-  .sidebar h2 {float: left;}
-  main,.search,.category,.site-abbr {
+  .sidebar a {
+    float: left;
+  }
+  main,
+  .search,
+  .category,
+  .site-abbr {
     margin-left: 0 !important;
     margin-top: $sidebar !important;
   }
