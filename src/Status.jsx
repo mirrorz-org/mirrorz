@@ -50,7 +50,6 @@ export const statusMapper = (status) => {
 
 export const statusSum = (array) => {
   const sum = new Map();
-  console.log(array);
   array.map((mapper) => {
     MAIN_STATUS.map((s) => { 
       if (!sum.has(s)) sum.set(s, 0);
