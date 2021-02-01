@@ -1,5 +1,11 @@
 {
     "url": "https://mirrors.bfsu.edu.cn",
     "logo": "https://mirrors.bfsu.edu.cn/static/img/favicon.png",
-    "abbr": "BFSU"
+    "abbr": "BFSU",
+    "name": "北京外国语大学开源软件镜像站",
+    "homepage": "https://www.bfsu.edu.cn/",
+    "issue": "https://github.com/tuna/issues",
+    "mirror-request": "https://github.com/tuna/issues",
+    "email": "support@tuna.tsinghua.edu.cn",
+    "group": "#tuna at freenode; https://groups.google.com/forum/#!forum/tuna-general"
 }

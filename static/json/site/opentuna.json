@@ -1,5 +1,10 @@
 {
     "url": "https://opentuna.cn",
     "logo": "https://opentuna.cn/static/img/favicon.png",
-    "abbr": "OPENTUNA"
+    "abbr": "OpenTUNA",
+    "name": "OpenTUNA开源软件镜像站",
+    "issue": "https://github.com/tuna/issues",
+    "mirror-request": "https://github.com/tuna/issues",
+    "email": "support@tuna.tsinghua.edu.cn",
+    "group": "#tuna at freenode; https://groups.google.com/forum/#!forum/tuna-general"
 }

@@ -14,17 +14,24 @@ For end users, this is not a good experience as they need to search for availabl
 
 To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
-## Data Format v1 (draft)
+## Data Format v1.1 (draft)
 
 Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the following fields.
 
 ```json
 {
-  "version": 1,
+  "version": 1.1,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/favicon.ico",
     "abbr": "EXAMPLE",
+    "name": "样例镜像站",
+    "homepage": "https://blog.example.org",
+    "issue": "https://github.com/example/issues",
+    "mirror-request": "https://github.com/example/mirror-request",
+    "email": "admin@example.com",
+    "group": "QQ: 10086 and/or Telegram @something",
+    "note": "may be any string",
   },
   "info": [
     {
@@ -61,7 +68,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 
 ### Notes
 
-* `version` is optional for version 1
+* `version` is optional for version 1.x
 * `site` provides the global info about one MirrorS
 * `site.url` should not end with slash `/`
 * `info` is used for category view
