@@ -28,7 +28,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
     "name": "样例镜像站",
     "homepage": "https://blog.example.org",
     "issue": "https://github.com/example/issues",
-    "mirror-request": "https://github.com/example/mirror-request",
+    "request": "https://github.com/example/mirror-request",
     "email": "admin@example.com",
     "group": "QQ: 10086 and/or Telegram @something",
     "note": "may be any string",

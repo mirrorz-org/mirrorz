@@ -1,4 +1,5 @@
 @import "./consts.scss";
+@import "./fonts.scss";
 
 .site-abbr {
   margin: 0;
@@ -43,12 +44,37 @@
 
 .site-content {
   margin-top: 0px;
-  margin-left: calc(#{$site-abbr} + 20px);
+  margin-left: $site-abbr;
+}
+
+.site-mirrors {
+  margin-left: 30px;
   column-count: auto;
   column-width: $column;
+}
+
+.site-meta {
+  padding: 30px 20px 30px 0;
+  background-color: $bar-bg;
 }
 
 .logo {
   display: block;
   height: 24pt;
+}
+
+.meta-left {
+  @include sans;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 24px;
+  margin: 10px 10px 5px 0;
+}
+
+.meta-right {
+  font-size: 22px;
+}
+
+.meta-line {
+  margin-left: 20px;
 }
