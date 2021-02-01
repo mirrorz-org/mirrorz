@@ -88,6 +88,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
   - `U`: unknown
   - `X1600000000`: (auxiliary) next scheduled sync unix timestamp
   - `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
+  - `O1600000000`: (auxiliary) old successful timestamp, used only when it is syncing or failed
 * `mirrors.help` may be empty, or the same rule as `mirrors.url`
 * `mirrors.upstream` may be empty
 

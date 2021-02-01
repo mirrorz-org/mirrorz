@@ -42,6 +42,6 @@ jobs:
           cp -a ../dist/* ../CNAME -r ../static ./
           touch .nojekyll
           git add .
-          git commit -m "Github Action auto build for https://github.com/tuna/mirrorz/commit/${git_commit_id}"
+          git commit -m "Github Action auto build for https://github.com/tuna/mirrorz/commit/${git_commit_id}" --allow-empty
           git push -u origin $remote_branch
 
