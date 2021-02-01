@@ -14,13 +14,13 @@ For end users, this is not a good experience as they need to search for availabl
 
 To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
-## Data Format v1.1 (draft)
+## Data Format v1.2 (draft)
 
 Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the following fields.
 
 ```json
 {
-  "version": 1.1,
+  "version": 1.2,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/favicon.ico",
@@ -31,6 +31,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
     "request": "https://github.com/example/mirror-request",
     "email": "admin@example.com",
     "group": "QQ: 10086 and/or Telegram @something",
+    "disk": "may be any string showing usage of disk, e.g. usage",
     "note": "may be any string",
   },
   "info": [
@@ -58,7 +59,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
       "cname": "AUR",
       "desc": "Arch Linux 用户软件库",
       "url": "https://aur.tuna.tsinghua.edu.cn/",
-      "status": "S",
+      "status": "S1612195849X1612196849N",
       "help": "/help/AUR/",
       "upstream": "https://aur.archlinux.org/"
     }
@@ -69,6 +70,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 ### Notes
 
 * `version` is optional for version 1.x
+* previous versions of this protocol could be found in git history; protocols in v1.x are back-ward compatible
 * `site` provides the global info about one MirrorS
 * `site.url` should not end with slash `/`
 * `info` is used for category view
@@ -78,7 +80,14 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * `mirrors.desc` may differ for each MirrorS since there are `excludes` for some MirrorS
 * `mirrors.desc` may be empty
 * if `mirrors.url` begins with a slash `/`, it should be appended to `site.url` to form a full url
-* `mirrors.status` should be agreed, currently some values are defined in `tunasync`
+* `mirrors.status` is a concat of strings of pattern `[A-Z](\d+)?`. Only one main status is allowed; the number of auxiliary status is not limited.
+  - `S1600000000`: successful. (optional) last successful ended unix timestamp
+  - `Y1600000000`: syncing. (optional) start to sync unix timestamp
+  - `F1600000000`: failed. (optional) last attempt to sync unix timestamp
+  - `P1600000000`: paused. (optional) the unix timetamp sync stopped
+  - `U`: unknown
+  - `X1600000000`: (auxiliary) next scheduled sync unix timestamp
+  - `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
 * `mirrors.help` may be empty, or the same rule as `mirrors.url`
 * `mirrors.upstream` may be empty
 
