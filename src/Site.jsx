@@ -46,6 +46,26 @@ const Summary = React.memo(({ parsed, num }) => {
   )
 })
 
+const MetaLine = React.memo(({ left, right, link = false }) => (
+  <div className="meta-line">
+    <span className="meta-left">{left}:</span>
+    {link ? (<a href={right}><span className="meta-right">{right}</span></a>) : (<span className="meta-right">{right}</span>) }
+  </div>
+));
+
+const Meta = React.memo(({ site }) => (
+  <div className="site-meta">
+    {site.url && (<MetaLine left="URL" right={site.url} link={true} />)}
+    {site.name && (<MetaLine left="Name" right={site.name} />)}
+    {site.homepage && (<MetaLine left="Homepage" right={site.homepage} link={true} />)}
+    {site.issue && (<MetaLine left="Issue" right={site.issue} link={true} />)}
+    {site.request && (<MetaLine left="Mirror Request" right={site.request} link={true} />)}
+    {site.email && (<MetaLine left="Email" right={site.email} />)}
+    {site.group && (<MetaLine left="Group" right={site.group} />)}
+    {site.note && (<MetaLine left="Note" right={site.note} />)}
+  </div>
+));
+
 export default React.memo(({ site }) => {
   const [curr, setCurr] = useState("BFSU"); // w/o whitespaces
 
@@ -76,21 +96,26 @@ export default React.memo(({ site }) => {
           </Link>
         ))}
       </div>
-      <div className="site-content">
-        {site.map(({ site, parsed }) => {
-          if (site.abbr.replace(/\s/g, '') != curr)
-            return;
-          return parsed.map(({ cname, status }, idx) => (
-          <div className="group-header" key={idx}>
-            <h2 className="heading">
-              {cname}
-            </h2>
-            <div>
-              <Summary parsed={[{ status }]} num={false}/>
+      {site.map(({ site, parsed }) => {
+        if (site.abbr.replace(/\s/g, '') != curr)
+          return;
+        return (
+          <div className="site-content">
+            <Meta site={site}/>
+            <div className="site-mirrors">
+            {parsed.map(({ cname, status }, idx) => (
+              <div className="group-header" key={idx}>
+                <h2 className="heading">
+                  {cname}
+                </h2>
+                <div>
+                  <Summary parsed={[{ status }]} num={false}/>
+                </div>
+              </div>
+            ))}
             </div>
-          </div>
-        ))})}
-      </div>
+          </div>)
+      })}
     </div>
   );
 });
