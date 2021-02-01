@@ -1,50 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import Icon from './Icon';
-
-const Summary = React.memo(({ parsed, num }) => {
-  const mapper = new Map();
-  parsed.map(({status}) => {
-    [...status].map((s) => {
-      if(!mapper.has(s)) mapper.set(s, 0);
-      mapper.set(s, mapper.get(s) + 1);
-    })
-  });
-  return (
-    <h2 className="summary">
-      {mapper.has("S") && (
-        <span className="success">
-          {num && mapper.get("S")}
-          <Icon>done</Icon>
-        </span>
-      )}
-      {mapper.has("Y") && (
-        <span className="syncing">
-          {num && mapper.get("Y")}
-          <Icon>sync</Icon>
-        </span>
-      )}
-      {mapper.has("F") && (
-        <span className="failed">
-          {num && mapper.get("F")}
-          <Icon>error</Icon>
-        </span>
-      )}
-      {mapper.has("P") && (
-        <span className="paused">
-          {num && mapper.get("P")}
-          <Icon>pause</Icon>
-        </span>
-      )}
-      {mapper.has("U") && (
-        <span className="unknown">
-          {num && mapper.get("U")}
-          <Icon>info</Icon>
-        </span>
-      )}
-    </h2>
-  )
-})
+import { Summary, statusMapper, statusSum, STATUS_MAPPING} from './Status';
 
 const MetaLine = React.memo(({ left, right, link = false }) => (
   <div className="meta-line">
@@ -58,6 +15,7 @@ const Meta = React.memo(({ site }) => (
     {site.url && (<MetaLine left="URL" right={site.url} link={true} />)}
     {site.name && (<MetaLine left="Name" right={site.name} />)}
     {site.homepage && (<MetaLine left="Homepage" right={site.homepage} link={true} />)}
+    {site.disk && (<MetaLine left="Disk" right={site.disk} />)}
     {site.issue && (<MetaLine left="Issue" right={site.issue} link={true} />)}
     {site.request && (<MetaLine left="Mirror Request" right={site.request} link={true} />)}
     {site.email && (<MetaLine left="Email" right={site.email} />)}
@@ -90,7 +48,9 @@ export default React.memo(({ site }) => {
                 {site.abbr}
               </h2>
               <div>
-                <Summary parsed={parsed} num={true}/>
+                <Summary sum={
+                  statusSum(parsed.map(({ status }) => {return statusMapper(status);}))
+                } />
               </div>
             </div>
           </Link>
@@ -100,7 +60,7 @@ export default React.memo(({ site }) => {
         if (site.abbr.replace(/\s/g, '') != curr)
           return;
         return (
-          <div className="site-content">
+          <div className="site-content" key={site}>
             <Meta site={site}/>
             <div className="site-mirrors">
             {parsed.map(({ cname, status }, idx) => (
@@ -109,7 +69,12 @@ export default React.memo(({ site }) => {
                   {cname}
                 </h2>
                 <div>
-                  <Summary parsed={[{ status }]} num={false}/>
+                  <Summary 
+                    sum={
+                      statusSum([{ status }].map(({ status }) => {return statusMapper(status);}))
+                    }
+                    num={false}
+                  />
                 </div>
               </div>
             ))}

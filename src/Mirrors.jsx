@@ -2,61 +2,17 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import { Element, scroller } from 'react-scroll';
 import Icon from './Icon';
-
-const STATUS_MAPPING = {
-  S: 'Success',
-  P: 'Paused',
-  Y: 'Syncing',
-  F: 'Failed',
-  N: 'New',
-  U: 'Unknown',
-};
+import { Summary, statusMapper, statusSum, StatusList } from './Status';
 
 const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) => {
   const [collapse, setCollapse] = useState(defaultCollapse);
   const toggleCollapse = useCallback(() => setCollapse(c => !c), []);
 
   const summary = useMemo(() => {
-    const mapper = new Map();
-    entries.map(({ status }) => {
-      [...status].map((s) => {
-        if (!mapper.has(s)) mapper.set(s, 0);
-        mapper.set(s, mapper.get(s) + 1);
-      });
-    });
     return (
-      <h2 className="summary">
-        {mapper.has("S") && (
-          <span className="success">
-            {mapper.get("S")}
-            <Icon>done</Icon>
-          </span>
-        )}
-        {mapper.has("Y") && (
-          <span className="syncing">
-            {mapper.get("Y")}
-            <Icon>sync</Icon>
-          </span>
-        )}
-        {mapper.has("F") && (
-          <span className="failed">
-            {mapper.get("F")}
-            <Icon>error</Icon>
-          </span>
-        )}
-        {mapper.has("P") && (
-          <span className="paused">
-            {mapper.get("P")}
-            <Icon>pause</Icon>
-          </span>
-        )}
-        {mapper.has("U") && (
-          <span className="unknown">
-            {mapper.get("U")}
-            <Icon>info</Icon>
-          </span>
-        )}
-      </h2>
+      <Summary sum={
+        statusSum(entries.map(({ status }) => {return statusMapper(status);}))
+      } />
     )
   }, [entries]);
 
@@ -100,12 +56,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
               </div>
             )}
             {status && (
-              <div className="status">
-                <Icon>info</Icon>
-                {[...status].map((s) => {
-                  return STATUS_MAPPING[s];
-                }).join("+") ?? "Unknown"}
-              </div>
+              <StatusList mapper={statusMapper(status)}/>
             )}
             {desc ? (
               <div className="desc">{desc}</div>
