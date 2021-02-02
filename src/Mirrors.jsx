@@ -78,6 +78,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
 
 export default React.memo(({ mirrors }) => {
   const [filter, setFilter] = useState('');
+  const [filterInit, setFilterInit] = useState(false);
   const [unfolded, setUnfolded] = useState(null);
 
   // Clustering
@@ -91,12 +92,13 @@ export default React.memo(({ mirrors }) => {
       .map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
   }, [mirrors]);
 
-  const match = useRouteMatch();
   const history = useHistory();
 
-  const updateFilter = useCallback((ev) => {
-    history.push(`${match.url}/filter/${encodeURIComponent(ev.target.value)}`);
-  }, [match]);
+  const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
+  const uploadFilter = useCallback((ev) => {
+    if (ev.key === 'Enter')
+      history.push({ search: "?filter=" + encodeURIComponent(ev.target.value) });
+  }, []);
 
   const regex = useMemo(() => {
     let regex;
@@ -135,27 +137,29 @@ export default React.memo(({ mirrors }) => {
   console.log(`Sort`, end - begin);
 
   const location = useLocation();
+  const query = new URLSearchParams(location.search);
   useEffect(() => {
+    if (query.get("filter") && !filterInit) {
+      // use url filter only once
+      setFilterInit(true);
+      setFilter(decodeURIComponent(query.get("filter")));
+    }
     const pathnames = location.pathname.split("/")
     if (pathnames.length < 3) // "", "list", "repo"
       return;
     const group = pathnames[2];
-    if (group === "filter" && pathnames.length >= 4) {
-      setFilter(decodeURIComponent(decodeURIComponent(pathnames[3])))
-      return;
-    }
     setUnfolded(group);
     scroller.scrollTo(group, {
       duration: 500,
       smooth: true,
       offset: -220, // TODO: use the real header height
     });
-  }, [location]);
+  }, [location, filtered]);
 
   return (
     <div className={"mirrorz"}>
       <div className="search">
-        <input value={filter} onChange={updateFilter} placeholder="Filter (Support regex)" />
+        <input value={filter} onChange={updateFilter} onKeyDown={uploadFilter} placeholder="Filter (Support regex)" />
         <Icon>search</Icon>
       </div>
 
