@@ -32,7 +32,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
     "email": "admin@example.com",
     "group": "QQ: 10086 and/or Telegram @something",
     "disk": "may be any string showing usage of disk, e.g. usage",
-    "note": "may be any string",
+    "note": "may be any string; like speed limit or connection limit",
   },
   "info": [
     {
