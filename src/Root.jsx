@@ -25,7 +25,7 @@ export default React.memo(() => {
       const { site, info, mirrors } = await resp.json();
 
       const parsed = mirrors.map(
-        ({ cname, url, help, abbr, desc, upstream, status }) => {
+        ({ cname, url, help, size, desc, upstream, status }) => {
           const fullUrl = url.match(PROTO_REGEX) ? url : site.url + url;
           const helpUrl =
             help === ""
@@ -40,6 +40,7 @@ export default React.memo(() => {
             upstream,
             desc,
             status,
+            size,
             source: site.abbr,
           };
         }

@@ -141,6 +141,10 @@ def main():
             "help": help(sync["name"]),
             "upstream": upstream(sync, tunasync)
         }
+
+        if "size" in sync:
+            mirror["size"] = sync["size"] # human readable already
+
         mirrors.append(mirror)
     mirrorz["mirrors"] = mirrors
     print(json.dumps(mirrorz))

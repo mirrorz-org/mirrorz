@@ -37,7 +37,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
         </div>
       </Link>
       <div className="group-items">
-        {collapse == false && entries.map(({ full, help, upstream, desc, status, source }, idx) => (
+        {collapse == false && entries.map(({ full, help, upstream, desc, status, source, size }, idx) => (
           <div key={idx}>
             <h3>
               <a href={full} target="_blank">
@@ -57,6 +57,12 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
             )}
             {status && (
               <StatusList mapper={statusMapper(status)}/>
+            )}
+            {size && (
+              <div className="size">
+                <Icon>save</Icon>
+                {size}
+              </div>
             )}
             {desc ? (
               <div className="desc">{desc}</div>
