@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import Icon from './Icon';
-import { Summary, statusMapper, statusSum } from './Status';
+import { Summary, statusMapper, statusSum, StatusList } from './Status';
 
 const MetaLine = React.memo(({ left, right, link = false }) => (
   <div className="meta-line">
@@ -26,6 +26,7 @@ const Meta = React.memo(({ site }) => (
 
 export default React.memo(({ site }) => {
   const [curr, setCurr] = useState("BFSU"); // w/o whitespaces
+  const [stat, setStat] = useState(""); // get filter from url
 
   const location = useLocation();
   useEffect(() => {
@@ -33,6 +34,9 @@ export default React.memo(({ site }) => {
     if (pathnames.length < 3)
       return;
     setCurr(pathnames[2]);
+    if (pathnames.length < 4)
+      return;
+    setStat(pathnames[3]);
   }, [location]);
 
   const match = useRouteMatch();
@@ -63,21 +67,16 @@ export default React.memo(({ site }) => {
           <div className="site-content" key={site}>
             <Meta site={site}/>
             <div className="site-mirrors">
-            {parsed.map(({ cname, status }, idx) => (
-              <div className="group-header" key={idx}>
+            {parsed.map(({ cname, status }, idx) => {
+              if (stat !== "" && status && status.indexOf(stat) === -1)
+                return;
+              return (<div className="site-group" key={idx}>
                 <h2 className="heading">
                   {cname}
                 </h2>
-                <div>
-                  <Summary 
-                    sum={
-                      statusSum([{ status }].map(({ status }) => {return statusMapper(status);}))
-                    }
-                    num={false}
-                  />
-                </div>
-              </div>
-            ))}
+                <StatusList mapper={statusMapper(status)}/>
+              </div>);
+            })}
             </div>
           </div>)
       })}

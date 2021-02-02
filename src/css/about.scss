@@ -64,9 +64,12 @@
 .about-logo {
   display: block;
   height: 64pt;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-powered-by {
   margin: 10px;
   text-align: center;
+  min-width: 64px;
 }

@@ -43,6 +43,7 @@ export default React.memo(() => {
             status,
             size,
             source: site.abbr,
+            note: site.note,
           };
         }
       );

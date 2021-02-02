@@ -37,7 +37,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
         </div>
       </Link>
       <div className="group-items">
-        {collapse == false && entries.map(({ full, help, upstream, desc, status, source, size }, idx) => (
+        {collapse == false && entries.map(({ full, help, upstream, desc, status, source, size, note }, idx) => (
           <div key={idx}>
             <h3>
               <a href={full} target="_blank">
@@ -62,6 +62,12 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
               <div className="size">
                 <Icon>save</Icon>
                 {size}
+              </div>
+            )}
+            {note && (
+              <div className="note">
+                <Icon>note</Icon>
+                {note}
               </div>
             )}
             {desc ? (
