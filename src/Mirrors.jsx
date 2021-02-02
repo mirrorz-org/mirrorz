@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import { Link, useLocation, useRouteMatch, useHistory } from "react-router-dom";
 import { Element, scroller } from 'react-scroll';
 import Icon from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
@@ -91,22 +91,45 @@ export default React.memo(({ mirrors }) => {
       .map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
   }, [mirrors]);
 
-  const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
-  const lowerFilter = filter.toLowerCase();
+  const match = useRouteMatch();
+  const history = useHistory();
+
+  const updateFilter = useCallback((ev) => {
+    history.push(`${match.url}/filter/${encodeURIComponent(ev.target.value)}`);
+  }, [match]);
+
+  const regex = useMemo(() => {
+    let regex;
+    try {
+      if (filter === '')
+        regex = null;
+      else
+        // user input may be invalid regex
+        regex = new RegExp(filter);
+    } catch (error) {
+      regex = null;
+    }
+    if(regex !== null) console.log("valid regex:", regex);
+    return regex;
+  }, [filter]);
   const begin = performance.now();
   const filtered = grouped
     .map((e) => {
-      const filtered = filter !== '' && e.sortKey.indexOf(lowerFilter) === -1
-      return { ...e, filtered, defaultCollapse: unfolded !== e.group };
+      let m = null;
+      let filtered = false;
+      let index = 1e15;
+      if (regex !== null) {
+        m = regex.exec(e.group);
+        filtered = m === null;
+        if (!filtered)
+          index = m.index;
+      }
+      return { ...e, filtered, index, defaultCollapse: unfolded !== e.group };
     })
     .sort((a, b) => {
-      if (filter !== '') {
-        const aFilterDominant = a.sortKey.indexOf(lowerFilter) === 0;
-        const bFilterDominant = b.sortKey.indexOf(lowerFilter) === 0;
-        if (aFilterDominant !== bFilterDominant) return aFilterDominant ? -1 : 1;
-      }
-
-      return a.sortKey.localeCompare(b.sortKey);
+      if (a.index == b.index)
+        return a.sortKey.localeCompare(b.sortKey);
+      return a.index - b.index;
     });
   const end = performance.now();
   console.log(`Sort`, end - begin);
@@ -117,18 +140,22 @@ export default React.memo(({ mirrors }) => {
     if (pathnames.length < 3) // "", "list", "repo"
       return;
     const group = pathnames[2];
+    if (group === "filter" && pathnames.length >= 4) {
+      setFilter(decodeURIComponent(decodeURIComponent(pathnames[3])))
+      return;
+    }
     setUnfolded(group);
     scroller.scrollTo(group, {
       duration: 500,
       smooth: true,
       offset: -220, // TODO: use the real header height
     });
-  }, [location, filtered]);
+  }, [location]);
 
   return (
     <div className={"mirrorz"}>
       <div className="search">
-        <input value={filter} onChange={updateFilter} placeholder="Filter" />
+        <input value={filter} onChange={updateFilter} placeholder="Filter (Support regex)" />
         <Icon>search</Icon>
       </div>
 
