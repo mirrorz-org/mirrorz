@@ -66,7 +66,7 @@ export const Summary = React.memo(({ sum }) => {
         if(sum.has(s) && sum.get(s) != 0)
           return (
             <span className={STATUS_CLASS_MAPPING[s]} key={s}>
-              sum.get(s)
+              {sum.get(s)}
               <Icon>{STATUS_ICON_MAPPING[s]}</Icon>
             </span>
           )
