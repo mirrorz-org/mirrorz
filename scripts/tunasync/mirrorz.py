@@ -93,7 +93,7 @@ def size(num, suffix='B'):
         num /= 1024.0
     return "%.1f%s%s" % (num, 'Yi', suffix)
 
-def generate(site, tunasync, info, _options, _cname, disk = None):
+def generate(site, tunasync, info, _options, _cname, disk = {}):
     global options
     global cname
     options = _options
@@ -101,7 +101,7 @@ def generate(site, tunasync, info, _options, _cname, disk = None):
     mirrorz = {}
 
     mirrorz["site"] = site
-    if disk is not None:
+    if "used_kb" in disk:
         mirrorz["site"]["disk"] = size(disk["used_kb"]) + " / " + size(disk["total_kb"])
 
     mirrorz["info"] = []
