@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import Icon from './Icon';
-import { Summary, statusMapper, statusSum, STATUS_MAPPING} from './Status';
+import { Summary, statusMapper, statusSum } from './Status';
 
 const MetaLine = React.memo(({ left, right, link = false }) => (
   <div className="meta-line">

@@ -1,0 +1,72 @@
+@import "./consts.scss";
+@import "./fonts.scss";
+
+.about {
+  min-height: 100%;
+  width: 100%;
+	overflow: hidden;
+  z-index: 0;
+	position: relative;
+}
+
+.about::before, {
+	content: " ";
+	display: block;
+  position: absolute;
+	padding: 30px 30px 30px 30px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: $mirrorz-logo;
+  background-repeat: no-repeat;
+  background-size: 90% 90%;
+	background-attachment: fixed;
+	background-position: center;
+  opacity: 0.1;
+}
+
+.para {
+  margin: 30px 20px 10px 20px;
+  z-index: 100;
+}
+
+.para-title {
+  padding: 20px 15px 20px 15px;
+  display: flex;
+  align-items: center;
+  @include sans;
+}
+
+.para-title-icon {
+  font-size: 50px;
+  line-height: 50px;
+	text-align: center;
+  width: 50px;
+  color: $list-item-icon;
+}
+
+.para-title-text {
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: $list-header-text;
+}
+
+.para-content {
+  padding: 10px 40px 50px 40px;
+  font-size: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-logo {
+  display: block;
+  height: 64pt;
+}
+
+.about-powered-by {
+  margin: 10px;
+  text-align: center;
+}

@@ -9,6 +9,7 @@ import MIRROR_URLS from "./config/mirrors";
 import Mirrors from "./Mirrors";
 import ISO from "./ISO";
 import Site from "./Site";
+import About from "./About";
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 
@@ -78,7 +79,7 @@ export default React.memo(() => {
 
   return (
     <Router>
-      <div>
+      <div id="app-container">
         <div className="sidebar">
           <NavLink 
             to="/"
@@ -87,7 +88,8 @@ export default React.memo(() => {
               if (
                 location.pathname === "/" ||
                 (!location.pathname.startsWith("/list") &&
-                !location.pathname.startsWith("/site"))
+                !location.pathname.startsWith("/site") &&
+                !location.pathname.startsWith("/about"))
               ) {
                 return true;
               }
@@ -102,6 +104,9 @@ export default React.memo(() => {
           <NavLink to="/site" activeClassName="active">
             <h2>Site</h2>
           </NavLink>
+          <NavLink to="/about" activeClassName="active">
+            <h2>About</h2>
+          </NavLink>
         </div>
         <main>
           <Switch>
@@ -110,6 +115,9 @@ export default React.memo(() => {
             </Route>
             <Route path="/site">
               <Site site={site} />
+            </Route>
+            <Route path="/about">
+              <About site={site} />
             </Route>
             <Route path="*">
               <ISO isoinfo={isoinfo} />

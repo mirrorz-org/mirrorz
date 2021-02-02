@@ -45,7 +45,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
               </a>
               {help && (
                 <a className="help" href={help} target="_blank">
-                  <Icon>help</Icon>
+                  <Icon title="Help">help</Icon>
                 </a>
               )}
             </h3>
