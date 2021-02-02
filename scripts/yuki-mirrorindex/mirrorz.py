@@ -58,23 +58,36 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
                 ind = content_hash[name.lower()]
             except KeyError:
                 ind = content_hash[name.lower().split(".")[0]]  # fix repo name like "kubernetes.apt"
+            next_run = i.get("nextRun")
+            last_success = i.get("lastSuccess")
             if i["syncing"]:
-                content_list[ind]["status"] = "Y"
+                content_list[ind]["status"] = "Y" + str(i.get("prevRun"))
+                if last_success:
+                    content_list[ind]["status"] += "O" + str(last_success)
             elif i["exitCode"] == 0:
-                content_list[ind]["status"] = "S"
+                content_list[ind]["status"] = "S" + str(last_success)
             else:
-                content_list[ind]["status"] = "F"
+                content_list[ind]["status"] = "F" + str(i.get("prevRun"))
+                if last_success:
+                    content_list[ind]["status"] += "O" + str(last_success)
+            if next_run:
+                content_list[ind]["status"] += "X" + str(next_run)
             content_list[ind]["upstream"] = i["upstream"]
         except KeyError:
             print(f"failed to parse {i['name']}", file=sys.stderr)
     return content_list
 
 
+def disk_info(site):
+    lug_repo = subprocess.check_output("df -h | grep lug-repo | awk {'print $3, $2'}", shell=True).decode('utf-8')
+    site['disk'] = lug_repo.replace(" ", "/")
+
+
 def main():
     global options
     global cname
     if len(sys.argv) < 7:
-        print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog options.json cname.json")
+        print("help: mirrorz.py site.json meta_url genisolist_prog gencontent_prog options.json cname.json output.json")
         sys.exit(0)
     site = json.loads(open(sys.argv[1]).read())
     meta = requests.get(sys.argv[2]).json()
@@ -87,7 +100,9 @@ def main():
     # content_txt = open(sys.argv[4]).read()
     options = json.loads(open(sys.argv[5]).read())
     cname = json.loads(open(sys.argv[6]).read())
+    output = sys.argv[7]
 
+    disk_info(site)
     iso(isolist)
     mirrors = parse_content_meta(content_txt, meta)
 
@@ -95,7 +110,9 @@ def main():
     mirrorz["site"] = site
     mirrorz["info"] = isolist
     mirrorz["mirrors"] = mirrors
-    print(json.dumps(mirrorz))
+
+    with open(output, "w") as f:
+        f.write(json.dumps(mirrorz))
 
 
 if __name__ == '__main__':
