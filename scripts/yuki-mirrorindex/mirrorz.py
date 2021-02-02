@@ -26,6 +26,16 @@ def iso(iso_orig: list) -> None:
             # now ustcmirror has no category and all iso are OS.
             i["category"] = "os"
 
+def size(bytes: int) -> str:
+    mib = bytes / 1024 / 1024
+    if mib < 1024:
+        return f"{mib:.2f} MiB"
+    gib = mib / 1024
+    if gib < 1024:
+        return f"{gib:.2f} GiB"
+    tib = gib / 1024
+    return f"{tib:.2f} TiB"
+
 
 def parse_content_meta(content_txt: str, meta: dict) -> dict:
     content_raw_list = content_txt.strip().split("\n")
@@ -72,13 +82,14 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
                     content_list[ind]["status"] += "O" + str(last_success)
             if next_run:
                 content_list[ind]["status"] += "X" + str(next_run)
+            content_list[ind]["size"] = size(i["size"])
             content_list[ind]["upstream"] = i["upstream"]
         except KeyError:
             print(f"failed to parse {i['name']}", file=sys.stderr)
     return content_list
 
 
-def disk_info(site):
+def disk_info(site: dict) -> None:
     lug_repo = subprocess.check_output("df -h | grep lug-repo | awk {'print $3, $2'}", shell=True).decode('utf-8')
     site['disk'] = lug_repo.replace(" ", "/")
 
