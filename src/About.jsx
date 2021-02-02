@@ -38,7 +38,6 @@ export default React.memo(({ site }) => {
           <li>More participating mirrors</li>
           <li>oh-my-mirrorz. One script to change all your mirrors. Ref to <a>http://github.com/tuna/oh-my-tuna</a></li>
           <li>Load Balancing Backend (hard). Ref to <a>http://github.com/tuna/mirrorhub</a></li>
-          <li>Dark mode</li>
           <li>i18n/l10n</li>
           <li>Static site generation for w3m (tty friendly frontend)</li>
           <li>mirrorz.json protocol/data format discussion and upgrade</li>
