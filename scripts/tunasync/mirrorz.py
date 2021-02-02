@@ -93,23 +93,15 @@ def size(num, suffix='B'):
         num /= 1024.0
     return "%.1f%s%s" % (num, 'Yi', suffix)
 
-def main():
+def generate(site, tunasync, info, _options, _cname, disk = None):
     global options
     global cname
-    if len(sys.argv) < 6:
-        print("help: mirrorz.py site.json tunasync.json isoinfo.json options.json cname.json [disk.json]")
-        sys.exit(0)
-    site = json.loads(open(sys.argv[1]).read())
-    # FIXME: multiple sync with the same name may occur, needs uniq()
-    tunasync = json.loads(open(sys.argv[2]).read())
-    info = json.loads(open(sys.argv[3]).read())
-    options = json.loads(open(sys.argv[4]).read())
-    cname = json.loads(open(sys.argv[5]).read())
+    options = _options
+    cname = _cname
     mirrorz = {}
 
     mirrorz["site"] = site
-    if len(sys.argv) > 6:
-        disk = json.loads(open(sys.argv[6]).read())
+    if disk is not None:
         mirrorz["site"]["disk"] = size(disk["used_kb"]) + " / " + size(disk["total_kb"])
 
     mirrorz["info"] = []
@@ -147,7 +139,14 @@ def main():
 
         mirrors.append(mirror)
     mirrorz["mirrors"] = mirrors
-    print(json.dumps(mirrorz))
+    return mirrorz
+
+def main():
+    if len(sys.argv) < 6:
+        print("help: mirrorz.py site.json tunasync.json isoinfo.json options.json cname.json [disk.json]")
+        sys.exit(0)
+    objects = [json.loads(open(arg).read()) for arg in sys.argv[1:7]]
+    print(json.dumps(generate(*objects)))
 
 if __name__ == '__main__':
     main()
