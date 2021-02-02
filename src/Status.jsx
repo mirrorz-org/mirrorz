@@ -59,14 +59,14 @@ export const statusSum = (array) => {
   return sum;
 };
 
-export const Summary = React.memo(({ sum, num = true }) => {
+export const Summary = React.memo(({ sum }) => {
   return (
     <h2 className="summary">
       {MAIN_STATUS.map((s) => { 
         if(sum.has(s) && sum.get(s) != 0)
           return (
             <span className={STATUS_CLASS_MAPPING[s]} key={s}>
-              {num && sum.get(s)}
+              sum.get(s)
               <Icon>{STATUS_ICON_MAPPING[s]}</Icon>
             </span>
           )

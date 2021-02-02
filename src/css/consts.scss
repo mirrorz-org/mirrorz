@@ -10,6 +10,7 @@ $list-header-bg: rgba(0,0,0,.05);
 $list-header-text: black;
 $desc: change-color($primary, $alpha: .2);
 $desc-missing: rgba(0,0,0,.38);
+$hline: rgb(23, 23, 23);
 
 $success: green;
 $failed: red;
@@ -27,5 +28,6 @@ $distro: 200px;
 $site-abbr: 300px;
 $column: 600px;
 $flexbox: 440px;
+$flexbox-wide-group: 600px;
 
 $mirrorz-logo: url("/static/img/mirrorz.svg");

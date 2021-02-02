@@ -74,6 +74,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * previous versions of this protocol could be found in git history; protocols in v1.x are back-ward compatible
 * `site` provides the global info about one MirrorS
 * only `site.url` and `site.abbr` are mandatory
+* `site.logo` should not be of format `ico`. Also, at least 64x64 resolution is required
 * `site.url` should not end with slash `/`
 * `info` is used for category view
 * the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`

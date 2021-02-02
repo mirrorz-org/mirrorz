@@ -45,8 +45,13 @@
 .urls {
   margin-top: calc(#{$category} + 20px);
   margin-left: calc(#{$distro} + 20px);
-  column-count: auto;
-  column-width: $column;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.urls li {
+  flex-basis: $flexbox-wide-group;
+  flex-grow: 1;
 }
 
 .urls a {
