@@ -55,6 +55,7 @@
 .status {
   font-size: 15px;
   line-height: 18px;
+  padding: 3px 0 2px 0;
 
   display: flex;
   align-items: center;
@@ -65,6 +66,10 @@
     width: 30px;
     color: $list-item-icon;
   }
+}
+
+.status-time {
+  padding-left: 5px;
 }
 
 .help {

@@ -75,6 +75,45 @@ export const Summary = React.memo(({ sum, num = true }) => {
   )
 });
 
+const absoluteFormat = (date) => {
+  // https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
+  const pad = (num, size) => {
+    num = num.toString();
+    while (num.length < size) num = "0" + num;
+    return num;
+  }
+  const offset = - date.getTimezoneOffset() / 60;
+  const offsetStr = offset > 0 ? '+' + offset.toString() : offset.toString();
+  return date.getFullYear().toString() + '-' +
+    pad(date.getMonth()+1, 2) + '-' + // month ranges from 0 to 11
+    pad(date.getDate(), 2) + ' ' +
+    pad(date.getHours(), 2) + ':' +
+    pad(date.getMinutes(), 2) + ':' +
+    pad(date.getSeconds(), 2) + ' UTC' + offsetStr;
+}
+
+const relativeFormat = (date) => {
+  const plural = (numf, str, prefix, suffix) => {
+    const num = Math.round(numf);
+    return prefix +
+      num.toString() + " " +
+      (num == 1 ? str : str + "s") +
+      suffix;
+  }
+  const agoF = (num, str) => plural(num, str, "", " ago");
+  const inF = (num, str) => plural(num, str, "in ", "");
+
+  const scale = [60, 60, 24, 30, 365, 1e15];
+  const scaleStr = ["second", "minute", "hour", "day", "month", "year"];
+  const now = new Date();
+  let offset = (now > date ? (now - date) : (date - now)) / 1000;
+  for (let i = 0; i != scale.length; ++i) {
+    if (offset < scale[i])
+      return now > date ? agoF(offset, scaleStr[i]) : inF(offset, scaleStr[i]);
+    offset /= scale[i];
+  }
+}
+
 export const StatusList = React.memo(({ mapper }) => {
   return (
     <div>
@@ -85,7 +124,10 @@ export const StatusList = React.memo(({ mapper }) => {
               <Icon>{STATUS_ICON_MAPPING[s]}</Icon>
               <div>{STATUS_TEXT_MAPPING[s]}</div>
               {mapper.get(s) != 0 && (
-                <div>{": " + mapper.get(s).toString()}</div>
+                <div className="status-time">
+                  <div>{"| " + absoluteFormat(new Date(mapper.get(s)*1000))}</div>
+                  <div>{"| " + relativeFormat(new Date(mapper.get(s)*1000))}</div>
+                </div>
               )}
             </div>
           )
