@@ -35,17 +35,17 @@ export default React.memo(({ site }) => {
       <Para title="Usage" content={(
         <ul>
           <li>The following urls are all valid.</li>
-          <li>https://mirrors.org/</li>
-          <li>https://mirrors.org/os/ArchLinux</li>
-          <li>https://mirrors.org/app/Git</li>
-          <li>https://mirrors.org/font</li>
-          <li>https://mirrors.org/list</li>
-          <li>https://mirrors.org/list?filter=%5B0-9%5D%2B</li>
-          <li>https://mirrors.org/list/AUR?filter=B</li>
-          <li>https://mirrors.org/site</li>
-          <li>https://mirrors.org/site/BFSU</li>
-          <li>https://mirrors.org/site/OpenTUNA/Y</li>
-          <li>https://mirrors.org/about</li>
+          <li>https://mirrorz.org/</li>
+          <li>https://mirrorz.org/os/ArchLinux</li>
+          <li>https://mirrorz.org/app/Git</li>
+          <li>https://mirrorz.org/font</li>
+          <li>https://mirrorz.org/list</li>
+          <li>https://mirrorz.org/list?filter=%5B0-9%5D%2B</li>
+          <li>https://mirrorz.org/list/AUR?filter=B</li>
+          <li>https://mirrorz.org/site</li>
+          <li>https://mirrorz.org/site/BFSU</li>
+          <li>https://mirrorz.org/site/OpenTUNA/Y</li>
+          <li>https://mirrorz.org/about</li>
         </ul>
       )} />
       <Para title="TODO and possible projects" content={(
