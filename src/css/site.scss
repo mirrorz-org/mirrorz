@@ -49,8 +49,22 @@
 
 .site-mirrors {
   margin-left: 30px;
-  column-count: auto;
-  column-width: $column;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-group {
+  flex-basis: $flexbox-wide-group;
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-bottom: $hline 1px solid;
+
+  &:hover {
+    background-color: $list-header-bg;
+  }
 }
 
 .site-meta {
@@ -78,3 +92,4 @@
 .meta-line {
   margin-left: 20px;
 }
+
