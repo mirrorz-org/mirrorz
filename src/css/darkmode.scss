@@ -1,0 +1,49 @@
+@media (prefers-color-scheme: dark) {
+  .sidebar,
+  .category,
+  .distro,
+  .site-abbr {
+    background: #1f1f1f;
+  }
+  .site-meta {
+    background: #333;
+  }
+  .meta-line > span {
+    color: #d2d2d2;
+  }
+  .urls,
+  body {
+    background: #393939;
+  }
+  .group a,
+  .upstream,
+  .desc {
+    color: #ececec;
+  }
+  h1,
+  h2,
+  h3,
+  .para-title-text,
+  .para-content {
+    color: #e0e0e0;
+  }
+  li::marker {
+    color: #a0a0a0;
+  }
+  .sidebar a:hover:not(.active) {
+    color: #ffffff;
+  }
+  .about {
+    background: #212121;
+  }
+  .para-title-icon,
+  .upstream .material-icons,
+  .upstream,
+  .size {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  a {
+    color: #6793cf /** tuna <a> color **/ !important;
+    filter: none !important;
+  }
+}
