@@ -10,7 +10,7 @@ const STATUS_TEXT_MAPPING = {
   F: 'Failed',
   P: 'Paused',
   U: 'Unknown',
-  O: 'Old Success',
+  O: 'Last Success',
   X: 'Next',
   N: 'New',
 };
