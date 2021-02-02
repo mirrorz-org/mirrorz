@@ -25,6 +25,7 @@
   "scripts": {
     "start": "parcel index.html 404.html",
     "build": "parcel build --no-source-maps index.html 404.html",
+    "postbuild": "cp -r static CNAME dist",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
   }
 }
