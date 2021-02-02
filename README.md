@@ -53,7 +53,8 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
       "url": "/AOSP",
       "status": "S",
       "help": "/help/AOSP/",
-      "upstream": "https://android.googlesource.com/mirror/manifest"
+      "upstream": "https://android.googlesource.com/mirror/manifest",
+      "size": "596G"
     },
     {
       "cname": "AUR",
@@ -72,6 +73,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * `version` is optional for version 1.x
 * previous versions of this protocol could be found in git history; protocols in v1.x are back-ward compatible
 * `site` provides the global info about one MirrorS
+* only `site.url` and `site.abbr` are mandatory
 * `site.url` should not end with slash `/`
 * `info` is used for category view
 * the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`
@@ -90,7 +92,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
   - `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
   - `O1600000000`: (auxiliary) old successful timestamp, used only when it is syncing or failed
 * `mirrors.help` may be empty, or the same rule as `mirrors.url`
-* `mirrors.upstream` may be empty
+* `mirrors.upstream`, `mirrors.size` may be empty
 
 ## Backend and Frontend
 
