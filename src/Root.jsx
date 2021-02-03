@@ -75,8 +75,12 @@ export default React.memo(() => {
     for (const mirror of MIRROR_URLS) initMirror(mirror);
 
     const interval = setInterval(() => {
-      for (const mirror of MIRROR_URLS) initMirror(mirror);
-    }, 60*1000);
+      console.log("Page", document.visibilityState);
+      if (document.visibilityState === "visible") {
+        console.log("Refresh data");
+        for (const mirror of MIRROR_URLS) initMirror(mirror);
+      }
+    }, 30*1000);
 
     return () => clearInterval(interval);
   }, []);

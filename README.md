@@ -23,7 +23,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
   "version": 1.2,
   "site": {
     "url": "https://example.org",
-    "logo": "https://example.org/favicon.ico",
+    "logo": "https://example.org/img/logo.svg",
     "abbr": "EXAMPLE",
     "name": "样例镜像站",
     "homepage": "https://blog.example.org",
