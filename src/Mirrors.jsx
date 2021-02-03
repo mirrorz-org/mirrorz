@@ -84,7 +84,10 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
 
 export default React.memo(({ mirrors }) => {
   const [filter, setFilter] = useState('');
+  // use filter only once, otherwise when filter changes by user input,
+  // filter would still be set by url
   const [filterInit, setFilterInit] = useState(false);
+  // FIXME: when status changes periodicly, we would scroll back
   const [unfolded, setUnfolded] = useState(null);
 
   // Clustering

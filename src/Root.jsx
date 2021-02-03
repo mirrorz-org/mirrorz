@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,9 +15,13 @@ const PROTO_REGEX = /(^https?:)?\/\//;
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
-  const [mirrors, setMirrors] = useState([]);
-  const [isoinfo, setIsoinfo] = useState([]);
-  const [site, setSite] = useState([]);
+  const [mirrors, setMirrors] = useState(new Map());
+  const [isoinfo, setIsoinfo] = useState(new Map());
+  const [site, setSite] = useState(new Map());
+
+  const mirrorsList = useMemo(() => Array.from(mirrors.values()).flat(), [mirrors]);
+  const isoinfoList = useMemo(() => Array.from(isoinfo.values()).flat(), [isoinfo]);
+  const siteList = useMemo(() => Array.from(site.values()).flat(), [site]);
 
   // Load all mirror configurations
   useEffect(() => {
@@ -47,9 +51,9 @@ export default React.memo(() => {
           };
         }
       );
-      setMirrors((original) => original.concat(parsed));
+      setMirrors((original) => new Map(original.set(url, parsed)));
 
-      setSite((original) => original.concat([{ site, parsed }]));
+      setSite((original) => new Map(original.set(url, [{ site, parsed }])));
 
       const fullinfo = info.map(({ category, distro, urls }) => {
         const fullUrls = urls.map(({ name, url }) => {
@@ -64,11 +68,17 @@ export default React.memo(() => {
           urls: fullUrls,
         };
       });
-      setIsoinfo((original) => original.concat(fullinfo));
+      setIsoinfo((original) => new Map(original.set(url, fullinfo)));
     }
 
-    // Fires and forget
+    // Fires
     for (const mirror of MIRROR_URLS) initMirror(mirror);
+
+    const interval = setInterval(() => {
+      for (const mirror of MIRROR_URLS) initMirror(mirror);
+    }, 60*1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const location = window.location;
@@ -112,16 +122,16 @@ export default React.memo(() => {
         <main>
           <Switch>
             <Route path="/list">
-              <Mirrors mirrors={mirrors} />
+              <Mirrors mirrors={mirrorsList} />
             </Route>
             <Route path="/site">
-              <Site site={site} />
+              <Site site={siteList} />
             </Route>
             <Route path="/about">
-              <About site={site} />
+              <About site={siteList} />
             </Route>
             <Route path="*">
-              <ISO isoinfo={isoinfo} />
+              <ISO isoinfo={isoinfoList} />
             </Route>
           </Switch>
         </main>
