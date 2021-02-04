@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
-import Icon from './Icon';
+import { Logo } from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 
 const MetaLine = React.memo(({ left, right, link = false }) => (
@@ -47,7 +47,7 @@ export default React.memo(({ site }) => {
         {site.map(({ site, parsed }, idx) => (
           <Link to={`${match.url}/${site.abbr.replace(/\s/g, '')}`} key={idx}>
             <div className={"group-header" + (site.abbr.replace(/\s/g, '') == curr ? " active" : "")} onClick={() => setCurr(site.abbr)}>
-              <img src={site.logo} className="logo"/>
+              <Logo site={site} className="logo"/>
               <h2 className="heading">
                 {site.abbr}
               </h2>

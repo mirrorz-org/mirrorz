@@ -14,16 +14,17 @@ For end users, this is not a good experience as they need to search for availabl
 
 To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
-## Data Format v1.2 (draft)
+## Data Format v1.3 (draft)
 
 Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the following fields.
 
 ```json
 {
-  "version": 1.2,
+  "version": 1.3,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/img/logo.svg",
+    "logo_darkmode": "https://example.org/img/logo-white.svg",
     "abbr": "EXAMPLE",
     "name": "样例镜像站",
     "homepage": "https://blog.example.org",
@@ -75,6 +76,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * `site` provides the global info about one MirrorS
 * only `site.url` and `site.abbr` are mandatory
 * `site.logo` should not be of format `ico`. Also, at least 64x64 resolution is required
+* `site.logo_darkmode` is used when browser uses dark mode. Note that it should be set only after `site.logo` is set
 * `site.url` should not end with slash `/`
 * `info` is used for category view
 * the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`

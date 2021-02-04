@@ -1,4 +1,5 @@
 import React from "react";
+import { Logo } from "./Icon";
 
 const Para = React.memo(({ title, content }) => {
   return (
@@ -25,9 +26,7 @@ export default React.memo(({ site }) => {
       )} />
       <Para title="Powered by" content={site.map(({ site, parsed }, idx) => (
           <div className="about-powered-by" key={site.abbr}>
-            {site.logo && site.logo !== "" &&
-              (<img src={site.logo} className="about-logo" title={site.abbr}/>)
-            }
+            <Logo site={site} className="about-logo"/>
             {site.abbr}
           </div>
         ))}
