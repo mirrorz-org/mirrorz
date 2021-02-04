@@ -12,9 +12,12 @@ $desc: change-color($primary, $alpha: .2);
 $desc-missing: rgba(0,0,0,.38);
 $hline: rgb(23, 23, 23);
 
+$jiegec: #4169e3;
+$tuna: #6793cf;
+
 $success: green;
 $failed: red;
-$syncing: blue;
+$syncing: $jiegec;
 $unknown: gray;
 $pause: gray;
 $new: cyan;
