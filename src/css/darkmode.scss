@@ -18,7 +18,7 @@
   .group a,
   .upstream,
   .desc {
-    color: #ececec;
+    color: #ececec !important;
   }
   h1,
   h2,
@@ -37,13 +37,28 @@
     background: #212121;
   }
   .para-title-icon,
-  .upstream .material-icons,
+  .para-title-text,
   .upstream,
-  .size {
+  .upstream .material-icons,
+  .size,
+  .size .material-icons,
+  .note,
+  .note .material-icons,
+  .status .material-icons {
     color: rgba(255, 255, 255, 0.7) !important;
   }
   a {
-    color: #6793cf /** tuna <a> color **/ !important;
+    color: $tuna /** tuna <a> color **/ !important;
     filter: none !important;
+  }
+
+  .oldsuccess {
+    color: pink;
+  }
+  .success {
+    color: lightgreen;
+  }
+  .failed {
+    color: gold;
   }
 }
