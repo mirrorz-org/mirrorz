@@ -23,7 +23,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
   "version": 1.2,
   "site": {
     "url": "https://example.org",
-    "logo": "https://example.org/favicon.ico",
+    "logo": "https://example.org/img/logo.svg",
     "abbr": "EXAMPLE",
     "name": "样例镜像站",
     "homepage": "https://blog.example.org",
@@ -32,7 +32,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
     "email": "admin@example.com",
     "group": "QQ: 10086 and/or Telegram @something",
     "disk": "may be any string showing usage of disk, e.g. usage",
-    "note": "may be any string",
+    "note": "may be any string; like speed limit or connection limit",
   },
   "info": [
     {
@@ -74,6 +74,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * previous versions of this protocol could be found in git history; protocols in v1.x are back-ward compatible
 * `site` provides the global info about one MirrorS
 * only `site.url` and `site.abbr` are mandatory
+* `site.logo` should not be of format `ico`. Also, at least 64x64 resolution is required
 * `site.url` should not end with slash `/`
 * `info` is used for category view
 * the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`

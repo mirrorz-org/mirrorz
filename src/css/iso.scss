@@ -1,15 +1,17 @@
 @import "./consts.scss";
 
+.iso {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
 .category {
-  margin: 0;
-  padding: 0;
-  top: 0;
-  left: 0;
-  position: fixed;
+  flex: 0 0 $category;
   height: $category;
   background-color: $bar-bg;
   width: 100%;
-  overflow: auto;
   z-index: 100;
 }
 
@@ -42,11 +44,31 @@
   color: $bar-text-hover;
 }
 
+.distro-urls-container {
+  height: calc(100% - #{$category});
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
 .urls {
-  margin-top: calc(#{$category} + 20px);
-  margin-left: calc(#{$distro} + 20px);
-  column-count: auto;
-  column-width: $column;
+  flex-shrink: 1;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.urls ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.urls li {
+  flex-basis: $flexbox-wide-group;
+  flex-grow: 1;
 }
 
 .urls a {
@@ -59,15 +81,11 @@
 }
 
 .distro {
-  margin: 0;
-  padding: 0;
-  top: 0;
-  left: 0;
-  position: fixed;
-  height: calc(100% - #{$category});
+  flex: 0 0 $distro;
+  height: 100%;
+  overflow-y: auto;
   background-color: $bar-bg;
   width: $distro;
-  overflow: auto;
   z-index: 100;
 }
 

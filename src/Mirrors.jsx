@@ -37,7 +37,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
         </div>
       </Link>
       <div className="group-items">
-        {collapse == false && entries.map(({ full, help, upstream, desc, status, source, size }, idx) => (
+        {collapse == false && entries.map(({ full, help, upstream, desc, status, source, size, note }, idx) => (
           <div key={idx}>
             <h3>
               <a href={full} target="_blank">
@@ -64,6 +64,12 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
                 {size}
               </div>
             )}
+            {note && (
+              <div className="note">
+                <Icon>note</Icon>
+                {note}
+              </div>
+            )}
             {desc ? (
               <div className="desc">{desc}</div>
             ) : (
@@ -78,7 +84,10 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
 
 export default React.memo(({ mirrors }) => {
   const [filter, setFilter] = useState('');
+  // use filter only once, otherwise when filter changes by user input,
+  // filter would still be set by url
   const [filterInit, setFilterInit] = useState(false);
+  // FIXME: when status changes periodicly, we would scroll back
   const [unfolded, setUnfolded] = useState(null);
 
   // Clustering
