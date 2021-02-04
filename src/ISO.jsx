@@ -40,27 +40,31 @@ export default React.memo(({ isoinfo }) => {
           </Link>
         ))}
       </div>
-      <div className="distro">
-        {[...allDistro].map(([d, c], idx) => {
-					const nc = c.replace(/\s/g, '');
-					const nd = d.replace(/\s/g, '');
-          if (category == nc)
-            return (
-              <Link to={`/${nc}/${nd}`} key={idx + nd} className={nd == distro ? "active" : ""}>
-                <h3>{d}</h3>
-              </Link>
-           )
-        })}
+      <div className="distro-urls-container">
+        <div className="distro">
+          {[...allDistro].map(([d, c], idx) => {
+            const nc = c.replace(/\s/g, '');
+            const nd = d.replace(/\s/g, '');
+            if (category == nc)
+              return (
+                <Link to={`/${nc}/${nd}`} key={idx + nd} className={nd == distro ? "active" : ""}>
+                  <h3>{d}</h3>
+                </Link>
+             )
+          })}
+        </div>
+        <div className="urls">
+          <ul>
+            {isoinfo.map((info, idx) => {
+              if(info.category.replace(/\s/g, '') != category || info.distro.replace(/\s/g, '') != distro)
+                return null;
+              return info.urls.map(({ name, url }) => (
+                <li key={idx + name}><a href={url}>{name}</a></li>
+              ));
+            })}
+          </ul>
+        </div>
       </div>
-      <ul className="urls">
-        {isoinfo.map((info, idx) => {
-          if(info.category.replace(/\s/g, '') != category || info.distro.replace(/\s/g, '') != distro)
-            return null;
-          return info.urls.map(({ name, url }) => (
-            <li key={idx + name}><a href={url}>{name}</a></li>
-          ));
-        })}
-      </ul>
     </div>
   );
 });
