@@ -2,18 +2,16 @@
 @import "./fonts.scss";
 
 .about {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
-	overflow: hidden;
+  overflow-y: auto;
   z-index: 0;
-	position: relative;
 }
 
 .about::before, {
-	content: " ";
-	display: block;
+  content: " ";
+  display: block;
   position: absolute;
-	padding: 30px 30px 30px 30px;
   left: 0;
   top: 0;
   width: 100%;
@@ -22,8 +20,8 @@
   background-image: $mirrorz-logo;
   background-repeat: no-repeat;
   background-size: 90% 90%;
-	background-attachment: fixed;
-	background-position: center;
+  background-attachment: fixed;
+  background-position: center;
   opacity: 0.1;
 }
 
@@ -42,7 +40,7 @@
 .para-title-icon {
   font-size: 50px;
   line-height: 50px;
-	text-align: center;
+  text-align: center;
   width: 50px;
   color: $list-item-icon;
 }

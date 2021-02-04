@@ -5,12 +5,12 @@
   padding: 0;
   top: 0;
   left: 0;
-  width: $sidebar;
+  min-width: $sidebar;
   background-color: $bar-bg;
-  position: fixed;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
   z-index: 100;
+  flex: 0 0 auto;
 }
 
 /* Sidebar links */
@@ -42,41 +42,21 @@
   color: $bar-text-hover;
 }
 
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-main,
-.search,
-.category,
-.site-abbr {
-  margin-left: $sidebar !important;
-  margin-top: 0 !important;
-}
-
-.distro {
-  margin-left: $sidebar !important;
-  margin-top: $sidebar !important;
-}
-
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
+  #app-container {
+    flex-direction: column;
+  }
   .sidebar {
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: $sidebar;
+    height: auto; /* may be two line */
+    min-height: $sidebar;
+  }
+  main {
+    max-height: unset !important;
+    height: unset !important;
   }
   .sidebar a {
     float: left;
-  }
-  main,
-  .search,
-  .category,
-  .site-abbr {
-    margin-left: 0 !important;
-    margin-top: $sidebar !important;
-  }
-  .distro {
-    margin-left: 0px !important;
-    margin-top: calc(#{$sidebar} + #{$category}) !important;
   }
 }
