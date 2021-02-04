@@ -70,7 +70,9 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
                 ind = content_hash[name.lower().split(".")[0]]  # fix repo name like "kubernetes.apt"
             next_run = i.get("nextRun")
             last_success = i.get("lastSuccess")
-            if i["syncing"]:
+            if next_run < 0:
+                content_list[ind]["status"] = "P"  # negative next_run means cron date set to 2/30 or 2/31 (unreachable)
+            elif i["syncing"]:
                 content_list[ind]["status"] = "Y" + str(i.get("prevRun"))
                 if last_success:
                     content_list[ind]["status"] += "O" + str(last_success)
@@ -80,7 +82,7 @@ def parse_content_meta(content_txt: str, meta: dict) -> dict:
                 content_list[ind]["status"] = "F" + str(i.get("prevRun"))
                 if last_success:
                     content_list[ind]["status"] += "O" + str(last_success)
-            if next_run:
+            if next_run > 0:
                 content_list[ind]["status"] += "X" + str(next_run)
             content_list[ind]["size"] = size(i["size"])
             content_list[ind]["upstream"] = i["upstream"]
