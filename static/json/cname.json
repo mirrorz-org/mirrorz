@@ -53,5 +53,6 @@
   "Kali Linux": "Kali",
   "Debian（含非自由固件）": "Debian non-free",
   "openSUSE Leap": "openSUSE",
-  "openSUSE Tumbleweed": "openSUSE"
+  "openSUSE Tumbleweed": "openSUSE",
+  "node": "nodejs-release"
 }
