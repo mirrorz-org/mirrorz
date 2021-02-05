@@ -21,6 +21,8 @@ jobs:
         run: yarn --frozen-lockfile
       - name: Build
         run: yarn build
+      - name: Legacy page build
+        run: yarn legacy_build
       - name: Commit and publish
         if: ${{ github.ref == 'refs/heads/master' }}
         env: 
