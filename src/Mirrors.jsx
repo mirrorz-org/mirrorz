@@ -20,9 +20,9 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
 
   return (
     <div className={"group" + (filtered ? " filtered" : "") + (collapse ? "" : " group-expanded")}>
-      <Link to={`${match.url}/${group.replace(/\s/g, '')}`}>
+      <Link to={`${match.url}/${encodeURIComponent(group)}`}>
         <div className="group-header" id={group} onClick={toggleCollapse}>
-          <Element name={group.replace(/\s/g, '')}>
+          <Element name={group}>
             <h2 className="heading">
               {collapse ?
                 (<Icon>add</Icon>) :
@@ -156,7 +156,7 @@ export default React.memo(({ mirrors }) => {
     const pathnames = location.pathname.split("/")
     if (pathnames.length < 3) // "", "list", "repo"
       return;
-    const group = pathnames[2];
+    const group = decodeURIComponent(pathnames[2]);
     setUnfolded(group);
     scroller.scrollTo(group, {
       duration: 500,
