@@ -1,0 +1,69 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a(href='/_/')
+          h2 ISO
+        a(href='/_/list')
+          h2 List
+        a(href='/_/site')
+          h2 Site
+        a.active(aria-current='page',href='/_/about')
+          h2 About
+      main
+        .about
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text Intro
+            .para-content Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text Repo
+            .para-content
+              a(href='https://github.com/tuna/mirrorz', target='_blank') https://github.com/tuna/mirrorz
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text Powered by
+            .para-content
+              each d in site_list
+                .about-powered-by
+                  img.about-logo(src=d.site.logo, title=d.site.abbr)
+                  = d.site.abbr
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text Usage
+            .para-content
+              ul
+                li The following urls are all valid.
+                li https://mirrorz.org/_
+                li https://mirrorz.org/_os/ArchLinux
+                li https://mirrorz.org/_app/Git
+                li https://mirrorz.org/_font
+                li https://mirrorz.org/_list
+                li https://mirrorz.org/_site
+                li https://mirrorz.org/_site/BFSU
+                li https://mirrorz.org/_site/OpenTUNA
+                li https://mirrorz.org/_about
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text TODO and possible projects
+            .para-content
+              ul
+                li More participating mirrors
+                li
+                  | oh-my-mirrorz. One script to change all your mirrors. Ref to 
+                  a(href='http://github.com/tuna/oh-my-tuna', target='_blank') http://github.com/tuna/oh-my-tuna
+                li
+                  | Load Balancing Backend (hard). Ref to 
+                  a(href='http://github.com/tuna/mirrorhub', target='_blank') http://github.com/tuna/mirrorhub
+                li Mobile browser support
+                li i18n/l10n
+                li Static site generation for w3m (tty friendly frontend)
+                li mirrorz.json protocol/data format discussion and upgrade

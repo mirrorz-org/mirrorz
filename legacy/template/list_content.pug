@@ -1,0 +1,39 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a(href='/_/')
+          h2 ISO
+        a.active(aria-current='page',href='/_/list')
+          h2 List
+        a(href='/_/site')
+          h2 Site
+        a(href='/_/about')
+          h2 About
+      main
+        .mirrorz
+          .mirrors
+            .group
+              .group-items
+                each d in data
+                  div
+                    h3
+                      a(href=d.url, target='_blank')=d.site.abbr
+                      if d.help
+                        a.help(href=d.help, target='_blank')
+                          i.material-icons help
+                    p=d.url
+                    .upstream
+                      i.material-icons outbound
+                      = d.upstream
+                    .size
+                      i.material-icons save
+                      = d.size
+                    if d.site.note
+                      .note
+                        i.material-icons note
+                        = d.site.note
+                    .desc
+                      = d.desc

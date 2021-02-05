@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
+    "pug": "^3.0.0",
     "react": "17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -25,6 +27,7 @@
   "scripts": {
     "start": "parcel index.html 404.html",
     "build": "parcel build --no-source-maps index.html 404.html",
+    "legacy_build": "node ./legacy/generator.js",
     "postbuild": "cp -r static CNAME dist",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
   }

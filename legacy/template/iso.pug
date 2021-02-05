@@ -1,0 +1,34 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a.active(aria-current='page', href='/_/')
+          h2 ISO
+        a(href='/_/list')
+          h2 List
+        a(href='/_/site')
+          h2 Site
+        a(href='/_/about')
+          h2 About
+      main
+        .iso
+          .category
+            a(href='/_/os',class=(navbar_active === 'os' ? 'active' : ''))
+              h2 os
+            a(href='/_/app',class=(navbar_active === 'app' ? 'active' : ''))
+              h2 app
+            a(href='/_/font',class=(navbar_active === 'font' ? 'active' : ''))
+              h2 font
+          .distro-urls-container
+            .distro
+              each d in sidebar
+                a(href=d.url,class=(distro_name === d.name ? 'active' : ''))
+                  h3=d.name
+            .urls
+              ul
+                each d in data
+                  li
+                    a(href=d.url)
+                      =d.name

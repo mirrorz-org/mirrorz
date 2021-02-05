@@ -1,0 +1,60 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a(href='/_/_/')
+          h2 ISO
+        a(href='/_/list')
+          h2 List
+        a.active(aria-current='page',href='/_/site')
+          h2 Site
+        a(href='/_/about')
+          h2 About
+      main
+        .site
+          .site-abbr
+            each d in sidebar
+              a(href=d.url)
+                div(class=(d.active ? 'group-header active' : 'group-header'))
+                  img.logo(src=d.logo, title='TUNA.NEO')
+                  h2.heading=d.abbr
+          .site-content
+            .site-meta
+              .meta-line
+                span.meta-left URL:
+                a(href=data.site.url)
+                  span.meta-right=data.site.url
+              .meta-line
+                span.meta-left Name:
+                span.meta-right=data.site.name
+              .meta-line
+                span.meta-left Homepage:
+                a(href=data.site.homepage)
+                  span.meta-right=data.site.homepage
+              .meta-line
+                span.meta-left Disk:
+                span.meta-right=data.site.disk
+              .meta-line
+                span.meta-left Issue:
+                a(href=data.site.issue)
+                  span.meta-right=data.site.request
+              .meta-line
+                span.meta-left Mirror Request:
+                a(href=data.site.issue)
+                  span.meta-right=data.site.request
+              .meta-line
+                span.meta-left Email:
+                span.meta-right=data.site.email
+              .meta-line
+                span.meta-left Group:
+                span.meta-right=data.site.group
+              if(data.site.note)
+                .meta-line
+                  span.meta-left Note:
+                  span.meta-right=data.site.note
+            .site-mirrors
+              each d in data.mirrors
+                .site-group
+                  h2.heading=d.cname
