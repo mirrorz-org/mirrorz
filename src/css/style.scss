@@ -7,6 +7,10 @@
 @import "./site.scss";
 @import "./about.scss";
 
+:root {
+  color-scheme: light dark;
+}
+
 html {
   height: 100%;
 }
