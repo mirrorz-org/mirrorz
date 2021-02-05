@@ -37,7 +37,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
         </div>
       </Link>
       <div className="group-items">
-        {collapse == false && entries.map(({ full, help, upstream, desc, status, source, size, note }, idx) => (
+        {collapse == false && entries.sort((a, b) => a.source.localeCompare(b.source)).map(({ full, help, upstream, desc, status, source, size, note }, idx) => (
           <div key={idx}>
             <h3>
               <a href={full} target="_blank">

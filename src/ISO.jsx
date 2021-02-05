@@ -4,7 +4,7 @@ import Icon from './Icon';
 
 export default React.memo(({ isoinfo }) => {
   const [category, setCategory] = useState('os');
-  const [distro, setDistro] = useState('Ubuntu');
+  const [distro, setDistro] = useState('Alpine');
 
   const [allCat, allDistro] = useMemo(() => {
     const allCat = [];
@@ -42,7 +42,7 @@ export default React.memo(({ isoinfo }) => {
       </div>
       <div className="distro-urls-container">
         <div className="distro">
-          {[...allDistro].map(([d, c], idx) => {
+          {[...allDistro].sort((a, b) => a[0].localeCompare(b[0])).map(([d, c], idx) => {
             const nc = c.replace(/\s/g, '');
             const nd = d.replace(/\s/g, '');
             if (category == nc)
