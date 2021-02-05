@@ -132,17 +132,33 @@ yarn start
 
 to start a local server.
 
-For other frontend, like tuna-stylish frontend, they should be added using permlink like `/tuna/`.
+To use static files, 404 redirection (emulate Github pages) and legacy pages, one may use
+
+```
+yarn --frozen-lockfile
+yarn full_start
+```
+
+to start a local server. Python3 is required in this case.
 
 ### Deployment
 
-Currently CI is not deployed.
-
-One should copy all the contents of `dist` into the root of distribution repo; also, the directory `static` and file `CNAME` should be copied.
+For dynamic web page part, only
 
 ```
-cp dist/* CNAME -r static dst/
+yarn build
 ```
+
+is required.
+
+However if one also wants to deploy the static web page, one may use
+
+```
+yarn build
+yarn legacy_build
+```
+
+Note that `legacy_build` has dependencies on files `yarn build` has made.
 
 ### Misc
 
