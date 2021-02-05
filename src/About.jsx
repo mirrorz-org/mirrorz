@@ -45,6 +45,10 @@ export default React.memo(({ site }) => {
           <li>https://mirrorz.org/site/BFSU</li>
           <li>https://mirrorz.org/site/OpenTUNA/Y</li>
           <li>https://mirrorz.org/about</li>
+          <li>The following urls are for static webpage, you can use w3m/lynx to view them</li>
+          <li>https://mirrorz.org/_/</li>
+          <li>https://mirrorz.org/_/about</li>
+          <li>More usage of static webpage is documented in the above url</li>
         </ul>
       )} />
       <Para title="TODO and possible projects" content={(
