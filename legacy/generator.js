@@ -27,9 +27,14 @@ async function handle(){
     let dd = []
     // 这里可能会下载失败，可能要再改改
     await asyncForEach(require('../src/config/mirrors'),async url=>{
-        console.log('downloading',url)
-        let data = await fetch(url)
-        dd.push(await data.json())
+        try {
+            console.log('downloading',url)
+            let data = await fetch(url)
+            dd.push(await data.json())
+        } catch (error) {
+            // 这里没有用 .error 怕整个ci炸
+            console.log('download error',url)
+        }
     })
     dd.forEach(s=>{
         // 补全 / （后面发现不用补
@@ -89,7 +94,6 @@ async function handle(){
             distro_name: name,
             data: data
         })
-        console.log(`../dist/_/${isolist_category[id]}/${name.replace(/ /ig,'')}/index.html`)
         wf(`../dist/_/${isolist_category[id]}/${name.replace(/ /ig,'')}/index.html`,html)
         // 下面三个默认为 /os /app /font 的首页。
         if(['Ubuntu','Git','Adobe Source'].indexOf(name) > -1){
