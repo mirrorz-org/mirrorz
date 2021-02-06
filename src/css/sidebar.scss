@@ -1,7 +1,7 @@
 @import "./consts.scss";
 
 .sidebar {
-  margin: 0;
+  margin: 0 5px 0 0;
   padding: 0;
   top: 0;
   left: 0;
@@ -23,11 +23,12 @@
   display: block;
   color: $bar-text;
   text-decoration: none;
-  margin: 0;
-  width: $sidebar;
-  height: $sidebar;
+  border-radius: 5px;
+  width: $sidebar -2px;
+  height: $sidebar -2px;
   text-align: center;
   line-height: $sidebar;
+  margin: 2px;
 }
 
 /* Active/current link */
@@ -40,6 +41,10 @@
 .sidebar a:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
+  width: $sidebar - 7px;
+  height: $sidebar - 7px;
+  margin: 4.5px;
+  transition: all 0.2s;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */

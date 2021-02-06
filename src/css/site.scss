@@ -27,9 +27,10 @@
   display: block;
   color: $bar-text;
   text-decoration: none;
-  margin: 0;
+  margin: 2px 0 2px 0;
   padding: 25px;
   float: top;
+  border-radius: 5px;
 }
 
 /* Active/current link */
@@ -42,16 +43,24 @@
 .site-abbr .group-header:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
+  transition: all 0.2s;
 }
 
 .site-content {
   width: auto;
   max-height: 100%;
+  margin: 0 0 0 5px;
   overflow-y: auto;
+  background-color: $bar-bg;
+}
+
+.site-meta {
+  padding: 30px 10px 30px 10px;
+  background-color: $bar-bg;
 }
 
 .site-mirrors {
-  margin-left: 30px;
+  padding: 0 15px 0 15px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -70,14 +79,10 @@
   }
 }
 
-.site-meta {
-  padding: 30px 20px 30px 0;
-  background-color: $bar-bg;
-}
-
 .logo {
   display: block;
   height: 24pt;
+  filter: drop-shadow(0 0 3px $site-logo-shadow);
 }
 
 .meta-left {
