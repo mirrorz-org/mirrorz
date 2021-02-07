@@ -12,7 +12,8 @@
   height: $category;
   background-color: $bar-bg;
   width: 100%;
-  z-index: 100;
+  z-index: 2;
+  box-shadow: $shadow 0 3px 6px;
 }
 
 .category h2 {
@@ -86,7 +87,8 @@
   overflow-y: auto;
   background-color: $bar-bg;
   width: $distro;
-  z-index: 100;
+  z-index: 1;
+  box-shadow: $shadow 3px 0 6px;
 }
 
 .distro h3 {

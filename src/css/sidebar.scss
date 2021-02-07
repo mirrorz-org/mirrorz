@@ -9,8 +9,9 @@
   background-color: $bar-bg;
   height: 100%;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 3;
   flex: 0 0 auto;
+  box-shadow: $shadow 3px 0 6px;
 }
 
 /* Sidebar links */
