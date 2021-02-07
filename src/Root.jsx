@@ -111,7 +111,7 @@ export default React.memo(() => {
               return false;
             }}
           >
-            <h2>ISO</h2>
+            <img src="static/img/mirrorz.svg" className="sidebar-logo"/>
           </NavLink>
           <NavLink to="/list" activeClassName="active">
             <h2>List</h2>

@@ -21,14 +21,14 @@
 
 .sidebar a {
   filter: none;
-  display: block;
   color: $bar-text;
   text-decoration: none;
   margin: 0;
   width: $sidebar;
   height: $sidebar;
-  text-align: center;
-  line-height: $sidebar;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Active/current link */
