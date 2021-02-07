@@ -13,7 +13,8 @@
   width: $site-abbr;
   flex-shrink: 0;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 2;
+  box-shadow: $shadow 3px 0 6px;
 
   a {
     text-decoration: none;
@@ -73,6 +74,8 @@
 .site-meta {
   padding: 30px 20px 30px 0;
   background-color: $bar-bg;
+  z-index: 1;
+  box-shadow: $shadow 0px 3px 6px;
 }
 
 .logo {

@@ -15,7 +15,8 @@
 
   height: $search;
   background: $search-bg;
-  z-index: 100;
+  z-index: 1;
+  box-shadow: $shadow 0 3px 6px;
   border-top: $primary 5px solid;
 
   display: flex;
