@@ -22,6 +22,9 @@ body {
   width: 100%;
   max-height: 100%;
   max-width: 100%;
+  /* without it, with box-shadow in darkmode scroller would be bright */
+  /* introduced by commit 00b0c2b */
+  overflow: hidden;
   @include sans;
 }
 
