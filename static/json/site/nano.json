@@ -8,5 +8,6 @@
     "request": "https://github.com/tuna/issues",
     "email": "support at tuna dot tsinghua dot edu dot cn",
     "group": "#tuna at freenode; https://groups.google.com/forum/#!forum/tuna-general",
-    "note": "NANO 是镜像站一台服务器的名称"
+    "note": "NANO 是镜像站一台服务器的名称",
+    "big": "/speedtest/1000mb.bin"
 }

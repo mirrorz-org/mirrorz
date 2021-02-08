@@ -49,6 +49,8 @@ export default React.memo(({ site }) => {
           <li>https://mirrorz.org/_/</li>
           <li>https://mirrorz.org/_/about</li>
           <li>More usage of static webpage is documented in the above url</li>
+          <li>https://mirrorz.org/oh-my-mirrorz.py</li>
+          <li>Use the above script for speed test!</li>
         </ul>
       )} />
       <Para title="TODO and possible projects" content={(
