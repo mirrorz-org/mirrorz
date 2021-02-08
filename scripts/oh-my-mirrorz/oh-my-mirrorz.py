@@ -43,15 +43,15 @@ def site_info(url):
 def speed_test(url):
     res = subprocess.run(['curl', '-qso', '/dev/null', '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
     code, speed = res.stdout.decode('utf-8').split()
-    return int(code), int(speed)
+    return int(code), float(speed)
 
-def human_readable_speed(kbps):
+def human_readable_speed(speed):
     scale = ['B/s', 'KiB/s', 'MiB/s', 'GiB/s', 'TiB/s']
     i = 0
-    while (kbps > 1024):
+    while (speed > 1024.0):
         i += 1
-        kbps /= 1024.0
-    return f'{kbps:.2f} {scale[i]}'
+        speed /= 1024.0
+    return f'{speed:.2f} {scale[i]}'
    
 def main():
     if check_curl() != 0:
