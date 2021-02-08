@@ -4,7 +4,7 @@ A script for speed testing for each mirrors providing mirrorz service.
 
 ## How to use
 
-Make sure you have `curl` installed. Also at least Python 3.5 is required.
+Make sure you have `curl` installed. Also at least Python 3.5 is required, and `requests` package is installed.
 
 ```
 curl -O https://mirrorz.org/oh-my-mirrorz.py
