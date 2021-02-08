@@ -6,11 +6,21 @@ A script for speed testing for each mirrors providing mirrorz service.
 
 Make sure you have `curl` installed. Also at least Python 3.5 is required, and `requests` package is installed.
 
+Use
+
+```
+curl https://mirrorz.org/oh-my-mirrorz.py | python3
+```
+
+or
+
 ```
 curl -O https://mirrorz.org/oh-my-mirrorz.py
 chmod +x ./oh-my-mirrorz.py
 ./oh-my-mirrorz.py
 ```
+
+If you get stuck when loading meta data, you may issue `Ctrl+C` to skip one mirrors.
 
 ## Proxy
 
