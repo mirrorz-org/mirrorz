@@ -8,6 +8,8 @@ Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
 
 Also legacy webpages (for w3m and noscript users) are provided in [https://mirrorz.org/\_/](https://mirrorz.org/_/)
 
+A speed test script [oh-my-mirrorz.py](https://mirrorz.org/oh-my-mirrorz.py) is also provided. See [README](scripts/oh-my-mirrorz/README.md) to more info.
+
 ## Intro
 
 MirrorS are heterogeneous. It is hard for a single mirror to provide all mirrors, so differences occur.
@@ -16,13 +18,13 @@ For end users, this is not a good experience as they need to search for availabl
 
 To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
-## Data Format v1.3 (draft)
+## Data Format v1.4 (draft)
 
 Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the following fields.
 
 ```json
 {
-  "version": 1.3,
+  "version": 1.4,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/img/logo.svg",
@@ -36,6 +38,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
     "group": "QQ: 10086 and/or Telegram @something",
     "disk": "may be any string showing usage of disk, e.g. usage",
     "note": "may be any string; like speed limit or connection limit",
+    "big": "/speedtest/1000mb.bin"
   },
   "info": [
     {
@@ -62,7 +65,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
     {
       "cname": "AUR",
       "desc": "Arch Linux 用户软件库",
-      "url": "https://aur.tuna.tsinghua.edu.cn/",
+      "url": "https://aur.tuna.tsinghua.edu.cn",
       "status": "S1612195849X1612196849N",
       "help": "/help/AUR/",
       "upstream": "https://aur.archlinux.org/"
@@ -80,6 +83,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 * `site.logo` should not be of format `ico`. Also, at least 64x64 resolution is required
 * `site.logo_darkmode` is used when browser uses dark mode. Note that it should be set only after `site.logo` is set
 * `site.url` should not end with slash `/`
+* `site.big` should be a valid url to a big file, used by `oh-my-mirrorz.py` for speed testing
 * `info` is used for category view
 * the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`
 * `mirrors` is used for list view
