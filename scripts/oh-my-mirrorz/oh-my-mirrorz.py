@@ -41,7 +41,10 @@ def site_info(url):
     return requests.get(url, timeout=10).json()
 
 def speed_test(url):
-    res = subprocess.run(['curl', '-qso', '/dev/null', '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
+    if (sys.platform.startswith('win32')):
+        res = subprocess.run(['curl', '-qso', 'NUL', '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
+    else:
+        res = subprocess.run(['curl', '-qso', '/dev/null', '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
     code, speed = res.stdout.decode('utf-8').split()
     return int(code), float(speed)
 
