@@ -51,8 +51,15 @@
   overflow-y: auto;
 }
 
+.site-meta {
+  padding: 30px 10px;
+  background-color: $bar-bg;
+  z-index: 1;
+  box-shadow: $shadow 0px 3px 6px;
+}
+
 .site-mirrors {
-  margin-left: 30px;
+  padding: 0 15px 0 15px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -71,16 +78,10 @@
   }
 }
 
-.site-meta {
-  padding: 30px 20px 30px 0;
-  background-color: $bar-bg;
-  z-index: 1;
-  box-shadow: $shadow 0px 3px 6px;
-}
-
 .logo {
   display: block;
   height: 24pt;
+  filter: drop-shadow(0 0 3px $site-logo-shadow);
 }
 
 .meta-left {
