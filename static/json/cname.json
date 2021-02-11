@@ -54,5 +54,6 @@
   "Debian（含非自由固件）": "Debian non-free",
   "openSUSE Leap": "openSUSE",
   "openSUSE Tumbleweed": "openSUSE",
-  "node": "nodejs-release"
+  "node": "nodejs-release",
+  "sites/tldp.org": "tldp"
 }
