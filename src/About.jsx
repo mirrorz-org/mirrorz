@@ -57,11 +57,10 @@ export default React.memo(({ site }) => {
       <Para title="TODO and possible projects" content={(
         <ul>
           <li>More participating mirrors</li>
-          <li>oh-my-mirrorz. One script to change all your mirrors. Ref to <a href="http://github.com/tuna/oh-my-tuna" target="_blank">http://github.com/tuna/oh-my-tuna</a></li>
+          <li>oh-my-mirrorz. One script to change all your mirrors (currently only speedtest was implemented). Ref to <a href="http://github.com/tuna/oh-my-tuna" target="_blank">http://github.com/tuna/oh-my-tuna</a></li>
           <li>Load Balancing Backend (hard). Ref to <a href="http://github.com/tuna/mirrorhub" target="_blank">http://github.com/tuna/mirrorhub</a></li>
           <li>Mobile browser support</li>
           <li>i18n/l10n</li>
-          <li>Static site generation for w3m (tty friendly frontend)</li>
           <li>mirrorz.json protocol/data format discussion and upgrade</li>
         </ul>
       )} />
