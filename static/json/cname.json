@@ -54,5 +54,12 @@
   "Debian（含非自由固件）": "Debian non-free",
   "openSUSE Leap": "openSUSE",
   "openSUSE Tumbleweed": "openSUSE",
-  "node": "nodejs-release"
+  "node": "nodejs-release",
+  "sites/tldp.org": "tldp",
+  "github/GNS3": "GNS3",
+  "nix-channels/store": "nix-channels",
+  "mx-packages": "mxlinux",
+  "mx-isos": "mxlinux-isos",
+  "dragonflybsd/dports": "dragonflybsd-dports",
+  "dragonflybsd/iso-images": "dragonflybsd-iso-images"
 }
