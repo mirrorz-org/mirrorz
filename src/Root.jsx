@@ -20,8 +20,8 @@ export default React.memo(() => {
   const [site, setSite] = useState(new Map());
 
   const mirrorsList = useMemo(() => Array.from(mirrors.values()).flat(), [mirrors]);
-  const isoinfoList = useMemo(() => Array.from(isoinfo.values()).flat(), [isoinfo]);
-  const siteList = useMemo(() => Array.from(site.values()).flat(), [site]);
+  const isoinfoList = useMemo(() => Array.from(isoinfo.values()), [isoinfo]);
+  const siteList = useMemo(() => Array.from(site.values()), [site]);
 
   // Load all mirror configurations
   useEffect(() => {
@@ -53,12 +53,12 @@ export default React.memo(() => {
       );
       setMirrors((original) => new Map(original.set(url, parsed)));
 
-      setSite((original) => new Map(original.set(url, [{ site, parsed }])));
+      setSite((original) => new Map(original.set(url, { site, parsed })));
 
       const fullinfo = info.map(({ category, distro, urls }) => {
         const fullUrls = urls.map(({ name, url }) => {
           return {
-            name: name + " [" + site.abbr + "]",
+            name: name,
             url: url.match(PROTO_REGEX) ? url : site.url + url,
           };
         });
@@ -68,7 +68,7 @@ export default React.memo(() => {
           urls: fullUrls,
         };
       });
-      setIsoinfo((original) => new Map(original.set(url, fullinfo)));
+      setIsoinfo((original) => new Map(original.set(url, { site, info: fullinfo })));
     }
 
     // Fires

@@ -9,14 +9,14 @@ export default React.memo(({ isoinfo }) => {
   const [allCat, allDistro] = useMemo(() => {
     const allCat = [];
     const allDistro = new Map();
-    isoinfo.map(({ distro, category }) => {
+    isoinfo.map(({ info }) => {info.map(({ category, distro }) => {
       if (!allCat.includes(category)) {
         allCat.push(category); // used for display
       }
       if (!allDistro.has(distro)) {
         allDistro.set(distro, category); // used for display
       }
-    });
+    })});
     return [allCat, allDistro];
   }, [isoinfo]);
 
@@ -54,15 +54,31 @@ export default React.memo(({ isoinfo }) => {
           })}
         </div>
         <div className="urls">
-          <ul>
-            {isoinfo.map((info, idx) => {
-              if(info.category.replace(/\s/g, '') != category || info.distro.replace(/\s/g, '') != distro)
+          {
+            isoinfo.map(({ site, info }, idx) => {
+              const i = info.map((i) => {
+                if(i.category.replace(/\s/g, '') != category || i.distro.replace(/\s/g, '') != distro)
+                  return null;
+                return (
+                  <div key={site.abbr}>
+                    <h3>{site.abbr}</h3>
+                    <ul>
+                      {i.urls.map(({ name, url }) => (
+                        <li key={idx + name}><a href={url}>{name}</a></li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }).filter((e) => e !== null);
+              if (i.length == 0)
                 return null;
-              return info.urls.map(({ name, url }) => (
-                <li key={idx + name}><a href={url}>{name}</a></li>
-              ));
-            })}
-          </ul>
+              return (
+                <div key={site.abbr}>
+                  {i}
+                </div>
+              );
+            }).filter((e) => e !== null)
+          }
         </div>
       </div>
     </div>
