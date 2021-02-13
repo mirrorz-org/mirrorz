@@ -44,7 +44,7 @@ export default React.memo(({ site }) => {
   return (
     <div className="site">
       <div className="site-abbr">
-        {site.sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)).map(({ site, parsed }, idx) => (
+        {site.map(({ site, parsed }, idx) => (
           <Link to={`${match.url}/${site.abbr.replace(/\s/g, '')}`} key={idx}>
             <div className={"group-header" + (site.abbr.replace(/\s/g, '') == curr ? " active" : "")} onClick={() => setCurr(site.abbr)}>
               <Logo site={site} className="logo"/>

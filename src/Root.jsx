@@ -20,8 +20,8 @@ export default React.memo(() => {
   const [site, setSite] = useState(new Map());
 
   const mirrorsList = useMemo(() => Array.from(mirrors.values()).flat(), [mirrors]);
-  const isoinfoList = useMemo(() => Array.from(isoinfo.values()), [isoinfo]);
-  const siteList = useMemo(() => Array.from(site.values()), [site]);
+  const isoinfoList = useMemo(() => Array.from(isoinfo.values()).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)), [isoinfo]);
+  const siteList = useMemo(() => Array.from(site.values()).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)), [site]);
 
   // Load all mirror configurations
   useEffect(() => {
