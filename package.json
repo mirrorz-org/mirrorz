@@ -21,8 +21,7 @@
     "pug": "^3.0.0",
     "react": "17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scroll": "^1.8.1"
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "debug_build": "parcel build index.html 404.html",
