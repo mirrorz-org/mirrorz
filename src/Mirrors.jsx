@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch, useHistory } from "react-router-dom";
-import { Element, scroller } from 'react-scroll';
 import Icon from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 
@@ -22,15 +21,13 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
     <div className={"group" + (filtered ? " filtered" : "") + (collapse ? "" : " group-expanded")}>
       <Link to={`${match.url}/${encodeURIComponent(group)}`}>
         <div className="group-header" id={group} onClick={toggleCollapse}>
-          <Element name={group}>
-            <h2 className="heading">
-              {collapse ?
-                (<Icon>add</Icon>) :
-                (<Icon>remove</Icon>)
-              }
-              {group}
-            </h2>
-          </Element>
+          <h2 className="heading">
+            {collapse ?
+              (<Icon>add</Icon>) :
+              (<Icon>remove</Icon>)
+            }
+            {group}
+          </h2>
           <div>
             {summary}
           </div>
@@ -84,11 +81,10 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
 
 export default React.memo(({ mirrors }) => {
   const [filter, setFilter] = useState('');
-  // use filter only once, otherwise when filter changes by user input,
+  // set filter only once, namely from url,
+  // otherwise when url changes by user interaction (use filter, click on group),
   // filter would still be set by url
   const [filterInit, setFilterInit] = useState(false);
-  // FIXME: when status changes periodicly, we would scroll back
-  const [unfolded, setUnfolded] = useState(null);
 
   // Clustering
   const grouped = useMemo(() => {
@@ -102,11 +98,12 @@ export default React.memo(({ mirrors }) => {
   }, [mirrors]);
 
   const history = useHistory();
+  const match = useRouteMatch();
 
   const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
   const uploadFilter = useCallback((ev) => {
     if (ev.key === 'Enter')
-      history.push({ search: "?filter=" + encodeURIComponent(ev.target.value) });
+      history.push(`${match.url}/${encodeURIComponent(ev.target.value)}`);
   }, []);
 
   const regex = useMemo(() => {
@@ -135,7 +132,7 @@ export default React.memo(({ mirrors }) => {
         if (!filtered)
           index = m.index;
       }
-      return { ...e, filtered, index, defaultCollapse: unfolded !== e.group };
+      return { ...e, filtered, index, defaultCollapse: filter !== e.group };
     })
     .sort((a, b) => {
       if (a.index == b.index)
@@ -146,23 +143,17 @@ export default React.memo(({ mirrors }) => {
   console.log(`Sort`, end - begin);
 
   const location = useLocation();
-  const query = new URLSearchParams(location.search);
   useEffect(() => {
-    if (query.get("filter") && !filterInit) {
-      // use url filter only once
-      setFilterInit(true);
-      setFilter(decodeURIComponent(query.get("filter")));
-    }
     const pathnames = location.pathname.split("/")
-    if (pathnames.length < 3) // "", "list", "repo"
+    if (filterInit)
       return;
-    const group = decodeURIComponent(pathnames[2]);
-    setUnfolded(group);
-    scroller.scrollTo(group, {
-      duration: 500,
-      smooth: true,
-      offset: -220, // TODO: use the real header height
-    });
+    // use url filter only once
+    setFilterInit(true);
+    let filter = "";
+    if (pathnames.length < 3) // "", "list", "filter"
+      return;
+    filter = decodeURIComponent(pathnames[2]);
+    setFilter(filter);
   }, [location, filtered]);
 
   return (

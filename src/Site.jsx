@@ -25,18 +25,18 @@ const Meta = React.memo(({ site }) => (
 ));
 
 export default React.memo(({ site }) => {
-  const [curr, setCurr] = useState("BFSU"); // w/o whitespaces
+  const [curr, setCurr] = useState(""); // w/o whitespaces
   const [stat, setStat] = useState(""); // get filter from url
 
   const location = useLocation();
   useEffect(() => {
     const pathnames = location.pathname.split("/")
-    if (pathnames.length < 3)
-      return;
-    setCurr(pathnames[2]);
+    if (pathnames.length < 3 || pathnames[2] == "")
+      setCurr("BFSU");
+    else setCurr(pathnames[2]);
     if (pathnames.length < 4)
-      return;
-    setStat(pathnames[3]);
+      setStat("");
+    else setStat(pathnames[3]);
   }, [location]);
 
   const match = useRouteMatch();

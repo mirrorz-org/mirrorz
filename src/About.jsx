@@ -39,8 +39,8 @@ export default React.memo(({ site }) => {
           <li>https://mirrorz.org/app/Git</li>
           <li>https://mirrorz.org/font</li>
           <li>https://mirrorz.org/list</li>
-          <li>https://mirrorz.org/list?filter=%5B0-9%5D%2B</li>
-          <li>https://mirrorz.org/list/AUR?filter=B</li>
+          <li>https://mirrorz.org/list/pypi</li>
+          <li>https://mirrorz.org/list/%5B0-9%5D%2B</li>
           <li>https://mirrorz.org/site</li>
           <li>https://mirrorz.org/site/BFSU</li>
           <li>https://mirrorz.org/site/OpenTUNA/Y</li>

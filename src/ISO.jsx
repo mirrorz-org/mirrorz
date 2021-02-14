@@ -28,8 +28,8 @@ const Urls = React.memo(({ isoinfo, category, distro }) => {
 });
 
 export default React.memo(({ isoinfo }) => {
-  const [category, setCategory] = useState('');
-  const [distro, setDistro] = useState('');
+  const [category, setCategory] = useState("");
+  const [distro, setDistro] = useState("");
 
   const [allCat, allDistro] = useMemo(() => {
     const allCat = [];
@@ -49,10 +49,10 @@ export default React.memo(({ isoinfo }) => {
   useEffect(() => {
     const pathnames = location.pathname.split("/") // "" "os" "Ubuntu"
     if (pathnames[1] == "")
-      setCategory('os');
+      setCategory("os");
     else setCategory(pathnames[1]);
     if (pathnames.length < 3)
-      setDistro('');
+      setDistro("");
     else setDistro(pathnames[2]);
   }, [location, isoinfo]);
 
