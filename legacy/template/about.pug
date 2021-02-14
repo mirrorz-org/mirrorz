@@ -5,7 +5,7 @@ html
     #app-container
       .sidebar
         a(href='/_/')
-          h2 ISO
+          img.sidebar-logo(src='/static/img/mirrorz.svg',alt='ISO')
         a(href='/_/list')
           h2 List
         a(href='/_/site')
@@ -30,7 +30,7 @@ html
               .para-title-icon #
               .para-title-text Powered by
             .para-content
-              each d in site_list
+              each d in sites
                 .about-powered-by
                   img.about-logo(src=d.site.logo, title=d.site.abbr)
                   = d.site.abbr
@@ -50,6 +50,11 @@ html
                 li https://mirrorz.org/_/site/BFSU
                 li https://mirrorz.org/_/site/OpenTUNA
                 li https://mirrorz.org/_/about
+                li More usage of static webpage is documented in the above url
+                li https://mirrorz.org/oh-my-mirrorz.py
+                li Use the above script for speed test!
+                li
+                  code curl https://mirrorz.org/oh-my-mirrorz.py | python3
           .para
             .para-title
               .para-title-icon #
@@ -58,12 +63,11 @@ html
               ul
                 li More participating mirrors
                 li
-                  | oh-my-mirrorz. One script to change all your mirrors. Ref to 
+                  | oh-my-mirrorz. One script to change all your mirrors (currently only speedtest was implemented). Ref to 
                   a(href='http://github.com/tuna/oh-my-tuna', target='_blank') http://github.com/tuna/oh-my-tuna
                 li
                   | Load Balancing Backend (hard). Ref to 
                   a(href='http://github.com/tuna/mirrorhub', target='_blank') http://github.com/tuna/mirrorhub
                 li Mobile browser support
                 li i18n/l10n
-                li Static site generation for w3m (tty friendly frontend)
                 li mirrorz.json protocol/data format discussion and upgrade

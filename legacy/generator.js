@@ -9,7 +9,7 @@ let isolist_category = []
 
 let mlist = []
 let mlist_name = []
-let site_list = []
+let sites = []
 // 写 头 这里直接借了编译好的 css svg
 let head = fs.readFileSync(__dirname + '/template/head.pug.tempest')
 fs.readdirSync(__dirname + '/../dist/').map(f=>{
@@ -24,38 +24,43 @@ fs.readdirSync(__dirname + '/../dist/').map(f=>{
 fs.writeFileSync(__dirname + '/template/head.pug',head)
 handle()
 async function handle(){
-    let dd = []
+    
     // 这里可能会下载失败，可能要再改改
     await asyncForEach(require('../src/config/mirrors'),async url=>{
         try {
             console.log('downloading',url)
             let data = await fetch(url)
-            dd.push(await data.json())
+            sites.push(await data.json())
         } catch (error) {
             // 这里没有用 .error 怕整个ci炸
             console.log('download error',url)
         }
     })
-    dd.forEach(s=>{
+    sites.forEach((s,sid)=>{
         // 补全 / （后面发现不用补
         let base_url = s.site.url// + (s.site.url.substr(-1,1) !== '/' ? '/' : '')
-        /* 安排 /iso */
+        // 安排 /iso
         s.info.forEach((info,id)=>{
             let i = isolist_name.indexOf(info.distro)
             if(isolist_name.indexOf(info.distro) == -1){
                 i = isolist_name.length
                 isolist_name.push(info.distro)
                 isolist_category.push(info.category)
-                isolist[i] = []
             }
-            isolist[i] = isolist[i].concat((info.urls.map(u=>{
-                return {
-                    url: base_url + u.url,
-                    name: u.name + ` [${s.site.abbr}]`
-                }
-            })))
+            if(isolist[i] === undefined)
+                isolist[i] = []
+            if(isolist[i][sid] === undefined)
+                isolist[i].push({
+                    abbr: s.site.abbr,
+                    data: info.urls.map(u=>{
+                        return {
+                            url: base_url + u.url,
+                            name: u.name
+                        }
+                    })
+                })
         })
-        /* 安排 /list */
+        //安排 /list
         s.mirrors.forEach(m=>{
             let i = mlist_name.indexOf(m.cname)
             if(mlist_name.indexOf(m.cname) == -1){
@@ -74,9 +79,9 @@ async function handle(){
                 m.desc = '无可奉告'
             mlist[i].push(m)
         })
-        site_list.push(s)
     })
     isolist.forEach((data,id)=>{
+        data = data.sort((a, b) => a.abbr.localeCompare(b.abbr))
         let category = isolist_category[id]
         let name = isolist_name[id]
         let html = pug.compileFile('./legacy/template/iso.pug')({
@@ -89,20 +94,12 @@ async function handle(){
                     name: n.trim(),
                     active: n == name
                 }
-            }).filter(x=>{return x}),
+            }).filter(x=>{return x}).sort((a, b) => a.name.localeCompare(b.name)),
             navbar_active: isolist_category[id],
             distro_name: name,
             data: data
         })
         wf(`../dist/_/${isolist_category[id]}/${name.replace(/ /ig,'')}/index.html`,html)
-        // 下面三个默认为 /os /app /font 的首页。
-        if(['Ubuntu','Git','Adobe Source'].indexOf(name) > -1){
-            // ubuntu 默认为 / 首页
-            if(name == 'Ubuntu'){
-                wf(`../dist/_/index.html`,html)
-            }
-            wf(`../dist/_/${isolist_category[id]}/index.html`,html)
-        }
     })
     // 生成 /list
     wf(`../dist/_/list/index.html`,pug.compileFile('./legacy/template/list.pug')({
@@ -111,36 +108,56 @@ async function handle(){
                 name: m.trim(),
                 url: `/_/list/${m.replace(/ /ig,'')}`
             }
+        }).sort((a, b) => a.name.localeCompare(b.name))
+    }));
+    // 上面的 ; 是一定要的 不然会报错（（（
+    // 生成 /os /app /font /
+    ['os','app','font'].forEach(category=>{
+        let html = pug.compileFile('./legacy/template/iso_index.pug')({
+            sidebar: isolist_name.map(n=>{
+                let tid = isolist_name.indexOf(n)
+                if(category != isolist_category[tid])
+                    return false
+                return {
+                    url: `/_/${isolist_category[tid]}/${n.replace(/ /ig,'')}`,
+                    name: n.trim()
+                }
+            }).filter(x=>{return x}).sort((a, b) => a.name.localeCompare(b.name)),
+            navbar_active: category
         })
-    }))
+        wf(`../dist/_/${category}/index.html`,html)
+        if(category == 'os')
+            wf(`../dist/_/index.html`,html)
+    })
     // /list/*/
     mlist.forEach((data,id)=>{
         let name = mlist_name[id]
         let html = pug.compileFile('./legacy/template/list_content.pug')({
             name: name,
-            data: data
+            data: data.sort((a, b) => a.site.abbr.localeCompare(b.site.abbr))
         })
         wf(`../dist/_/list/${name.replace(/ /ig,'')}/index.html`,html)
     })
-    site_list.forEach((data,id)=>{
+    sites.forEach((data,id)=>{
         let html = pug.compileFile('./legacy/template/site.pug')({
             data: data,
-            sidebar: site_list.map(n=>{
+            sidebar: sites.map(n=>{
                 return {
                     url: `/_/site/${n.site.abbr}`,
                     abbr: n.site.abbr,
                     logo: n.site.logo,
                     active: n.site.abbr == data.site.abbr
                 }
-            }),
+            }).sort((a, b) => a.abbr.localeCompare(b.abbr)),
         })
-        if(id == 0){
+        // 目前 BFSU 是排最前的 所以就钦定你是 /site 首页了
+        if(data.site.name == 'BFSU'){
             wf(`../dist/_/site/index.html`,html)
         }
         wf(`../dist/_/site/${data.site.abbr}/index.html`,html)
     })
     wf(`../dist/_/about/index.html`,pug.compileFile('./legacy/template/about.pug')({
-        site_list: site_list
+        sites: sites.sort((a, b) => a.site.abbr.localeCompare(b.site.abbr))
     }))
 }
 // 随便写的垃圾函数 其实应该 import 个 path 处理 subpath
@@ -157,6 +174,6 @@ function wf(path,data){
 }
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
+    await callback(array[index], index, array)
   }
 }

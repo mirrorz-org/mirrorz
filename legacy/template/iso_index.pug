@@ -24,16 +24,8 @@ html
           .distro-urls-container
             .distro
               each d in sidebar
-                a(href=d.url,class=(distro_name === d.name ? 'active' : ''))
+                a(href=d.url)
                   h3=d.name
             .urls
-              each dd in data
-                div
-                  div
-                    h3=dd.abbr
-                    div
-                      ul
-                        each d in dd.data
-                          li
-                            a(href=d.url)
-                              =d.name
+              .logo-404
+                div='Select one ' + navbar_active + ' from the sidebar'
