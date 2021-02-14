@@ -151,7 +151,7 @@ async function handle(){
             }).sort((a, b) => a.abbr.localeCompare(b.abbr)),
         })
         // 目前 BFSU 是排最前的 所以就钦定你是 /site 首页了
-        if(data.site.name == 'BFSU'){
+        if(data.site.abbr == 'BFSU'){
             wf(`../dist/_/site/index.html`,html)
         }
         wf(`../dist/_/site/${data.site.abbr}/index.html`,html)
