@@ -22,8 +22,11 @@ const Urls = React.memo(({ isoinfo, category, distro }) => {
       return null;
     return (<div key={site.abbr}>{i}</div>);
   }).filter((e) => e !== null);
-  if (i.length == 0)
-    return (<Logo404 logo={distro != ''} str={"Select one " + category + " from the sidebar"}/>)
+  if (i.length == 0) {
+    if (category !== "os" && category !== "app" && category !== "font")
+      return (<Logo404 logo={distro != ''} str={"Select one from the sidebar"}/>);
+    else return  (<Logo404 logo={distro != ''} str={"Select one " + category + " from the sidebar"}/>);
+  }
   else return i;
 });
 
