@@ -20,3 +20,12 @@ export const Logo = React.memo(({ site, className }) => {
       </picture>
     );
 });
+
+export const Logo404 = React.memo(({ logo, str }) => {
+  return (
+    <div className="logo-404">
+      {logo && (<img src="/static/img/mirrorz-404.svg"></img>)}
+      <div>{str}</div>
+    </div>
+  )
+});
