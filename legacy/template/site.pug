@@ -22,35 +22,43 @@ html
                   h2.heading=d.abbr
           .site-content
             .site-meta
-              .meta-line
-                span.meta-left URL:
-                a(href=data.site.url)
-                  span.meta-right=data.site.url
-              .meta-line
-                span.meta-left Name:
-                span.meta-right=data.site.name
-              .meta-line
-                span.meta-left Homepage:
-                a(href=data.site.homepage)
-                  span.meta-right=data.site.homepage
-              .meta-line
-                span.meta-left Disk:
-                span.meta-right=data.site.disk
-              .meta-line
-                span.meta-left Issue:
-                a(href=data.site.issue)
-                  span.meta-right=data.site.request
-              .meta-line
-                span.meta-left Mirror Request:
-                a(href=data.site.issue)
-                  span.meta-right=data.site.request
-              .meta-line
-                span.meta-left Email:
-                span.meta-right=data.site.email
-              .meta-line
-                span.meta-left Group:
-                span.meta-right=data.site.group
-              if(data.site.note)
+              if data.site.url
+                .meta-line
+                  span.meta-left URL:
+                  a(href=data.site.url)
+                    span.meta-right=data.site.url
+              if data.site.name
+                .meta-line
+                  span.meta-left Name:
+                  span.meta-right=data.site.name
+              if data.site.homepage
+                .meta-line
+                  span.meta-left Homepage:
+                  a(href=data.site.homepage)
+                    span.meta-right=data.site.homepage
+              if data.site.disk
+                .meta-line
+                  span.meta-left Disk:
+                  span.meta-right=data.site.disk
+              if data.site.issue
+                .meta-line
+                  span.meta-left Issue:
+                  a(href=data.site.issue)
+                    span.meta-right=data.site.issue
+              if data.site.request
+                .meta-line
+                  span.meta-left Mirror Request:
+                  a(href=data.site.issue)
+                    span.meta-right=data.site.request
+              if data.site.email
+                .meta-line
+                  span.meta-left Email:
+                  span.meta-right=data.site.email
+              if data.site.group
+                .meta-line
+                  span.meta-left Group:
+                  span.meta-right=data.site.group
+              if data.site.note
                 .meta-line
                   span.meta-left Note:
                   span.meta-right=data.site.note

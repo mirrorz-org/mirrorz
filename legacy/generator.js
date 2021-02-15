@@ -84,7 +84,7 @@ async function handle(){
         data = data.sort((a, b) => a.abbr.localeCompare(b.abbr))
         let category = isolist_category[id]
         let name = isolist_name[id]
-        let html = pug.compileFile('./legacy/template/iso.pug')({
+        let html = pug.compileFile('./legacy/template/iso_content.pug')({
             sidebar: isolist_name.map(n=>{
                 let tid = isolist_name.indexOf(n)
                 if(category != isolist_category[tid])
@@ -102,7 +102,7 @@ async function handle(){
         wf(`../dist/_/${isolist_category[id]}/${name.replace(/ /ig,'')}/index.html`,html)
     })
     // 生成 /list
-    wf(`../dist/_/list/index.html`,pug.compileFile('./legacy/template/list.pug')({
+    wf(`../dist/_/list/index.html`,pug.compileFile('./legacy/template/list_index.pug')({
         data: mlist_name.map(m=>{
             return {
                 name: m.trim(),
