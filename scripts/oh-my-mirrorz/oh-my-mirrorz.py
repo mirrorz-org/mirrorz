@@ -5,6 +5,7 @@
 import subprocess
 import requests
 import sys
+import os
 
 big = {
     'centos': '/8/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso',
@@ -42,10 +43,7 @@ def site_info(url):
     return requests.get(url, timeout=10).json()
 
 def speed_test(url):
-    null = '/dev/null'
-    if (sys.platform.startswith('win32')):
-        null = 'NUL'
-    res = subprocess.run(['curl', '-qso', null, '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
+    res = subprocess.run(['curl', '-qso', os.devnull, '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
     code, speed = res.stdout.decode('utf-8').split()
     return int(code), float(speed)
 
