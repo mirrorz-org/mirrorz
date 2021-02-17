@@ -19,6 +19,8 @@ export const Logo = React.memo(({ site, className }) => {
         <img src={logo} title={site.abbr} className={className} />
       </picture>
     );
+  else
+    return (<div></div>);
 });
 
 export const Logo404 = React.memo(({ logo, str }) => {
