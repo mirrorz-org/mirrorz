@@ -67,11 +67,9 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
                 {note}
               </div>
             )}
-            {desc ? (
+            {desc && (
               <div className="desc">{desc}</div>
-            ) : (
-                <div className="desc missing">无可奉告</div>
-              )}
+            )}
           </div>
         ))}
       </div>
