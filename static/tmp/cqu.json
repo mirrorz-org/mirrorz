@@ -1,0 +1,489 @@
+{
+    "site": {
+        "url": "https://mirrors.cqu.edu.cn",
+        "logo": "https://mirrors.cqu.edu.cn/static/img/favicon.png",
+        "abbr": "CQU",
+        "name": "重庆大学开源镜像站",
+        "issue": "https://github.com/cqumirror/feedback"
+    },
+    "info": [
+        {
+            "distro": "Arch Linux",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/archlinux/iso/"
+                }
+            ]
+        },
+        {
+            "distro": "Debian",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/debian-cd/"
+                }
+            ]
+        },
+        {
+            "distro": "CentOS",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/centos/"
+                }
+            ]
+        },
+        {
+            "distro": "Ubuntu",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/ubuntu-releases/"
+                }
+            ]
+        },
+        {
+            "distro": "Deepin",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/deepin-cd/"
+                }
+            ]
+        },
+        {
+            "distro": "fedora",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/fedora/releases/"
+                }
+            ]
+        },
+        {
+            "distro": "kali",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/kali-images/"
+                }
+            ]
+        },
+        {
+            "distro": "opensuse",
+            "category": "os",
+            "urls": [
+                {
+                    "name": "all",
+                    "url": "/opensuse/distribution/"
+                }
+            ]
+        },
+        {
+            "distro": "TeX 排版系统",
+            "category": "app",
+            "urls": [
+                {
+                    "name": "TeX Live (Windows & Linux)",
+                    "url": "/CTAN/systems/texlive/Images/"
+                },
+                {
+                    "name": "MacTeX (macOS)",
+                    "url": "/CTAN/systems/mac/mactex/"
+                },
+                {
+                    "name": "MikTeX (Windows)",
+                    "url": "/CTAN/systems/win32/miktex/setup/"
+                }
+            ]
+        }
+    ],
+    "mirrors": [
+        {
+            "cname": "CPAN",
+            "desc": "",
+            "url": "/CPAN",
+            "status": "S1613582871",
+            "help": "",
+            "upstream": "rsync://cpan-rsync.perl.org/CPAN/",
+            "size": "unknown"
+        },
+        {
+            "cname": "CRAN",
+            "desc": "",
+            "url": "/CRAN",
+            "status": "S1613581929",
+            "help": "",
+            "upstream": "https://cran.r-project.org",
+            "size": "unknown"
+        },
+        {
+            "cname": "CTAN",
+            "desc": "",
+            "url": "/CTAN",
+            "status": "S1613582882",
+            "help": "",
+            "upstream": "rsync://rsync.dante.ctan.org/CTAN/",
+            "size": "unknown"
+        },
+        {
+            "cname": "MX_ISOs",
+            "desc": "",
+            "url": "/MX_ISOs",
+            "status": "S1613582468",
+            "help": "",
+            "upstream": "rsync://downstreamtestuser@rsync-mxlinux.org::MX-Linux/",
+            "size": "unknown"
+        },
+        {
+            "cname": "MX_Linux",
+            "desc": "",
+            "url": "/MX_Linux",
+            "status": "S1613582534",
+            "help": "",
+            "upstream": "rsync://iso.mxrepo.com/workspace/",
+            "size": "unknown"
+        },
+        {
+            "cname": "UbuntuKylin_release",
+            "desc": "",
+            "url": "/UbuntuKylin_release",
+            "status": "S1613582434",
+            "help": "",
+            "upstream": "rsync://service.ubuntukylin.com",
+            "size": "unknown"
+        },
+        {
+            "cname": "alpine",
+            "desc": "",
+            "url": "/alpine",
+            "status": "Y",
+            "help": "",
+            "upstream": "rsync://package.alpinelinux.org/",
+            "size": "unknown"
+        },
+        {
+            "cname": "archlinux",
+            "desc": "",
+            "url": "/archlinux",
+            "status": "S1613581628",
+            "help": "",
+            "upstream": "rsync://jpn.mirror.pkgbuild.com/",
+            "size": "unknown"
+        },
+        {
+            "cname": "archlinuxarm",
+            "desc": "",
+            "url": "/archlinuxarm",
+            "status": "S1613582421",
+            "help": "",
+            "upstream": "rsync://ftp.tku.edu.tw",
+            "size": "unknown"
+        },
+        {
+            "cname": "archlinuxcn",
+            "desc": "",
+            "url": "/archlinuxcn",
+            "status": "S1613582491",
+            "help": "",
+            "upstream": "rsync://sync.repo.archlinuxcn.org/repo/",
+            "size": "unknown"
+        },
+        {
+            "cname": "centos",
+            "desc": "",
+            "url": "/centos",
+            "status": "Y",
+            "help": "",
+            "upstream": "rsync://ftp.osuosl.org/centos/",
+            "size": "unknown"
+        },
+        {
+            "cname": "ceph",
+            "desc": "",
+            "url": "/ceph",
+            "status": "F1613582887O1584132393",
+            "help": "",
+            "upstream": "http://hk.ceph.com/",
+            "size": "unknown"
+        },
+        {
+            "cname": "cygwin",
+            "desc": "",
+            "url": "/cygwin",
+            "status": "S1613582531",
+            "help": "",
+            "upstream": "rsync://rsync.osuosl.org/cygwin/",
+            "size": "unknown"
+        },
+        {
+            "cname": "dart-archive",
+            "desc": "",
+            "url": "/dart-archive",
+            "status": "S1613582851",
+            "help": "",
+            "upstream": "",
+            "size": "unknown"
+        },
+        {
+            "cname": "debian-cd",
+            "desc": "",
+            "url": "/debian-cd",
+            "status": "S1613581557",
+            "help": "",
+            "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/debian-cd/",
+            "size": "unknown"
+        },
+        {
+            "cname": "deb-multimedia",
+            "desc": "",
+            "url": "/debian-multimedia",
+            "status": "S1613582460",
+            "help": "",
+            "upstream": "rsync://mirror.mephi.ru/debian-multimedia/",
+            "size": "unknown"
+        },
+        {
+            "cname": "debian-security",
+            "desc": "",
+            "url": "/debian-security",
+            "status": "S1613582624",
+            "help": "",
+            "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/debian-security/",
+            "size": "unknown"
+        },
+        {
+            "cname": "debian",
+            "desc": "",
+            "url": "/debian",
+            "status": "S1613582440",
+            "help": "",
+            "upstream": "rsync://ftp.cn.debian.org/debian/",
+            "size": "unknown"
+        },
+        {
+            "cname": "deepin-cd",
+            "desc": "",
+            "url": "/deepin-cd",
+            "status": "S1613582422",
+            "help": "",
+            "upstream": "rsync://rsync.deepin.com/releases/",
+            "size": "unknown"
+        },
+        {
+            "cname": "deepin",
+            "desc": "",
+            "url": "/deepin",
+            "status": "S1613582619",
+            "help": "",
+            "upstream": "rsync://rsync.deepin.com/deepin/",
+            "size": "unknown"
+        },
+        {
+            "cname": "download.dartlang.org",
+            "desc": "",
+            "url": "/download.dartlang.org",
+            "status": "S1613582230",
+            "help": "",
+            "upstream": "flutter-io.cn",
+            "size": "unknown"
+        },
+        {
+            "cname": "epel",
+            "desc": "",
+            "url": "/epel",
+            "status": "F1613582599O1613580104",
+            "help": "",
+            "upstream": "rsync://dl.fedoraproject.org/fedora-epel",
+            "size": "unknown"
+        },
+        {
+            "cname": "fedora",
+            "desc": "",
+            "url": "/fedora",
+            "status": "S1613582411",
+            "help": "",
+            "upstream": "rsync://ftp.riken.jp//fedora/",
+            "size": "unknown"
+        },
+        {
+            "cname": "flutter_infra",
+            "desc": "",
+            "url": "/flutter_infra",
+            "status": "S1613582593",
+            "help": "",
+            "upstream": "",
+            "size": "unknown"
+        },
+        {
+            "cname": "gnu",
+            "desc": "",
+            "url": "/gnu",
+            "status": "F1613582732O1613581151",
+            "help": "",
+            "upstream": "rsync://mirrors.ocf.berkeley.edu/gnu/",
+            "size": "unknown"
+        },
+        {
+            "cname": "hackage",
+            "desc": "",
+            "url": "/hackage",
+            "status": "S1613582596",
+            "help": "",
+            "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/hackage/",
+            "size": "unknown"
+        },
+        {
+            "cname": "homebrew",
+            "desc": "",
+            "url": "/homebrew",
+            "status": "S1613582707",
+            "help": "",
+            "upstream": "https://github.com/Homebrew/homebrew-core.git",
+            "size": "unknown"
+        },
+        {
+            "cname": "kali-images",
+            "desc": "",
+            "url": "/kali-images",
+            "status": "S1613582629",
+            "help": "",
+            "upstream": "rsync://archive.linux.duke.edu/kali-images/",
+            "size": "unknown"
+        },
+        {
+            "cname": "kali-security",
+            "desc": "",
+            "url": "/kali-security",
+            "status": "S1613582599",
+            "help": "",
+            "upstream": "rsync://archive.linux.duke.edu/kali-security/",
+            "size": "unknown"
+        },
+        {
+            "cname": "kali",
+            "desc": "",
+            "url": "/kali",
+            "status": "S1613582848",
+            "help": "",
+            "upstream": "rsync://archive.linux.duke.edu/kali/",
+            "size": "unknown"
+        },
+        {
+            "cname": "kernel",
+            "desc": "",
+            "url": "/kernel",
+            "status": "S1613582618",
+            "help": "",
+            "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/kernel/",
+            "size": "unknown"
+        },
+        {
+            "cname": "kicad",
+            "desc": "",
+            "url": "/kicad",
+            "status": "S1613582566",
+            "help": "",
+            "upstream": "",
+            "size": "unknown"
+        },
+        {
+            "cname": "linux-stable.git",
+            "desc": "",
+            "url": "/linux-stable.git",
+            "status": "Y",
+            "help": "",
+            "upstream": "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git",
+            "size": "unknown"
+        },
+        {
+            "cname": "linux.git",
+            "desc": "",
+            "url": "/linux.git",
+            "status": "S1613581586",
+            "help": "",
+            "upstream": "https://github.com/torvalds/linux.git",
+            "size": "unknown"
+        },
+        {
+            "cname": "linuxmint",
+            "desc": "",
+            "url": "/linuxmint",
+            "status": "S1613582573",
+            "help": "",
+            "upstream": "rsync://rsync.mirrors.ustc.edu.cn/linuxmint/",
+            "size": "unknown"
+        },
+        {
+            "cname": "manjaro",
+            "desc": "",
+            "url": "/manjaro",
+            "status": "S1613582585",
+            "help": "",
+            "upstream": "rsync://mirrors.ocf.berkeley.edu/manjaro/",
+            "size": "unknown"
+        },
+        {
+            "cname": "opensuse",
+            "desc": "",
+            "url": "/opensuse",
+            "status": "Y",
+            "help": "",
+            "upstream": "rsync://ftp.riken.jp/opensuse/",
+            "size": "unknown"
+        },
+        {
+            "cname": "pub-dev",
+            "desc": "",
+            "url": "/pub-dev",
+            "status": "U",
+            "help": "",
+            "upstream": "",
+            "size": "unknown"
+        },
+        {
+            "cname": "pypi",
+            "desc": "",
+            "url": "/pypi",
+            "status": "U",
+            "help": "",
+            "upstream": "",
+            "size": "unknown"
+        },
+        {
+            "cname": "raspbian",
+            "desc": "",
+            "url": "/raspbian",
+            "status": "Y",
+            "help": "",
+            "upstream": "rsync://rsync.mirrors.ustc.edu.cn/raspbian/",
+            "size": "unknown"
+        },
+        {
+            "cname": "ubuntu-releases",
+            "desc": "",
+            "url": "/ubuntu-releases",
+            "status": "S1613582432",
+            "help": "",
+            "upstream": "rsync://rsync.releases.ubuntu.com/releases/",
+            "size": "unknown"
+        },
+        {
+            "cname": "ubuntu",
+            "desc": "",
+            "url": "/ubuntu",
+            "status": "S1613581672",
+            "help": "",
+            "upstream": "rsync://archive.ubuntu.com/ubuntu/",
+            "size": "unknown"
+        }
+    ]
+}
