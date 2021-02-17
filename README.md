@@ -105,7 +105,7 @@ Each MirrorS participating in MirrorZ should provide a `mirrorz.json` with the f
 
 ## Backend and Frontend
 
-For each MirrorS, it should provide a json file of the above format (recommended name `mirrorz.json`) and allow CORS of `mirrorz.org` on that file (CORS on all domains is recommended as some other sites may also use this; and useful for debuging).
+For each MirrorS, it should either provide a json file of the above format (recommended name `mirrorz.json`) and allow CORS of `mirrorz.org` on that file (CORS on all domains is recommended as some other sites may also use this; and useful for debuging); Or negotiate with MirrorZ and provide a frontend crawler/parser transforming their own data format to `mirrorz.json`.
 
 MirrorS may provide `mirrorz.json` using their mirror servers, or any other valid url that reflects the real-time status of their mirror. For example, for TUNA-series MirrorS, a CloudFlare worker is deployed (currently another server `status.tuna.wiki` is used instead of CF worker as it is slow on generating json file).
 
