@@ -33,7 +33,7 @@ export default React.memo(() => {
         ({ cname, url, help, size, desc, upstream, status }) => {
           const fullUrl = url.match(PROTO_REGEX) ? url : site.url + url;
           const helpUrl =
-            help === ""
+            (help === "" || help === undefined || help === null)
               ? null
               : help.match(PROTO_REGEX)
               ? help
@@ -44,7 +44,7 @@ export default React.memo(() => {
             help: helpUrl,
             upstream,
             desc,
-            status,
+            status: status === undefined ? "U" : status,
             size,
             source: site.abbr,
             note: site.note,

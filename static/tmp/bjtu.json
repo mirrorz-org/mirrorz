@@ -1,0 +1,319 @@
+{
+    "site": {
+        "url": "https://mirror.bjtu.edu.cn",
+        "logo": "https://mirror.bjtu.edu.cn/favicon.ico",
+        "abbr": "BJTU",
+        "name": "北京交通大学自由与开源软件镜像站",
+        "issue": "https://github.com/bjtulug/bjtu-mirror-issues"
+    },
+    "info": [
+
+    ],
+    "mirrors": [
+        {
+            "cname": "alpine",
+            "url": "/alpine/",
+            "upstream": "rsync.alpinelinux.org::alpine//"
+        },
+        {
+            "cname": "anaconda",
+            "url": "/anaconda/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::anaconda//"
+        },
+        {
+            "cname": "antergos",
+            "url": "/antergos/",
+            "desc": "Antergos 的安装镜像和官方软件包库，Antergos 是一个基于 Arch Linux 的发行版",
+            "upstream": "mirrorservice.org::repo.antergos.com//"
+        },
+        {
+            "cname": "apache",
+            "url": "/apache/",
+            "desc": "Apache 基金会赞助的各个项目",
+            "upstream": "rsync.apache.org::apache-dist//"
+        },
+        {
+            "cname": "archlinux",
+            "url": "/archlinux/",
+            "desc": "Arch Linux 的安装镜像和官方软件包仓库",
+            "help": "/help/archlinux/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::archlinux//"
+        },
+        {
+            "cname": "centos",
+            "url": "/centos/",
+            "desc": "CentOS 的安装镜像和官方软件包仓库",
+            "help": "/help/centos/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::centos//"
+        },
+        {
+            "cname": "chakraos",
+            "url": "/chakraos",
+            "desc": "Chakra Linux 的官方软件包仓库，Chakra 是一个基于 Arch Linux 的，使用 KDE 作为自己桌面环境的发行版"
+        },
+        {
+            "cname": "CPAN",
+            "url": "/cpan/",
+            "desc": "perl 语言的模块归档网络镜像",
+            "upstream": "mirror-hk.koddos.net::CPAN//"
+        },
+        {
+            "cname": "CRAN",
+            "url": "/cran/",
+            "desc": "R 语言的可执行文件、源代码和说明文件，也收录了各种用户撰写的软件包",
+            "upstream": "cran.r-project.org::CRAN//"
+        },
+        {
+            "cname": "CTAN",
+            "url": "/ctan/",
+            "desc": "TeX 的各种发行版、软件包和文档",
+            "help": "/help/ctan/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::CTAN//"
+        },
+        {
+            "cname": "debian",
+            "url": "/debian/",
+            "desc": "Debian Linux 的官方软件包仓库",
+            "upstream": "ftp.hk.debian.org::debian//"
+        },
+        {
+            "cname": "debian-cd",
+            "url": "/debian-cd/",
+            "desc": "Debian Linux 的安装镜像",
+            "upstream": "ftp.hk.debian.org::debian-cd//"
+        },
+        {
+            "cname": "deb-multimedia",
+            "url": "/debian-multimedia/",
+            "desc": "现官方名称为 Deb Multimedia, 是一个 Debian 的第三方源",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::debian-multimedia//"
+        },
+        {
+            "cname": "debian-security",
+            "url": "/debian-security/",
+            "desc": "Debian Linux 的安全更新",
+            "upstream": "ftp.hk.debian.org::debian-security//"
+        },
+        {
+            "cname": "deepin",
+            "url": "/deepin/",
+            "desc": "Deepin Linux 的官方软件包仓库",
+            "upstream": "rsync.deepin.com::packages//"
+        },
+        {
+            "cname": "deepin-cd",
+            "url": "/deepin-cd/",
+            "desc": "Deepin Linux 的安装镜像",
+            "upstream": "rsync.deepin.com::cdimage//"
+        },
+        {
+            "cname": "freebsd",
+            "url": "/freebsd/",
+            "desc": "FreeBSD 的官方软件包仓库",
+            "help": "/help/freebsd/",
+            "upstream": "rsync.gtlib.gatech.edu::FreeBSD//"
+        },
+        {
+            "cname": "freebsd-pkg",
+            "url": "https://freebsd-pkg.mirror.bjtulug.org/",
+            "upstream": "http://pkg.freebsd.org/"
+        },
+        {
+            "cname": "freebsd-ports",
+            "url": "https://freebsd-pkg.mirror.bjtulug.org/ports-distfiles/"
+        },
+        {
+            "cname": "freebsd-portsnap",
+            "url": "https://freebsd-portsnap.mirror.bjtulug.org/",
+            "upstream": "http://portsnap.freebsd.org/"
+        },
+        {
+            "cname": "freebsd-update",
+            "url": "https://freebsd-update.mirror.bjtulug.org/",
+            "upstream": "http://update.freebsd.org/"
+        },
+        {
+            "cname": "gentoo",
+            "url": "/gentoo/",
+            "desc": "Gentoo Linux 的 Stage 3 镜像、软件包仓库",
+            "help": "/help/gentoo/",
+            "upstream": "mirrors.rit.edu::gentoo//"
+        },
+        {
+            "cname": "gentoo-portage",
+            "url": "/gentoo-portage/",
+            "desc": "Gentoo Linux 的 Portage 包管理器镜像源",
+            "help": "/help/gentoo-portage/",
+            "upstream": "rsync.de.gentoo.org::gentoo-portage//"
+        },
+        {
+            "cname": "gimp",
+            "url": "/gimp/",
+            "desc": " GNU 图像处理程序的软件仓库，包含各个版本的 GNU 图像处理程序 以及 GIMP Tookit (GTK)"
+        },
+        {
+            "cname": "gnu",
+            "url": "/gnu/",
+            "desc": "GNU项目的软件包（源代码、文档和部分平台的二进制文件）",
+            "upstream": "mirrors.kernel.org::gnu//"
+        },
+        {
+            "cname": "kali",
+            "url": "/kali/",
+            "desc": "Kali Linux 的官方软件仓库，Kali Linux 是一个基于 Debian、针对网络渗透进行设计的发行版",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::kali//"
+        },
+        {
+            "cname": "kali-images",
+            "url": "/kali-images/",
+            "desc": "Kali Linux 的安装镜像",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::kali-images//"
+        },
+        {
+            "cname": "kernel",
+            "url": "/kernel/",
+            "desc": "各个版本的 Linux 内核源代码",
+            "upstream": "rsync.kernel.org::pub//"
+        },
+        {
+            "cname": "linuxmint",
+            "url": "/linuxmint/",
+            "desc": "Linux Mint 的官方软件源",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::linuxmint//"
+        },
+        {
+            "cname": "manjaro",
+            "url": "/manjaro/",
+            "desc": "Manjaro Linux 的官方软件源，Manjaro 是一个基于 Arch Linux 的发行版",
+            "upstream": "ftp.halifax.rwth-aachen.de::manjaro//"
+        },
+        {
+            "cname": "openmandriva",
+            "url": "/openmandriva",
+            "desc": "Open Mandriva 的官方软件仓库"
+        },
+        {
+            "cname": "opensuse",
+            "url": "/opensuse/",
+            "desc": "openSUSE 的安装镜像和官方软件包仓库",
+            "upstream": "mirrors.kernel.org::opensuse//"
+        },
+        {
+            "cname": "packman",
+            "url": "/packman/",
+            "desc": "为 Debian、Fedora、openSUSE、Ubuntu 提供额外和过期软件包的仓库",
+            "upstream": "ftp.halifax.rwth-aachen.de::packman//"
+        },
+        {
+            "cname": "python",
+            "url": "/python/",
+            "desc": "Python 各发行版的二进制及源码文件"
+        },
+        {
+            "cname": "pypi",
+            "url": "/pypi/",
+            "desc": "Python 软件包索引源",
+            "help": "/help/pypi/"
+        },
+        {
+            "cname": "qt",
+            "url": "/qt/",
+            "desc": "跨平台软件开发库 Qt 的源码、开发工具、文档等",
+            "upstream": "master.qt-project.org::qt-all//"
+        },
+        {
+            "cname": "repoforge",
+            "url": "/repoforge/",
+            "desc": "Repoforge 是 RHEL 系统下的软件仓库，拥有 10000 多个软件包，被认为是最安全、最稳定的一个软件仓库",
+            "help": "/help/repoforge/",
+            "upstream": "mirror1.hs-esslingen.de::repoforge//"
+        },
+        {
+            "cname": "rpmfusion",
+            "url": "/rpmfusion/",
+            "desc": "RPM Fusion 提供了一些 Fedora Project 和 Red Hat 不包含的软件",
+            "help": "/help/rpmfusion/",
+            "upstream": "mirror.de.leaseweb.net::rpmfusion//"
+        },
+        {
+            "cname": "ubuntu",
+            "url": "/ubuntu/",
+            "desc": "流行的 Linux 发行版 Ubuntu 的安装镜像和官方软件包仓库",
+            "help": "/help/ubuntu/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::ubuntu//"
+        },
+        {
+            "cname": "ubuntu-releases",
+            "url": "/ubuntu-releases/",
+            "desc": "包含近几年发行的 Ubuntu 的镜像",
+            "upstream": "rsync.releases.ubuntu.com::releases//"
+        },
+        {
+            "cname": "ubuntukylin",
+            "url": "/ubuntukylin/",
+            "upstream": "user@service.ubuntukylin.com::rsync//"
+        },
+        {
+            "cname": "archlinuxarm",
+            "url": "/archlinuxarm/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::archlinuxarm//"
+        },
+        {
+            "cname": "archlinuxcn",
+            "url": "/archlinuxcn/",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::archlinuxcn//"
+        },
+        {
+            "cname": "clfs",
+            "url": "/clfs/",
+            "upstream": "ftp.osuosl.org::clfs//"
+        },
+        {
+            "cname": "lfs",
+            "url": "/lfs/",
+            "upstream": "64.50.236.52::lfs//"
+        },
+        {
+            "cname": "lfs-livecd",
+            "url": "/lfs-livecd/",
+            "upstream": "64.50.236.52::lfs-livecd//"
+        },
+        {
+            "cname": "sabayon",
+            "url": "/sabayon/",
+            "upstream": "mirror.yandex.ru::sabayon//"
+        },
+        {
+            "cname": "libreoffice",
+            "url": "/tdf/",
+            "upstream": "rsync.documentfoundation.org::tdf-pub//"
+        },
+        {
+            "cname": "tldp",
+            "url": "/tldp.org/",
+            "upstream": "ftp.ibiblio.org::ldp_mirror//"
+        },
+        {
+            "cname": "openwrt",
+            "url": "/reverse/openwrt",
+            "desc": "Openwrt 的发行版及软件包仓库",
+            "upstream": "https://downloads.openwrt.org/"
+        },
+        {
+            "cname": "composer-packagist",
+            "url": "/composer-packagist/",
+            "desc": "Composer 是 PHP 的一个依赖管理工具。"
+        },
+        {
+            "cname": "machine-learning",
+            "url": "/machine-learning",
+            "desc": "机器学习、深度学习相关，数据集、预训练模型等。",
+            "upstream": "//"
+        },
+        {
+            "cname": "neurodebian",
+            "url": "/neurodebian",
+            "upstream": "neuro.debian.net::neurodebian//"
+        }
+    ]
+}
