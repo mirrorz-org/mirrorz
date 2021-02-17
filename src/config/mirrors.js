@@ -14,4 +14,5 @@ module.exports = [
   "https://mirrorz.org/static/tmp/njupt.json",
   "https://mirrorz.org/static/tmp/cqu.json",
   "https://mirrorz.org/static/tmp/xjtu.json",
+  "https://mirrorz.org/static/tmp/tongji.json",
 ]

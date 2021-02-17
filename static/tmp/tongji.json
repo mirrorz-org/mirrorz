@@ -1,0 +1,75 @@
+{
+    "site": {
+        "url": "https://mirrors.tongji.edu.cn",
+        "abbr": "Tongji",
+        "name": "同济大学开源镜像",
+        "issue": "https://github.com/tongjimirrors"
+    },
+    "info": [
+
+    ],
+    "mirrors": [
+        {
+            "cname": "Apache",
+            "url": "/apache/"
+        },
+        {
+            "cname": "CRAN",
+            "url": "/CRAN/",
+            "help": "/public/help/cran/"
+        },
+        {
+            "cname": "CentOS",
+            "url": "/centos/",
+            "help": "/public/help/centos/"
+        },
+        {
+            "cname": "Ubuntu",
+            "url": "/ubuntu/",
+            "help": "/public/help/ubuntu/"
+        },
+        {
+            "cname": "Kali",
+            "url": "/kali/",
+            "help": "/public/help/kali/"
+        },
+        {
+            "cname": "Homebrew",
+            "url": "/git/Homebrew/",
+            "help": "/public/help/homebrew-spec/"
+        },
+        {
+            "cname": "Homebrew Bottles",
+            "url": "/homebrew-bottles/",
+            "help": "/public/help/homebrew-bottles/"
+        },
+        {
+            "cname": "IUS",
+            "url": "/ius/"
+        },
+        {
+            "cname": "EPEL",
+            "url": "/epel/"
+        },
+        {
+            "cname": "Maven Central",
+            "url": "https://mirrors.tongji.edu.cn",
+            "help": "/public/help/maven-central/"
+        },
+        {
+            "cname": "NPM",
+            "url": "https://mirrors.tongji.edu.cn",
+            "help": "/public/help/npm/"
+        },
+        {
+            "cname": "PyPI",
+            "url": "https://mirrors.tongji.edu.cn",
+            "help": "/public/help/pypi/"
+        },
+        {
+            "cname": "RubyGems",
+            "url": "https://mirrors.tongji.edu.cn",
+            "help": "/public/help/rubygems/"
+        }
+    ]
+}
