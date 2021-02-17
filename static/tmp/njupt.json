@@ -1,0 +1,263 @@
+{
+    "site": {
+        "url": "https://mirrors.njupt.edu.cn",
+        "logo": "https://mirrors.njupt.edu.cn/static/img/logo-small.png",
+        "abbr": "NJUPT",
+        "name": "南京邮电大学开源软件镜像站",
+        "issue": "https://github.com/NJUPT-Mirrors-Group",
+        "email": "mirrors at njupt dot edu dot cn"
+    },
+    "info": [
+        {
+            "category": "os",
+            "urls": [
+                {
+                    "name": "2021.02.01 (x86_64, CLI-only)",
+                    "url": "/archlinux/iso/latest/archlinux-2021.02.01-x86_64.iso"
+                }
+            ],
+            "distro": "Arch Linux"
+        },
+        {
+            "category": "os",
+            "urls": [
+                {
+                    "name": "8.3.2011 (x86_64, dvd1)",
+                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso"
+                },
+                {
+                    "name": "8.3.2011 (x86_64, boot)",
+                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-boot.iso"
+                },
+                {
+                    "name": "8.3.2011 (ppc64le, dvd1)",
+                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-dvd1.iso"
+                },
+                {
+                    "name": "8.3.2011 (aarch64, dvd1)",
+                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-dvd1.iso"
+                },
+                {
+                    "name": "8.3.2011 (ppc64le, boot)",
+                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-boot.iso"
+                },
+                {
+                    "name": "8.3.2011 (aarch64, boot)",
+                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-boot.iso"
+                },
+                {
+                    "name": "7 (x86_64, NetInstall)",
+                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso"
+                },
+                {
+                    "name": "7 (x86_64, Minimal)",
+                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso"
+                },
+                {
+                    "name": "7 (x86_64, Everything)",
+                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Everything-2009.iso"
+                },
+                {
+                    "name": "7 (x86_64, DVD)",
+                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso"
+                }
+            ],
+            "distro": "CentOS"
+        },
+        {
+            "category": "os",
+            "urls": [
+                {
+                    "name": "33 (x86_64, Xfce)",
+                    "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-33-1.2.iso"
+                },
+                {
+                    "name": "33 (x86_64, Workstation)",
+                    "url": "/fedora/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso"
+                },
+                {
+                    "name": "33 (x86_64, KDE)",
+                    "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-33-1.2.iso"
+                },
+                {
+                    "name": "33 (aarch64, Workstation)",
+                    "url": "/fedora/releases/33/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-33-1.2.iso"
+                },
+                {
+                    "name": "32 (x86_64, Xfce)",
+                    "url": "/fedora/releases/32/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-32-1.6.iso"
+                },
+                {
+                    "name": "32 (x86_64, Workstation)",
+                    "url": "/fedora/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso"
+                },
+                {
+                    "name": "32 (x86_64, KDE)",
+                    "url": "/fedora/releases/32/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-32-1.6.iso"
+                }
+            ],
+            "distro": "Fedora"
+        },
+        {
+            "category": "os",
+            "urls": [
+                {
+                    "name": "20.10 (amd64, Desktop LiveDVD)",
+                    "url": "/ubuntu-releases/groovy/ubuntu-20.10-desktop-amd64.iso"
+                },
+                {
+                    "name": "20.04.2.0 (amd64, Desktop LiveDVD)",
+                    "url": "/ubuntu-releases/focal/ubuntu-20.04.2.0-desktop-amd64.iso"
+                },
+                {
+                    "name": "18.04.5 (amd64, Desktop LiveDVD)",
+                    "url": "/ubuntu-releases/bionic/ubuntu-18.04.5-desktop-amd64.iso"
+                },
+                {
+                    "name": "16.04.7 (amd64, Desktop LiveDVD)",
+                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.7-desktop-amd64.iso"
+                },
+                {
+                    "name": "16.04.7 (amd64, Server)",
+                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.7-server-amd64.iso"
+                },
+                {
+                    "name": "16.04.6 (i386, Server)",
+                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.6-server-i386.iso"
+                },
+                {
+                    "name": "14.04.6 (amd64, Server)",
+                    "url": "/ubuntu-releases/trusty/ubuntu-14.04.6-server-amd64.iso"
+                },
+                {
+                    "name": "14.04.6 (i386, Server)",
+                    "url": "/ubuntu-releases/trusty/ubuntu-14.04.6-server-i386.iso"
+                },
+                {
+                    "name": "12.04.5 (amd64, Server)",
+                    "url": "/ubuntu-releases/precise/ubuntu-12.04.5-server-amd64.iso"
+                },
+                {
+                    "name": "12.04.5 (i386, Server)",
+                    "url": "/ubuntu-releases/precise/ubuntu-12.04.5-server-i386.iso"
+                }
+            ],
+            "distro": "Ubuntu"
+        },
+        {
+            "category": "app",
+            "urls": [
+                {
+                    "name": "2020.11 (MacOSX, x86_64)",
+                    "url": "/anaconda/archive/Anaconda3-2020.11-MacOSX-x86_64.pkg"
+                },
+                {
+                    "name": "2020.11 (Linux, x86_64)",
+                    "url": "/anaconda/archive/Anaconda3-2020.11-Linux-x86_64.sh"
+                },
+                {
+                    "name": "2020.11 (MacOSX, x86_64)",
+                    "url": "/anaconda/archive/Anaconda3-2020.11-MacOSX-x86_64.sh"
+                },
+                {
+                    "name": "2020.11 (Windows, x86_64)",
+                    "url": "/anaconda/archive/Anaconda3-2020.11-Windows-x86_64.exe"
+                },
+                {
+                    "name": "2020.11 (Windows, x86)",
+                    "url": "/anaconda/archive/Anaconda3-2020.11-Windows-x86.exe"
+                }
+            ],
+            "distro": "Anaconda"
+        }
+    ],
+    "mirrors": [
+        {
+            "cname": "anaconda",
+            "url": "/anaconda",
+            "upstream": "mirrors.bfsu.edu.cn::anaconda//"
+        },
+        {
+            "cname": "archlinux",
+            "url": "/archlinux",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::archlinux//"
+        },
+        {
+            "cname": "centos",
+            "url": "/centos",
+            "upstream": "msync.centos.org::CentOS//"
+        },
+        {
+            "cname": "debian",
+            "url": "/debian",
+            "upstream": "mirrors.bfsu.edu.cn::debian//"
+        },
+        {
+            "cname": "debian-security",
+            "url": "/debian-security",
+            "upstream": "mirrors.bfsu.edu.cn::debian-security//"
+        },
+        {
+            "cname": "deepin",
+            "url": "/deepin",
+            "upstream": "rsync.deepin.com::deepin//"
+        },
+        {
+            "cname": "deepin-cd",
+            "url": "/deepin-cd",
+            "upstream": "rsync.deepin.com::releases//"
+        },
+        {
+            "cname": "docker-ce",
+            "url": "/docker-ce",
+            "upstream": "mirrors.bfsu.edu.cn::docker-ce//"
+        },
+        {
+            "cname": "elasticstack",
+            "url": "/elasticstack",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::elasticstack//"
+        },
+        {
+            "cname": "epel",
+            "url": "/epel",
+            "upstream": "archive.linux.duke.edu::fedora-epel//"
+        },
+        {
+            "cname": "fedora",
+            "url": "/fedora",
+            "upstream": "fedora-rsync.ftp.pub.2iij.net::fedora-enchilada//"
+        },
+        {
+            "cname": "homebrew",
+            "url": "/homebrew"
+        },
+        {
+            "cname": "homebrew-bottles",
+            "url": "/homebrew-bottles"
+        },
+        {
+            "cname": "kali",
+            "url": "/kali",
+            "upstream": "ftp.nluug.nl::kali//"
+        },
+        {
+            "cname": "linuxmint",
+            "url": "/linuxmint",
+            "upstream": "rsync-packages.linuxmint.com::packages//"
+        },
+        {
+            "cname": "ubuntu",
+            "url": "/ubuntu"
+        },
+        {
+            "cname": "ubuntu-releases",
+            "url": "/ubuntu-releases",
+            "upstream": "rsync.releases.ubuntu.com::releases//"
+        },
+        {
+            "cname": "zabbix",
+            "url": "/zabbix",
+            "upstream": "mirrors.tuna.tsinghua.edu.cn::zabbix//"
+        }
+    ]
+}

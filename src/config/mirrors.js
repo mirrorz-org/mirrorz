@@ -11,4 +11,5 @@ module.exports = [
   "https://mirrors.sustech.edu.cn/mirrorz/mirrorz.json",
   "https://iptv.uestc.edu.cn/mirrors/mirrorz.json",
   "https://mirrorz.org/static/tmp/bjtu.json",
+  "https://mirrorz.org/static/tmp/njupt.json",
 ]

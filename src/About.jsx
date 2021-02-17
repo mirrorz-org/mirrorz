@@ -24,7 +24,7 @@ export default React.memo(({ site }) => {
       <Para title="Repo" content={(
 			  <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
       )} />
-      <Para title="Powered by" content={site.map(({ site, parsed }, idx) => (
+      <Para title="Logo" content={site.map(({ site, parsed }, idx) => (
           <div className="about-powered-by" key={site.abbr}>
             <Logo site={site} className="about-logo"/>
             {site.abbr}
