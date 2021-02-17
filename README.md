@@ -117,13 +117,13 @@ For the front end, previously a naive one is implemented using JQuery and Jekyll
 
 `mirrorz.org` should only be statically generated.
 
-With user's consent, `mirrorz.org` may use Cookie or other methods to archive personalized rendering such as turning off some MirrorS when the json file is large and/or slow to download.
+With user's consent, `mirrorz.org` may use local storage or other methods to archive personalized rendering such as turning off some MirrorS when the json file is large and/or slow to download.
 
 ## Contributing and Developing
 
 ### MirrorS
 
-For participating MirrorS, it should add and maintain their url to mirrorz json file in `src/config/mirrors.js`, in the url `https` is needed, and the url should be widely accessible (not limited to campus) as all users of `mirrorz.org` would request that url.
+For participating MirrorS, it should either add and maintain their url to mirrorz json file in `src/config/mirrors.js`, in the url `https` is needed, and the url should be widely accessible (not limited to campus) as all users of `mirrorz.org` would request that url; or integrate their frontend parser with the code.
 
 MirrorS may also contribute their `mirrorz.json` generating scripts in the directory `scripts`. The standard script is `scripts/tunasync/mirrorz.py`, all the details are specified there and unclear points of the data format is explaned there.
 
