@@ -11,6 +11,14 @@ import ISO from "./ISO";
 import Site from "./Site";
 import About from "./About";
 
+import lzu from "./parser/lzu"
+
+const PARSER_LIST = [
+  lzu,
+];
+
+const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);
+
 const PROTO_REGEX = /(^https?:)?\/\//;
 
 // eslint-disable-next-line react/display-name
@@ -26,8 +34,14 @@ export default React.memo(() => {
   // Load all mirror configurations
   useEffect(() => {
     async function initMirror(url) {
-      const resp = await fetch(url);
-      const { site, info, mirrors } = await resp.json();
+      let obj;
+      if (typeof(url) == "string") {
+        const resp = await fetch(url);
+        obj = await resp.json();
+      } else {
+        obj = await url();
+      }
+      const { site, info, mirrors } = obj;
 
       const parsed = mirrors.map(
         ({ cname, url, help, size, desc, upstream, status }) => {
@@ -72,13 +86,13 @@ export default React.memo(() => {
     }
 
     // Fires
-    for (const mirror of MIRROR_URLS) initMirror(mirror);
+    for (const mirror of UPSTREAM_LIST) initMirror(mirror);
 
     const interval = setInterval(() => {
       console.log("Page", document.visibilityState);
       if (document.visibilityState === "visible") {
         console.log("Refresh data");
-        for (const mirror of MIRROR_URLS) initMirror(mirror);
+        for (const mirror of UPSTREAM_LIST) initMirror(mirror);
       }
     }, 30*1000);
 
