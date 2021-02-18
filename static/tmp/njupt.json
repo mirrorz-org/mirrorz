@@ -9,17 +9,16 @@
     },
     "info": [
         {
-            "category": "os",
             "urls": [
                 {
                     "name": "2021.02.01 (x86_64, CLI-only)",
                     "url": "/archlinux/iso/latest/archlinux-2021.02.01-x86_64.iso"
                 }
             ],
+            "category": "os",
             "distro": "Arch Linux"
         },
         {
-            "category": "os",
             "urls": [
                 {
                     "name": "8.3.2011 (x86_64, dvd1)",
@@ -62,10 +61,10 @@
                     "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso"
                 }
             ],
+            "category": "os",
             "distro": "CentOS"
         },
         {
-            "category": "os",
             "urls": [
                 {
                     "name": "33 (x86_64, Xfce)",
@@ -96,10 +95,10 @@
                     "url": "/fedora/releases/32/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-32-1.6.iso"
                 }
             ],
+            "category": "os",
             "distro": "Fedora"
         },
         {
-            "category": "os",
             "urls": [
                 {
                     "name": "20.10 (amd64, Desktop LiveDVD)",
@@ -142,10 +141,10 @@
                     "url": "/ubuntu-releases/precise/ubuntu-12.04.5-server-i386.iso"
                 }
             ],
-            "distro": "Ubuntu"
+            "category": "os",
+            "distro": "ubuntu"
         },
         {
-            "category": "app",
             "urls": [
                 {
                     "name": "2020.11 (MacOSX, x86_64)",
@@ -168,7 +167,8 @@
                     "url": "/anaconda/archive/Anaconda3-2020.11-Windows-x86.exe"
                 }
             ],
-            "distro": "Anaconda"
+            "category": "app",
+            "distro": "Conda"
         }
     ],
     "mirrors": [

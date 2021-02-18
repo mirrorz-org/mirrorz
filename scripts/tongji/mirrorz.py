@@ -19,11 +19,11 @@ def name_func(name: str) -> str:
 def main():
     global cname
     if len(sys.argv) < 3:
-        print("help: mirrorz.py site.json cname_url")
+        print("help: mirrorz.py site.json cname.json")
         sys.exit(0)
     site = json.loads(open(sys.argv[1]).read())
     l = requests.get("https://mirrors.tongji.edu.cn/public/meta/list.json").json()
-    cname = requests.get(sys.argv[2]).json()
+    cname = json.loads(open(sys.argv[2]).read())
 
     mirrors = []
 

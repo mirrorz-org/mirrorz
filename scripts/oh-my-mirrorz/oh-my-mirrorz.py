@@ -26,6 +26,11 @@ mirrors = [
     "https://mirrors.dgut.edu.cn/static/mirrorz.json",
     "https://mirrors.sustech.edu.cn/mirrorz/mirrorz.json",
     "https://iptv.uestc.edu.cn/mirrors/mirrorz.json",
+    "https://mirrorz.org/static/tmp/bjtu.json",
+    "https://mirrorz.org/static/tmp/njupt.json",
+    "https://mirrorz.org/static/tmp/cqu.json",
+    "https://mirrorz.org/static/tmp/xjtu.json",
+    "https://mirrorz.org/static/tmp/tongji.json",
 ]
 
 map = {}

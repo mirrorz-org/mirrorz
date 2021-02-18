@@ -10,7 +10,7 @@
     ],
     "mirrors": [
         {
-            "cname": "Apache",
+            "cname": "apache",
             "url": "/apache/"
         },
         {
@@ -24,7 +24,7 @@
             "help": "/public/help/centos/"
         },
         {
-            "cname": "Ubuntu",
+            "cname": "ubuntu",
             "url": "/ubuntu/",
             "help": "/public/help/ubuntu/"
         },
@@ -34,30 +34,30 @@
             "help": "/public/help/kali/"
         },
         {
-            "cname": "Homebrew",
+            "cname": "homebrew",
             "url": "/git/Homebrew/",
             "help": "/public/help/homebrew-spec/"
         },
         {
-            "cname": "Homebrew Bottles",
+            "cname": "homebrew-bottles",
             "url": "/homebrew-bottles/",
             "help": "/public/help/homebrew-bottles/"
         },
         {
-            "cname": "IUS",
+            "cname": "ius",
             "url": "/ius/"
         },
         {
-            "cname": "EPEL",
+            "cname": "epel",
             "url": "/epel/"
         },
         {
-            "cname": "Maven Central",
+            "cname": "maven",
             "url": "https://mirrors.tongji.edu.cn",
             "help": "/public/help/maven-central/"
         },
         {
-            "cname": "NPM",
+            "cname": "npm",
             "url": "https://mirrors.tongji.edu.cn",
             "help": "/public/help/npm/"
         },
@@ -67,7 +67,7 @@
             "help": "/public/help/pypi/"
         },
         {
-            "cname": "RubyGems",
+            "cname": "rubygems",
             "url": "https://mirrors.tongji.edu.cn",
             "help": "/public/help/rubygems/"
         }

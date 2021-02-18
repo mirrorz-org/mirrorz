@@ -37,6 +37,9 @@ def main():
             mirror["upstream"] = v["upstream"]
         mirrors.append(mirror)
 
+    for i in info:
+        i["distro"] = name_func(i["distro"])
+
     mirrorz = {}
     mirrorz["site"] = site
     mirrorz["info"] = info
