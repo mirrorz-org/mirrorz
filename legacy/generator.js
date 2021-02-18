@@ -69,7 +69,8 @@ async function handle(){
                 mlist[i] = []
             }
             m.url = base_url + m.url
-            m.help = m.help !== '' ? (m.help.indexOf('http') > -1 ? m.help : (base_url + m.help)) : false
+            if(m.help)
+                m.help = m.help !== '' ? (m.help.indexOf('http') > -1 ? m.help : (base_url + m.help)) : false
             m.site = {
                 abbr: s.site.abbr,
                 name: s.site.name,
