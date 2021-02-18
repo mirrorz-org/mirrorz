@@ -61,5 +61,21 @@
   "mx-packages": "mxlinux",
   "mx-isos": "mxlinux-isos",
   "dragonflybsd/dports": "dragonflybsd-dports",
-  "dragonflybsd/iso-images": "dragonflybsd-iso-images"
+  "dragonflybsd/iso-images": "dragonflybsd-iso-images",
+  "Apache": "apache",
+  "Centos": "centos",
+  "Ubuntu": "ubuntu",
+  "Kali": "kali",
+  "Homebrew": "homebrew",
+  "Homebrew Bottles": "homebrew-bottles",
+  "IUS": "ius",
+  "EPEL": "epel",
+  "Maven Central": "maven",
+  "NPM": "npm",
+  "PyPi": "pypi",
+  "RubyGems": "rubygems",
+  "MX_ISOs": "mxlinux-isos",
+  "MX_Linux": "mxlinux",
+  "UbuntuKylin_release": "ubuntukylin",
+  "Anaconda": "Conda"
 }
