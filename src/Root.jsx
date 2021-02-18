@@ -12,9 +12,11 @@ import Site from "./Site";
 import About from "./About";
 
 import lzu from "./parser/lzu"
+import nju from "./parser/nju"
 
 const PARSER_LIST = [
   lzu,
+  nju,
 ];
 
 const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);
