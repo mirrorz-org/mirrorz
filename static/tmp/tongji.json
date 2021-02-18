@@ -19,7 +19,7 @@
             "help": "/public/help/cran/"
         },
         {
-            "cname": "CentOS",
+            "cname": "centos",
             "url": "/centos/",
             "help": "/public/help/centos/"
         },
@@ -29,7 +29,7 @@
             "help": "/public/help/ubuntu/"
         },
         {
-            "cname": "Kali",
+            "cname": "kali",
             "url": "/kali/",
             "help": "/public/help/kali/"
         },
@@ -62,7 +62,7 @@
             "help": "/public/help/npm/"
         },
         {
-            "cname": "PyPI",
+            "cname": "pypi",
             "url": "https://mirrors.tongji.edu.cn",
             "help": "/public/help/pypi/"
         },
