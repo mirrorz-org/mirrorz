@@ -1,6 +1,7 @@
 {
-    "url": "https://mirrors.neusoft.edu.cn/",
-    "logo": "https://mirrors.neusoft.edu.cn/logo.svg",
+    "url": "http://mirrors.neusoft.edu.cn",
+    "logo": "https://assets.neusoft.edu.cn/img/dnui-badge.svg",
+    "homepage": "https://www.neusoft.edu.cn",
     "abbr": "NEUSOFT",
     "name": "开源镜像 | We-Cloud 维云技术小组"
 }
