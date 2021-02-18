@@ -14,11 +14,13 @@ import About from "./About";
 import lzu from "./parser/lzu"
 import nju from "./parser/nju"
 import neusoft from "./parser/neusoft"
+import hust from "./parser/hust"
 
 const PARSER_LIST = [
   lzu,
   nju,
   neusoft,
+  hust,
 ];
 
 const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);

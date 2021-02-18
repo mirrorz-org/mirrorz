@@ -6,8 +6,12 @@ const statusConverter = function(time, status) {
     c = "S"
   else if (status == -1)
     c = "Y"
+  else if (status == -2)
+    c = "U"
+  else
+    c = "F"
 
-  if (c === undefined)
+  if (c == undefined || c == "U")
     return "U";
   const t = Math.round(new Date(time).getTime()/1000).toString();
   if (c == "S")
