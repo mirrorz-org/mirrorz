@@ -1,4 +1,5 @@
 *.json
+!static/**/*.json
 !package.json
 !.babelrc.json
 /node_modules
