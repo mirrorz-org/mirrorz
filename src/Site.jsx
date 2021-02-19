@@ -67,7 +67,7 @@ export default React.memo(({ site }) => {
           <div className="site-content" key={site}>
             <Meta site={site}/>
             <div className="site-mirrors">
-            {parsed.map(({ cname, status }, idx) => {
+            {parsed.sort((a, b) => a.cname.localeCompare(b.cname)).map(({ cname, status }, idx) => {
               if (stat !== "" && status && status.indexOf(stat) === -1)
                 return;
               return (<div className="site-group" key={idx}>
