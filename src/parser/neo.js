@@ -10,7 +10,7 @@ export default async function () {
   site["disk"] = await disk("https://neomirrors.tuna.tsinghua.edu.cn/static/status/disk.json")
 
   let mirrors = await tunasync("https://neomirrors.tuna.tsinghua.edu.cn/static/tunasync.json");
-  mirrors = await options("/static/json/options.json", mirrors);
+  mirrors = await options("https://neomirrors.tuna.tsinghua.edu.cn/static/js/options.json", mirrors);
 
   info = await isoinfo("https://neomirrors.tuna.tsinghua.edu.cn/static/status/isoinfo.json");
 
