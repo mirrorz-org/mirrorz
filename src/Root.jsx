@@ -20,6 +20,8 @@ import bfsu from "./parser/bfsu";
 import nano from "./parser/nano";
 import neo from "./parser/neo";
 import hit from "./parser/hit";
+import cqu from "./parser/cqu";
+//import xjtu from "./parser/xjtu";
 
 const PARSER_LIST = [
   lzu,
@@ -31,6 +33,7 @@ const PARSER_LIST = [
   nano,
   neo,
   hit,
+  cqu,
 ];
 
 const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);
