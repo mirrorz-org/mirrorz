@@ -10,6 +10,7 @@ import Mirrors from "./Mirrors";
 import ISO from "./ISO";
 import Site from "./Site";
 import About from "./About";
+import Debug from "./Debug";
 
 import lzu from "./parser/lzu";
 import nju from "./parser/nju";
@@ -42,10 +43,13 @@ const PROTO_REGEX = /(^https?:)?\/\//;
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
+  const [mirrorz, setMirrorz] = useState(new Map());
+
   const [mirrors, setMirrors] = useState(new Map());
   const [isoinfo, setIsoinfo] = useState(new Map());
   const [site, setSite] = useState(new Map());
 
+  const mirrorzList = useMemo(() => Array.from(mirrorz.values()), [mirrorz]);
   const mirrorsList = useMemo(() => Array.from(mirrors.values()).flat(), [mirrors]);
   const isoinfoList = useMemo(() => Array.from(isoinfo.values()).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)), [isoinfo]);
   const siteList = useMemo(() => Array.from(site.values()).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)), [site]);
@@ -60,6 +64,7 @@ export default React.memo(() => {
       } else {
         obj = await url();
       }
+      setMirrorz((original) => new Map(original.set(url, obj)));
       const { site, info, mirrors } = obj;
 
       const parsed = mirrors.map(
@@ -137,7 +142,8 @@ export default React.memo(() => {
                 location.pathname === "/" ||
                 (!location.pathname.startsWith("/list") &&
                 !location.pathname.startsWith("/site") &&
-                !location.pathname.startsWith("/about"))
+                !location.pathname.startsWith("/about") &&
+                !location.pathname.startsWith("/debug"))
               ) {
                 return true;
               }
@@ -166,6 +172,9 @@ export default React.memo(() => {
             </Route>
             <Route path="/about">
               <About site={siteList} />
+            </Route>
+            <Route path="/debug">
+              <Debug mirrorz={mirrorzList} />
             </Route>
             <Route path="*">
               <ISO isoinfo={isoinfoList} />
