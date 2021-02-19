@@ -17,6 +17,9 @@ import neusoft from "./parser/neusoft";
 import hust from "./parser/hust";
 import tuna from "./parser/tuna";
 import bfsu from "./parser/bfsu";
+import nano from "./parser/nano";
+import neo from "./parser/neo";
+import hit from "./parser/hit";
 
 const PARSER_LIST = [
   lzu,
@@ -25,6 +28,9 @@ const PARSER_LIST = [
   hust,
   tuna,
   bfsu,
+  nano,
+  neo,
+  hit,
 ];
 
 const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);
