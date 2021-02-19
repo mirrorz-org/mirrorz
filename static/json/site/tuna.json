@@ -1,0 +1,12 @@
+{
+    "url": "https://mirrors.tuna.tsinghua.edu.cn",
+    "logo": "https://mirrors.tuna.tsinghua.edu.cn/static/img/favicon.png",
+    "abbr": "TUNA",
+    "name": "清华大学开源软件镜像站",
+    "homepage": "https://tuna.moe",
+    "issue": "https://github.com/tuna/issues",
+    "request": "https://github.com/tuna/issues",
+    "email": "support at tuna dot tsinghua dot edu dot cn",
+    "group": "#tuna at freenode; https://groups.google.com/forum/#!forum/tuna-general",
+    "big": "/speedtest/1000mb.bin"
+}

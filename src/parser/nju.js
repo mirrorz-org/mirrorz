@@ -1,23 +1,11 @@
 import { cname } from "./utils";
+import tunasync from "./tunasync";
+import options from "./options";
 
 export default async function () {
   const name_func = await cname();
-  const site = await (await fetch("/static/json/site/nju.json")).json();
-  const html = await (await fetch("https://r.nichi.co/https://mirrors.nju.edu.cn/")).text();
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(html, 'text/html');
-  const items = Array.from(doc.querySelector("pre").children);
-  const mirrors = items.map((item) => {
-    if (item.innerText == "../" || !item.innerText.endsWith('/'))
-      return null;
-    const cname = name_func(item.innerText.slice(0, -1));
-    const url = item.getAttribute("href");
-    return {
-      cname,
-      url,
-    }
-  }).filter((e) => e !== null);
+  const site = await (await fetch("https://mirrors.nju.edu.cn/.mirrorz/site.json")).json();
+  const mirrors = await tunasync("https://mirrors.nju.edu.cn/.mirrorz/tunasync.json");
 
   return {
     site,

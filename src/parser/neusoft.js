@@ -21,7 +21,7 @@ const statusConverter = function(time, status) {
 };
 
 const human = function(size) {
-  const scale = ["B", "K", "M", "G", "T"];
+  const scale = ["B", "KiB", "MiB", "GiB", "TiB"];
   let i = 0;
   while (size > 1024) {
     size /= 1024;

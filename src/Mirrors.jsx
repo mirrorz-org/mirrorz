@@ -138,7 +138,7 @@ export default React.memo(({ mirrors }) => {
       return a.index - b.index;
     });
   const end = performance.now();
-  console.log(`Sort`, end - begin);
+  //console.log(`Sort`, end - begin);
 
   const location = useLocation();
   useEffect(() => {

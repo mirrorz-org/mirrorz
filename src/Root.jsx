@@ -11,16 +11,20 @@ import ISO from "./ISO";
 import Site from "./Site";
 import About from "./About";
 
-import lzu from "./parser/lzu"
-import nju from "./parser/nju"
-import neusoft from "./parser/neusoft"
-import hust from "./parser/hust"
+import lzu from "./parser/lzu";
+import nju from "./parser/nju";
+import neusoft from "./parser/neusoft";
+import hust from "./parser/hust";
+import tuna from "./parser/tuna";
+import bfsu from "./parser/bfsu";
 
 const PARSER_LIST = [
   lzu,
   nju,
   neusoft,
   hust,
+  tuna,
+  bfsu,
 ];
 
 const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);
