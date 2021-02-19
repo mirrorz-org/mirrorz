@@ -1,0 +1,13 @@
+{
+    "url": "https://mirrors.hit.edu.cn/",
+    "logo": "https://mirrors.hit.edu.cn/favicon.ico",
+    "abbr": "HIT",
+    "name": "哈尔滨工业大学开源镜像站",
+    "homepage": "https://mirrors.hit.edu.cn/",
+    "issue": "https://github.com/hitlug/issues",
+    "request": "https://github.com/hitlug/issues",
+    "email": "mirrors@hit.edu.cn",
+    "group": "QQ: 1153235504, Telegram Channel: @hitlug",
+    "disk": "38.57T/60.00T",
+    "big": "/1GB.bin"
+}
