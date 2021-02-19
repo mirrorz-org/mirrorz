@@ -1,5 +1,6 @@
 {
     "url": "http://mirror.hust.edu.cn",
+    "logo": "https://www.hust.edu.cn/download/xiaohui.png",
     "abbr": "HUST",
     "name": "华中科技大学开源镜像站",
     "email": "mirror at hust.edu.cn"

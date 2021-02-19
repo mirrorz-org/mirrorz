@@ -5,7 +5,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import MIRROR_URLS from "./config/mirrors";
+import MIRROR_URLS from "./config/upstream";
 import Mirrors from "./Mirrors";
 import ISO from "./ISO";
 import Site from "./Site";
