@@ -32,7 +32,8 @@ html
             .para-content
               each d in sites
                 .about-powered-by
-                  img.about-logo(src=d.site.logo, title=d.site.abbr)
+                  if(d.site.logo)
+                    img.about-logo(src=(d.site.logo ? d.site.logo : ''), alt='logo')
                   = d.site.abbr
           .para
             .para-title

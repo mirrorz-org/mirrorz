@@ -18,7 +18,8 @@ html
             each d in sidebar
               a(href=d.url)
                 div(class=(d.active ? 'group-header active' : 'group-header'))
-                  img.logo(src=d.logo, title='TUNA.NEO')
+                  if(d.logo)
+                    img.logo(src=d.logo, alt='logo')
                   h2.heading=d.abbr
           .site-content
             .site-meta
