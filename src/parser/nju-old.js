@@ -2,7 +2,7 @@ import { cname } from "./utils";
 
 export default async function () {
   const name_func = await cname();
-  const site = await (await fetch("/static/json/site/nju.json")).json();
+  const site = await (await fetch("https://mirrors.nju.edu.cn/.mirrorz/site.json")).json();
   const html = await (await fetch("https://r.nichi.co/https://mirrors.nju.edu.cn/")).text();
 
   const parser = new DOMParser();
