@@ -19,10 +19,10 @@ export default React.memo(({ site }) => {
   return (
     <div className="about">
       <Para title="Intro" content={
-			  "Your next MirrorS is not MirrorS, nor MirrorSes, it\'s MirrorZ."
-			} />
+        "A final site for Mirror sites"
+      } />
       <Para title="Repo" content={(
-			  <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
+        <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
       )} />
       <Para title="Logo" content={site.map(({ site, parsed }, idx) => (
           <div className="about-powered-by" key={site.abbr}>
