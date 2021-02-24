@@ -121,6 +121,8 @@ For one Third party, it should either add and maintain their url to a mirrorz js
 
 For Third party providing an url to a mirrorz json file, it may also contribute their `mirrorz.json` generating scripts in the directory `scripts`.
 
+Big changes by Third party should be made through PR like adding a new parser/generating script. Small changes like changing content in `site.json` or generating scripts can be done by pushing to master.
+
 ### Frontend
 
 One may use
