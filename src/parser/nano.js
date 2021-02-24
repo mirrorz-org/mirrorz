@@ -1,7 +1,6 @@
 import { cname } from "./utils";
 import tunasync from "./tunasync";
 import options from "./options";
-import isoinfo from "./isoinfo";
 import disk from "./disk";
 
 export default async function () {
@@ -12,11 +11,9 @@ export default async function () {
   let mirrors = await tunasync("https://mirrors.tuna.tsinghua.edu.cn/static/tunasync.json.nano");
   mirrors = await options("https://mirrors.tuna.tsinghua.edu.cn/static/js/options.json", mirrors);
 
-  info = await isoinfo("https://mirrors.tuna.tsinghua.edu.cn/static/status/nano/isoinfo.json");
-
   return {
     site,
-    info,
+    info: [],
     mirrors,
   }
 };
