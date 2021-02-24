@@ -20,7 +20,7 @@ const statusConverter = function(time, status) {
 export default async function () {
   const name_func = await cname();
   const site = await (await fetch("/static/json/site/hust.json")).json();
-  const html = await (await fetch("https://r.nichi.co/http://mirror.hust.edu.cn/")).text();
+  const html = await (await fetch("https://r.zenithal.workers.dev/http://mirror.hust.edu.cn/")).text();
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, 'text/html');

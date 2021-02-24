@@ -33,7 +33,7 @@ const human = function(size) {
 export default async function () {
   const name_func = await cname();
   const site = await (await fetch("/static/json/site/neusoft.json")).json();
-  const repos = await (await fetch("https://r.nichi.co/http://mirrors.neusoft.edu.cn/repos.html")).json();
+  const repos = await (await fetch("https://r.zenithal.workers.dev/http://mirrors.neusoft.edu.cn/repos.html")).json();
 
   const mirrors = [];
   for (k in repos) {
