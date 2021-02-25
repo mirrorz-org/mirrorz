@@ -6,6 +6,7 @@ import subprocess
 import requests
 import sys
 import os
+import argparse
 
 big = {
     'centos': '/8/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso',
@@ -50,8 +51,13 @@ def check_curl():
 def site_info(url):
     return requests.get(url, timeout=10).json()
 
-def speed_test(url):
-    res = subprocess.run(['curl', '-qso', os.devnull, '-w', '%{http_code} %{speed_download}', '-m5', url], stdout=subprocess.PIPE)
+def speed_test(url, args):
+    opt = '-qs'
+    if args.ipv4:
+        opt += '4'
+    elif args.ipv6:
+        opt += '6'
+    res = subprocess.run(['curl', opt, '-o', os.devnull, '-w', '%{http_code} %{speed_download}', '-m'+str(args.time), url], stdout=subprocess.PIPE)
     code, speed = res.stdout.decode('utf-8').split()
     return int(code), float(speed)
 
@@ -64,6 +70,13 @@ def human_readable_speed(speed):
     return f'{speed:.2f} {scale[i]}'
    
 def main():
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-4", "--ipv4", help="IPv4 only when speed testing", action="store_true")
+    group.add_argument("-6", "--ipv6", help="IPv6 only when speed testing", action="store_true")
+    parser.add_argument("-t", "--time", type=int, default=5, choices=[3, 5, 10, 30, 60], help="Duration of a speed test for one mirror (default: %(default)d)")
+    args = parser.parse_args()
+
     if check_curl() != 0:
         exit(-1)
     
@@ -75,7 +88,7 @@ def main():
             print('! Failed to load', url)
             pass
 
-    print()
+    print() # one empty line to separate metadata and speedtest
 
     for _, v in map.items():
         uri = ''
@@ -95,7 +108,7 @@ def main():
                 continue
 
         print('Speed testing', v['site']['abbr'], v['site']['url'] + uri, '... ', end='', flush=True)
-        code, speed = speed_test(v['site']['url'] + uri)
+        code, speed = speed_test(v['site']['url'] + uri, args)
         if code != 200:
             print('HTTP Code', code, 'Speed', human_readable_speed(speed))
         else:
