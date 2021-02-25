@@ -2,6 +2,11 @@
     "url": "https://mirrors.cqu.edu.cn",
     "logo": "https://mirrors.cqu.edu.cn/static/img/favicon.png",
     "abbr": "CQU",
-    "name": "重庆大学开源镜像站",
-    "issue": "https://github.com/cqumirror/feedback"
+    "name": "重庆大学开源软件镜像站",
+    "homepage": "https://mirrors.cqu.edu.cn",
+    "email": "cqumirror (at) gmail dot com",
+    "issue": "https://github.com/cqumirror/feedback",
+    "request": "https://github.com/cqumirror/feedback",
+    "group": "Telegram @cqumirror",
+    "big": "/speedtest/1000mb.bin"
 }
