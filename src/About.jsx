@@ -18,9 +18,12 @@ const Para = React.memo(({ title, content }) => {
 export default React.memo(({ site }) => {
   return (
     <div className="about">
-      <Para title="Intro" content={
-        "A final site for Mirror sites"
-      } />
+      <Para title="Intro" content={(
+        <div>
+          <p>Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.</p>
+          <p>A final site for Mirror sites.</p>
+        </div>
+      )} />
       <Para title="Repo" content={(
         <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
       )} />

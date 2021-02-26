@@ -1,6 +1,8 @@
 # MirrorZ
 
-A final site for Mirror sites
+Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
+
+A final site for Mirror sites.
 
 ## Demo
 
