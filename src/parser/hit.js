@@ -1,11 +1,11 @@
-import { cname } from "./utils";
-import tunasync from "./tunasync";
-import options from "./options";
-import isoinfo from "./isoinfo";
+const cname = require("./utils").cname;
+const tunasync = require("./tunasync");
+const options = require("./options");
+const isoinfo = require("./isoinfo");
 
-export default async function () {
+module.exports = async function () {
   const name_func = await cname();
-  const site = await (await fetch("/static/json/site/hit.json")).json();
+  const site = await (await fetch("https://mirrorz.org/static/json/site/hit.json")).json();
   let mirrors = await tunasync("https://mirrors.hit.edu.cn/jobs");
 
   return {

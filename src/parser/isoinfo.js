@@ -1,6 +1,6 @@
-import { cname } from "./utils";
+const cname = require("./utils").cname;
 
-export default async function (isoinfoUrl) {
+module.exports = async function (isoinfoUrl) {
   const name_func = await cname();
   const isoinfo = await (await fetch(isoinfoUrl)).json();
 

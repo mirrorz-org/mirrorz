@@ -1,4 +1,4 @@
-import { cname } from "./utils";
+const cname = require("./utils").cname;
 
 const statusConverter = function(time, status) {
   let c = undefined;
@@ -30,9 +30,9 @@ const human = function(size) {
   return size.toFixed(2) + scale[i];
 }
 
-export default async function () {
+module.exports = async function () {
   const name_func = await cname();
-  const site = await (await fetch("/static/json/site/neusoft.json")).json();
+  const site = await (await fetch("https://mirrorz.org/static/json/site/neusoft.json")).json();
   const repos = await (await fetch("https://mirrors.neusoft.edu.cn/repos.html")).json();
 
   const mirrors = [];
