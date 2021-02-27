@@ -8,7 +8,7 @@ const human = function(size) {
   return size.toFixed(2) + scale[i];
 }
 
-export default async function (diskUrl) {
+module.exports = async function (diskUrl) {
   const disk = await (await fetch(diskUrl)).json();
   return human(disk.used_kb) + "/" + human(disk.total_kb);
 };

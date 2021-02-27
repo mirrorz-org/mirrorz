@@ -1,4 +1,4 @@
-import { cname } from "./utils";
+const cname = require("./utils").cname;
 
 const MAP = {
   success: "S",
@@ -35,7 +35,7 @@ const statusConverter = function(item) {
   return s;
 };
 
-export default async function (tunasyncUrl) {
+module.exports = async function (tunasyncUrl) {
   const name_func = await cname();
   const tunasync = await (await fetch(tunasyncUrl)).json();
 

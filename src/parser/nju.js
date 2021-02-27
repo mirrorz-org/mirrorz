@@ -1,8 +1,8 @@
-import { cname } from "./utils";
-import tunasync from "./tunasync";
-import options from "./options";
+const cname = require("./utils").cname;
+const tunasync = require("./tunasync");
+const options = require("./options");
 
-export default async function () {
+module.exports = async function () {
   const name_func = await cname();
   const site = await (await fetch("https://mirrors.nju.edu.cn/.mirrorz/site.json")).json();
   const mirrors = await tunasync("https://mirrors.nju.edu.cn/.mirrorz/tunasync.json");

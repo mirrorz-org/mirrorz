@@ -1,6 +1,6 @@
-import { cname } from "./utils";
+const cname = require("./utils").cname;
 
-export default async function (optionsUrl, mirrors) {
+module.exports = async function (optionsUrl, mirrors) {
   const name_func = await cname();
   const options = await (await fetch(optionsUrl)).json();
 

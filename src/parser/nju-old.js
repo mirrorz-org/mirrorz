@@ -1,6 +1,6 @@
-import { cname } from "./utils";
+const cname = require("./utils").cname;
 
-export default async function () {
+module.exports = async function () {
   const name_func = await cname();
   const site = await (await fetch("https://mirrors.nju.edu.cn/.mirrorz/site.json")).json();
   const html = await (await fetch("https://r.zenithal.workers.dev/https://mirrors.nju.edu.cn/")).text();

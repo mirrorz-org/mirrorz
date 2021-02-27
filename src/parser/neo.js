@@ -1,11 +1,11 @@
-import { cname } from "./utils";
-import tunasync from "./tunasync";
-import options from "./options";
-import disk from "./disk";
+const cname = require("./utils").cname;
+const tunasync = require("./tunasync");
+const options = require("./options");
+const disk = require("./disk");
 
-export default async function () {
+module.exports = async function () {
   const name_func = await cname();
-  const site = await (await fetch("/static/json/site/neo.json")).json();
+  const site = await (await fetch("https://mirrorz.org/static/json/site/neo.json")).json();
   site["disk"] = await disk("https://mirrors.tuna.tsinghua.edu.cn/static/status/neo/disk.json")
 
   let mirrors = await tunasync("https://mirrors.tuna.tsinghua.edu.cn/static/tunasync.json.neo");

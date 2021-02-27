@@ -1,4 +1,4 @@
-import { cname } from "./utils";
+const cname = require("./utils").cname;
 
 const MAP = {
   success: "S",
@@ -21,9 +21,9 @@ const statusConverter = function(time, status) {
     return c + "O" + t;
 };
 
-export default async function () {
+module.exports = async function () {
   const name_func = await cname();
-  const site = await (await fetch("/static/json/site/lzu.json")).json();
+  const site = await (await fetch("https://mirrorz.org/static/json/site/lzu.json")).json();
   const html = await (await fetch("https://r.zenithal.workers.dev/http://mirror.lzu.edu.cn/")).text();
 
   const parser = new DOMParser();
