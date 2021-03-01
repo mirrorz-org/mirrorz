@@ -1,0 +1,8 @@
+{
+    "dependencies": {
+        "@influxdata/influxdb-client": "^1.10.0",
+        "await-timeout": "^1.1.1",
+        "jsdom": "^16.4.0",
+        "node-fetch-extra": "0.0.3"
+    }
+}
