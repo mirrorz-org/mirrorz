@@ -11,6 +11,7 @@ import ISO from "./ISO";
 import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
+import Monitor from "./Monitor";
 
 import lzu from "./parser/lzu";
 import nju from "./parser/nju";
@@ -143,7 +144,8 @@ export default React.memo(() => {
                 (!location.pathname.startsWith("/list") &&
                 !location.pathname.startsWith("/site") &&
                 !location.pathname.startsWith("/about") &&
-                !location.pathname.startsWith("/debug"))
+                !location.pathname.startsWith("/debug") &&
+                !location.pathname.startsWith("/monitor"))
               ) {
                 return true;
               }
@@ -175,6 +177,9 @@ export default React.memo(() => {
             </Route>
             <Route path="/debug">
               <Debug mirrorz={mirrorzList} />
+            </Route>
+            <Route path="/monitor">
+              <Monitor />
             </Route>
             <Route path="*">
               <ISO isoinfo={isoinfoList} />
