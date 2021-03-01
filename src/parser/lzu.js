@@ -31,10 +31,10 @@ module.exports = async function () {
   const items = Array.from(doc.querySelectorAll(".mirror_list tbody tr"));
   const mirrors = items.map((item) => {
     const data = Array.from(item.querySelectorAll("td"));
-    const name = name_func(data[0].firstElementChild.innerText);
+    const name = name_func(data[0].firstElementChild.textContent);
     const url = data[0].firstElementChild.getAttribute("href");
-    const time = data[1].innerText;
-    const status = data[2].innerText;
+    const time = data[1].textContent;
+    const status = data[2].textContent;
     return {
       cname: name,
       url,

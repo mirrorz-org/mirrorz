@@ -27,14 +27,14 @@ module.exports = async function () {
   const items = Array.from(doc.querySelectorAll("#mirror-tbody tr"));
   const mirrors = items.map((item) => {
     const data = Array.from(item.querySelectorAll("td"));
-    const name = name_func(data[0].firstElementChild.innerText);
+    const name = name_func(data[0].firstElementChild.textContent);
     const url = '/' +  data[0].firstElementChild.getAttribute("href");
-    const size = data[1].innerText;
-    const status = data[2].innerText;
-    let time = new Date().getFullYear().toString() + " " + data[3].innerText;
+    const size = data[1].textContent;
+    const status = data[2].textContent;
+    let time = new Date().getFullYear().toString() + " " + data[3].textContent;
     // for example, given November but it's February, we need one year earlier
     if (new Date(time) > new Date())
-      time = (new Date().getFullYear() - 1).toString() + " " + data[3].innerText;
+      time = (new Date().getFullYear() - 1).toString() + " " + data[3].textContent;
     return {
       cname: name,
       url,
