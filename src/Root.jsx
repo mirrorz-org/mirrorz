@@ -5,40 +5,13 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import MIRROR_URLS from "./config/upstream";
+import UPSTREAM_LIST from "./config/upstream";
 import Mirrors from "./Mirrors";
 import ISO from "./ISO";
 import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
-
-import lzu from "./parser/lzu";
-import nju from "./parser/nju";
-import neusoft from "./parser/neusoft";
-import hust from "./parser/hust";
-import tuna from "./parser/tuna";
-import bfsu from "./parser/bfsu";
-import nano from "./parser/nano";
-import neo from "./parser/neo";
-import hit from "./parser/hit";
-import cqu from "./parser/cqu";
-//import xjtu from "./parser/xjtu";
-
-const PARSER_LIST = [
-  lzu,
-  nju,
-  neusoft,
-  hust,
-  tuna,
-  bfsu,
-  nano,
-  neo,
-  hit,
-  cqu,
-];
-
-const UPSTREAM_LIST = MIRROR_URLS.concat(PARSER_LIST);
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 
