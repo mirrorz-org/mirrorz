@@ -107,7 +107,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
 
 ## MirrorZ, Mirror site, Third party
 
-MirrorZ only provides the data format (including `cname.json`), frontend and related scripts (e.g `oh-my-mirrorz.py`). Audit on data format, content (e.g. `cname.json`) and adopted technologies (e.g. using reverse proxy in parsers) can be done by MirrorZ.
+MirrorZ only provides the data format (including `cname.json`), frontend and related scripts (e.g `oh-my-mirrorz.py`). Audit on data format, content (e.g. `cname.json`) and adopted technologies (e.g. using reverse proxy in parsers) can be done by MirrorZ. Monitor and Backend are exprimental features of MirrorZ, and MirrorZ provides no warranty on these services.
 
 The term 'Mirror site' refers to an actual mirror site and/or the corresponding organization.
 

@@ -71,6 +71,7 @@ async function write(f) {
   const site = new Point('site')
     .timestamp(cur)
     .tag('mirror', mirrorz.site.abbr)
+    .tag('url', mirrorz.site.url)
     .intField('value', 1);
   //console.log(` ${site}`)
   writeApi.writePoint(site);
@@ -93,6 +94,7 @@ async function write(f) {
       .timestamp(cur)
       .tag('mirror', mirrorz.site.abbr)
       .tag('name', m.cname)
+      .tag('url', m.url)
       .intField('value', t);
     //console.log(` ${repo}`);
     writeApi.writePoint(repo);

@@ -53,16 +53,19 @@ export default React.memo(({ site }) => {
           <li>https://mirrorz.org/_/</li>
           <li>https://mirrorz.org/_/about</li>
           <li>More usage of static webpage is documented in the above url</li>
+          <li>Use the below script for speed test!</li>
           <li>https://mirrorz.org/oh-my-mirrorz.py</li>
-          <li>Use the above script for speed test!</li>
           <li><code>curl https://mirrorz.org/oh-my-mirrorz.py | python3</code></li>
+          <li>Experimental Feature: Backend</li>
+          <li>https://mirrors.mirrorz.org/archlinux</li>
+          <li>https://m.mirrorz.org/centos</li>
         </ul>
       )} />
       <Para title="TODO and possible projects" content={(
         <ul>
           <li>More participating mirrors</li>
           <li>oh-my-mirrorz. One script to change all your mirrors (currently only speedtest was implemented). Ref to <a href="http://github.com/tuna/oh-my-tuna" target="_blank">http://github.com/tuna/oh-my-tuna</a></li>
-          <li>Load Balancing Backend (hard). Ref to <a href="http://github.com/tuna/mirrorhub" target="_blank">http://github.com/tuna/mirrorhub</a></li>
+          <li>Load Balancing Backend (hard). Ref to <a href="http://github.com/tuna/mirrorhub" target="_blank">http://github.com/tuna/mirrorhub</a>. Currently a experimental backend is deployed.</li>
           <li>Mobile browser support</li>
           <li>i18n/l10n</li>
           <li>mirrorz.json protocol/data format discussion and upgrade</li>
