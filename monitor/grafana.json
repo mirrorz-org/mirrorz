@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.4.2"
+      "version": "7.4.3"
     },
     {
       "type": "panel",
@@ -27,6 +27,18 @@
       "id": "influxdb",
       "name": "InfluxDB",
       "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
     }
   ],
   "annotations": {
@@ -46,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1614611486964,
+  "iteration": 1615045813981,
   "links": [],
   "panels": [
     {
@@ -88,13 +100,13 @@
       },
       "lines": true,
       "linewidth": 2,
-      "maxDataPoints": 1000,
+      "maxDataPoints": null,
       "nullPointMode": "null as zero",
       "options": {
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.3",
       "pointradius": 2,
       "points": true,
       "renderer": "flot",
@@ -125,6 +137,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
+          "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -184,6 +197,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:100",
+          "decimals": 0,
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -207,56 +221,76 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "${DS_INFLUXDB}",
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "s"
         },
         "overrides": []
       },
-      "fill": 0,
-      "fillGradient": 0,
       "gridPos": {
         "h": 20,
         "w": 7,
         "x": 7,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 10,
       "interval": "5m",
-      "legend": {
-        "avg": false,
-        "current": true,
-        "hideZero": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "maxDataPoints": 1000,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "graph": {},
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltipOptions": {
+          "mode": "multi"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.4.2",
-      "pointradius": 0.5,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [
@@ -276,6 +310,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
+          "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -295,97 +330,81 @@
           "tags": []
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
       "title": "${repo}",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:118",
-          "format": "s",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:119",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": "${DS_INFLUXDB}",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "s"
         },
         "overrides": []
       },
-      "fill": 0,
-      "fillGradient": 0,
       "gridPos": {
         "h": 20,
         "w": 10,
         "x": 14,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 8,
       "interval": "5m",
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "graph": {},
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltipOptions": {
+          "mode": "multi"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.4.2",
-      "pointradius": 0.5,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "7.4.3",
       "targets": [
         {
           "groupBy": [
@@ -405,6 +424,7 @@
           "orderByTime": "ASC",
           "policy": "default",
           "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.name}))",
+          "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -424,48 +444,200 @@
           "tags": []
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
       "title": "${site}",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:78",
-          "format": "s",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
         },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 18
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
         {
-          "$$hashKey": "object:79",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket:\"mirrorz\")\n        |> range(start: -1h)\n        |> filter(fn: (r) => r._measurement == \"repo\" and r._value != 0)\n        |> map(fn: (r) => ({_value:r._value,_time:r._time,_field:r.mirror+\" \"+r.name}))\n        |> limit(n:1)\n        |> group()\n        |> sort(columns: [\"_value\"], desc: true)\n        |> limit(n:32)\n        |> group(columns: [\"_field\"])\n        ",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
         }
       ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Latest",
+      "type": "stat"
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 18
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket:\"mirrorz\")\n        |> range(start: -1h)\n        |> filter(fn: (r) => r._measurement == \"repo\" and r._value != 0)\n        |> map(fn: (r) => ({_value:r._value,_time:r._time,_field:r.mirror+\" \"+r.name}))\n        |> limit(n:1)\n        |> group()\n        |> sort(columns: [\"_value\"])\n        |> limit(n:32)\n        |> group(columns: [\"_field\"])\n        ",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Earliest",
+      "type": "stat"
     }
   ],
   "refresh": false,
@@ -478,7 +650,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_INFLUXDB}",
-        "definition": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))",
+        "definition": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))\n    |> unique()",
         "description": null,
         "error": null,
         "hide": 0,
@@ -487,11 +659,11 @@
         "multi": false,
         "name": "repo",
         "options": [],
-        "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))",
-        "refresh": 1,
+        "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))\n    |> unique()",
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 5,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -502,7 +674,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_INFLUXDB}",
-        "definition": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror, _time:r._time, _field:r.name}))",
+        "definition": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror}))\n    |> unique()",
         "description": null,
         "error": null,
         "hide": 0,
@@ -511,11 +683,11 @@
         "multi": false,
         "name": "site",
         "options": [],
-        "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror, _time:r._time, _field:r.name}))",
-        "refresh": 1,
+        "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror}))\n    |> unique()",
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 5,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -525,7 +697,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -558,5 +730,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "p6XP3EyMz",
-  "version": 16
+  "version": 17
 }
