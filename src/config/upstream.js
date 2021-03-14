@@ -9,6 +9,11 @@ const neo = require("./../parser/neo");
 const hit = require("./../parser/hit");
 const cqu = require("./../parser/cqu");
 //const xjtu = require("./../parser/xjtu");
+//const neu = require("./../parser/neu");
+const nyist = require("./../parser/nyist");
+const nwafu = require("./../parser/nwafu");
+const scau = require("./../parser/scau");
+const zju = require("./../parser/zju");
 
 module.exports = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -22,6 +27,7 @@ module.exports = [
   "https://mirrorz.org/static/tmp/njupt.json",
   "https://mirrorz.org/static/tmp/xjtu.json",
   "https://mirrorz.org/static/tmp/tongji.json",
+  "https://mirrorz.org/static/tmp/neu.json",
   lzu,
   nju,
   neusoft,
@@ -32,4 +38,8 @@ module.exports = [
   neo,
   hit,
   cqu,
+  nyist,
+  nwafu,
+  scau,
+  zju,
 ]
