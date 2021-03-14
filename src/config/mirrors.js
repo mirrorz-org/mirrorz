@@ -18,4 +18,6 @@ module.exports = [
   "https://mirrorz.org/static/json/legacy/hust.json",
   "https://mirrorz.org/static/json/legacy/neusoft.json",
   "https://mirrorz.org/static/json/legacy/lzu.json",
+  "https://mirrorz.org/static/json/legacy/neu.json",
+  "https://mirrorz.org/static/json/legacy/nyist.json",
 ]
