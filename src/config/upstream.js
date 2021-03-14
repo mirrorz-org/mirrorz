@@ -12,6 +12,7 @@ const cqu = require("./../parser/cqu");
 //const neu = require("./../parser/neu");
 const nyist = require("./../parser/nyist");
 const nwafu = require("./../parser/nwafu");
+const scau = require("./../parser/scau");
 
 module.exports = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -38,4 +39,5 @@ module.exports = [
   cqu,
   nyist,
   nwafu,
+  scau,
 ]

@@ -21,4 +21,5 @@ module.exports = [
   "https://mirrorz.org/static/json/legacy/neu.json",
   "https://mirrorz.org/static/json/legacy/nyist.json",
   "https://mirrorz.org/static/json/legacy/nwafu.json",
+  "https://mirrorz.org/static/json/legacy/scau.json",
 ]
