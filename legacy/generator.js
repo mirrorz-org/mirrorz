@@ -29,7 +29,7 @@ async function handle(){
     await asyncForEach(require('../src/config/mirrors'),async url=>{
         try {
             console.log('downloading',url)
-            let data = await fetch(url)
+            let data = await fetch(url, { timeout: 15000 })
             sites.push(await data.json())
         } catch (error) {
             // 这里没有用 .error 怕整个ci炸
