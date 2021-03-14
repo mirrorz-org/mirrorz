@@ -37,6 +37,7 @@ mirrors = [
     "https://mirrorz.org/static/json/legacy/lzu.json",
     "https://mirrorz.org/static/json/legacy/neu.json",
     "https://mirrorz.org/static/json/legacy/nyist.json",
+    "https://mirrorz.org/static/json/legacy/nwafu.json",
 ]
 
 map = {}
