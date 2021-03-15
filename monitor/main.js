@@ -27,6 +27,11 @@ neo = require("./parser/neo");
 hit = require("./parser/hit");
 cqu = require("./parser/cqu");
 xjtu = require("./parser/xjtu");
+zju = require("./parser/zju");
+scau = require("./parser/scau");
+nwafu = require("./parser/nwafu");
+neu = require("./parser/neu");
+nyist = require("./parser/nyist");
 
 const LIST = [
   lzu,
@@ -39,6 +44,11 @@ const LIST = [
   hit,
   cqu,
   xjtu,
+  zju,
+  scau,
+  nwafu,
+  neu,
+  nyist,
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
   "https://mirrors.ustc.edu.cn/static/json/mirrorz.json",
   "https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",
