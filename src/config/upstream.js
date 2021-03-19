@@ -11,7 +11,6 @@ const cqu = require("./../parser/cqu");
 //const xjtu = require("./../parser/xjtu");
 //const neu = require("./../parser/neu");
 const nyist = require("./../parser/nyist");
-const nwafu = require("./../parser/nwafu");
 const scau = require("./../parser/scau");
 const zju = require("./../parser/zju");
 const pku = require("./../parser/pku");
@@ -24,6 +23,7 @@ module.exports = [
   "https://mirrors.dgut.edu.cn/static/mirrorz.json",
   "https://mirrors.sustech.edu.cn/mirrorz/mirrorz.json",
   "https://iptv.uestc.edu.cn/mirrors/mirrorz.json",
+  "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
   "https://mirrorz.org/static/tmp/bjtu.json",
   "https://mirrorz.org/static/tmp/njupt.json",
   "https://mirrorz.org/static/tmp/xjtu.json",
@@ -40,7 +40,6 @@ module.exports = [
   hit,
   cqu,
   nyist,
-  nwafu,
   scau,
   zju,
   pku,
