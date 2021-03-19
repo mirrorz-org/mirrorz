@@ -29,7 +29,6 @@ cqu = require("./parser/cqu");
 xjtu = require("./parser/xjtu");
 zju = require("./parser/zju");
 scau = require("./parser/scau");
-nwafu = require("./parser/nwafu");
 neu = require("./parser/neu");
 nyist = require("./parser/nyist");
 pku = require("./parser/pku");
@@ -47,7 +46,6 @@ const LIST = [
   xjtu,
   zju,
   scau,
-  nwafu,
   neu,
   nyist,
   pku,
@@ -58,6 +56,7 @@ const LIST = [
   "https://mirrors.dgut.edu.cn/static/mirrorz.json",
   "https://mirrors.sustech.edu.cn/mirrorz/mirrorz.json",
   "https://iptv.uestc.edu.cn/mirrors/mirrorz.json",
+  "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
 ];
 
 const {InfluxDB, Point, HttpError} = require('@influxdata/influxdb-client')
