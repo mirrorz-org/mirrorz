@@ -32,6 +32,7 @@ scau = require("./parser/scau");
 nwafu = require("./parser/nwafu");
 neu = require("./parser/neu");
 nyist = require("./parser/nyist");
+pku = require("./parser/pku");
 
 const LIST = [
   lzu,
@@ -49,6 +50,7 @@ const LIST = [
   nwafu,
   neu,
   nyist,
+  pku,
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
   "https://mirrors.ustc.edu.cn/static/json/mirrorz.json",
   "https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",
