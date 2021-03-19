@@ -1,0 +1,9 @@
+{
+    "url": "https://mirrors.pku.edu.cn",
+    "logo": "https://mirrors.pku.edu.cn/static/logo.png",
+    "abbr": "PKU",
+    "name": "北京大学开源镜像站",
+    "homepage": "https://mirrors.pku.edu.cn/Mirrors",
+    "issue": "https://github.com/PKUOSC/issues",
+    "email": "mirror@pku.edu.cn"
+}
