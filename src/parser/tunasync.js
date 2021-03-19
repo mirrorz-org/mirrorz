@@ -10,11 +10,7 @@ const MAP = {
 };
 
 const statusConverter = function(item) {
-  let s;
-  if ("status" in item && item.status in MAP)
-    s = MAP[item["status"]]
-  else
-    s = "U"
+  let s = MAP[item.status] ?? "U";
 
   if ((s == "S" || s == "P") && "last_update_ts" in item && item["last_update_ts"] > 0)
       s += item["last_update_ts"].toString(); // successful sync end
