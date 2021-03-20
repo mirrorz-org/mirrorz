@@ -8,6 +8,9 @@ import sys
 import os
 import argparse
 
+VERSION = ''
+CURL_VERSION = ''
+
 big = {
     'centos': '/8/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso',
     'archlinux': '/iso/latest/archlinux-2021.03.01-x86_64.iso',
@@ -47,16 +50,23 @@ mirrors = [
 map = {}
 
 def check_curl():
+    global CURL_VERSION
     try:
         res = subprocess.run(['curl', '--version'], stdout=subprocess.PIPE)
-        print(res.stdout.decode('utf-8'))
+        out = res.stdout.decode('utf-8')
+        CURL_VERSION = out.split()[1]
+        print(out)
         return 0
     except:
         print("No curl found!")
         return -1
 
 def site_info(url):
-    return requests.get(url, timeout=10).json()
+    return requests.get(url,
+                        headers={
+                            'User-Agent': 'Mozilla/5.0 (compatible; OhMyMirrorz/%s; +https://mirrorz.org/about) %s' % (VERSION, requests.utils.default_user_agent())
+                        }, timeout=10).json()
+
 
 def speed_test(url, args):
     opt = '-qs'
@@ -64,7 +74,8 @@ def speed_test(url, args):
         opt += '4'
     elif args.ipv6:
         opt += '6'
-    res = subprocess.run(['curl', opt, '-o', os.devnull, '-w', '%{http_code} %{speed_download}', '-m'+str(args.time), url], stdout=subprocess.PIPE)
+    res = subprocess.run(['curl', opt, '-o', os.devnull, '-w', '%{http_code} %{speed_download}',
+                          '-m'+str(args.time), '-A', 'Mozilla/5.0 (compatible; OhMyMirrorz/%s; +https://mirrorz.org/about) curl/%s' % (VERSION, CURL_VERSION), url], stdout=subprocess.PIPE)
     code, speed = res.stdout.decode('utf-8').split()
     return int(code), float(speed)
 
@@ -75,7 +86,7 @@ def human_readable_speed(speed):
         i += 1
         speed /= 1024.0
     return f'{speed:.2f} {scale[i]}'
-   
+
 def main():
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
@@ -86,7 +97,6 @@ def main():
 
     if check_curl() != 0:
         exit(-1)
-    
     for url in mirrors:
         try:
             map[url] = site_info(url)
