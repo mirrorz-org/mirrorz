@@ -12,7 +12,11 @@ const statusConverter = function(time, status) {
     return "U";
   if (time == "-")
     return c;
-  const t = Math.round(new Date(time + " UTC+8").getTime()/1000).toString();
+  const timestamp = new Date(time + " UTC+8")
+  const current = new Date()
+  if (timestamp < current - 365*24*60*60*1000)
+    return c;
+  const t = Math.round(timestamp.getTime()/1000).toString();
   return c + t;
 };
 
