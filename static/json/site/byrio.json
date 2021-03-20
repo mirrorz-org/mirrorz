@@ -1,0 +1,8 @@
+{
+    "url": "https://mirrors.byrio.org",
+    "logo": "https://mirrors.byrio.org/static/img/favicon.ico",
+    "abbr": "BYRIO",
+    "name": "北京邮电大学开源软件镜像站",
+    "issue": "https://github.com/BYRIO/BYRIO-mirrors/issues",
+    "request": "https://github.com/BYRIO/BYRIO-mirrors/issues"
+}
