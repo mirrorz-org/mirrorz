@@ -14,6 +14,7 @@ const nyist = require("./../parser/nyist");
 const scau = require("./../parser/scau");
 const zju = require("./../parser/zju");
 const pku = require("./../parser/pku");
+const byrio = require("./../parser/byrio");
 
 module.exports = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -43,4 +44,5 @@ module.exports = [
   scau,
   zju,
   pku,
+  byrio,
 ]
