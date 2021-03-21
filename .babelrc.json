@@ -1,5 +1,15 @@
 {
-	"presets": ["@parcel/babel-preset-env"],
-	"plugins": ["@parcel/babel-plugin-transform-runtime","@babel/plugin-transform-react-jsx"]
+	"presets": [
+		"@parcel/babel-preset-env"
+	],
+	"plugins": [
+		"@parcel/babel-plugin-transform-runtime",
+		"@babel/plugin-transform-react-jsx",
+		[
+			"@babel/plugin-transform-typescript",
+			{
+				"isTSX": true
+			}
+		]
+	]
 }
-
