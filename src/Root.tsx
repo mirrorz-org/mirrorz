@@ -12,6 +12,8 @@ import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
+import { Mirrorz } from "./schema";
+import { Parser } from "./parser";
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 
@@ -30,9 +32,9 @@ export default React.memo(() => {
 
   // Load all mirror configurations
   useEffect(() => {
-    async function initMirror(url) {
-      let obj;
-      if (typeof(url) == "string") {
+    async function initMirror(url: string | Parser) {
+      let obj: Mirrorz;
+      if (typeof (url) == "string") {
         const resp = await fetch(url);
         obj = await resp.json();
       } else {
@@ -48,8 +50,8 @@ export default React.memo(() => {
             (help === "" || help === undefined || help === null)
               ? null
               : help.match(PROTO_REGEX)
-              ? help
-              : site.url + help;
+                ? help
+                : site.url + help;
           return {
             cname,
             full: fullUrl,
@@ -92,7 +94,7 @@ export default React.memo(() => {
         console.log("Refresh data");
         for (const mirror of UPSTREAM_LIST) initMirror(mirror);
       }
-    }, 30*1000);
+    }, 30 * 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -108,24 +110,24 @@ export default React.memo(() => {
     <Router>
       <div id="app-container">
         <div className="sidebar">
-          <NavLink 
+          <NavLink
             to="/"
             activeClassName="active"
             isActive={(_, location) => {
               if (
                 location.pathname === "/" ||
                 (!location.pathname.startsWith("/list") &&
-                !location.pathname.startsWith("/site") &&
-                !location.pathname.startsWith("/about") &&
-                !location.pathname.startsWith("/debug") &&
-                !location.pathname.startsWith("/monitor"))
+                  !location.pathname.startsWith("/site") &&
+                  !location.pathname.startsWith("/about") &&
+                  !location.pathname.startsWith("/debug") &&
+                  !location.pathname.startsWith("/monitor"))
               ) {
                 return true;
               }
               return false;
             }}
           >
-            <img src="/static/img/mirrorz.svg" className="sidebar-logo" alt="ISO"/>
+            <img src="/static/img/mirrorz.svg" className="sidebar-logo" alt="ISO" />
           </NavLink>
           <NavLink to="/list" activeClassName="active">
             <h2>List</h2>

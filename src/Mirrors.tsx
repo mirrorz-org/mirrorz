@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch, useHistory } from "react-router-dom";
 import Icon from './Icon';
+import { ParsedMirror } from "./schema";
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 
-const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) => {
+const Group = React.memo((
+  { group, entries, filtered, defaultCollapse = true }:
+    { group: string, entries: ParsedMirror[], filtered: boolean, defaultCollapse?: boolean }) => {
   const [collapse, setCollapse] = useState(defaultCollapse);
   const toggleCollapse = useCallback(() => setCollapse(c => !c), []);
 
   const summary = useMemo(() => {
     return (
       <Summary sum={
-        statusSum(entries.map(({ status }) => {return statusMapper(status);}))
+        statusSum(entries.map(({ status }) => statusMapper(status)))
       } />
     )
   }, [entries]);
@@ -53,7 +56,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
               </div>
             )}
             {status && (
-              <StatusList mapper={statusMapper(status)}/>
+              <StatusList mapper={statusMapper(status)} />
             )}
             {size && (
               <div className="size">
@@ -77,7 +80,7 @@ const Group = React.memo(({ group, entries, filtered, defaultCollapse = true }) 
   );
 });
 
-export default React.memo(({ mirrors }) => {
+export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   const [filter, setFilter] = useState('');
   // set filter only once, namely from url,
   // otherwise when url changes by user interaction (use filter, click on group),
@@ -86,13 +89,12 @@ export default React.memo(({ mirrors }) => {
 
   // Clustering
   const grouped = useMemo(() => {
-    const mapper = new Map();
+    const mapper: { [_: string]: ParsedMirror[] } = {};
     for (const m of mirrors) {
-      if (!mapper.has(m.cname)) mapper.set(m.cname, []);
-      mapper.get(m.cname).push(m);
+      if (!(m.cname in mapper)) mapper[m.cname] = [];
+      mapper[m.cname].push(m);
     }
-    return Array.from(mapper.entries())
-      .map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
+    return Object.entries(mapper).map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
   }, [mirrors]);
 
   const history = useHistory();
@@ -115,7 +117,7 @@ export default React.memo(({ mirrors }) => {
     } catch (error) {
       regex = null;
     }
-    if(regex !== null) console.log("valid regex:", regex);
+    if (regex !== null) console.log("valid regex:", regex);
     return regex;
   }, [filter]);
   const begin = performance.now();
@@ -128,7 +130,7 @@ export default React.memo(({ mirrors }) => {
         m = regex.exec(e.group);
         filtered = m === null;
         if (!filtered)
-          index = m.index;
+          index = m!.index;
       }
       return { ...e, filtered, index, defaultCollapse: filter !== e.group };
     })

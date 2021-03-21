@@ -1,23 +1,24 @@
-const lzu = require("./../parser/lzu");
-const nju = require("./../parser/nju");
-const neusoft = require("./../parser/neusoft");
-const hust = require("./../parser/hust");
-const tuna = require("./../parser/tuna");
-const bfsu = require("./../parser/bfsu");
-const nano = require("./../parser/nano");
-const neo = require("./../parser/neo");
-const hit = require("./../parser/hit");
-const cqu = require("./../parser/cqu");
+import { Parser } from "../parser";
+import lzu from "./../parser/lzu";
+import nju from "./../parser/nju";
+import neusoft from "./../parser/neusoft";
+import hust from "./../parser/hust";
+import tuna from "./../parser/tuna";
+import bfsu from "./../parser/bfsu";
+import nano from "./../parser/nano";
+import neo from "./../parser/neo";
+import hit from "./../parser/hit";
+import cqu from "./../parser/cqu";
 //const xjtu = require("./../parser/xjtu");
 //const neu = require("./../parser/neu");
-const nyist = require("./../parser/nyist");
-const scau = require("./../parser/scau");
-const zju = require("./../parser/zju");
-const pku = require("./../parser/pku");
-const byrio = require("./../parser/byrio");
-const cqupt = require("./../parser/cqupt");
+import nyist from "./../parser/nyist";
+import scau from "./../parser/scau";
+import zju from "./../parser/zju";
+import pku from "./../parser/pku";
+import byrio from "./../parser/byrio";
+import cqupt from "./../parser/cqupt";
 
-module.exports = [
+const upstreams: (string | Parser)[] = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
   "https://mirrors.ustc.edu.cn/static/json/mirrorz.json",
   "https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",
@@ -47,4 +48,6 @@ module.exports = [
   pku,
   byrio,
   cqupt,
-]
+];
+
+export default upstreams;
