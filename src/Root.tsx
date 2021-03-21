@@ -99,13 +99,6 @@ export default React.memo(() => {
     return () => clearInterval(interval);
   }, []);
 
-  const location = window.location;
-  const history = window.history;
-  if (location.hash !== "") {
-    const hash = location.hash.slice(1);
-    history.replaceState(null, "", `${hash}`);
-  }
-
   return (
     <Router>
       <div id="app-container">
