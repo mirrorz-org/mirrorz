@@ -1,8 +1,13 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
-import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import React from "react";
+import { generatePath, Link, useHistory, useParams, useRouteMatch } from "react-router-dom";
 import { Logo } from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 import { ParsedMirror, Site } from "../schema";
+
+type SiteRouteParams = {
+  siteSlug?: string,
+  statusFilter?: string
+};
 
 const MetaLine = React.memo(({ left, right, link = false }: { left: string, right: string, link?: boolean }) => (
   <div className="meta-line">
@@ -25,61 +30,46 @@ const Meta = React.memo(({ site }: { site: Site }) => (
   </div>
 ));
 
+const siteUrl = (path: string, site: Site) => generatePath(path, { siteSlug: site.abbr.replace(/\s/g, '') });
+
 export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[] }[] }) => {
-  const [curr, setCurr] = useState(""); // w/o whitespaces
-  const [stat, setStat] = useState(""); // get filter from url
-
-  const location = useLocation();
-  useEffect(() => {
-    const pathnames = location.pathname.split("/")
-    if (pathnames.length < 3 || pathnames[2] == "")
-      setCurr("BFSU");
-    else setCurr(pathnames[2]);
-    if (pathnames.length < 4)
-      setStat("");
-    else setStat(pathnames[3]);
-  }, [location]);
-
-  const match = useRouteMatch();
+  const history = useHistory(), match = useRouteMatch(), params = useParams() as SiteRouteParams;
+  const curr = params.siteSlug, stat = params.statusFilter ?? "";
 
   return (
     <div className="site">
       <div className="site-abbr">
         {site.map(({ site, parsed }, idx) => (
-          <Link to={`${match.url}/${site.abbr.replace(/\s/g, '')}`} key={idx}>
-            <div className={"group-header" + (site.abbr.replace(/\s/g, '') == curr ? " active" : "")} onClick={() => setCurr(site.abbr)}>
+          <Link to={siteUrl(match.path, site)} key={idx}>
+            <div className={"group-header" + (site.abbr.replace(/\s/g, '') == curr ? " active" : "")}
+              onClick={() => history.push(siteUrl(match.path, site))}>
               <Logo site={site} className="logo" />
               <h2 className="heading">
                 {site.abbr}
               </h2>
               <div>
-                <Summary sum={
-                  statusSum(parsed.map(({ status }) => { return statusMapper(status); }))
-                } />
+                <Summary sum={statusSum(parsed.map(({ status }) => statusMapper(status)))} />
               </div>
             </div>
           </Link>
         ))}
       </div>
-      {site.map(({ site, parsed }) => {
-        if (site.abbr.replace(/\s/g, '') !== curr)
-          return null;
-        return <div className="site-content" key={site.abbr}>
+      {site.filter(s => s.site.abbr.replace(/\s/g, '') === curr).map(({ site, parsed }) =>
+        <div className="site-content" key={site.abbr}>
           <Meta site={site} />
           <div className="site-mirrors">
-            {parsed.sort((a, b) => a.cname.localeCompare(b.cname)).map(({ cname, status }, idx) => {
-              if (stat !== "" && status && status.indexOf(stat) === -1)
-                return;
-              return (<div className="site-group" key={idx}>
-                <h2 className="heading">
-                  {cname}
-                </h2>
-                <StatusList mapper={statusMapper(status)} />
-              </div>);
-            })}
+            {parsed.sort((a, b) => a.cname.localeCompare(b.cname))
+              // Status filter from URL
+              .filter(m => stat === "" || !m.status || m.status.indexOf(stat) !== -1)
+              .map(({ cname, status }, idx) =>
+                <div className="site-group" key={idx}>
+                  <h2 className="heading">
+                    {cname}
+                  </h2>
+                  <StatusList mapper={statusMapper(status)} />
+                </div>)}
           </div>
-        </div>
-      })}
+        </div>)}
     </div>
   );
 });
