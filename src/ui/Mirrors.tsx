@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch, useHistory } from "react-router-dom";
 import Icon from './Icon';
-import { ParsedMirror } from "./schema";
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
+import { ParsedMirror } from "../schema";
 
 const Group = React.memo((
   { group, entries, filtered, defaultCollapse = true }:

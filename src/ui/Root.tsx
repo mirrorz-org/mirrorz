@@ -5,15 +5,15 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import UPSTREAM_LIST from "./config/upstream";
 import Mirrors from "./Mirrors";
 import ISO from "./ISO";
 import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
-import { Mirrorz } from "./schema";
-import { Parser } from "./parser";
+import UPSTREAM_LIST from "../config/upstream";
+import { Mirrorz } from "../schema";
+import { Parser } from "../parser";
 
 const PROTO_REGEX = /(^https?:)?\/\//;
 

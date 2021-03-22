@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import { Logo } from './Icon';
-import { ParsedMirror, Site } from "./schema";
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
+import { ParsedMirror, Site } from "../schema";
 
 const MetaLine = React.memo(({ left, right, link = false }: { left: string, right: string, link?: boolean }) => (
   <div className="meta-line">

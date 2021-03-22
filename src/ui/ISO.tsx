@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Icon, { Logo404 } from './Icon';
-import { Info, Site } from "./schema";
+import { Info, Site } from "../schema";
 
 type IsoInfo = { site: Site, info: Info[] }[];
 

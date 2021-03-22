@@ -1,5 +1,5 @@
 import React from "react";
-import { Mirrorz } from "./schema"
+import { Mirrorz } from "../schema"
 
 export default React.memo(({ mirrorz }: { mirrorz: Mirrorz[] }) => (
   <div>
