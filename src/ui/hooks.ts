@@ -44,27 +44,26 @@ export function useMirrorzSites() {
     return mirrorz;
 }
 
-export const useSites = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
-    Object.fromEntries(Object.entries(sites).map(([key, { site, mirrors }]) => [key,
-        {
-            site,
-            parsed: mirrors.map(mirror => parseMirror(site, mirror))
-        }])), [sites]);
+export const useSitesList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
+    Object.values(sites).map(({ site, mirrors }) => ({
+        site,
+        parsed: mirrors.map(mirror => parseMirror(site, mirror))
+    })).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)),
+    [sites]);
 
-export const useMirrors = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
-    Object.fromEntries(Object.entries(sites).map(([key, { site, mirrors }]) => [key,
-        mirrors.map(mirror => parseMirror(site, mirror))])), [sites]);
+export const useMirrorsList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
+    Object.values(sites).flatMap(({ site, mirrors }) => mirrors.map(mirror => parseMirror(site, mirror))), [sites]);
 
-export const useIsoInfo = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
-    Object.fromEntries(Object.entries(sites).map(([key, { site, info }]) => [key,
-        {
-            site,
-            info: info.map(({ category, distro, urls }) => ({
-                category,
-                distro,
-                urls: urls.map(({ name, url }) => ({
-                    name,
-                    url: absoluteUrlOrConcatWithBase(url, site.url)
-                })),
-            }))
-        }])), [sites]);
+export const useIsoInfoList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
+    Object.values(sites).map(({ site, info }) => ({
+        site,
+        info: info.map(({ category, distro, urls }) => ({
+            category,
+            distro,
+            urls: urls.map(({ name, url }) => ({
+                name,
+                url: absoluteUrlOrConcatWithBase(url, site.url)
+            })),
+        }))
+    })).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)),
+    [sites]);
