@@ -55,7 +55,6 @@ export const useMirrors = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
     Object.fromEntries(Object.entries(sites).map(([key, { site, mirrors }]) => [key,
         mirrors.map(mirror => parseMirror(site, mirror))])), [sites]);
 
-
 export const useIsoInfo = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
     Object.fromEntries(Object.entries(sites).map(([key, { site, info }]) => [key,
         {

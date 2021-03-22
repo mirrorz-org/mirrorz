@@ -3,6 +3,7 @@ import { Link, useRouteMatch, useParams, generatePath } from "react-router-dom";
 import Icon from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 import { ParsedMirror } from "../schema";
+import { groupBy } from "./utils";
 
 const Group = React.memo((
   { group, entries, filtered, defaultCollapse = true }:
@@ -11,13 +12,9 @@ const Group = React.memo((
   const [collapse, setCollapse] = useState(defaultCollapse);
   const toggleCollapse = useCallback(() => setCollapse(c => !c), []);
 
-  const summary = useMemo(() => {
-    return (
-      <Summary sum={
-        statusSum(entries.map(({ status }) => statusMapper(status)))
-      } />
-    )
-  }, [entries]);
+  const summary = useMemo(() =>
+    <Summary sum={statusSum(entries.map(({ status }) => statusMapper(status)))} />,
+    [entries]);
 
   return (
     <div className={"group" + (filtered ? " filtered" : "") + (collapse ? "" : " group-expanded")}>
@@ -84,14 +81,10 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   const [filter, setFilter] = useState(params.filter ?? "");
 
   // Clustering
-  const grouped = useMemo(() => {
-    const mapper: { [_: string]: ParsedMirror[] } = {};
-    for (const m of mirrors) {
-      if (!(m.cname in mapper)) mapper[m.cname] = [];
-      mapper[m.cname].push(m);
-    }
-    return Object.entries(mapper).map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
-  }, [mirrors]);
+  const grouped = useMemo(() =>
+    Object.entries(groupBy(mirrors, m => m.cname))
+      .map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
+    , [mirrors]);
 
   const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
   const uploadFilter = useCallback((ev) => ev.key === 'Enter' && setFilter(ev.target.value), []);
