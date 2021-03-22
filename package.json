@@ -1,7 +1,11 @@
 {
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/plugin-transform-typescript": "^7.13.0",
     "@parcel/babel-plugin-transform-runtime": "^2.0.0-nightly.1823",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-router-dom": "^5.1.7",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
@@ -24,11 +28,12 @@
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
-    "debug_build": "parcel build index.html 404.html",
-    "build": "parcel build --no-source-maps index.html 404.html",
-    "postbuild": "cp -r static robots.txt CNAME scripts/oh-my-mirrorz/oh-my-mirrorz.py dist",
+    "debug_build": "parcel build index.html",
+    "build": "parcel build --no-source-maps index.html",
+    "postbuild": "cp -r static robots.txt CNAME scripts/oh-my-mirrorz/oh-my-mirrorz.py dist && ln -sf ./index.html dist/404.html",
     "legacy_build": "node ./legacy/generator.js",
-    "start": "parcel index.html 404.html",
+    "start": "parcel index.html",
+    "half_start": "(yarn debug_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "full_start": "(yarn debug_build && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py)",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
   }

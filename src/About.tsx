@@ -1,7 +1,8 @@
 import React from "react";
 import { Logo } from "./Icon";
+import { ParsedMirror, Site } from "./schema";
 
-const Para = React.memo(({ title, content }) => {
+const Para = React.memo(({ title, content }: { title: string, content: React.ReactNode }) => {
   return (
     <div className="para">
       <div className="para-title">
@@ -15,7 +16,7 @@ const Para = React.memo(({ title, content }) => {
   )
 });
 
-export default React.memo(({ site }) => {
+export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[] }[] }) => {
   return (
     <div className="about">
       <Para title="Intro" content={(
@@ -28,11 +29,11 @@ export default React.memo(({ site }) => {
         <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
       )} />
       <Para title="Logo" content={site.map(({ site, parsed }, idx) => (
-          <div className="about-powered-by" key={site.abbr}>
-            <Logo site={site} className="about-logo"/>
-            {site.abbr}
-          </div>
-        ))}
+        <div className="about-powered-by" key={site.abbr}>
+          <Logo site={site} className="about-logo" />
+          {site.abbr}
+        </div>
+      ))}
       />
       <Para title="Usage" content={(
         <ul>
