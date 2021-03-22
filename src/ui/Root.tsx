@@ -76,7 +76,7 @@ export default React.memo(() => {
             <Route path="/monitor" exact>
               <Monitor />
             </Route>
-            <Route path="/:category(os|app|font)?/:distro?" exact>
+            <Route path={["/", "/:category(os|app|font)/:distro?"]} exact>
               <ISO isoinfo={isoinfoList} />
             </Route>
             <Logo404 logo={true} str={"Navigate with the sidebar"} />
