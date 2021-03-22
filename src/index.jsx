@@ -1,6 +1,6 @@
-import Root from "./Root";
 import React from "react";
 import ReactDOM from "react-dom";
+import Root from "./ui/Root";
 import "./css/style.scss";
 import("./css/deferred.scss"); // Async load
 
