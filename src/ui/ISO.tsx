@@ -7,27 +7,20 @@ type IsoInfo = { site: Site, info: Info[] }[];
 
 const Urls = React.memo(({ isoinfo, category, distro }: { isoinfo: IsoInfo, category: string, distro: string }) => {
   const i = isoinfo.map(({ site, info }) => {
-    const i = info.map((i) => {
-      if (i.category.replace(/\s/g, '') != category || i.distro.replace(/\s/g, '') != distro)
-        return null;
-      return (
-        <div key={site.abbr}>
-          <h3>{site.abbr}</h3>
-          <ul>
-            {i.urls.map(({ name, url }, idx) => (
-              <li key={site.abbr + name + idx}><a href={url}>{name}</a></li>
-            ))}
-          </ul>
-        </div>
-      );
-    }).filter((e) => e !== null);
-    if (i.length == 0)
-      return null;
-    return (<div key={site.abbr}>{i}</div>);
-  }).filter((e) => e !== null);
-  if (i.length == 0)
-    return (<Logo404 logo={distro != ''} str={"Select one " + category + " from the sidebar"} />)
-  else return <>{i}</>;
+    const i = info
+      .filter(i => i.category.replace(/\s/g, '') === category && i.distro.replace(/\s/g, '') === distro)
+      .map(i => <div key={site.abbr}>
+        <h3>{site.abbr}</h3>
+        <ul>
+          {i.urls.map(({ name, url }, idx) =>
+            <li key={site.abbr + name + idx}><a href={url}>{name}</a></li>)}
+        </ul>
+      </div>);
+    return i.length === 0 ? null : <div key={site.abbr}>{i}</div>;
+  }).filter(e => e !== null);
+  return i.length === 0
+    ? <Logo404 logo={distro != ''} str={"Select one " + category + " from the sidebar"} />
+    : <>{i}</>;
 });
 
 export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
@@ -35,18 +28,13 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   const category = params.category ?? "os", distro = params.distro ?? "";
 
   const [allCat, allDistro] = useMemo(() => {
-    const allCat: string[] = [];
-    const allDistro: { [_: string]: string } = {};
-    isoinfo.map(({ info }) => {
-      info.map(({ category, distro }) => {
-        if (!allCat.includes(category)) {
-          allCat.push(category); // used for display
-        }
-        if (!(distro in allDistro)) {
-          allDistro[distro] = category; // used for display
-        }
-      })
-    });
+    const allCat = Array.from(new Set(isoinfo.flatMap(x => x.info.map(y => y.category))));
+     // If duplicated keys found in the array given to `Object.fromEntries`, 
+     // the values of latter ones will override former ones, 
+     // so use `reverse` to use the first value from the result of `flatMap`.
+    const allDistro: { [_: string]: string } = Object.fromEntries(isoinfo
+      .flatMap(x => x.info.map(({ category, distro }) => [distro, category]))
+      .reverse());
     return [allCat, allDistro];
   }, [isoinfo]);
 
