@@ -63,7 +63,7 @@ export default React.memo(() => {
             <Route path="/list">
               <Mirrors mirrors={mirrorsList} />
             </Route>
-            <Route path="/site">
+            <Route path="/site/:siteSlug?/:statusFilter?" exact>
               <Site site={siteList} />
             </Route>
             <Route path="/about">
