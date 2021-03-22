@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
-import Icon, { Logo404 } from './Icon';
+import React, { useMemo } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Logo404 } from './Icon';
 import { Info, Site } from "../schema";
 
 type IsoInfo = { site: Site, info: Info[] }[];
@@ -31,8 +31,8 @@ const Urls = React.memo(({ isoinfo, category, distro }: { isoinfo: IsoInfo, cate
 });
 
 export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
-  const [category, setCategory] = useState("");
-  const [distro, setDistro] = useState("");
+  const params = useParams() as { category?: "os" | "app" | "font", distro?: string };
+  const category = params.category ?? "os", distro = params.distro ?? "";
 
   const [allCat, allDistro] = useMemo(() => {
     const allCat: string[] = [];
@@ -49,17 +49,6 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
     });
     return [allCat, allDistro];
   }, [isoinfo]);
-
-  const location = useLocation();
-  useEffect(() => {
-    const pathnames = location.pathname.split("/") // "" "os" "Ubuntu"
-    if (pathnames[1] == "")
-      setCategory("os");
-    else setCategory(pathnames[1]);
-    if (pathnames.length < 3)
-      setDistro("");
-    else setDistro(pathnames[2]);
-  }, [location, isoinfo]);
 
   return (
     <div className="iso">
