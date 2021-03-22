@@ -61,7 +61,7 @@ export default React.memo(() => {
         </div>
         <main>
           <Switch>
-            <Route path="/list">
+            <Route path="/list/:filter?" exact>
               <Mirrors mirrors={mirrorsList} />
             </Route>
             <Route path="/site/:siteSlug?/:statusFilter?" exact>
