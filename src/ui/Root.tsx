@@ -11,20 +11,17 @@ import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
-import { useIsoInfo, useMirrors, useMirrorzSites, useSites } from "./hooks";
+import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList } from "./hooks";
 import { Logo404 } from "./Icon";
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
   const mirrorz = useMirrorzSites();
-  const site = useSites(mirrorz);
-  const mirrors = useMirrors(mirrorz);
-  const isoinfo = useIsoInfo(mirrorz);
 
   const mirrorzList = useMemo(() => Object.values(mirrorz), [mirrorz]);
-  const mirrorsList = useMemo(() => Object.values(mirrors).flat(), [mirrors]);
-  const isoinfoList = useMemo(() => Object.values(isoinfo).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)), [isoinfo]);
-  const siteList = useMemo(() => Object.values(site).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)), [site]);
+  const mirrorsList = useMirrorsList(mirrorz);
+  const isoinfoList = useIsoInfoList(mirrorz);
+  const siteList = useSitesList(mirrorz);
 
   return (
     <Router>
