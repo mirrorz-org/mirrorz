@@ -66,13 +66,13 @@ export default React.memo(() => {
             <Route path="/site/:siteSlug?/:statusFilter?" exact>
               <Site site={siteList} />
             </Route>
-            <Route path="/about">
+            <Route path="/about" exact>
               <About site={siteList} />
             </Route>
-            <Route path="/debug">
+            <Route path="/debug" exact>
               <Debug mirrorz={mirrorzList} />
             </Route>
-            <Route path="/monitor">
+            <Route path="/monitor" exact>
               <Monitor />
             </Route>
             <Route path="*">
