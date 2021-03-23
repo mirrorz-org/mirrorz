@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
-import { Link, useRouteMatch, useParams, generatePath } from "react-router-dom";
+import { Link, useRouteMatch, useParams, generatePath, useHistory } from "react-router-dom";
 import Icon from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 import { ParsedMirror } from "../schema";
@@ -77,7 +77,7 @@ const Group = React.memo((
 });
 
 export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
-  const params = useParams() as { filter?: string };
+  const history = useHistory(), match = useRouteMatch(), params = useParams() as { filter?: string };
   const [filter, setFilter] = useState(params.filter ?? "");
 
   // Clustering
@@ -87,7 +87,10 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
     , [mirrors]);
 
   const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
-  const uploadFilter = useCallback((ev) => ev.key === 'Enter' && setFilter(ev.target.value), []);
+  const uploadFilter = useCallback((ev) => {
+    if (ev.key === 'Enter')
+      history.push(generatePath(match.path, { filter: ev.target.value }));
+  }, []);
 
   const regex = useMemo(() => {
     let regex;
