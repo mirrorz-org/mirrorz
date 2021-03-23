@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Logo404 } from './Icon';
 import { Info, Site } from "../schema";
+import { Page404 } from "./404";
 
 type IsoInfo = { site: Site, info: Info[] }[];
 
@@ -28,7 +29,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   const category = params.category ?? "os", distro = params.distro ?? "";
 
   const [allCat, allDistro] = useMemo(() => {
-    const allCat = Array.from(new Set(isoinfo.flatMap(x => x.info.map(y => y.category))));
+    const allCat = new Set(isoinfo.flatMap(x => x.info.map(y => y.category)));
     // If duplicated keys found in the array given to `Object.fromEntries`, 
     // the values of latter ones will override former ones, 
     // so use `reverse` to use the first value from the result of `flatMap`.
@@ -38,10 +39,10 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
     return [allCat, allDistro];
   }, [isoinfo]);
 
-  return (
+  return allCat.has(category) ? (
     <div className="iso">
       <div className="category">
-        {allCat.map((c, idx) => (
+        {Array.from(allCat).map((c, idx) => (
           <Link to={`/${c.replace(/\s/g, '')}`} key={idx + c} className={c.replace(/\s/g, '') == category ? "active" : ""}>
             <h2>{c}</h2>
           </Link>
@@ -65,5 +66,5 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
         </div>
       </div>
     </div>
-  );
+  ) : <Page404 />;
 });

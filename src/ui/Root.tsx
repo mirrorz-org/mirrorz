@@ -12,7 +12,7 @@ import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
 import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList } from "./hooks";
-import { Logo404 } from "./Icon";
+import { Page404 } from "./404";
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
@@ -73,10 +73,10 @@ export default React.memo(() => {
             <Route path="/monitor" exact>
               <Monitor />
             </Route>
-            <Route path={["/", "/:category(os|app|font)/:distro?"]} exact>
+            <Route path={["/", "/:category?/:distro?"]} exact>
               <ISO isoinfo={isoinfoList} />
             </Route>
-            <Logo404 logo={true} str={"Navigate with the sidebar"} />
+            <Page404 />
           </Switch>
         </main>
       </div>
