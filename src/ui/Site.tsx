@@ -34,7 +34,7 @@ const siteUrl = (path: string, site: Site) => generatePath(path, { siteSlug: sit
 
 export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[] }[] }) => {
   const history = useHistory(), match = useRouteMatch(), params = useParams() as SiteRouteParams;
-  const curr = params.siteSlug, stat = params.statusFilter ?? "";
+  const curr = params.siteSlug, stat = params.statusFilter;
 
   return (
     <div className="site">
@@ -60,7 +60,7 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
           <div className="site-mirrors">
             {parsed.sort((a, b) => a.cname.localeCompare(b.cname))
               // Status filter from URL
-              .filter(m => stat === "" || !m.status || m.status.indexOf(stat) !== -1)
+              .filter(m => stat === undefined || !m.status || m.status.indexOf(stat) !== -1)
               .map(({ cname, status }, idx) =>
                 <div className="site-group" key={idx}>
                   <h2 className="heading">
