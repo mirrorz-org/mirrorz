@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo } from "./Icon";
-import { ParsedMirror, Site } from "./schema";
+import { ParsedMirror, Site } from "../schema";
 
 const Para = React.memo(({ title, content }: { title: string, content: React.ReactNode }) => {
   return (

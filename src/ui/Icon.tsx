@@ -1,5 +1,5 @@
 import React from 'react';
-import { Site } from "./schema";
+import { Site } from "../schema";
 
 export default React.memo(({ children, ...rest }: React.HTMLAttributes<HTMLElement> & { children: React.ReactNode }) =>
   <i className="material-icons" {...rest}>{children}</i>);

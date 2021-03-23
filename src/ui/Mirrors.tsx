@@ -1,28 +1,24 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Link, useLocation, useRouteMatch, useHistory } from "react-router-dom";
+import React, { useState, useMemo, useCallback } from "react";
+import { Link, useRouteMatch, useParams, generatePath, useHistory } from "react-router-dom";
 import Icon from './Icon';
-import { ParsedMirror } from "./schema";
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
+import { ParsedMirror } from "../schema";
+import { groupBy } from "./utils";
 
 const Group = React.memo((
   { group, entries, filtered, defaultCollapse = true }:
     { group: string, entries: ParsedMirror[], filtered: boolean, defaultCollapse?: boolean }) => {
+  const match = useRouteMatch();
   const [collapse, setCollapse] = useState(defaultCollapse);
   const toggleCollapse = useCallback(() => setCollapse(c => !c), []);
 
-  const summary = useMemo(() => {
-    return (
-      <Summary sum={
-        statusSum(entries.map(({ status }) => statusMapper(status)))
-      } />
-    )
-  }, [entries]);
-
-  const match = useRouteMatch();
+  const summary = useMemo(() =>
+    <Summary sum={statusSum(entries.map(({ status }) => statusMapper(status)))} />,
+    [entries]);
 
   return (
     <div className={"group" + (filtered ? " filtered" : "") + (collapse ? "" : " group-expanded")}>
-      <Link to={`${match.url}/${encodeURIComponent(group)}`}>
+      <Link to={generatePath(match.path, { filter: encodeURIComponent(group) })}>
         <div className="group-header" id={group} onClick={toggleCollapse}>
           <h2 className="heading">
             {collapse ?
@@ -81,29 +77,19 @@ const Group = React.memo((
 });
 
 export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
-  const [filter, setFilter] = useState('');
-  // set filter only once, namely from url,
-  // otherwise when url changes by user interaction (use filter, click on group),
-  // filter would still be set by url
-  const [filterInit, setFilterInit] = useState(false);
+  const history = useHistory(), match = useRouteMatch(), params = useParams() as { filter?: string };
+  const [filter, setFilter] = useState(params.filter ?? "");
 
   // Clustering
-  const grouped = useMemo(() => {
-    const mapper: { [_: string]: ParsedMirror[] } = {};
-    for (const m of mirrors) {
-      if (!(m.cname in mapper)) mapper[m.cname] = [];
-      mapper[m.cname].push(m);
-    }
-    return Object.entries(mapper).map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
-  }, [mirrors]);
-
-  const history = useHistory();
-  const match = useRouteMatch();
+  const grouped = useMemo(() =>
+    Object.entries(groupBy(mirrors, m => m.cname))
+      .map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
+    , [mirrors]);
 
   const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
   const uploadFilter = useCallback((ev) => {
     if (ev.key === 'Enter')
-      history.push(`${match.url}/${encodeURIComponent(ev.target.value)}`);
+      history.push(generatePath(match.path, { filter: ev.target.value }));
   }, []);
 
   const regex = useMemo(() => {
@@ -141,20 +127,6 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
     });
   const end = performance.now();
   //console.log(`Sort`, end - begin);
-
-  const location = useLocation();
-  useEffect(() => {
-    const pathnames = location.pathname.split("/")
-    if (filterInit)
-      return;
-    // use url filter only once
-    setFilterInit(true);
-    let filter = "";
-    if (pathnames.length < 3) // "", "list", "filter"
-      return;
-    filter = decodeURIComponent(pathnames[2]);
-    setFilter(filter);
-  }, [location, filtered]);
 
   return (
     <div className={"mirrorz"}>
