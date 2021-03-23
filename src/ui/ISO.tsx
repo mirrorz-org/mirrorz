@@ -33,6 +33,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
     // If duplicated keys found in the array given to `Object.fromEntries`, 
     // the values of latter ones will override former ones, 
     // so use `reverse` to use the first value from the result of `flatMap`.
+    // Consistency of intermediate states is not guaranteed.
     const allDistro: { [_: string]: string } = Object.fromEntries(isoinfo
       .flatMap(x => x.info.map(({ category, distro }) => [distro, category]))
       .reverse());
