@@ -36,40 +36,34 @@ function is_debug(request) {
     return ('debug' in params);
 }
 
-function newest(csv) {
-    let m = -Infinity;
-    let url = null;
+function mirrors(csv) {
+    const urls = [];
 
     for (const line of csv.split('\r\n')) {
-        const arr = line.split(',');
+        const arr = line.split(',')
         if (arr.length < 7)
             continue
         if (arr[1] !== "_result")
             continue
         try {
-            const v = parseInt(arr[4]);
-            // 0 is a special value, namely unknown!
-            // valid range:  v < 0
-            if (v == 0)
-                continue;
-            if (v > m) {
-                m = v;
-                url = arr[6];
-            }
+            urls.push(arr[6])
         } catch (e) {}
     }
-    return url;
+    return urls;
 }
 
-function decide(csv) {
-    return newest(csv);
+async function fetch_timeout(url) {
+    let fetchPromise = fetch(url, {method: 'HEAD'})
+    let timeoutPromise = new Promise(resolve => setTimeout(resolve, 10*1000))
+    let response = await Promise.race([fetchPromise, timeoutPromise])
+    return response ? response.status.toString() : "Timeout"
 }
 
 async function handler(request) {
     try {
         let pathname = (new URL(request.url)).pathname;
         let pathname_arr = pathname.split('/');
-
+        
         // Redirect to homepage
         if (pathname_arr[1].length === 0)
             return Response.redirect('https://mirrorz.org/about', 302);
@@ -85,24 +79,37 @@ async function handler(request) {
         });
 
         const csv = await response.text();
-        if (is_debug(request))
+        if (is_debug(request)) 
             return new Response(csv);
 
-        const url = decide(csv);
+        const urls = mirrors(csv);
 
-        if (url === null)
+        if (urls.length === 0)
             return new Response(`Not Found`, {status: 404});
+        
+        const p = [], f = [];
 
-        // Append the remaining path
-        let remain_path = pathname.substr(1+pathname_arr[1].length);
-        // Dark magic for some sites treating '/archlinux' as file, not directory
-        if (remain_path.length === 0 && !pathname.endsWith('/'))
-            remain_path = '/'
-        const redir_url = url + remain_path;
+        for (const url of urls) {
+            // Append the remaining path
+            let remain_path = pathname.substr(1+pathname_arr[1].length);
+            // Dark magic for some sites treating '/archlinux' as file, not directory
+            if (remain_path.length === 0 && !pathname.endsWith('/'))
+                remain_path = '/'
+            const full_url = url + remain_path;
+            f.push(full_url)
+            p.push(fetch_timeout(full_url));
+        }
 
-        return Response.redirect(redir_url, 302);
+        const statuses = await Promise.all(p)
+
+        let page = ""
+
+        for (const i in urls)
+            page += statuses[i] + " " + f[i] + "\n"
+
+        return new Response(page);
+
     } catch (err) {
         return new Response(`${err}`, { status: 500 })
     }
 }
-
