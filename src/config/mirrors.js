@@ -26,4 +26,5 @@ module.exports = [
   "https://mirrorz.org/static/json/legacy/pku.json",
   "https://mirrorz.org/static/json/legacy/byrio.json",
   "https://mirrorz.org/static/json/legacy/cqupt.json",
+  "https://mirrorz.org/static/json/legacy/ynuosa.json",
 ]

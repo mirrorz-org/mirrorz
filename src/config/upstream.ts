@@ -17,6 +17,7 @@ import zju from "./../parser/zju";
 import pku from "./../parser/pku";
 import byrio from "./../parser/byrio";
 import cqupt from "./../parser/cqupt";
+import ynuosa from "./../parser/ynuosa";
 
 const upstreams: (string | Parser)[] = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -48,6 +49,7 @@ const upstreams: (string | Parser)[] = [
   pku,
   byrio,
   cqupt,
+  ynuosa,
 ];
 
 export default upstreams;
