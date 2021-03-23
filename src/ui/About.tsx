@@ -60,6 +60,8 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
           <li>Experimental Feature: Backend</li>
           <li>https://mirrors.mirrorz.org/archlinux</li>
           <li>https://m.mirrorz.org/centos</li>
+          <li>https://search.mirrorz.org/archlinux/</li>
+          <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
         </ul>
       )} />
       <Para title="TODO and possible projects" content={(
@@ -67,6 +69,7 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
           <li>More participating mirrors</li>
           <li>oh-my-mirrorz. One script to change all your mirrors (currently only speedtest was implemented). Ref to <a href="http://github.com/tuna/oh-my-tuna" target="_blank">http://github.com/tuna/oh-my-tuna</a></li>
           <li>Load Balancing Backend (hard). Ref to <a href="http://github.com/tuna/mirrorhub" target="_blank">http://github.com/tuna/mirrorhub</a>. Currently a experimental backend is deployed.</li>
+          <li>Search Backend (hard). Ref to <a href="https://github.com/tuna/issues/issues/1012" target="_blank">https://github.com/tuna/issues/issues/1012</a>. Currently a experimental backend is deployed.</li>
           <li>Mobile browser support</li>
           <li>i18n/l10n</li>
           <li>mirrorz.json protocol/data format discussion and upgrade</li>
