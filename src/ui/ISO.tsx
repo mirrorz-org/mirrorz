@@ -29,9 +29,9 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
 
   const [allCat, allDistro] = useMemo(() => {
     const allCat = Array.from(new Set(isoinfo.flatMap(x => x.info.map(y => y.category))));
-     // If duplicated keys found in the array given to `Object.fromEntries`, 
-     // the values of latter ones will override former ones, 
-     // so use `reverse` to use the first value from the result of `flatMap`.
+    // If duplicated keys found in the array given to `Object.fromEntries`, 
+    // the values of latter ones will override former ones, 
+    // so use `reverse` to use the first value from the result of `flatMap`.
     const allDistro: { [_: string]: string } = Object.fromEntries(isoinfo
       .flatMap(x => x.info.map(({ category, distro }) => [distro, category]))
       .reverse());
@@ -49,16 +49,16 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
       </div>
       <div className="distro-urls-container">
         <div className="distro">
-          {Object.entries(allDistro).sort((a, b) => a[0].localeCompare(b[0])).map(([d, c], idx) => {
-            const nc = c.replace(/\s/g, '');
-            const nd = d.replace(/\s/g, '');
-            if (category == nc)
-              return (
-                <Link to={`/${nc}/${nd}`} key={idx + nd} className={nd == distro ? "active" : ""}>
-                  <h3>{d}</h3>
-                </Link>
-              )
-          })}
+          {Object.entries(allDistro)
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .filter(([_, c]) => c.replace(/\s/g, '') === category)
+            .map(([d, c], idx) => {
+              const nc = c.replace(/\s/g, '');
+              const nd = d.replace(/\s/g, '');
+              return <Link to={`/${nc}/${nd}`} key={idx + nd} className={nd == distro ? "active" : ""}>
+                <h3>{d}</h3>
+              </Link>;
+            })}
         </div>
         <div className="urls">
           <Urls isoinfo={isoinfo} category={category} distro={distro} />
