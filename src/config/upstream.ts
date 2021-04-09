@@ -9,7 +9,7 @@ import nano from "./../parser/nano";
 import neo from "./../parser/neo";
 import hit from "./../parser/hit";
 import cqu from "./../parser/cqu";
-//const xjtu = require("./../parser/xjtu");
+import xjtu from "./../parser/xjtu";
 //const neu = require("./../parser/neu");
 import nyist from "./../parser/nyist";
 import scau from "./../parser/scau";
@@ -30,7 +30,6 @@ const upstreams: (string | Parser)[] = [
   "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
   "https://mirrorz.org/static/tmp/bjtu.json",
   "https://mirrorz.org/static/tmp/njupt.json",
-  "https://mirrorz.org/static/tmp/xjtu.json",
   "https://mirrorz.org/static/tmp/tongji.json",
   "https://mirrorz.org/static/tmp/neu.json",
   lzu,
@@ -50,6 +49,7 @@ const upstreams: (string | Parser)[] = [
   byrio,
   cqupt,
   ynuosa,
+  xjtu,
 ];
 
 export default upstreams;

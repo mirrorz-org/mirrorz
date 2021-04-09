@@ -10,7 +10,6 @@ module.exports = [
   "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
   "https://mirrorz.org/static/tmp/bjtu.json",
   "https://mirrorz.org/static/tmp/njupt.json",
-  "https://mirrorz.org/static/tmp/xjtu.json",
   "https://mirrorz.org/static/tmp/tongji.json",
   "https://mirrorz.org/static/json/legacy/cqu.json",
   "https://mirrorz.org/static/json/legacy/uestc.json",
@@ -27,4 +26,5 @@ module.exports = [
   "https://mirrorz.org/static/json/legacy/byrio.json",
   "https://mirrorz.org/static/json/legacy/cqupt.json",
   "https://mirrorz.org/static/json/legacy/ynuosa.json",
+  "https://mirrorz.org/static/json/legacy/xjtu.json",
 ]
