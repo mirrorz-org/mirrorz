@@ -137,6 +137,7 @@ async function main() {
     .close()
     .then(() => {
       //console.log('FINISHED')
+      process.exit(0);
     })
     .catch(e => {
       console.error(e)
@@ -145,7 +146,6 @@ async function main() {
       }
       console.log('\nFinished ERROR')
     })
-
 }
 
 main();
