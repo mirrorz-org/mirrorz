@@ -14,10 +14,21 @@ const size = function(bytes) {
 }
 
 module.exports = async function (homepageURL, yukiURL) {
-  // TODO: missing isoinfo.
   const name_func = await cname();
   homepageHTML = await (await fetch(homepageURL)).text();
   yukiMeta = await (await fetch(yukiURL)).json();
+
+  // finding `var isoinfo`
+  const htmlLines = homepageHTML.split("\n");
+  const isoSign = "var isoinfo = ";
+  let isoinfo = null;
+  for (let line of htmlLines) {
+    let pos = line.indexOf(isoSign);
+    if (pos !== undefined) {
+      pos += isoSign.length;
+      isoinfo = JSON.parse(line.substring(pos, line.length - 1))
+    }
+  }
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(homepageHTML, 'text/html');
@@ -70,5 +81,8 @@ module.exports = async function (homepageURL, yukiURL) {
     mirrors[index]["upstream"] = item.upstream;
   })
 
-  return mirrors
+  return {
+    info: isoinfo,
+    mirrors
+  }
 }
