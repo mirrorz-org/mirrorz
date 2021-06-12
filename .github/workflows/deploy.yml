@@ -35,10 +35,33 @@ jobs:
           name: dist
           path: drop/dist.tar.gz
           retention-days: 3
-      - name: Take screenshots
+  screenshots:
+    name: Take screenshots
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
         run: |
+          yarn --frozen-lockfile
           npx playwright install-deps
           npx playwright install
+      - name: Download dist package
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Unzip dist package
+        run: |
+          tar xzf dist.tar.gz
+      - name: Take screenshots
+        run: |
           npx playwright test
       - name: Upload screenshots as artifacts
         uses: actions/upload-artifact@v2
@@ -62,7 +85,7 @@ jobs:
           PUBLISH_REPOSITORY: ${{ secrets.PUBLISH_REPOSITORY }}
           ACTOR: ${{ secrets.ACTOR }}
         run: |
-          tar xzf drop/dist.tar.gz
+          tar xzf dist.tar.gz
           remote_repo="https://x-access-token:${ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
           remote_branch="master"
           git_commit_id=$(git rev-parse --short HEAD)
