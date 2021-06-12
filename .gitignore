@@ -8,3 +8,5 @@
 head.pug
 .DS_Store
 /drop
+/tests/*.spec.[jt]s-snapshots
+/test-results

@@ -36,7 +36,7 @@ jobs:
           path: drop/dist.tar.gz
           retention-days: 3
   screenshots:
-    name: Take screenshots
+    name: Visual diff
     runs-on: ubuntu-latest
     needs:
       - build
@@ -60,14 +60,29 @@ jobs:
       - name: Unzip dist package
         run: |
           tar xzf dist.tar.gz
+      - name: Update snapshot baseline
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          yarn test --update-snapshots
+      - name: Upload screenshot baseline as artifacts
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshot-baseline
+          path: |
+            tests/*-snapshot
       - name: Take screenshots
+        if: ${{ github.ref != 'refs/heads/master' }}
         run: |
           yarn test
-      - name: Upload screenshots as artifacts
+      - name: Upload screenshot differences as artifacts
+        if: ${{ github.ref != 'refs/heads/master' }}
         uses: actions/upload-artifact@v2
         with:
           name: screenshots
-          path: drop/screenshots
+          path: |
+            tests/*-snapshot
+            test-results
           retention-days: 3
   deploy:
     runs-on: ubuntu-latest
