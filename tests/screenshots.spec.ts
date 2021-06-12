@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { server } from "./test-server";
 
 const baseUrl = 'http://localhost:8000';
@@ -15,7 +15,7 @@ test.beforeAll(async () => {
 Object.entries(testPages).map(([name, url]) => test(name, async ({ browserName, page }) => {
     await page.goto(baseUrl + url);
     await page.waitForTimeout(1000);
-    await page.screenshot({ path: `drop/screenshots/${browserName}/${name}.png` });
+    expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(name + '.png');
 }));
 
 test.afterAll(async () => {
