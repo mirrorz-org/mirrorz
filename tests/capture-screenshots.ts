@@ -10,18 +10,22 @@ const testPages = {
 };
 
 (async () => {
-    for (const browserType of browserTypes) {
-        const browserTypeName = browserType.name();
-        const browser = await browserType.launch();
-        const context = await browser.newContext();
-        var tasks = Object.entries(testPages).map(async ([name, url]) => {
-            const page = await context.newPage();
-            await page.goto(baseUrl + url);
-            await page.waitForTimeout(2000);
-            await page.screenshot({ path: `drop/screenshots/${browserTypeName}/${name}.png` });
-        });
-        await Promise.all(tasks);
-        await browser.close();
+    try {
+        for (const browserType of browserTypes) {
+            const browserTypeName = browserType.name();
+            const browser = await browserType.launch();
+            const context = await browser.newContext();
+            var tasks = Object.entries(testPages).map(async ([name, url]) => {
+                const page = await context.newPage();
+                await page.goto(baseUrl + url);
+                await page.waitForTimeout(2000);
+                await page.screenshot({ path: `drop/screenshots/${browserTypeName}/${name}.png` });
+            });
+            await Promise.all(tasks);
+            await browser.close();
+        }
+    } catch (e) {
+        server.close();
+        throw e;
     }
-    server.close();
 })();

@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs: 
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,16 +24,44 @@ jobs:
           sed -i "s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g" scripts/oh-my-mirrorz/oh-my-mirrorz.py
           sed -i "s^mirrors = \[\]^mirrors = $(node -e 'console.log(JSON.stringify(require("./src/config/mirrors")))')^" scripts/oh-my-mirrorz/oh-my-mirrorz.py
       - name: Build
-        run: yarn build
-      - name: Legacy page build
-        run: yarn legacy_build
+        run: |
+          yarn build
+          yarn legacy_build
+          mkdir -p drop
+          tar -czf drop/dist.tar.gz dist
+      - name: Upload dist package as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: drop/dist.tar.gz
+          retention-days: 3
+      - name: Take screenshots
+        run: |
+          npx playwright install-deps
+          npx ts-node tests/capture-screenshots.ts
+      - name: Upload screenshots as artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: drop/screenshots
+          retention-days: 3
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    needs:
+      - build
+    steps:
+      - name: Download dist package
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
       - name: Commit and publish
-        if: ${{ github.ref == 'refs/heads/master' }}
         env: 
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_REPOSITORY: ${{ secrets.PUBLISH_REPOSITORY }}
           ACTOR: ${{ secrets.ACTOR }}
         run: |
+          tar xzf drop/dist.tar.gz
           remote_repo="https://x-access-token:${ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
           remote_branch="master"
           git_commit_id=$(git rev-parse --short HEAD)
