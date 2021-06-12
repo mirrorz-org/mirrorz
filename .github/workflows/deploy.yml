@@ -62,7 +62,7 @@ jobs:
           tar xzf dist.tar.gz
       - name: Take screenshots
         run: |
-          npx playwright test
+          yarn test
       - name: Upload screenshots as artifacts
         uses: actions/upload-artifact@v2
         with:
