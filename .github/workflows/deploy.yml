@@ -38,7 +38,8 @@ jobs:
       - name: Take screenshots
         run: |
           npx playwright install-deps
-          npx ts-node tests/capture-screenshots.ts
+          npx playwright install
+          npx playwright test
       - name: Upload screenshots as artifacts
         uses: actions/upload-artifact@v2
         with:

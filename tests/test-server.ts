@@ -25,4 +25,8 @@ export const server = http.createServer(function (req, res) {
             }
         });
     });
-}).listen(port);
+});
+
+if (require.main === module) {
+    server.listen(port);
+}
