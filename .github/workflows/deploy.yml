@@ -85,7 +85,7 @@ jobs:
         with:
           name: screenshots
           path: |
-            tests/*-snapshot
+            tests/*-snapshots
             test-results
           retention-days: 3
   deploy:
