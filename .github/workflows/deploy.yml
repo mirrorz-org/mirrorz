@@ -70,7 +70,7 @@ jobs:
         with:
           name: screenshot-baseline
           path: |
-            tests/*-snapshot
+            tests/*-snapshots
       - name: Take screenshots
         if: ${{ github.ref != 'refs/heads/master' }}
         run: |
