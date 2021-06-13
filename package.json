@@ -4,6 +4,7 @@
     "@playwright/test": "^1.12.2",
     "@types/mime-types": "^2.1.0",
     "mime-types": "^2.1.31",
+    "octokit": "^1.0.6",
     "playwright": "^1.12.2",
     "prettier": "^2.3.1"
   },
@@ -43,6 +44,7 @@
     "half_start": "(yarn debug_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "full_start": "(yarn debug_build && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py)",
     "test": "playwright test --config=tests/playwright.config.ts",
+    "download-snapshot-baseline": "ts-node tests/download-snapshot-baseline.ts",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
   }
 }

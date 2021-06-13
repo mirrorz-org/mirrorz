@@ -15,7 +15,7 @@ test.beforeAll(async () => {
 Object.entries(testPages).map(([name, url]) => test(name, async ({ browserName, page }) => {
     await page.goto(baseUrl + url);
     await page.waitForTimeout(1000);
-    expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(name + '.png');
+    expect(await page.screenshot({ fullPage: true })).toMatchSnapshot(name + '.png', { threshold: 0.2 });
 }));
 
 test.afterAll(async () => {
