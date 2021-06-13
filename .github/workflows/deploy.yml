@@ -71,9 +71,11 @@ jobs:
           name: screenshot-baseline
           path: |
             tests/*-snapshots
-      - name: Take screenshots
+      - name: Download baseline and take screenshots
         if: ${{ github.ref != 'refs/heads/master' }}
         run: |
+          yarn download-snapshot-baseline snapshot-baseline.zip
+          unzip -o snapshot-baseline.zip -d tests
           yarn test
       - name: Upload screenshot differences as artifacts
         if: ${{ github.ref != 'refs/heads/master' }}
