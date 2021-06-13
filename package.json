@@ -4,6 +4,7 @@
     "@playwright/test": "^1.12.2",
     "@types/mime-types": "^2.1.0",
     "mime-types": "^2.1.31",
+    "octokit": "^1.0.6",
     "playwright": "^1.12.2",
     "prettier": "^2.3.1"
   },
