@@ -14,12 +14,12 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.4.3"
+      "version": "8.0.3"
     },
     {
       "type": "panel",
       "id": "graph",
-      "name": "Graph",
+      "name": "Graph (old)",
       "version": ""
     },
     {
@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1615045813981,
+  "iteration": 1624715849094,
   "links": [],
   "panels": [
     {
@@ -67,17 +67,6 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "${DS_INFLUXDB}",
-      "fieldConfig": {
-        "defaults": {
-          "color": {},
-          "custom": {},
-          "thresholds": {
-            "mode": "absolute",
-            "steps": []
-          }
-        },
-        "overrides": []
-      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -106,7 +95,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "8.0.3",
       "pointradius": 2,
       "points": true,
       "renderer": "flot",
@@ -136,7 +125,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -238,7 +227,8 @@
             "hideFrom": {
               "graph": false,
               "legend": false,
-              "tooltip": false
+              "tooltip": false,
+              "viz": false
             },
             "lineInterpolation": "linear",
             "lineWidth": 1,
@@ -247,7 +237,14 @@
               "type": "linear"
             },
             "showPoints": "always",
-            "spanNulls": true
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "decimals": 0,
           "mappings": [],
@@ -286,7 +283,7 @@
           "displayMode": "list",
           "placement": "bottom"
         },
-        "tooltipOptions": {
+        "tooltip": {
           "mode": "multi"
         }
       },
@@ -309,7 +306,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -352,7 +349,8 @@
             "hideFrom": {
               "graph": false,
               "legend": false,
-              "tooltip": false
+              "tooltip": false,
+              "viz": false
             },
             "lineInterpolation": "linear",
             "lineWidth": 1,
@@ -361,7 +359,14 @@
               "type": "linear"
             },
             "showPoints": "always",
-            "spanNulls": true
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "decimals": 0,
           "mappings": [],
@@ -400,7 +405,7 @@
           "displayMode": "list",
           "placement": "bottom"
         },
-        "tooltipOptions": {
+        "tooltip": {
           "mode": "multi"
         }
       },
@@ -423,7 +428,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.name}))",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.name}))",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -456,7 +461,6 @@
           "color": {
             "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -499,7 +503,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [
@@ -551,7 +555,6 @@
           "color": {
             "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -594,7 +597,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "8.0.3",
       "targets": [
         {
           "groupBy": [
@@ -641,7 +644,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 27,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -665,7 +668,6 @@
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -689,7 +691,6 @@
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -697,7 +698,7 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {
@@ -730,5 +731,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "p6XP3EyMz",
-  "version": 17
+  "version": 18
 }
