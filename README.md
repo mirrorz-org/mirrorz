@@ -26,7 +26,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
 
 ```json
 {
-  "version": 1.4,
+  "version": 1.5,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/img/logo.svg",
@@ -98,6 +98,8 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `Y1600000000`: syncing. (optional) start to sync unix timestamp
   - `F1600000000`: failed. (optional) last attempt to sync unix timestamp
   - `P1600000000`: paused. (optional) the unix timetamp sync stopped
+  - `C`: cache
+  - `R`: reverse proxy
   - `U`: unknown
   - `X1600000000`: (auxiliary) next scheduled sync unix timestamp
   - `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
