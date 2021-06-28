@@ -48,12 +48,6 @@ Any mirror site participating in **302 backend** should provide this file. Mirro
       "range": []
     },
     {
-      "label": "ustcaur",
-      "public": true,
-      "resolve": "aur.tuna.tsinghua.edu.cn",
-      "range": [ "/AUR" ]
-    },
-    {
       "label": "ustcchinanet",
       "public": true,
       "resolve": "chinanet.mirrors.ustc.edu.cn",
