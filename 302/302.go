@@ -2,17 +2,86 @@ package main
 
 import (
     "fmt"
-    "log"
     "strings"
     "net"
     "net/http"
+    "math/rand"
+    "time"
 
     "context"
     "github.com/influxdata/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2/api"
 
     "encoding/json"
     "io/ioutil"
+    "path/filepath"
+
+    "flag"
+
+    "github.com/juju/loggo"
 )
+
+type Config struct {
+    InfluxDBURL string `json:"influxdb-url"`
+    InfluxDBToken string `json:"influxdb-token"`
+    InfluxDBBucket string `json:"influxdb-bucket"`
+    InfluxDBOrg string `json:"influxdb-org"`
+    HTTPBindAddress string `json:"http-bind-address"`
+    MirrorZDDirectory string `json:"mirrorz-d-directory"`
+    DomainLength int `json:"domain-length"`
+}
+
+var logger = loggo.GetLogger("mirrorzd")
+var config Config
+
+var client influxdb2.Client
+var queryAPI api.QueryAPI
+
+func LoadConfig (path string) (err error) {
+    loggo.ConfigureLoggers("mirrorzd=DEBUG")
+
+    file, err := ioutil.ReadFile(path)
+    if (err != nil) {
+        logger.Errorf("LoadConfig ReadFile failed: %v\n", err)
+        return
+    }
+    err = json.Unmarshal([]byte(file), &config)
+    if (err != nil) {
+        logger.Errorf("LoadConfig json Unmarshal failed: %v\n", err)
+        return
+    }
+    if (config.InfluxDBToken == "") {
+        logger.Errorf("LoadConfig find no InfluxDBToken in file\n")
+        return
+    }
+    if (config.InfluxDBURL == "") {
+        config.InfluxDBURL = "http://localhost:8086"
+    }
+    if (config.InfluxDBBucket == "") {
+        config.InfluxDBBucket = "mirrorz"
+    }
+    if (config.InfluxDBOrg == "") {
+        config.InfluxDBOrg = "mirrorz"
+    }
+    if (config.HTTPBindAddress == "") {
+        config.HTTPBindAddress = "localhost:8888"
+    }
+    if (config.MirrorZDDirectory == "") {
+        config.MirrorZDDirectory = "mirrorz.d"
+    }
+    if (config.DomainLength == 0) {
+        // 4 for *.mirrors.edu.cn
+        // 4 for *.m.mirrorz.org
+        config.DomainLength = 4
+    }
+    logger.Debugf("LoadConfig InfluxDB URL: %s\n", config.InfluxDBURL)
+    logger.Debugf("LoadConfig InfluxDB Org: %s\n", config.InfluxDBOrg)
+    logger.Debugf("LoadConfig InfluxDB Bucket: %s\n", config.InfluxDBBucket)
+    logger.Debugf("LoadConfig InfluxDB HTTP Bind Address: %s\n", config.HTTPBindAddress)
+    logger.Debugf("LoadConfig MirrorZ D Directory: %s\n", config.MirrorZDDirectory)
+    logger.Debugf("LoadConfig Domain Length: %d\n", config.DomainLength)
+    return
+}
 
 var AbbrToEndpoints map[string][]Endpoint
 
@@ -55,8 +124,7 @@ func IP (r *http.Request) (ip net.IP) {
 
 func Host (r *http.Request) (labels []string) {
     dots := strings.Split(r.Header.Get("X-Forwarded-Host"), ".")
-    fmt.Printf("dot: %v\n", dots)
-    if (len(dots) != 4) { // *.mirrors.edu.cn
+    if (len(dots) != config.DomainLength) {
         return
     }
     labels = strings.Split(dots[0], "-")
@@ -64,26 +132,32 @@ func Host (r *http.Request) (labels []string) {
 }
 
 type Score struct {
-    pos int64 // pos of label, bigger the better
-    as bool // is in 
-    mask int64 // maximum mask
-    delta int64 // often negative
+    pos int // pos of label, bigger the better
+    mask int // maximum mask
+    as int // is in
+    delta int // often negative
+
+    // payload
+    resolve string
+    repo string
 }
 
-func CompareScore(l, r Score) int64 {
+// For reference on delta precedence
+/*
+func CompareScore(l, r Score) int {
     // ret > 0 means r > l
     if (l.pos != r.pos) {
         return r.pos - l.pos
     }
+    if (l.mask != r.mask) {
+        return r.mask - l.mask
+    }
     if (l.as != r.as) {
-        if (l.as) {
+        if (l.as == 1) {
             return -1
         } else {
             return 1
         }
-    }
-    if (l.mask != r.mask) {
-        return r.mask - l.mask
     }
     if (l.delta == 0) {
         return +1
@@ -100,85 +174,130 @@ func CompareScore(l, r Score) int64 {
     }
     return 0
 }
+*/
+
+type Scores []Score
+
+func (l Score) Dominate(r Score) bool {
+    deltaDominate := false
+    if l.delta == 0 && r.delta == 0 {
+        deltaDominate = true
+    } else if l.delta < 0 && r.delta < 0 && l.delta > r.delta {
+        deltaDominate = true
+    } else if l.delta > 0 && r.delta > 0 && l.delta < r.delta {
+        deltaDominate = true
+    }
+    return l.pos >= r.pos && l.mask >= r.mask && l.as >= r.as && deltaDominate
+}
 
 func Resolve(r *http.Request, cname string) (url string, err error) {
-    org := "mirrorz"
-    token := ""
-    dbUrl := "http://localhost:8086"
-
-    query := fmt.Sprintf(`from(bucket:"mirrorz")
+    query := fmt.Sprintf(`from(bucket:"%s")
         |> range(start: -5m) 
         |> filter(fn: (r) => r._measurement == "repo" and r.name == "%s")
         |> map(fn: (r) => ({_value:r._value,mirror:r.mirror,_time:r._time,path:r.url}))
-        |> limit(n:1)`, cname)
+        |> limit(n:1)`, config.InfluxDBBucket, cname)
     // SQL INJECTION!!!
 
-    client := influxdb2.NewClient(dbUrl, token)
-    queryAPI := client.QueryAPI(org)
     res, err := queryAPI.Query(context.Background(), query)
-    client.Close()
 
-    score := Score {pos: 0, as: false, mask: 0, delta: 0}
+    var scores Scores
     var resolve string
     var repo string
 
     labels := Host(r)
-    fmt.Printf("lab: %v\n", labels)
+    remoteIp := IP(r)
+    logger.Debugf("Resolve labels: %v\n", labels)
 
     if err == nil {
         for res.Next() {
             record := res.Record()
             abbr := record.ValueByKey("mirror").(string)
-            fmt.Printf("abbr: %s\n", abbr)
+            logger.Debugf("Resolve abbr: %s\n", abbr)
             endpoints, ok := AbbrToEndpoints[abbr]
             if (ok) {
                 for _, endpoint := range endpoints {
-                    fmt.Printf("endp: %s %s\n", endpoint.Resolve, endpoint.Label)
-                    newScore := Score {pos: 0, as: false, mask: 0, delta: 0}
-                    newScore.delta = record.Value().(int64)
+                    logger.Debugf("Resolve endpoint: %s %s\n", endpoint.Resolve, endpoint.Label)
+                    score := Score {pos: 0, as: 0, mask: 0, delta: 0}
+                    score.delta = int(record.Value().(int64))
                     for index, label := range labels {
-                        if (label == endpoint.Label) {
-                            newScore.pos = int64(index + 1)
+                        if label == endpoint.Label {
+                            score.pos = index + 1
                         }
                     }
                     for _, indicator := range endpoint.Range {
                         if (strings.HasPrefix(indicator, "ASN")) {
                         } else {
                             _, ipnet, _ := net.ParseCIDR(indicator)
-                            remoteIp := IP(r)
-                            if (remoteIp != nil && ipnet != nil && ipnet.Contains(remoteIp)) {
+                            if remoteIp != nil && ipnet != nil && ipnet.Contains(remoteIp) {
                                 mask, _ := ipnet.Mask.Size()
-                                if (int64(mask) > newScore.mask) {
-                                    newScore.mask = int64(mask)
+                                if mask > score.mask {
+                                    score.mask = mask
                                 }
                             }
                         }
                     }
 
-                    fmt.Printf("sco: %v %v\n", score, newScore)
 
-                    ret := CompareScore(score, newScore)
-                    if (ret > 0) {
-                        score = newScore
-                        resolve = endpoint.Resolve
-                        repo = record.ValueByKey("path").(string)
+                    score.resolve = endpoint.Resolve
+                    score.repo = record.ValueByKey("path").(string)
+                    logger.Debugf("Resolve score: %v\n", score)
+
+                    if !endpoint.Public && score.mask == 0 && score.as == 0 {
+                        logger.Debugf("Resolve not hit private\n")
+                        continue
                     }
+
+                    scores = append(scores, score)
                 }
             }
         }
         if res.Err() != nil {
-            fmt.Printf("query parsing error: %s\n", res.Err().Error())
+            logger.Errorf("Resolve query parsing error: %s\n", res.Err().Error())
         }
     } else {
-        panic(err)
+        logger.Errorf("Resolve query: %v\n", err)
     }
+
+    // randomly choose one mirror not dominated by others
+    if len(scores) > 0 {
+        for index, score := range scores {
+            logger.Debugf("Resolve scores: %d %v", index, score)
+        }
+        var optimalScores Scores
+        for i, l := range scores {
+            dominated := false
+            for j, r := range scores {
+                if i != j && r.Dominate(l) {
+                    dominated = true
+                }
+            }
+            if !dominated {
+                optimalScores = append(optimalScores, l)
+            }
+        }
+        if len(optimalScores) == 0 {
+            logger.Warningf("Resolve optimal scores empty, algorithm implemented error")
+            resolve = scores[0].resolve
+            repo = scores[0].repo
+        } else {
+            for index, score := range optimalScores {
+                logger.Debugf("Resolve optimal scores: %d %v", index, score)
+            }
+            randIndex := rand.Intn(len(optimalScores))
+            resolve = optimalScores[randIndex].resolve
+            repo = optimalScores[randIndex].repo
+        }
+    } else {
+        return
+    }
+
     if (strings.HasPrefix(repo, "http://") || strings.HasPrefix(repo, "https://")) {
         url = repo
     } else {
         scheme := Scheme(r)
         url = fmt.Sprintf("%s://%s%s", scheme, resolve, repo)
     }
-    fmt.Println("")
+    logger.Infof("Resolved: %s %v %v\n", url, remoteIp, labels)
     return
 }
 
@@ -199,19 +318,56 @@ type MirrorZD struct {
     Site Site `json:"site"`
 }
 
-func LoadMirrorZD (path string) {
-    file, _ := ioutil.ReadFile(path)
-    data := MirrorZD {}
-    _ = json.Unmarshal([]byte(file), &data)
-    fmt.Printf("%+v\n", data)
-    AbbrToEndpoints[data.Site.Abbr] = data.Endpoints
+func LoadMirrorZD (path string) (err error) {
+    files, err := ioutil.ReadDir(path)
+    if err != nil {
+        logger.Errorf("LoadMirrorZD: can not open mirrorz.d directory, %v\n", err)
+        return
+    }
+    for _, file := range files {
+        if !strings.HasSuffix(file.Name(), ".json") {
+            continue
+        }
+        content, err := ioutil.ReadFile(filepath.Join(path, file.Name()))
+        if err != nil {
+            logger.Errorf("LoadMirrorZD: read %s failed\n", file.Name())
+            continue
+        }
+        var data MirrorZD
+        err = json.Unmarshal([]byte(content), &data)
+        if err != nil {
+            logger.Errorf("LoadMirrorZD: process %s failed\n", file.Name())
+            continue
+        }
+        logger.Infof("%+v\n", data)
+        AbbrToEndpoints[data.Site.Abbr] = data.Endpoints
+    }
+    return
+}
+
+func OpenInfluxDB() {
+    client = influxdb2.NewClient(config.InfluxDBURL, config.InfluxDBToken)
+    queryAPI = client.QueryAPI(config.InfluxDBOrg)
+}
+
+func CloseInfluxDB() {
+    client.Close()
 }
 
 func main() {
+    rand.Seed(time.Now().Unix())
+
+    configPtr := flag.String("config", "config.json", "path to config file")
+    flag.Parse()
+
+    LoadConfig(*configPtr)
+    OpenInfluxDB()
+
     AbbrToEndpoints = make(map[string][]Endpoint)
-    LoadMirrorZD("mirrorz.d/ustc.json")
-    LoadMirrorZD("mirrorz.d/nano.json")
+    LoadMirrorZD(config.MirrorZDDirectory)
 
     http.HandleFunc("/", Handler)
-    log.Fatal(http.ListenAndServe("127.0.0.1:8888", nil))
+    logger.Errorf("HTTP Server error: %v\n", http.ListenAndServe(config.HTTPBindAddress, nil))
+
+    CloseInfluxDB()
 }
