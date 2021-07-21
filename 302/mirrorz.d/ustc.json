@@ -21,6 +21,12 @@
            "range": []
         },
         {
+           "label": "ustc4",
+           "public": true,
+           "resolve": "ipv4.mirrors.ustc.edu.cn",
+           "range": [ "V4" ]
+        },
+        {
            "label": "ustccampus",
            "public": false,
            "resolve": "10.0.0.1",

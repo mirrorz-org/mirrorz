@@ -48,6 +48,12 @@ Any mirror site participating in **302 backend** should provide this file. Mirro
       "range": []
     },
     {
+      "label": "ustc6",
+      "public": true,
+      "resolve": "ipv6.mirrors.ustc.edu.cn",
+      "range": [ "V6" ]
+    },
+    {
       "label": "ustcchinanet",
       "public": true,
       "resolve": "chinanet.mirrors.ustc.edu.cn",

@@ -85,6 +85,7 @@ func LoadConfig (path string, debug bool) (err error) {
     logger.Debugf("LoadConfig InfluxDB URL: %s\n", config.InfluxDBURL)
     logger.Debugf("LoadConfig InfluxDB Org: %s\n", config.InfluxDBOrg)
     logger.Debugf("LoadConfig InfluxDB Bucket: %s\n", config.InfluxDBBucket)
+    logger.Debugf("LoadConfig IPASN URL: %s\n", config.IPASNURL)
     logger.Debugf("LoadConfig HTTP Bind Address: %s\n", config.HTTPBindAddress)
     logger.Debugf("LoadConfig MirrorZ D Directory: %s\n", config.MirrorZDDirectory)
     logger.Debugf("LoadConfig Domain Length: %d\n", config.DomainLength)
@@ -164,6 +165,10 @@ type Score struct {
     // payload
     resolve string
     repo string
+
+    // aux
+    v4 bool
+    v6 bool
 }
 
 // For reference on delta precedence
@@ -242,7 +247,7 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
             if (ok) {
                 for _, endpoint := range endpoints {
                     logger.Debugf("Resolve endpoint: %s %s\n", endpoint.Resolve, endpoint.Label)
-                    score := Score {pos: 0, as: 0, mask: 0, delta: 0}
+                    score := Score {pos: 0, as: 0, mask: 0, delta: 0, v4: false, v6: false}
                     score.delta = int(record.Value().(int64))
                     for index, label := range labels {
                         if label == endpoint.Label {
@@ -250,7 +255,11 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
                         }
                     }
                     for _, indicator := range endpoint.Range {
-                        if (strings.HasPrefix(indicator, "AS")) {
+                        if indicator == "V4" {
+                            score.v4 = true
+                        } else if indicator == "V6" {
+                            score.v6 = true
+                        } else if strings.HasPrefix(indicator, "AS") {
                             if indicator[2:] == asn {
                                 score.as = 1
                             }
@@ -272,6 +281,14 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
 
                     if !endpoint.Public && score.mask == 0 && score.as == 0 {
                         logger.Debugf("Resolve not hit private\n")
+                        continue
+                    }
+                    if len(labels) != 0 && labels[len(labels)-1] == "4" && !score.v4 {
+                        logger.Debugf("Resolve not hit v4\n")
+                        continue
+                    }
+                    if len(labels) != 0 && labels[len(labels)-1] == "6" && !score.v6 {
+                        logger.Debugf("Resolve not hit v6\n")
                         continue
                     }
 
