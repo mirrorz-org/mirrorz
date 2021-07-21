@@ -29,6 +29,7 @@ big = {
 mirrors = []
 
 map = {}
+res = {}
 
 def check_curl():
     global CURL_VERSION
@@ -89,28 +90,33 @@ def main():
     print() # one empty line to separate metadata and speedtest
 
     for _, v in map.items():
-        uri = ''
+        uri_list = []
         if 'big' in v['site']:
-            uri = v['site']['big']
-        else:
-            for r, u in big.items():
-                for m in v['mirrors']:
-                    if m['cname'] == r:
-                        uri = m['url'] + u
-                        break
-                else:
-                    continue
-                break
-            else:
-                print('! No big file found for', v['site']['abbr'], v['site']['url'])
-                continue
+            uri_list.append(v['site']['big'])
+        for r, u in big.items():
+            for m in v['mirrors']:
+                if m['cname'] == r:
+                    uri_list.append(m['url'] + u)
+        if len(uri_list) == 0:
+            print('! No big file found for', v['site']['abbr'], v['site']['url'])
+            continue
 
-        print('Speed testing', v['site']['abbr'], v['site']['url'] + uri, '... ', end='', flush=True)
-        code, speed = speed_test(v['site']['url'] + uri, args)
-        if code != 200:
-            print('HTTP Code', code, 'Speed', human_readable_speed(speed))
-        else:
-            print(human_readable_speed(speed))
+        for uri in uri_list:
+            res[v['site']['abbr']] = 0
+            print('Speed testing', v['site']['abbr'], v['site']['url'] + uri, '... ', end='', flush=True)
+            code, speed = speed_test(v['site']['url'] + uri, args)
+            if code != 200:
+                print('HTTP Code', code, 'Speed', human_readable_speed(speed))
+            else:
+                print(human_readable_speed(speed))
+                res[v['site']['abbr']] = speed
+                break
+
+    print() # one empty line to separate speedtest and result
+
+    print('RANK', 'ABBR', 'SPEED', sep='\t\t')
+    for i, (k, v) in enumerate(sorted(res.items(), key = lambda x: x[1], reverse=True)):
+        print(f'{i:02d}:', k, human_readable_speed(v), sep='\t\t')
 
 if __name__ == '__main__':
     main()
