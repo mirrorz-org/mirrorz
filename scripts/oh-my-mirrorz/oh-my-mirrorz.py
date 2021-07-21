@@ -13,7 +13,14 @@ CURL_VERSION = ''
 
 big = {
     'centos': '/8/isos/x86_64/CentOS-8.4.2105-x86_64-dvd1.iso',
-    'archlinux': '/iso/latest/archlinux-2021.06.01-x86_64.iso',
+    'centos-vault': '/6.0/isos/x86_64/CentOS-6.0-x86_64-LiveDVD.iso',
+    'opensuse': '/distribution/leap/15.3/iso/openSUSE-Leap-15.3-DVD-x86_64.iso',
+    'ubuntu-releases': '/21.04/ubuntu-21.04-desktop-amd64.iso',
+    'debian-cd': '/current/amd64/iso-bd/debian-edu-10.10.0-amd64-BD-1.iso',
+    'kali-images': '/kali-2021.2/kali-linux-2021.2-live-amd64.iso',
+    'CTAN': '/systems/texlive/Images/texlive2021-20210325.iso',
+    'blackarch': '/iso/blackarch-linux-full-2020.12.01-x86_64.iso',
+    'archlinux': '/iso/latest/archlinux-2021.07.01-x86_64.iso',
     'ubuntu': '/indices/md5sums.gz',
     'debian': '/ls-lR.gz',
 }
