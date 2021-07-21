@@ -18,7 +18,7 @@
            "label": "tuna",
            "public": true,
            "resolve": "mirrors.tuna.tsinghua.edu.cn",
-           "range": [ "166.111.0.0/16", "101.6.0.0/16" ]
+           "range": [ "166.111.0.0/16", "101.6.0.0/16", "AS4538" ]
         }
     ],
     "extension": "D",

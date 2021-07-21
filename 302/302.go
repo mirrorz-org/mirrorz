@@ -26,6 +26,7 @@ type Config struct {
     InfluxDBToken string `json:"influxdb-token"`
     InfluxDBBucket string `json:"influxdb-bucket"`
     InfluxDBOrg string `json:"influxdb-org"`
+    IPASNURL string `json:"ipasn-url"`
     HTTPBindAddress string `json:"http-bind-address"`
     MirrorZDDirectory string `json:"mirrorz-d-directory"`
     DomainLength int `json:"domain-length"`
@@ -37,8 +38,12 @@ var config Config
 var client influxdb2.Client
 var queryAPI api.QueryAPI
 
-func LoadConfig (path string) (err error) {
-    loggo.ConfigureLoggers("mirrorzd=DEBUG")
+func LoadConfig (path string, debug bool) (err error) {
+    if debug {
+        loggo.ConfigureLoggers("mirrorzd=DEBUG")
+    } else {
+        loggo.ConfigureLoggers("mirrorzd=INFO")
+    }
 
     file, err := ioutil.ReadFile(path)
     if (err != nil) {
@@ -63,6 +68,9 @@ func LoadConfig (path string) (err error) {
     if (config.InfluxDBOrg == "") {
         config.InfluxDBOrg = "mirrorz"
     }
+    if (config.IPASNURL == "") {
+        config.IPASNURL = "http://localhost:8889"
+    }
     if (config.HTTPBindAddress == "") {
         config.HTTPBindAddress = "localhost:8888"
     }
@@ -77,7 +85,7 @@ func LoadConfig (path string) (err error) {
     logger.Debugf("LoadConfig InfluxDB URL: %s\n", config.InfluxDBURL)
     logger.Debugf("LoadConfig InfluxDB Org: %s\n", config.InfluxDBOrg)
     logger.Debugf("LoadConfig InfluxDB Bucket: %s\n", config.InfluxDBBucket)
-    logger.Debugf("LoadConfig InfluxDB HTTP Bind Address: %s\n", config.HTTPBindAddress)
+    logger.Debugf("LoadConfig HTTP Bind Address: %s\n", config.HTTPBindAddress)
     logger.Debugf("LoadConfig MirrorZ D Directory: %s\n", config.MirrorZDDirectory)
     logger.Debugf("LoadConfig Domain Length: %d\n", config.DomainLength)
     return
@@ -119,6 +127,22 @@ func Scheme (r *http.Request) (scheme string) {
 
 func IP (r *http.Request) (ip net.IP) {
     ip = net.ParseIP(r.Header.Get("X-Real-IP"))
+    return
+}
+
+func ASN (ip net.IP) (asn string) {
+    client := http.Client {
+        Timeout: 500 * time.Millisecond,
+    }
+    req := config.IPASNURL + "/" + ip.String()
+    resp, err := client.Get(req)
+    if err != nil {
+        logger.Errorf("IPASN HTTP Get failed: %v\n", err)
+        return
+    }
+    defer resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    asn = string(body)
     return
 }
 
@@ -205,7 +229,8 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
     var repo string
 
     labels := Host(r)
-    remoteIp := IP(r)
+    remoteIP := IP(r)
+    asn := ASN(remoteIP)
     logger.Debugf("Resolve labels: %v\n", labels)
 
     if err == nil {
@@ -225,10 +250,13 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
                         }
                     }
                     for _, indicator := range endpoint.Range {
-                        if (strings.HasPrefix(indicator, "ASN")) {
+                        if (strings.HasPrefix(indicator, "AS")) {
+                            if indicator[2:] == asn {
+                                score.as = 1
+                            }
                         } else {
                             _, ipnet, _ := net.ParseCIDR(indicator)
-                            if remoteIp != nil && ipnet != nil && ipnet.Contains(remoteIp) {
+                            if remoteIP != nil && ipnet != nil && ipnet.Contains(remoteIP) {
                                 mask, _ := ipnet.Mask.Size()
                                 if mask > score.mask {
                                     score.mask = mask
@@ -297,7 +325,7 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
         scheme := Scheme(r)
         url = fmt.Sprintf("%s://%s%s", scheme, resolve, repo)
     }
-    logger.Infof("Resolved: %s %v %v\n", url, remoteIp, labels)
+    logger.Infof("Resolved: %s (%v, %s) %v\n", url, remoteIP, asn, labels)
     return
 }
 
@@ -358,9 +386,10 @@ func main() {
     rand.Seed(time.Now().Unix())
 
     configPtr := flag.String("config", "config.json", "path to config file")
+    debugPtr := flag.Bool("debug", false, "debug mode")
     flag.Parse()
+    LoadConfig(*configPtr, *debugPtr)
 
-    LoadConfig(*configPtr)
     OpenInfluxDB()
 
     AbbrToEndpoints = make(map[string][]Endpoint)
