@@ -27,7 +27,7 @@ module.exports = async function (homepageURL, yukiURL) {
   // finding `var isoinfo`
   const htmlLines = homepageHTML.split("\n");
   const isoSign = "var isoinfo = ";
-  let isoinfo = null;
+  let isoinfo = [];
   for (let line of htmlLines) {
     let pos = line.indexOf(isoSign);
     if (pos !== -1) {
