@@ -3,14 +3,14 @@ const cname = require("./utils").cname;
 const size = function (bytes) {
   mib = bytes / 1024 / 1024;
   if (mib < 1024) {
-    return mib + " MiB";
+    return mib.toFixed(2) + " MiB";
   }
   gib = mib / 1024;
   if (gib < 1024) {
-    return gib + " GiB";
+    return gib.toFixed(2) + " GiB";
   }
   tib = gib / 1024;
-  return tib + " TiB";
+  return tib.toFixed(2) + " TiB";
 };
 
 module.exports = async function (homepageURL, yukiURL) {
@@ -34,6 +34,9 @@ module.exports = async function (homepageURL, yukiURL) {
       pos += isoSign.length;
       isoinfo = JSON.parse(line.substring(pos, line.length - 1));
     }
+  }
+  for (let item of isoinfo) {
+    item["category"] = "os";
   }
 
   const parser = new DOMParser();
