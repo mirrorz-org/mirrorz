@@ -1,6 +1,6 @@
 const cname = require("./utils").cname;
 
-const size = function(bytes) {
+const size = function (bytes) {
   mib = bytes / 1024 / 1024;
   if (mib < 1024) {
     return mib + " MiB";
@@ -11,7 +11,7 @@ const size = function(bytes) {
   }
   tib = gib / 1024;
   return tib + " TiB";
-}
+};
 
 module.exports = async function (homepageURL, yukiURL) {
   const name_func = await cname();
@@ -24,14 +24,14 @@ module.exports = async function (homepageURL, yukiURL) {
   let isoinfo = null;
   for (let line of htmlLines) {
     let pos = line.indexOf(isoSign);
-    if (pos !== undefined) {
+    if (pos !== -1) {
       pos += isoSign.length;
-      isoinfo = JSON.parse(line.substring(pos, line.length - 1))
+      isoinfo = JSON.parse(line.substring(pos, line.length - 1));
     }
   }
 
   const parser = new DOMParser();
-  const doc = parser.parseFromString(homepageHTML, 'text/html');
+  const doc = parser.parseFromString(homepageHTML, "text/html");
   const items = Array.from(doc.querySelectorAll(".filelist tbody tr"));
 
   // handling HTML
@@ -40,8 +40,8 @@ module.exports = async function (homepageURL, yukiURL) {
     const url = item.querySelector(".filename a").getAttribute("href");
     const status = "U";
     const help = item.querySelector(".help a").getAttribute("href");
-    const name = name_func(url.replace(/\//g, ''))  // remove all '/' in href
-    const desc = "";  // no desc in ustclug-v1
+    const name = name_func(url.replace(/\//g, "")); // remove all '/' in href
+    const desc = ""; // no desc in ustclug-v1
     hashtable[name.toLowerCase()] = index;
     return {
       cname: name,
@@ -49,13 +49,16 @@ module.exports = async function (homepageURL, yukiURL) {
       status,
       help,
       desc,
-    }
+    };
   });
 
   // handling yuki
   yukiMeta.map((item) => {
     const name = name_func(item.name).toLowerCase();
     const index = hashtable[name] ?? hashtable[name.split(".")[0]];
+    if (index === undefined) {
+      return;
+    }
     const next_run = item.nextRun;
     const last_success = item.lastSuccess;
     const prev_run = item.prevRun;
@@ -79,10 +82,10 @@ module.exports = async function (homepageURL, yukiURL) {
     }
     mirrors[index]["size"] = size(item.size);
     mirrors[index]["upstream"] = item.upstream;
-  })
+  });
 
   return {
     info: isoinfo,
-    mirrors
-  }
-}
+    mirrors,
+  };
+};
