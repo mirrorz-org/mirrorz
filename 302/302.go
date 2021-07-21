@@ -109,9 +109,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
         }
     }
 
-    url, _ := Resolve(r, cname)
+    _, trace := r.URL.Query()["trace"]
 
-    if url == "" {
+    url, traceStr, _ := Resolve(r, cname, trace)
+
+    if trace {
+        fmt.Fprintf(w, "%s", traceStr)
+    } else if url == "" {
         http.NotFound(w, r)
     } else {
         http.Redirect(w, r, fmt.Sprintf("%s%s", url, tail), http.StatusFound)
@@ -219,7 +223,14 @@ func (l Score) Dominate(r Score) bool {
     return l.pos >= r.pos && l.mask >= r.mask && l.as >= r.as && deltaDominate
 }
 
-func Resolve(r *http.Request, cname string) (url string, err error) {
+func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr string, err error) {
+    traceFunc := func(s string) {
+        logger.Debugf(s);
+        if trace {
+            traceStr += s;
+        }
+    }
+
     query := fmt.Sprintf(`from(bucket:"%s")
         |> range(start: -5m) 
         |> filter(fn: (r) => r._measurement == "repo" and r.name == "%s")
@@ -236,17 +247,19 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
     labels := Host(r)
     remoteIP := IP(r)
     asn := ASN(remoteIP)
-    logger.Debugf("Resolve labels: %v\n", labels)
+    traceFunc(fmt.Sprintf("Resolve labels: %v\n", labels))
+    traceFunc(fmt.Sprintf("Resolve IP: %v\n", remoteIP))
+    traceFunc(fmt.Sprintf("Resolve ASN: %s\n", asn))
 
     if err == nil {
         for res.Next() {
             record := res.Record()
             abbr := record.ValueByKey("mirror").(string)
-            logger.Debugf("Resolve abbr: %s\n", abbr)
+            traceFunc(fmt.Sprintf("Resolve abbr: %s\n", abbr))
             endpoints, ok := AbbrToEndpoints[abbr]
             if (ok) {
                 for _, endpoint := range endpoints {
-                    logger.Debugf("Resolve endpoint: %s %s\n", endpoint.Resolve, endpoint.Label)
+                    traceFunc(fmt.Sprintf("  Resolve endpoint: %s %s\n", endpoint.Resolve, endpoint.Label))
                     score := Score {pos: 0, as: 0, mask: 0, delta: 0, v4: false, v6: false}
                     score.delta = int(record.Value().(int64))
                     for index, label := range labels {
@@ -277,18 +290,18 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
 
                     score.resolve = endpoint.Resolve
                     score.repo = record.ValueByKey("path").(string)
-                    logger.Debugf("Resolve score: %v\n", score)
+                    traceFunc(fmt.Sprintf("    Resolve score: %v\n", score))
 
                     if !endpoint.Public && score.mask == 0 && score.as == 0 {
-                        logger.Debugf("Resolve not hit private\n")
+                        traceFunc(fmt.Sprintf("    Resolve not hit private\n"))
                         continue
                     }
                     if len(labels) != 0 && labels[len(labels)-1] == "4" && !score.v4 {
-                        logger.Debugf("Resolve not hit v4\n")
+                        traceFunc(fmt.Sprintf("    Resolve not hit v4\n"))
                         continue
                     }
                     if len(labels) != 0 && labels[len(labels)-1] == "6" && !score.v6 {
-                        logger.Debugf("Resolve not hit v6\n")
+                        traceFunc(fmt.Sprintf("    Resolve not hit v6\n"))
                         continue
                     }
 
@@ -306,7 +319,7 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
     // randomly choose one mirror not dominated by others
     if len(scores) > 0 {
         for index, score := range scores {
-            logger.Debugf("Resolve scores: %d %v", index, score)
+            traceFunc(fmt.Sprintf("Resolve scores: %d %v\n", index, score))
         }
         var optimalScores Scores
         for i, l := range scores {
@@ -326,7 +339,7 @@ func Resolve(r *http.Request, cname string) (url string, err error) {
             repo = scores[0].repo
         } else {
             for index, score := range optimalScores {
-                logger.Debugf("Resolve optimal scores: %d %v", index, score)
+                traceFunc(fmt.Sprintf("Resolve optimal scores: %d %v\n", index, score))
             }
             randIndex := rand.Intn(len(optimalScores))
             resolve = optimalScores[randIndex].resolve
