@@ -5,7 +5,11 @@ import { Mirror, Mirrorz, ParsedMirror, Site } from "../schema";
 import { absoluteUrlOrConcatWithBase, emptyOrAbsolutUrlOrConcatWithBase } from "./utils";
 
 async function MirrorzLoader(source: string | Parser) {
-    return typeof source === "string" ? await (await fetch(source)).json() as Mirrorz : await source();
+    try {
+        return typeof source === "string" ? await (await fetch(source)).json() as Mirrorz : await source();
+    } catch (err) {
+        console.warn("MirrorzLoader", typeof source === "string" ? source : "", err);
+    }
 }
 
 const parseMirror = (site: Site, { cname, url, help, size, desc, upstream, status }: Mirror): ParsedMirror => ({
@@ -26,7 +30,7 @@ export function useMirrorzSites() {
         upstreams.forEach(initMirror);
     }
     function initMirror(source: string | Parser) {
-        MirrorzLoader(source).then(m => setMirrorz(original => ({ ...original, [m.site.abbr]: m })));
+        MirrorzLoader(source).then(m => m && setMirrorz(original => ({ ...original, [m.site.abbr]: m })));
     }
     useEffect(() => {
         initAllMirrors();

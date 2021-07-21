@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs: 
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,16 +24,90 @@ jobs:
           sed -i "s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g" scripts/oh-my-mirrorz/oh-my-mirrorz.py
           sed -i "s^mirrors = \[\]^mirrors = $(node -e 'console.log(JSON.stringify(require("./src/config/mirrors")))')^" scripts/oh-my-mirrorz/oh-my-mirrorz.py
       - name: Build
-        run: yarn build
-      - name: Legacy page build
-        run: yarn legacy_build
-      - name: Commit and publish
+        run: |
+          yarn build
+          yarn legacy_build
+          mkdir -p drop
+          tar -czf drop/dist.tar.gz dist
+      - name: Upload dist package as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: drop/dist.tar.gz
+          retention-days: 3
+  screenshots:
+    name: Visual diff
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: |
+          yarn --frozen-lockfile
+          npx playwright install-deps
+          npx playwright install
+      - name: Download dist package
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Unzip dist package
+        run: |
+          tar xzf dist.tar.gz
+      - name: Update snapshot baseline
         if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          yarn test --update-snapshots
+      - name: Upload screenshot baseline as artifacts
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshot-baseline
+          path: |
+            tests/*-snapshots
+      - name: Download baseline and take screenshots
+        if: ${{ github.ref != 'refs/heads/master' }}
+        run: |
+          yarn download-snapshot-baseline snapshot-baseline.zip
+          unzip -o snapshot-baseline.zip -d tests
+          yarn test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload screenshot differences as artifacts
+        if: ${{ github.ref != 'refs/heads/master' && always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots
+          path: |
+            tests/*-snapshots
+            test-results
+          retention-days: 3
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Download dist package
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Commit and publish
         env: 
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_REPOSITORY: ${{ secrets.PUBLISH_REPOSITORY }}
           ACTOR: ${{ secrets.ACTOR }}
         run: |
+          tar xzf dist.tar.gz
           remote_repo="https://x-access-token:${ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
           remote_branch="master"
           git_commit_id=$(git rev-parse --short HEAD)

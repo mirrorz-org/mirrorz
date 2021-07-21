@@ -101,9 +101,14 @@ async function write(f) {
       const t = s.length > 1 ? parseInt(s.substr(1)) : 0;
       mapper.set(c, t);
     });
-    for (const c of ['S', 'O', 'Y', 'F', 'P'])
+    for (const c of ['S', 'O', 'F', 'P'])
       if (mapper.has(c) && mapper.get(c) != 0) {
-        t = mapper.get(c) - Math.round(cur/1000);
+        t = mapper.get(c) - Math.round(cur/1000); // must not equal 0, often less than 0
+        break;
+      }
+    for (const c of [['C', 1000], ['R', 2000]])
+      if (mapper.has(c[0]) && t == 0) {
+        t = c[1];
         break;
       }
 

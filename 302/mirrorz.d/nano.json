@@ -1,0 +1,27 @@
+{
+    "site": {
+        "url": "https://mirrors.tuna.tsinghua.edu.cn",
+        "logo": "https://mirrors.tuna.tsinghua.edu.cn/static/img/favicon.png",
+        "abbr": "TUNA.NANO",
+        "name": "清华大学开源软件镜像站",
+        "homepage": "https://tuna.moe",
+        "issue": "https://github.com/tuna/issues",
+        "request": "https://github.com/tuna/issues",
+        "email": "support at tuna dot tsinghua dot edu dot cn",
+        "group": "#tuna at freenode; https://groups.google.com/forum/#!forum/tuna-general",
+        "note": "NANO 是镜像站一台服务器的名称",
+        "big": "/speedtest/1000mb.bin",
+        "disk": "89.57TiB/90.11TiB"
+    },
+    "endpoints": [
+        {
+           "label": "tuna",
+           "public": true,
+           "resolve": "mirrors.tuna.tsinghua.edu.cn",
+           "range": [ "166.111.0.0/16", "101.6.0.0/16" ]
+        }
+    ],
+    "extension": "D",
+    "info": [],
+    "mirrors": []
+}

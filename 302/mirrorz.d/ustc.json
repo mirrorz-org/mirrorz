@@ -1,0 +1,33 @@
+{
+    "site": {
+        "url": "https://mirrors.ustc.edu.cn",
+        "logo": "https://mirrors.ustc.edu.cn/ustclug/logo-origin.png",
+        "logo_darkmode": "https://mirrors.ustc.edu.cn/ustclug/logo-white.svg",
+        "abbr": "USTC",
+        "name": "中国科学技术大学开源软件镜像",
+        "homepage": "https://lug.ustc.edu.cn",
+        "issue": "https://github.com/ustclug/discussions",
+        "request": "https://github.com/ustclug/mirrorrequest",
+        "email": "lug@ustc.edu.cn",
+        "group": "See https://lug.ustc.edu.cn/wiki/lug/contact/ for more information",
+        "big": "/ustclug/1GB.bin",
+        "disk": "52T/60T\n"
+    },
+    "endpoints": [
+        {
+           "label": "ustc",
+           "public": true,
+           "resolve": "mirrors.ustc.edu.cn",
+           "range": []
+        },
+        {
+           "label": "ustccampus",
+           "public": false,
+           "resolve": "10.0.0.1",
+           "range": [ "10.0.0.0/8" ]
+        }
+    ],
+    "extension": "D",
+    "info": [],
+    "mirrors": []
+}
