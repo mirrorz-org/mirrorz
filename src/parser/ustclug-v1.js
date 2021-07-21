@@ -16,7 +16,13 @@ const size = function (bytes) {
 module.exports = async function (homepageURL, yukiURL) {
   const name_func = await cname();
   homepageHTML = await (await fetch(homepageURL)).text();
-  yukiMeta = await (await fetch(yukiURL)).json();
+  // yukiMeta = await (await fetch(yukiURL)).json();
+  yukiMeta = await fetch(yukiURL);
+  if (yukiMeta.ok) {
+    yukiMeta = await yukiMeta.json();
+  } else {
+    yukiMeta = null;
+  }
 
   // finding `var isoinfo`
   const htmlLines = homepageHTML.split("\n");
@@ -37,7 +43,10 @@ module.exports = async function (homepageURL, yukiURL) {
   // handling HTML
   const hashtable = {};
   const mirrors = items.map((item, index) => {
-    const url = item.querySelector(".filename a").getAttribute("href");
+    let url = item.querySelector(".filename a").getAttribute("href");
+    if (!url.startsWith("http:") && !url.startsWith("https:")) {
+      url = "/" + url;
+    }
     const status = "U";
     const help = item.querySelector(".help a").getAttribute("href");
     const name = name_func(url.replace(/\//g, "")); // remove all '/' in href
@@ -53,36 +62,38 @@ module.exports = async function (homepageURL, yukiURL) {
   });
 
   // handling yuki
-  yukiMeta.map((item) => {
-    const name = name_func(item.name).toLowerCase();
-    const index = hashtable[name] ?? hashtable[name.split(".")[0]];
-    if (index === undefined) {
-      return;
-    }
-    const next_run = item.nextRun;
-    const last_success = item.lastSuccess;
-    const prev_run = item.prevRun;
-    if (next_run < 0) {
-      mirrors[index]["status"] = "P";
-    } else if (item.syncing) {
-      mirrors[index]["status"] = "Y" + prev_run;
-      if (last_success) {
-        mirrors[index]["status"] += "O" + last_success;
+  if (yukiMeta) {
+    yukiMeta.map((item) => {
+      const name = name_func(item.name).toLowerCase();
+      const index = hashtable[name] ?? hashtable[name.split(".")[0]];
+      if (index === undefined) {
+        return;
       }
-    } else if (item.exitCode == 0) {
-      mirrors[index]["status"] = "S" + last_success;
-    } else {
-      mirrors[index]["status"] = "F" + prev_run;
-      if (last_success) {
-        mirrors[index]["status"] += "O" + last_success;
+      const next_run = item.nextRun;
+      const last_success = item.lastSuccess;
+      const prev_run = item.prevRun;
+      if (next_run < 0) {
+        mirrors[index]["status"] = "P";
+      } else if (item.syncing) {
+        mirrors[index]["status"] = "Y" + prev_run;
+        if (last_success) {
+          mirrors[index]["status"] += "O" + last_success;
+        }
+      } else if (item.exitCode == 0) {
+        mirrors[index]["status"] = "S" + last_success;
+      } else {
+        mirrors[index]["status"] = "F" + prev_run;
+        if (last_success) {
+          mirrors[index]["status"] += "O" + last_success;
+        }
       }
-    }
-    if (next_run > 0) {
-      mirrors[index]["status"] += "X" + next_run;
-    }
-    mirrors[index]["size"] = size(item.size);
-    mirrors[index]["upstream"] = item.upstream;
-  });
+      if (next_run > 0) {
+        mirrors[index]["status"] += "X" + next_run;
+      }
+      mirrors[index]["size"] = size(item.size);
+      mirrors[index]["upstream"] = item.upstream;
+    });
+  }
 
   return {
     info: isoinfo,
