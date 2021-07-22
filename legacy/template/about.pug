@@ -18,7 +18,10 @@ html
             .para-title
               .para-title-icon #
               .para-title-text Intro
-            .para-content Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
+            .para-content
+              div
+                p Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
+                p A final site for Mirror sites.
           .para
             .para-title
               .para-title-icon #
@@ -28,7 +31,7 @@ html
           .para
             .para-title
               .para-title-icon #
-              .para-title-text Powered by
+              .para-title-text Logo
             .para-content
               each d in sites
                 .about-powered-by
@@ -42,20 +45,31 @@ html
             .para-content
               ul
                 li The following urls are all valid.
-                li https://mirrorz.org/_
-                li https://mirrorz.org/_/os/ArchLinux
-                li https://mirrorz.org/_/app/Git
-                li https://mirrorz.org/_/font
-                li https://mirrorz.org/_/list
-                li https://mirrorz.org/_/site
-                li https://mirrorz.org/_/site/BFSU
-                li https://mirrorz.org/_/site/OpenTUNA
+                li https://mirrorz.org/
+                li https://mirrorz.org/os/ArchLinux
+                li https://mirrorz.org/app/Git
+                li https://mirrorz.org/font
+                li https://mirrorz.org/list
+                li https://mirrorz.org/list/pypi
+                li https://mirrorz.org/list/%5B0-9%5D%2B
+                li https://mirrorz.org/site
+                li https://mirrorz.org/site/BFSU
+                li https://mirrorz.org/site/OpenTUNA/Y
+                li https://mirrorz.org/about
+                li https://mirrorz.org/monitor
+                li The following urls are for static webpage, you can use w3m/lynx to view them
+                li https://mirrorz.org/_/
                 li https://mirrorz.org/_/about
                 li More usage of static webpage is documented in the above url
+                li Use the below script for speed test!
                 li https://mirrorz.org/oh-my-mirrorz.py
-                li Use the above script for speed test!
-                li
+                li 
                   code curl https://mirrorz.org/oh-my-mirrorz.py | python3
+                li Experimental Feature: Backend
+                li https://mirrors.mirrorz.org/archlinux
+                li https://m.mirrorz.org/centos
+                li https://search.mirrorz.org/archlinux/
+                li https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums
           .para
             .para-title
               .para-title-icon #
@@ -69,6 +83,11 @@ html
                 li
                   | Load Balancing Backend (hard). Ref to 
                   a(href='http://github.com/tuna/mirrorhub', target='_blank') http://github.com/tuna/mirrorhub
+                  | . Currently a experimental backend is deployed.
+                li
+                  | Search Backend (hard). Ref to 
+                  a(href='https://github.com/tuna/issues/issues/1012', target='_blank') https://github.com/tuna/issues/issues/1012
+                  | . Currently a experimental backend is deployed.
                 li Mobile browser support
                 li i18n/l10n
                 li mirrorz.json protocol/data format discussion and upgrade
