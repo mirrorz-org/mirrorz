@@ -61,6 +61,12 @@
   .failed {
     color: gold;
   }
+  .cache {
+    color: lightblue;
+  }
+  .proxy {
+    color: lightblue;
+  }
 
   .sidebar,.distro,.site-abbr { box-shadow: $shadow-darkmode 3px 0 6px; }
   .category,.search,.site-meta { box-shadow: $shadow-darkmode 0 3px 6px; }
