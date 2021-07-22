@@ -5,7 +5,7 @@ module.exports = async function () {
     await fetch("https://mirrorz.org/static/json/site/xtom-ee.json")
   ).json();
   const data = await ustclugv1(
-    "https://r.zenithal.workers.dev/http://mirrors.xtom.ee/",
+    "https://r.zenithal.workers.dev/https://mirrors.xtom.ee/",
     "https://mirrors.xtom.ee/api/v1/metas"
   );
 
