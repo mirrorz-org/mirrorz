@@ -1,0 +1,57 @@
+{
+    "site": {
+        "url": "https://mirrors.bfsu.edu.cn",
+        "logo": "https://mirrors.bfsu.edu.cn/static/img/favicon.png",
+        "abbr": "BFSU",
+        "name": "北京外国语大学开源软件镜像站",
+        "homepage": "https://www.bfsu.edu.cn/",
+        "issue": "https://github.com/tuna/issues",
+        "request": "https://github.com/tuna/issues",
+        "email": "support at tuna dot tsinghua dot edu dot cn",
+        "group": "#tuna at freenode; https://groups.google.com/forum/#!forum/tuna-general",
+        "big": "/speedtest/1000mb.bin",
+        "disk": "82.70TiB/84.28TiB"
+    },
+    "endpoints": [
+        {
+           "label": "bfsu",
+           "public": true,
+           "resolve": "mirrors.bfsu.edu.cn",
+           "range": [
+             "AS9808",
+             "AS9394",
+             "AS4812",
+             "AS4538",
+             "AS23910",
+             "AS4134",
+             "AS4809",
+             "AS4837",
+             "AS4808"
+           ]
+        },
+        {
+           "label": "bfsu4",
+           "public": true,
+           "resolve": "mirrors4.bfsu.edu.cn",
+           "range": [
+             "V4",
+             "AS9808",
+             "AS9394",
+             "AS4812"
+           ]
+        },
+        {
+           "label": "bfsu6",
+           "public": true,
+           "resolve": "mirrors6.bfsu.edu.cn",
+           "range": [
+             "V6",
+             "AS4538",
+             "AS23910"
+           ]
+        }
+    ],
+    "extension": "D",
+    "info": [],
+    "mirrors": []
+}

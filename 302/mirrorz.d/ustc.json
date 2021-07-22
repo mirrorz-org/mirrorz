@@ -24,13 +24,58 @@
            "label": "ustc4",
            "public": true,
            "resolve": "ipv4.mirrors.ustc.edu.cn",
-           "range": [ "V4" ]
+           "range": [
+             "V4",
+             "AS4538",
+             "AS23910"
+           ]
         },
         {
-           "label": "ustccampus",
-           "public": false,
-           "resolve": "10.0.0.1",
-           "range": [ "10.0.0.0/8" ]
+           "label": "ustc6",
+           "public": true,
+           "resolve": "ipv6.mirrors.ustc.edu.cn",
+           "range": [
+             "V6",
+             "AS4538",
+             "AS23910"
+           ]
+        },
+        {
+           "label": "ustccernet",
+           "public": true,
+           "resolve": "cernet.mirrors.ustc.edu.cn",
+           "range": [
+             "AS4538",
+             "AS23910"
+           ]
+        },
+        {
+           "label": "ustcchinanet",
+           "public": true,
+           "resolve": "chinanet.mirrors.ustc.edu.cn",
+           "range": [
+             "AS4134",
+             "AS4809"
+           ]
+        },
+        {
+           "label": "ustcunicom",
+           "public": true,
+           "resolve": "unicom.mirrors.ustc.edu.cn",
+           "range": [
+             "AS4837",
+             "AS4808"
+           ]
+        },
+        {
+           "label": "ustccmcc",
+           "public": true,
+           "resolve": "cmcc.mirrors.ustc.edu.cn",
+           "range": [
+             "AS9808",
+             "AS9394",
+             "AS4812"
+           ]
         }
     ],
     "extension": "D",

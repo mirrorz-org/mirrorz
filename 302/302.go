@@ -215,9 +215,9 @@ func (l Score) Dominate(r Score) bool {
     deltaDominate := false
     if l.delta == 0 && r.delta == 0 {
         deltaDominate = true
-    } else if l.delta < 0 && r.delta < 0 && l.delta > r.delta {
+    } else if l.delta < 0 && r.delta < 0 && l.delta >= r.delta {
         deltaDominate = true
-    } else if l.delta > 0 && r.delta > 0 && l.delta < r.delta {
+    } else if l.delta > 0 && r.delta > 0 && l.delta <= r.delta {
         deltaDominate = true
     }
     return l.pos >= r.pos && l.mask >= r.mask && l.as >= r.as && deltaDominate
@@ -292,16 +292,28 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
                     score.repo = record.ValueByKey("path").(string)
                     traceFunc(fmt.Sprintf("    Resolve score: %v\n", score))
 
+                    if score.delta < -60*60*24*3 { // 3 days
+                        traceFunc(fmt.Sprintf("    Resolve not up-to-date enough\n"))
+                        continue
+                    }
                     if !endpoint.Public && score.mask == 0 && score.as == 0 {
                         traceFunc(fmt.Sprintf("    Resolve not hit private\n"))
                         continue
                     }
-                    if len(labels) != 0 && labels[len(labels)-1] == "4" && !score.v4 {
+                    if !score.v4 && len(labels) != 0 && labels[len(labels)-1] == "4" {
                         traceFunc(fmt.Sprintf("    Resolve not hit v4\n"))
                         continue
                     }
-                    if len(labels) != 0 && labels[len(labels)-1] == "6" && !score.v6 {
+                    if !score.v6 && len(labels) != 0 && labels[len(labels)-1] == "6" {
                         traceFunc(fmt.Sprintf("    Resolve not hit v6\n"))
+                        continue
+                    }
+                    if score.v4 && score.pos == 0 && (len(labels) == 0 || len(labels) != 0 && labels[len(labels)-1] != "4") {
+                        traceFunc(fmt.Sprintf("    Resolve label not v4only or specify v4 endpoint\n"))
+                        continue
+                    }
+                    if score.v6 && score.pos == 0 && (len(labels) == 0 || len(labels) != 0 && labels[len(labels)-1] != "6") {
+                        traceFunc(fmt.Sprintf("    Resolve label not v6only or specify v6 endpoint\n"))
                         continue
                     }
 
