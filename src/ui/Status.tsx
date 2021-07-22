@@ -6,6 +6,8 @@ const STATUS_TEXT_MAPPING = {
   Y: 'Syncing',
   F: 'Failed',
   P: 'Paused',
+  C: 'Cache',
+  R: 'Proxy',
   U: 'Unknown',
   O: 'Last Success',
   X: 'Next',
@@ -17,6 +19,8 @@ const STATUS_ICON_MAPPING = {
   Y: 'sync',
   F: 'error',
   P: 'pause',
+  C: 'cached',
+  R: 'send',
   U: 'info',
   O: 'done',
   X: 'east',
@@ -28,6 +32,8 @@ const STATUS_CLASS_MAPPING = {
   P: 'pause',
   Y: 'syncing',
   F: 'failed',
+  C: 'cache',
+  R: 'proxy',
   U: 'unknown',
   O: 'oldsuccess',
   X: 'next',
@@ -36,8 +42,8 @@ const STATUS_CLASS_MAPPING = {
 
 type STATUS_TYPE = keyof typeof STATUS_CLASS_MAPPING;
 
-const MAIN_STATUS: STATUS_TYPE[] = ["S", "Y", "F", "P", "U"];
-const ALL_STATUS: STATUS_TYPE[] = ["S", "Y", "F", "P", "U", "O", "X", "N"];
+const MAIN_STATUS: STATUS_TYPE[] = ["S", "Y", "F", "P", "C", "R", "U"];
+const ALL_STATUS: STATUS_TYPE[] = ["S", "Y", "F", "P", "C", "R", "U", "O", "X", "N"];
 
 
 export const statusMapper = (status: string) => {
