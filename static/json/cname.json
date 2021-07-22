@@ -89,6 +89,8 @@
   "freebsd": "FreeBSD",
   "freebsd-pkg": "FreeBSD-pkg",
   "freebsd-ports": "FreeBSD-ports",
+  "freebsd-portsnap": "FreeBSD-portsnap",
+  "freebsd-update": "FreeBSD-update",
   "gradle/distributions": "gradle",
   "kaos": "KaOS",
   "Linux Mint": "linuxmint",
@@ -115,5 +117,6 @@
   "MX Linux": "mxlinux",
   "openSUSE": "opensuse",
   "Qubes OS": "qubesos",
-  "Solus": "solus"
+  "Solus": "solus",
+  "openbsd": "OpenBSD"
 }
