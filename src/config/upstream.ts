@@ -18,6 +18,11 @@ import pku from "./../parser/pku";
 import byrio from "./../parser/byrio";
 import cqupt from "./../parser/cqupt";
 import ynuosa from "./../parser/ynuosa";
+import xtom_hk from "../parser/xtom-hk";
+import xtom from "../parser/xtom";
+import xtom_de from "../parser/xtom-de";
+import xtom_nl from "../parser/xtom-nl";
+import xtom_ee from "../parser/xtom-ee";
 
 const upstreams: (string | Parser)[] = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -50,6 +55,11 @@ const upstreams: (string | Parser)[] = [
   cqupt,
   ynuosa,
   xjtu,
+  xtom_hk,
+  xtom,
+  xtom_de,
+  xtom_nl,
+  xtom_ee,
 ];
 
 export default upstreams;
