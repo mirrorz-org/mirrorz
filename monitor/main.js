@@ -37,6 +37,9 @@ cqupt = require("./parser/cqupt");
 ynuosa = require("./parser/ynuosa");
 xtom = require("./parser/xtom");
 xtom_hk = require("./parser/xtom-hk");
+xtom_de = require("./parser/xtom-de");
+xtom_nl = require("./parser/xtom-nl");
+xtom_ee = require("./parser/xtom-ee");
 
 const LIST = [
   lzu,
@@ -59,6 +62,9 @@ const LIST = [
   ynuosa,
   xtom,
   xtom_hk,
+  xtom_de,
+  xtom_nl,
+  xtom_ee,
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
   "https://mirrors.ustc.edu.cn/static/json/mirrorz.json",
   "https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",

@@ -1,0 +1,7 @@
+{
+    "url": "https://mirrors.xtom.nl",
+    "abbr": "XTOM (NL)",
+    "name": "XTOM 开源软件镜像站（荷兰）",
+    "email": "mirror AT xtom DOT com",
+    "request": "https://github.com/xtomcom/mirrorrequest"
+}
