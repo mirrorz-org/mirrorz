@@ -36,7 +36,7 @@ module.exports = async function (homepageURL, yukiURL) {
     }
   }
   for (let item of isoinfo) {
-    item["distro"] = name_func(item["distro"])
+    item["distro"] = name_func(item["distro"]);
     item["category"] = "os";
   }
 
