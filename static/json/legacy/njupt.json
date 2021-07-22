@@ -9,165 +9,181 @@
     },
     "info": [
         {
+            "category": "os",
             "urls": [
                 {
-                    "name": "2021.02.01 (x86_64, CLI-only)",
-                    "url": "/archlinux/iso/latest/archlinux-2021.02.01-x86_64.iso"
+                    "url": "/archlinux/iso/latest/archlinux-2021.07.01-x86_64.iso",
+                    "name": "2021.07.01 (x86_64, CLI-only)"
                 }
             ],
-            "category": "os",
-            "distro": "Arch Linux"
+            "distro": "archlinux"
         },
         {
+            "category": "os",
             "urls": [
                 {
-                    "name": "8.3.2011 (x86_64, dvd1)",
-                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso"
+                    "url": "/centos/8.4.2105/isos/x86_64/CentOS-8.4.2105-x86_64-dvd1.iso",
+                    "name": "8.4.2105 (x86_64, dvd1)"
                 },
                 {
-                    "name": "8.3.2011 (x86_64, boot)",
-                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-boot.iso"
+                    "url": "/centos/8.4.2105/isos/x86_64/CentOS-8.4.2105-x86_64-boot.iso",
+                    "name": "8.4.2105 (x86_64, boot)"
                 },
                 {
-                    "name": "8.3.2011 (ppc64le, dvd1)",
-                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-dvd1.iso"
+                    "url": "/centos/8.4.2105/isos/ppc64le/CentOS-8.4.2105-ppc64le-dvd1.iso",
+                    "name": "8.4.2105 (ppc64le, dvd1)"
                 },
                 {
-                    "name": "8.3.2011 (aarch64, dvd1)",
-                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-dvd1.iso"
+                    "url": "/centos/8.4.2105/isos/aarch64/CentOS-8.4.2105-aarch64-dvd1.iso",
+                    "name": "8.4.2105 (aarch64, dvd1)"
                 },
                 {
-                    "name": "8.3.2011 (ppc64le, boot)",
-                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-boot.iso"
+                    "url": "/centos/8.4.2105/isos/ppc64le/CentOS-8.4.2105-ppc64le-boot.iso",
+                    "name": "8.4.2105 (ppc64le, boot)"
                 },
                 {
-                    "name": "8.3.2011 (aarch64, boot)",
-                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-boot.iso"
+                    "url": "/centos/8.4.2105/isos/aarch64/CentOS-8.4.2105-aarch64-boot.iso",
+                    "name": "8.4.2105 (aarch64, boot)"
                 },
                 {
-                    "name": "7 (x86_64, NetInstall)",
-                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso"
+                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-minimal.iso",
+                    "name": "8.3.2011 (x86_64, minimal)"
                 },
                 {
-                    "name": "7 (x86_64, Minimal)",
-                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso"
+                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso",
+                    "name": "8.3.2011 (x86_64, dvd1)"
                 },
                 {
-                    "name": "7 (x86_64, Everything)",
-                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Everything-2009.iso"
+                    "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-boot.iso",
+                    "name": "8.3.2011 (x86_64, boot)"
                 },
                 {
-                    "name": "7 (x86_64, DVD)",
-                    "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso"
+                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-minimal.iso",
+                    "name": "8.3.2011 (ppc64le, minimal)"
+                },
+                {
+                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-minimal.iso",
+                    "name": "8.3.2011 (aarch64, minimal)"
+                },
+                {
+                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-dvd1.iso",
+                    "name": "8.3.2011 (ppc64le, dvd1)"
+                },
+                {
+                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-dvd1.iso",
+                    "name": "8.3.2011 (aarch64, dvd1)"
+                },
+                {
+                    "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-boot.iso",
+                    "name": "8.3.2011 (ppc64le, boot)"
+                },
+                {
+                    "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-boot.iso",
+                    "name": "8.3.2011 (aarch64, boot)"
                 }
             ],
-            "category": "os",
-            "distro": "CentOS"
+            "distro": "centos"
         },
         {
+            "category": "os",
             "urls": [
                 {
-                    "name": "33 (x86_64, Xfce)",
-                    "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-33-1.2.iso"
+                    "url": "/fedora/releases/34/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-34-1.2.iso",
+                    "name": "34 (x86_64, Xfce)"
                 },
                 {
-                    "name": "33 (x86_64, Workstation)",
-                    "url": "/fedora/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso"
+                    "url": "/fedora/releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso",
+                    "name": "34 (x86_64, Workstation)"
                 },
                 {
-                    "name": "33 (x86_64, KDE)",
-                    "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-33-1.2.iso"
+                    "url": "/fedora/releases/34/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-34-1.2.iso",
+                    "name": "34 (x86_64, KDE)"
                 },
                 {
-                    "name": "33 (aarch64, Workstation)",
-                    "url": "/fedora/releases/33/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-33-1.2.iso"
+                    "url": "/fedora/releases/34/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-34-1.2.iso",
+                    "name": "34 (aarch64, Workstation)"
                 },
                 {
-                    "name": "32 (x86_64, Xfce)",
-                    "url": "/fedora/releases/32/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-32-1.6.iso"
+                    "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-33-1.2.iso",
+                    "name": "33 (x86_64, Xfce)"
                 },
                 {
-                    "name": "32 (x86_64, Workstation)",
-                    "url": "/fedora/releases/32/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-32-1.6.iso"
+                    "url": "/fedora/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso",
+                    "name": "33 (x86_64, Workstation)"
                 },
                 {
-                    "name": "32 (x86_64, KDE)",
-                    "url": "/fedora/releases/32/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-32-1.6.iso"
+                    "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-33-1.2.iso",
+                    "name": "33 (x86_64, KDE)"
+                },
+                {
+                    "url": "/fedora/releases/33/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-33-1.2.iso",
+                    "name": "33 (aarch64, Workstation)"
                 }
             ],
-            "category": "os",
             "distro": "Fedora"
         },
         {
+            "category": "os",
             "urls": [
                 {
-                    "name": "20.10 (amd64, Desktop LiveDVD)",
-                    "url": "/ubuntu-releases/groovy/ubuntu-20.10-desktop-amd64.iso"
+                    "url": "/ubuntu-releases/hirsute/ubuntu-21.04-desktop-amd64.iso",
+                    "name": "21.04 (amd64, Desktop LiveDVD)"
                 },
                 {
-                    "name": "20.04.2.0 (amd64, Desktop LiveDVD)",
-                    "url": "/ubuntu-releases/focal/ubuntu-20.04.2.0-desktop-amd64.iso"
+                    "url": "/ubuntu-releases/groovy/ubuntu-20.10-desktop-amd64.iso",
+                    "name": "20.10 (amd64, Desktop LiveDVD)"
                 },
                 {
-                    "name": "18.04.5 (amd64, Desktop LiveDVD)",
-                    "url": "/ubuntu-releases/bionic/ubuntu-18.04.5-desktop-amd64.iso"
+                    "url": "/ubuntu-releases/focal/ubuntu-20.04.2.0-desktop-amd64.iso",
+                    "name": "20.04.2.0 (amd64, Desktop LiveDVD)"
                 },
                 {
-                    "name": "16.04.7 (amd64, Desktop LiveDVD)",
-                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.7-desktop-amd64.iso"
+                    "url": "/ubuntu-releases/bionic/ubuntu-18.04.5-desktop-amd64.iso",
+                    "name": "18.04.5 (amd64, Desktop LiveDVD)"
                 },
                 {
-                    "name": "16.04.7 (amd64, Server)",
-                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.7-server-amd64.iso"
+                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.7-server-amd64.iso",
+                    "name": "16.04.7 (amd64, Server)"
                 },
                 {
-                    "name": "16.04.6 (i386, Server)",
-                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.6-server-i386.iso"
+                    "url": "/ubuntu-releases/xenial/ubuntu-16.04.6-server-i386.iso",
+                    "name": "16.04.6 (i386, Server)"
                 },
                 {
-                    "name": "14.04.6 (amd64, Server)",
-                    "url": "/ubuntu-releases/trusty/ubuntu-14.04.6-server-amd64.iso"
+                    "url": "/ubuntu-releases/trusty/ubuntu-14.04.6-server-amd64.iso",
+                    "name": "14.04.6 (amd64, Server)"
                 },
                 {
-                    "name": "14.04.6 (i386, Server)",
-                    "url": "/ubuntu-releases/trusty/ubuntu-14.04.6-server-i386.iso"
-                },
-                {
-                    "name": "12.04.5 (amd64, Server)",
-                    "url": "/ubuntu-releases/precise/ubuntu-12.04.5-server-amd64.iso"
-                },
-                {
-                    "name": "12.04.5 (i386, Server)",
-                    "url": "/ubuntu-releases/precise/ubuntu-12.04.5-server-i386.iso"
+                    "url": "/ubuntu-releases/trusty/ubuntu-14.04.6-server-i386.iso",
+                    "name": "14.04.6 (i386, Server)"
                 }
             ],
-            "category": "os",
             "distro": "ubuntu"
         },
         {
+            "category": "app",
             "urls": [
                 {
-                    "name": "2020.11 (MacOSX, x86_64)",
-                    "url": "/anaconda/archive/Anaconda3-2020.11-MacOSX-x86_64.pkg"
+                    "url": "/anaconda/archive/Anaconda3-2021.05-Linux-x86_64.sh",
+                    "name": "2021.05 (Linux, x86_64)"
                 },
                 {
-                    "name": "2020.11 (Linux, x86_64)",
-                    "url": "/anaconda/archive/Anaconda3-2020.11-Linux-x86_64.sh"
+                    "url": "/anaconda/archive/Anaconda3-2021.05-Windows-x86_64.exe",
+                    "name": "2021.05 (Windows, x86_64)"
                 },
                 {
-                    "name": "2020.11 (MacOSX, x86_64)",
-                    "url": "/anaconda/archive/Anaconda3-2020.11-MacOSX-x86_64.sh"
+                    "url": "/anaconda/archive/Anaconda3-2021.05-MacOSX-x86_64.sh",
+                    "name": "2021.05 (MacOSX, x86_64)"
                 },
                 {
-                    "name": "2020.11 (Windows, x86_64)",
-                    "url": "/anaconda/archive/Anaconda3-2020.11-Windows-x86_64.exe"
+                    "url": "/anaconda/archive/Anaconda3-2021.05-MacOSX-x86_64.pkg",
+                    "name": "2021.05 (MacOSX, x86_64)"
                 },
                 {
-                    "name": "2020.11 (Windows, x86)",
-                    "url": "/anaconda/archive/Anaconda3-2020.11-Windows-x86.exe"
+                    "url": "/anaconda/archive/Anaconda3-2021.05-Windows-x86.exe",
+                    "name": "2021.05 (Windows, x86)"
                 }
             ],
-            "category": "app",
             "distro": "Conda"
         }
     ],

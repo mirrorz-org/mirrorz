@@ -73,8 +73,7 @@
         {
             "cname": "debian",
             "url": "/debian/",
-            "desc": "Debian Linux 的官方软件包仓库",
-            "upstream": "ftp.hk.debian.org::debian//"
+            "desc": "Debian Linux 的官方软件包仓库"
         },
         {
             "cname": "debian-cd",
@@ -107,30 +106,27 @@
             "upstream": "rsync.deepin.com::cdimage//"
         },
         {
-            "cname": "freebsd",
+            "cname": "FreeBSD",
             "url": "/freebsd/",
             "desc": "FreeBSD 的官方软件包仓库",
             "help": "/help/freebsd/",
-            "upstream": "rsync.gtlib.gatech.edu::FreeBSD//"
+            "upstream": "mirror.yandex.ru::freebsd//"
         },
         {
-            "cname": "freebsd-pkg",
-            "url": "https://freebsd-pkg.mirror.bjtulug.org/",
-            "upstream": "http://pkg.freebsd.org/"
+            "cname": "FreeBSD-pkg",
+            "url": "https://freebsd-pkg.mirror.bjtulug.org/"
         },
         {
-            "cname": "freebsd-ports",
+            "cname": "FreeBSD-ports",
             "url": "https://freebsd-pkg.mirror.bjtulug.org/ports-distfiles/"
         },
         {
-            "cname": "freebsd-portsnap",
-            "url": "https://freebsd-portsnap.mirror.bjtulug.org/",
-            "upstream": "http://portsnap.freebsd.org/"
+            "cname": "FreeBSD-portsnap",
+            "url": "https://freebsd-portsnap.mirror.bjtulug.org/"
         },
         {
-            "cname": "freebsd-update",
-            "url": "https://freebsd-update.mirror.bjtulug.org/",
-            "upstream": "http://update.freebsd.org/"
+            "cname": "FreeBSD-update",
+            "url": "https://freebsd-update.mirror.bjtulug.org/"
         },
         {
             "cname": "gentoo",
@@ -289,15 +285,9 @@
             "upstream": "rsync.documentfoundation.org::tdf-pub//"
         },
         {
-            "cname": "tldp",
-            "url": "/tldp.org/",
-            "upstream": "ftp.ibiblio.org::ldp_mirror//"
-        },
-        {
             "cname": "openwrt",
             "url": "/reverse/openwrt",
-            "desc": "Openwrt 的发行版及软件包仓库",
-            "upstream": "https://downloads.openwrt.org/"
+            "desc": "Openwrt 的发行版及软件包仓库"
         },
         {
             "cname": "composer-packagist",
@@ -307,8 +297,7 @@
         {
             "cname": "machine-learning",
             "url": "/machine-learning",
-            "desc": "机器学习、深度学习相关，数据集、预训练模型等。",
-            "upstream": "//"
+            "desc": "机器学习、深度学习相关，数据集、预训练模型等。"
         },
         {
             "cname": "neurodebian",

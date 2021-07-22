@@ -1,1 +1,82 @@
-{"site":{"url":"http://mirror.neu.edu.cn","abbr":"NEU","name":"Northeastern University OpenSource Mirrors"},"info":[],"mirrors":[{"cname":"android","url":"/android/","status":"U"},{"cname":"ATrpms","url":"/ATrpms/","status":"S1615651262"},{"cname":"CentALT","url":"/CentALT/","status":"S1615651262"},{"cname":"CPAN","url":"/CPAN/","status":"S1615651262"},{"cname":"CTAN","url":"/CTAN/","status":"S1615651262"},{"cname":"dag","url":"/dag/","status":"S1615651262"},{"cname":"eclipse","url":"/eclipse/","status":"S1592336954"},{"cname":"fedora-epel","url":"/fedora-epel/","status":"S1592336954"},{"cname":"mysql","url":"/mysql/","status":"S1615651262"},{"cname":"putty","url":"/putty/","status":"S1615651262"},{"cname":"rpmfusion","url":"/rpmfusion/","status":"S1615651262"},{"cname":"centos","url":"/centos/","status":"S1615651262"},{"cname":"ubuntu","url":"/ubuntu/","status":"S1615651262"},{"cname":"Fedora","url":"/fedora/","status":"S1592336954"}]}
+{
+    "site": {
+        "url": "http://mirror.neu.edu.cn",
+        "abbr": "NEU",
+        "name": "Northeastern University OpenSource Mirrors"
+    },
+    "info": [
+
+    ],
+    "mirrors": [
+        {
+            "cname": "android",
+            "url": "/android/",
+            "status": "U"
+        },
+        {
+            "cname": "ATrpms",
+            "url": "/ATrpms/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "CentALT",
+            "url": "/CentALT/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "CPAN",
+            "url": "/CPAN/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "CTAN",
+            "url": "/CTAN/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "dag",
+            "url": "/dag/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "eclipse",
+            "url": "/eclipse/",
+            "status": "S1592336954"
+        },
+        {
+            "cname": "fedora-epel",
+            "url": "/fedora-epel/",
+            "status": "S1592336954"
+        },
+        {
+            "cname": "mysql",
+            "url": "/mysql/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "putty",
+            "url": "/putty/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "rpmfusion",
+            "url": "/rpmfusion/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "centos",
+            "url": "/centos/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "ubuntu",
+            "url": "/ubuntu/",
+            "status": "S1626883262"
+        },
+        {
+            "cname": "Fedora",
+            "url": "/fedora/",
+            "status": "S1592336954"
+        }
+    ]
+}
