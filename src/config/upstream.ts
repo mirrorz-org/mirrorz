@@ -23,6 +23,7 @@ import xtom from "../parser/xtom";
 import xtom_de from "../parser/xtom-de";
 import xtom_nl from "../parser/xtom-nl";
 import xtom_ee from "../parser/xtom-ee";
+import njupt from "../parser/njupt";
 
 const upstreams: (string | Parser)[] = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -34,7 +35,6 @@ const upstreams: (string | Parser)[] = [
   "https://iptv.uestc.edu.cn/mirrors/mirrorz.json",
   "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
   "https://mirrorz.org/static/json/legacy/bjtu.json",
-  "https://mirrorz.org/static/json/legacy/njupt.json",
   "https://mirrorz.org/static/json/legacy/tongji.json",
   "https://mirrorz.org/static/json/legacy/neu.json",
   lzu,
@@ -60,6 +60,7 @@ const upstreams: (string | Parser)[] = [
   xtom_de,
   xtom_nl,
   xtom_ee,
+  njupt,
 ];
 
 export default upstreams;
