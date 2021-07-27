@@ -32,4 +32,5 @@ module.exports = [
   "https://mirrorz.org/static/json/legacy/xtom-de.json",
   "https://mirrorz.org/static/json/legacy/xtom-nl.json",
   "https://mirrorz.org/static/json/legacy/xtom-ee.json",
+  "https://mirrors.wsyu.edu.cn/.mirrorz/mirrorz.json",
 ]

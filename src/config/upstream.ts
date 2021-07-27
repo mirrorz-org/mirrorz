@@ -24,6 +24,7 @@ import xtom_de from "../parser/xtom-de";
 import xtom_nl from "../parser/xtom-nl";
 import xtom_ee from "../parser/xtom-ee";
 import njupt from "../parser/njupt";
+import wsyu from "../parser/wsyu";
 
 const upstreams: (string | Parser)[] = [
   "https://status.tuna.wiki/mirrorz/static/opentuna.json",
@@ -61,6 +62,7 @@ const upstreams: (string | Parser)[] = [
   xtom_nl,
   xtom_ee,
   njupt,
+  wsyu,
 ];
 
 export default upstreams;
