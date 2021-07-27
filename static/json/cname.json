@@ -118,5 +118,7 @@
   "openSUSE": "opensuse",
   "Qubes OS": "qubesos",
   "Solus": "solus",
-  "openbsd": "OpenBSD"
+  "openbsd": "OpenBSD",
+  "Debian non-free": "debian non-free",
+  "Fedora": "fedora"
 }
