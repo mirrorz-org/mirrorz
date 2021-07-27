@@ -103,7 +103,7 @@ def main():
 
         for uri in uri_list:
             res[v['site']['abbr']] = 0
-            print('Speed testing', v['site']['abbr'], v['site']['url'] + uri, '... ', end='', flush=True)
+            print('Speed testing', v['site']['abbr'], uri if uri.startswith("http") else v['site']['url'] + uri, '... ', end='', flush=True)
             code, speed = speed_test(v['site']['url'] + uri, args)
             if code != 200:
                 print('HTTP Code', code, 'Speed', human_readable_speed(speed))
