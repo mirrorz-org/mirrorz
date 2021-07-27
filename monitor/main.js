@@ -3,14 +3,14 @@ const { JSDOM } = jsdom;
 global.DOMParser = new JSDOM().window.DOMParser;
 
 Timeout = require("await-timeout");
-const timeout = 10000;
+const timeout = 5000;
 
 fetch_extra = require("node-fetch-extra");
 async function fetchV6First (u, opt) {
   const promise = fetch_extra(u, {family: 6, ...opt});
-  return await Timeout.wrap(promise, timeout/2, 'Timeout').catch(async (e) => {
+  return await Timeout.wrap(promise, timeout/3, 'Timeout').catch(async (e) => {
     const promise = fetch_extra(u, opt);
-    return await Timeout.wrap(promise, timeout/2, 'Timeout');
+    return await Timeout.wrap(promise, timeout/3, 'Timeout').catch(() => null);
   });
 }
 global.fetch = fetchV6First;
@@ -69,7 +69,7 @@ const LIST = [
   "https://mirrors.ustc.edu.cn/static/json/mirrorz.json",
   "https://mirror.sjtu.edu.cn/mirrorz/siyuan.json",
   "https://mirror.sjtu.edu.cn/mirrorz/zhiyuan.json",
-  "https://mirrors.dgut.edu.cn/static/mirrorz.json",
+//  "https://mirrors.dgut.edu.cn/static/mirrorz.json",
   "https://mirrors.sustech.edu.cn/mirrorz/mirrorz.json",
   "https://iptv.uestc.edu.cn/mirrors/mirrorz.json",
   "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
@@ -86,6 +86,10 @@ async function write(f) {
   let points = [];
   if (typeof(f) == "string") {
     const resp = await fetch(f);
+    if (resp == null) {
+      //console.log(f);
+      return points
+    }
     mirrorz = await resp.json();
   } else {
     mirrorz = await f();
@@ -142,10 +146,8 @@ async function main() {
   Promise.all(p).then(async (v) => {
     const points = v.flat();
     //console.log(points.length)
-    for (const p of points) {
+    for (const p of points)
       writeApi.writePoint(p);
-      await writeApi.flush().catch(() => {})
-    }
     writeApi
       .close()
       .then(() => {
