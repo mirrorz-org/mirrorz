@@ -3,17 +3,15 @@ const { JSDOM } = jsdom;
 global.DOMParser = new JSDOM().window.DOMParser;
 
 Timeout = require("await-timeout");
-const timeout = 30000;
+const timeout = 10000;
 
 fetch_extra = require("node-fetch-extra");
 async function fetchV6First (u, opt) {
-  try {
-    const promise = fetch_extra(u, {family: 6, ...opt});
-    return await Timeout.wrap(promise, timeout/2, 'Timeout');
-  } catch (e) {
+  const promise = fetch_extra(u, {family: 6, ...opt});
+  return await Timeout.wrap(promise, timeout/2, 'Timeout').catch(async (e) => {
     const promise = fetch_extra(u, opt);
     return await Timeout.wrap(promise, timeout/2, 'Timeout');
-  }
+  });
 }
 global.fetch = fetchV6First;
 
@@ -78,18 +76,14 @@ const LIST = [
 ];
 
 const {InfluxDB, Point, HttpError} = require('@influxdata/influxdb-client')
+const {url, token, org, bucket} = require('./env')
 
-// secret to be filled
-const token = ''
-const org = ''
-const bucket = ''
-
-const writeApi = new InfluxDB({url: '', token}).getWriteApi(org, bucket, 'ns');
-
+const writeApi = new InfluxDB({url, token}).getWriteApi(org, bucket, 'ns')
 const cur = new Date();
 
 async function write(f) {
   let mirrorz;
+  let points = [];
   if (typeof(f) == "string") {
     const resp = await fetch(f);
     mirrorz = await resp.json();
@@ -102,8 +96,8 @@ async function write(f) {
     .tag('mirror', mirrorz.site.abbr)
     .tag('url', mirrorz.site.url)
     .intField('value', 1);
+  points.push(site)
   //console.log(` ${site}`)
-  writeApi.writePoint(site);
 
   mirrorz.mirrors.map((m) => {
     let t = 0;
@@ -130,39 +124,42 @@ async function write(f) {
       .tag('name', m.cname)
       .tag('url', m.url)
       .intField('value', t);
+    points.push(repo)
     //console.log(` ${repo}`);
-    writeApi.writePoint(repo);
   });
+  return points
 }
 
 async function writeWithTimeout(f) {
   const promise = write(f);
-  return Timeout.wrap(promise, timeout, 'Timeout');
+  return Timeout.wrap(promise, timeout, 'Timeout').catch(() => []);
 }
 
 async function main() {
-  try {
-    p = [];
-    for (const f of LIST)
-      p.push(writeWithTimeout(f));
-    await Promise.all(p);
-  } catch (e) {
-    //console.log(e)
-  }
-
-  writeApi
-    .close()
-    .then(() => {
-      //console.log('FINISHED')
-      process.exit(0);
-    })
-    .catch(e => {
-      console.error(e)
-      if (e instanceof HttpError && e.statusCode === 401) {
-        console.log('Should setup a new InfluxDB database.')
-      }
-      console.log('\nFinished ERROR')
-    })
+  p = [];
+  for (const f of LIST)
+    p.push(writeWithTimeout(f));
+  Promise.all(p).then(async (v) => {
+    const points = v.flat();
+    //console.log(points.length)
+    for (const p of points) {
+      writeApi.writePoint(p);
+      await writeApi.flush().catch(() => {})
+    }
+    writeApi
+      .close()
+      .then(() => {
+        //console.log('FINISHED')
+        process.exit(0);
+      })
+      .catch(e => {
+        if (e instanceof HttpError && e.statusCode === 401) {
+          console.log('Should setup a new InfluxDB database.')
+        }
+        console.log('\nFinished ERROR')
+        process.exit(0);
+      })
+  });
 }
 
 main();
