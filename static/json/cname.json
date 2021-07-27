@@ -120,5 +120,6 @@
   "Solus": "solus",
   "openbsd": "OpenBSD",
   "Debian non-free": "debian non-free",
-  "Fedora": "fedora"
+  "Fedora": "fedora",
+  "Arch Linux RISC-V": "archriscv"
 }
