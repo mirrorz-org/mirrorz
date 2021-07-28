@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "8.0.3"
+      "version": "8.0.6"
     },
     {
       "type": "panel",
@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1624715849094,
+  "iteration": 1627474359786,
   "links": [],
   "panels": [
     {
@@ -70,8 +70,8 @@
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
-        "h": 20,
-        "w": 7,
+        "h": 16,
+        "w": 24,
         "x": 0,
         "y": 0
       },
@@ -95,7 +95,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.0.6",
       "pointradius": 2,
       "points": true,
       "renderer": "flot",
@@ -171,7 +171,7 @@
       "timeShift": null,
       "title": "Site",
       "tooltip": {
-        "shared": true,
+        "shared": false,
         "sort": 0,
         "value_type": "individual"
       },
@@ -208,6 +208,376 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 8,
+      "interval": "5m",
+      "options": {
+        "graph": {},
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.mirror+\":\"+r.name}))",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Repo (log scale)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 19,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 10,
+      "interval": "5m",
+      "options": {
+        "graph": {},
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.mirror}))",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "${repo} (log scale)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "graph": false,
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 19,
+        "w": 12,
+        "x": 12,
+        "y": 34
+      },
+      "id": 18,
+      "interval": "5m",
+      "options": {
+        "graph": {},
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.name}))",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "${site} (log scale)",
+      "type": "timeseries"
     },
     {
       "datasource": "${DS_INFLUXDB}",
@@ -266,12 +636,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 20,
-        "w": 7,
-        "x": 7,
-        "y": 0
+        "h": 19,
+        "w": 12,
+        "x": 0,
+        "y": 53
       },
-      "id": 10,
+      "id": 16,
       "interval": "5m",
       "options": {
         "graph": {},
@@ -280,11 +650,11 @@
             "mean",
             "lastNotNull"
           ],
-          "displayMode": "list",
+          "displayMode": "table",
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "single"
         }
       },
       "pluginVersion": "7.4.3",
@@ -306,7 +676,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.mirror}))",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.mirror}))",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -388,12 +758,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 20,
-        "w": 10,
-        "x": 14,
-        "y": 0
+        "h": 19,
+        "w": 12,
+        "x": 12,
+        "y": 53
       },
-      "id": 8,
+      "id": 17,
       "interval": "5m",
       "options": {
         "graph": {},
@@ -402,11 +772,11 @@
             "mean",
             "lastNotNull"
           ],
-          "displayMode": "list",
+          "displayMode": "table",
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "single"
         }
       },
       "pluginVersion": "7.4.3",
@@ -428,7 +798,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\")\n    |> map(fn: (r) => ({_value:r._value, _time:r._time, _field:r.name}))",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.name}))",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -480,10 +850,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 16,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 72
       },
       "id": 14,
       "options": {
@@ -503,7 +873,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -574,10 +944,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 16,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 72
       },
       "id": 15,
       "options": {
@@ -597,7 +967,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.3",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -731,5 +1101,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "p6XP3EyMz",
-  "version": 18
+  "version": 20
 }
