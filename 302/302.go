@@ -19,6 +19,8 @@ import (
     "flag"
 
     "github.com/juju/loggo"
+
+    "sort"
 )
 
 type Config struct {
@@ -211,6 +213,24 @@ func CompareScore(l, r Score) int {
 
 type Scores []Score
 
+func (s Scores) Len() int { return len(s) }
+func (s Scores) Less(l, r int) bool {
+    if (s[l].delta == 0) {
+        return false
+    } else if (s[r].delta == 0) {
+        return true
+    } else if (s[l].delta < 0 && s[r].delta > 0) {
+        return true
+    } else if (s[r].delta < 0 && s[l].delta > 0) {
+        return false
+    } else if (s[r].delta > 0 && s[l].delta > 0) {
+        return (s[l].delta - s[r].delta) <= 0
+    } else {
+        return (s[r].delta - s[l].delta) <= 0
+    }
+}
+func (s Scores) Swap(l, r int) { s[l], s[r] = s[r], s[l] }
+
 func (l Score) Dominate(r Score) bool {
     deltaDominate := false
     if l.delta == 0 && r.delta == 0 {
@@ -220,7 +240,15 @@ func (l Score) Dominate(r Score) bool {
     } else if l.delta > 0 && r.delta > 0 && l.delta <= r.delta {
         deltaDominate = true
     }
-    return l.pos >= r.pos && l.mask >= r.mask && l.as >= r.as && deltaDominate
+    rangeDominate := false
+    if l.mask > r.mask || (l.mask == r.mask && l.as >= r.as && r.as != 1) {
+        rangeDominate = true
+    }
+    return l.pos >= r.pos && rangeDominate && deltaDominate
+}
+
+func (l Score) DeltaOnly() bool {
+    return l.pos == 0 && l.mask == 0 && l.as == 0
 }
 
 func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr string, err error) {
@@ -232,7 +260,7 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
     }
 
     query := fmt.Sprintf(`from(bucket:"%s")
-        |> range(start: -5m) 
+        |> range(start: -15m)
         |> filter(fn: (r) => r._measurement == "repo" and r.name == "%s")
         |> map(fn: (r) => ({_value:r._value,mirror:r.mirror,_time:r._time,path:r.url}))
         |> limit(n:1)`, config.InfluxDBBucket, cname)
@@ -258,6 +286,7 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
             traceFunc(fmt.Sprintf("Resolve abbr: %s\n", abbr))
             endpoints, ok := AbbrToEndpoints[abbr]
             if (ok) {
+                var scoresEndpoints Scores
                 for _, endpoint := range endpoints {
                     traceFunc(fmt.Sprintf("  Resolve endpoint: %s %s\n", endpoint.Resolve, endpoint.Label))
                     score := Score {pos: 0, as: 0, mask: 0, delta: 0, v4: false, v6: false}
@@ -317,7 +346,34 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
                         continue
                     }
 
-                    scores = append(scores, score)
+                    scoresEndpoints = append(scoresEndpoints, score)
+                }
+
+                // Find the not-dominated scores, or the first one
+                if len(scoresEndpoints) > 0 {
+                    var optimalScores Scores
+                    for i, l := range scoresEndpoints {
+                        dominated := false
+                        for j, r := range scoresEndpoints {
+                            if i != j && r.Dominate(l) {
+                                dominated = true
+                            }
+                        }
+                        if !dominated {
+                            optimalScores = append(optimalScores, l)
+                        }
+                    }
+                    if len(optimalScores) > 0 && len(optimalScores) != len(scoresEndpoints) {
+                        for index, score := range optimalScores {
+                            traceFunc(fmt.Sprintf("  Resolve optimal scores: %d %v\n", index, score))
+                            scores = append(scores, score)
+                        }
+                    } else if len(scoresEndpoints) > 0 {
+                        traceFunc(fmt.Sprintf("  Resolve first score: %v\n", scoresEndpoints[0]))
+                        scores = append(scores, scoresEndpoints[0])
+                    } else {
+                        traceFunc(fmt.Sprintf("  Resolve no score found\n"))
+                    }
                 }
             }
         }
@@ -334,6 +390,7 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
             traceFunc(fmt.Sprintf("Resolve scores: %d %v\n", index, score))
         }
         var optimalScores Scores
+        allDelta := true;
         for i, l := range scores {
             dominated := false
             for j, r := range scores {
@@ -344,16 +401,31 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
             if !dominated {
                 optimalScores = append(optimalScores, l)
             }
+            if !l.DeltaOnly() {
+                allDelta = false;
+            }
         }
         if len(optimalScores) == 0 {
             logger.Warningf("Resolve optimal scores empty, algorithm implemented error")
             resolve = scores[0].resolve
             repo = scores[0].repo
+        } else if allDelta {
+            // len(optimalScores) == 1
+            sort.Sort(scores)
+            for index, score := range scores {
+                traceFunc(fmt.Sprintf("Resolve sorted delta scores: %d %v\n", index, score))
+            }
+            randRange := (len(scores)+1)/2
+            randIndex := rand.Intn(randRange)
+            traceFunc(fmt.Sprintf("Resolve randomly chosen score: (%d/%d) %v\n", randIndex, randRange-1, scores[randIndex]))
+            resolve = scores[randIndex].resolve
+            repo = scores[randIndex].repo
         } else {
             for index, score := range optimalScores {
                 traceFunc(fmt.Sprintf("Resolve optimal scores: %d %v\n", index, score))
             }
             randIndex := rand.Intn(len(optimalScores))
+            traceFunc(fmt.Sprintf("Resolve randomly chosen score: %d %v\n", randIndex, optimalScores[randIndex]))
             resolve = optimalScores[randIndex].resolve
             repo = optimalScores[randIndex].repo
         }
