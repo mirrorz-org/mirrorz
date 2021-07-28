@@ -275,20 +275,20 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
     labels := Host(r)
     remoteIP := IP(r)
     asn := ASN(remoteIP)
-    traceFunc(fmt.Sprintf("Resolve labels: %v\n", labels))
-    traceFunc(fmt.Sprintf("Resolve IP: %v\n", remoteIP))
-    traceFunc(fmt.Sprintf("Resolve ASN: %s\n", asn))
+    traceFunc(fmt.Sprintf("labels: %v\n", labels))
+    traceFunc(fmt.Sprintf("IP: %v\n", remoteIP))
+    traceFunc(fmt.Sprintf("ASN: %s\n", asn))
 
     if err == nil {
         for res.Next() {
             record := res.Record()
             abbr := record.ValueByKey("mirror").(string)
-            traceFunc(fmt.Sprintf("Resolve abbr: %s\n", abbr))
+            traceFunc(fmt.Sprintf("abbr: %s\n", abbr))
             endpoints, ok := AbbrToEndpoints[abbr]
             if (ok) {
                 var scoresEndpoints Scores
                 for _, endpoint := range endpoints {
-                    traceFunc(fmt.Sprintf("  Resolve endpoint: %s %s\n", endpoint.Resolve, endpoint.Label))
+                    traceFunc(fmt.Sprintf("  endpoint: %s %s\n", endpoint.Resolve, endpoint.Label))
                     score := Score {pos: 0, as: 0, mask: 0, delta: 0, v4: false, v6: false}
                     score.delta = int(record.Value().(int64))
                     for index, label := range labels {
@@ -319,30 +319,30 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
 
                     score.resolve = endpoint.Resolve
                     score.repo = record.ValueByKey("path").(string)
-                    traceFunc(fmt.Sprintf("    Resolve score: %v\n", score))
+                    traceFunc(fmt.Sprintf("    score: %v\n", score))
 
                     if score.delta < -60*60*24*3 { // 3 days
-                        traceFunc(fmt.Sprintf("    Resolve not up-to-date enough\n"))
+                        traceFunc(fmt.Sprintf("    not up-to-date enough\n"))
                         continue
                     }
                     if !endpoint.Public && score.mask == 0 && score.as == 0 {
-                        traceFunc(fmt.Sprintf("    Resolve not hit private\n"))
+                        traceFunc(fmt.Sprintf("    not hit private\n"))
                         continue
                     }
                     if !score.v4 && len(labels) != 0 && labels[len(labels)-1] == "4" {
-                        traceFunc(fmt.Sprintf("    Resolve not hit v4\n"))
+                        traceFunc(fmt.Sprintf("    not hit v4\n"))
                         continue
                     }
                     if !score.v6 && len(labels) != 0 && labels[len(labels)-1] == "6" {
-                        traceFunc(fmt.Sprintf("    Resolve not hit v6\n"))
+                        traceFunc(fmt.Sprintf("    not hit v6\n"))
                         continue
                     }
                     if score.v4 && score.pos == 0 && (len(labels) == 0 || len(labels) != 0 && labels[len(labels)-1] != "4") {
-                        traceFunc(fmt.Sprintf("    Resolve label not v4only or specify v4 endpoint\n"))
+                        traceFunc(fmt.Sprintf("    label not v4only or specify v4 endpoint\n"))
                         continue
                     }
                     if score.v6 && score.pos == 0 && (len(labels) == 0 || len(labels) != 0 && labels[len(labels)-1] != "6") {
-                        traceFunc(fmt.Sprintf("    Resolve label not v6only or specify v6 endpoint\n"))
+                        traceFunc(fmt.Sprintf("    label not v6only or specify v6 endpoint\n"))
                         continue
                     }
 
@@ -365,14 +365,14 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
                     }
                     if len(optimalScores) > 0 && len(optimalScores) != len(scoresEndpoints) {
                         for index, score := range optimalScores {
-                            traceFunc(fmt.Sprintf("  Resolve optimal scores: %d %v\n", index, score))
+                            traceFunc(fmt.Sprintf("  optimal scores: %d %v\n", index, score))
                             scores = append(scores, score)
                         }
                     } else if len(scoresEndpoints) > 0 {
-                        traceFunc(fmt.Sprintf("  Resolve first score: %v\n", scoresEndpoints[0]))
+                        traceFunc(fmt.Sprintf("  first score: %v\n", scoresEndpoints[0]))
                         scores = append(scores, scoresEndpoints[0])
                     } else {
-                        traceFunc(fmt.Sprintf("  Resolve no score found\n"))
+                        traceFunc(fmt.Sprintf("  no score found\n"))
                     }
                 }
             }
@@ -384,10 +384,9 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
         logger.Errorf("Resolve query: %v\n", err)
     }
 
-    // randomly choose one mirror not dominated by others
     if len(scores) > 0 {
         for index, score := range scores {
-            traceFunc(fmt.Sprintf("Resolve scores: %d %v\n", index, score))
+            traceFunc(fmt.Sprintf("scores: %d %v\n", index, score))
         }
         var optimalScores Scores
         allDelta := true;
@@ -410,22 +409,24 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
             resolve = scores[0].resolve
             repo = scores[0].repo
         } else if allDelta {
+            // randomly choose one mirror from the optimal half
             // len(optimalScores) == 1
             sort.Sort(scores)
             for index, score := range scores {
-                traceFunc(fmt.Sprintf("Resolve sorted delta scores: %d %v\n", index, score))
+                traceFunc(fmt.Sprintf("sorted delta scores: %d %v\n", index, score))
             }
             randRange := (len(scores)+1)/2
             randIndex := rand.Intn(randRange)
-            traceFunc(fmt.Sprintf("Resolve randomly chosen score: (%d/%d) %v\n", randIndex, randRange-1, scores[randIndex]))
+            traceFunc(fmt.Sprintf("randomly chosen score: (%d/%d) %v\n", randIndex, randRange-1, scores[randIndex]))
             resolve = scores[randIndex].resolve
             repo = scores[randIndex].repo
         } else {
+            // randomly choose one mirror not dominated by others
             for index, score := range optimalScores {
-                traceFunc(fmt.Sprintf("Resolve optimal scores: %d %v\n", index, score))
+                traceFunc(fmt.Sprintf("optimal scores: %d %v\n", index, score))
             }
             randIndex := rand.Intn(len(optimalScores))
-            traceFunc(fmt.Sprintf("Resolve randomly chosen score: %d %v\n", randIndex, optimalScores[randIndex]))
+            traceFunc(fmt.Sprintf("randomly chosen score: %d %v\n", randIndex, optimalScores[randIndex]))
             resolve = optimalScores[randIndex].resolve
             repo = optimalScores[randIndex].repo
         }
