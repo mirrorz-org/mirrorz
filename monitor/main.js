@@ -3,12 +3,12 @@ const { JSDOM } = jsdom;
 global.DOMParser = new JSDOM().window.DOMParser;
 
 Timeout = require("await-timeout");
-const timeout = 5000;
+const timeout = 15000;
 
 fetch_extra = require("node-fetch-extra");
 async function fetchV6First (u, opt) {
   const promise = fetch_extra(u, {family: 6, ...opt});
-  return await Timeout.wrap(promise, timeout/3, 'Timeout').catch(async (e) => {
+  return await Timeout.wrap(promise, timeout/10, 'Timeout').catch(async (e) => {
     const promise = fetch_extra(u, opt);
     return await Timeout.wrap(promise, timeout/3, 'Timeout').catch(() => null);
   });
@@ -75,6 +75,28 @@ const LIST = [
   "https://mirrors.nwafu.edu.cn/api/mirrorz/info.json",
 ];
 
+// cname: async (repourl: string) => unix_timestamp: int
+const REPO = {
+  "archlinux": require("./lastupdate/archlinux"),
+  "arch4edu": require("./lastupdate/arch4edu"),
+  "archlinuxcn": require("./lastupdate/archlinuxcn"),
+  "blackarch": require("./lastupdate/blackarch"),
+  "anthon": require("./lastupdate/anthon"),
+  "centos": require("./lastupdate/centos"),
+  "centos-altarch": require("./lastupdate/centos-altarch"),
+  "centos-vault": require("./lastupdate/centos-vault"),
+  "ceph": require("./lastupdate/ceph"),
+  "chakra": require("./lastupdate/chakra"),
+  "gnu": require("./lastupdate/gnu"),
+  "gnu-alpha": require("./lastupdate/gnu-alpha"),
+  "mageia": require("./lastupdate/mageia"),
+  "manjaro": require("./lastupdate/manjaro"),
+  "manjaro-arm": require("./lastupdate/manjaro-arm"),
+  "mariadb": require("./lastupdate/mariadb"),
+  "msys2": require("./lastupdate/msys2"),
+  "postgresql": require("./lastupdate/postgresql"),
+};
+
 const {InfluxDB, Point, HttpError} = require('@influxdata/influxdb-client')
 const {url, token, org, bucket} = require('./env')
 
@@ -103,7 +125,7 @@ async function write(f) {
   points.push(site)
   //console.log(` ${site}`)
 
-  mirrorz.mirrors.map((m) => {
+  await Promise.all(mirrorz.mirrors.map(async (m) => {
     let t = 0;
     const mapper = new Map();
     m.status.match(/[A-Z](\d+)?/g).map((s) => {
@@ -121,16 +143,23 @@ async function write(f) {
         t = c[1];
         break;
       }
+    // special cname, override with lastupdate
+    let lastupdate = 0
+    if (m.cname in REPO) {
+      lastupdate = (await REPO[m.cname](m.url.startsWith("http") ? m.url : mirrorz.site.url + m.url)) - Math.round(cur/1000);
+      //console.log(mirrorz.site.url+m.url, lastupdate, t, lastupdate - t)
+    }
 
     const repo = new Point('repo')
       .timestamp(cur)
       .tag('mirror', mirrorz.site.abbr)
       .tag('name', m.cname)
       .tag('url', m.url)
+      .tag('lastupdate', lastupdate)
       .intField('value', t);
     points.push(repo)
     //console.log(` ${repo}`);
-  });
+  }));
   return points
 }
 
