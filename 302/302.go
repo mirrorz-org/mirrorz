@@ -263,7 +263,7 @@ func Resolve(r *http.Request, cname string, trace bool) (url string, traceStr st
         |> range(start: -15m)
         |> filter(fn: (r) => r._measurement == "repo" and r.name == "%s")
         |> map(fn: (r) => ({_value:r._value,mirror:r.mirror,_time:r._time,path:r.url}))
-        |> limit(n:1)`, config.InfluxDBBucket, cname)
+        |> tail(n:1)`, config.InfluxDBBucket, cname)
     // SQL INJECTION!!!
 
     res, err := queryAPI.Query(context.Background(), query)

@@ -7,13 +7,13 @@ const query = `
     |> range(start: -10m)
     |> filter(fn: (r) => r._measurement == "repo" and r.name == "reponame")
     |> map(fn: (r) => ({_value:r._value,mirror:r.mirror,_time:r._time,path:r.url}))
-    |> limit(n:1)
+    |> tail(n:1)
 
   site = from(bucket:"mirrorz")
     |> range(start: -10m)
     |> filter(fn: (r) => r._measurement == "site")
     |> map(fn: (r) => ({mirror:r.mirror,url:r.url}))
-    |> limit(n:1)
+    |> tail(n:1)
 
   join(tables: {repo: repo, site: site}, on: ["mirror"])
     |> map(fn: (r) => ({_value:r._value,mirror:r.mirror,url:r.url+r.path,_time:r._time}))
