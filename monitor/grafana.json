@@ -58,7 +58,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1627474359786,
+  "iteration": 1627643477990,
   "links": [],
   "panels": [
     {
@@ -306,7 +306,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.mirror+\":\"+r.name}))",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\" and r.name == \"${repo}\")\n    |> map(fn: (r) => ({_value:-r._value, _time:r._time, _field:r.mirror+\":\"+r.name}))",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -325,6 +325,11 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "hide": false,
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\" and r.name == \"${repo}\" and exists r.lastupdate)\n    |> map(fn: (r) => ({_value:-int(v: r.lastupdate), _time:r._time, _field:r.mirror+\":\"+r.name+\"(u)\" }))",
+          "refId": "B"
         }
       ],
       "timeFrom": null,
@@ -449,6 +454,11 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "hide": false,
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\" and exists r.lastupdate)\n    |> map(fn: (r) => ({_value:-int(v: r.lastupdate), _time:r._time, _field:r.mirror+\"(u)\"}))",
+          "refId": "B"
         }
       ],
       "timeFrom": null,
@@ -572,6 +582,11 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "hide": false,
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\" and exists r.lastupdate)\n    |> map(fn: (r) => ({_value:-int(v: r.lastupdate), _time:r._time, _field:r.name+\"(u)\"}))",
+          "refId": "B"
         }
       ],
       "timeFrom": null,
@@ -695,6 +710,11 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "hide": false,
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.name == \"${repo}\" and exists r.lastupdate)\n    |> map(fn: (r) => ({_value:-int(v: r.lastupdate), _time:r._time, _field:r.mirror+\"(u)\"}))",
+          "refId": "B"
         }
       ],
       "timeFrom": null,
@@ -817,6 +837,11 @@
             ]
           ],
           "tags": []
+        },
+        {
+          "hide": false,
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\" and r.mirror == \"${site}\" and exists r.lastupdate)\n    |> map(fn: (r) => ({_value:-int(v: r.lastupdate), _time:r._time, _field:r.name+\"(u)\"}))",
+          "refId": "B"
         }
       ],
       "timeFrom": null,
@@ -892,7 +917,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket:\"mirrorz\")\n        |> range(start: -1h)\n        |> filter(fn: (r) => r._measurement == \"repo\" and r._value != 0)\n        |> map(fn: (r) => ({_value:r._value,_time:r._time,_field:r.mirror+\" \"+r.name}))\n        |> limit(n:1)\n        |> group()\n        |> sort(columns: [\"_value\"], desc: true)\n        |> limit(n:32)\n        |> group(columns: [\"_field\"])\n        ",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket:\"mirrorz\")\n        |> range(start: starttime, stop: stoptime)\n        |> filter(fn: (r) => r._measurement == \"repo\" and r._value != 0)\n        |> map(fn: (r) => ({_value:r._value,_time:r._time,_field:r.mirror+\" \"+r.name}))\n        |> tail(n:1)\n        |> group()\n        |> sort(columns: [\"_value\"], desc: true)\n        |> limit(n:32)\n        |> group(columns: [\"_field\"])\n        ",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -986,7 +1011,7 @@
           ],
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "from(bucket:\"mirrorz\")\n        |> range(start: -1h)\n        |> filter(fn: (r) => r._measurement == \"repo\" and r._value != 0)\n        |> map(fn: (r) => ({_value:r._value,_time:r._time,_field:r.mirror+\" \"+r.name}))\n        |> limit(n:1)\n        |> group()\n        |> sort(columns: [\"_value\"])\n        |> limit(n:32)\n        |> group(columns: [\"_field\"])\n        ",
+          "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket:\"mirrorz\")\n        |> range(start: starttime, stop: stoptime)\n        |> filter(fn: (r) => r._measurement == \"repo\" and r._value != 0)\n        |> map(fn: (r) => ({_value:r._value,_time:r._time,_field:r.mirror+\" \"+r.name}))\n        |> tail(n:1)\n        |> group()\n        |> sort(columns: [\"_value\"])\n        |> limit(n:32)\n        |> group(columns: [\"_field\"])\n        ",
           "queryType": "randomWalk",
           "refId": "A",
           "resultFormat": "time_series",
@@ -1023,7 +1048,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_INFLUXDB}",
-        "definition": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))\n    |> unique()",
+        "definition": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))\n    |> unique()",
         "description": null,
         "error": null,
         "hide": 0,
@@ -1032,7 +1057,7 @@
         "multi": false,
         "name": "repo",
         "options": [],
-        "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))\n    |> unique()",
+        "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"repo\")\n    |> map(fn: (r) => ({_value:r.name}))\n    |> unique()",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -1046,7 +1071,7 @@
         "allValue": null,
         "current": {},
         "datasource": "${DS_INFLUXDB}",
-        "definition": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror}))\n    |> unique()",
+        "definition": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror}))\n    |> unique()",
         "description": null,
         "error": null,
         "hide": 0,
@@ -1055,7 +1080,7 @@
         "multi": false,
         "name": "site",
         "options": [],
-        "query": "from(bucket : \"mirrorz\")\n    |> range(start: -24h)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror}))\n    |> unique()",
+        "query": "starttime =  time(v: $__from * 1000000) //transform to ns. \nstoptime  = time(v: $__to * 1000000)\n\nfrom(bucket : \"mirrorz\")\n    |> range(start: starttime, stop: stoptime)\n    |> filter(fn: (r) => r._measurement == \"site\")\n    |> map(fn: (r) => ({_value:r.mirror}))\n    |> unique()",
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
@@ -1101,5 +1126,5 @@
   "timezone": "browser",
   "title": "Home",
   "uid": "p6XP3EyMz",
-  "version": 20
+  "version": 24
 }
