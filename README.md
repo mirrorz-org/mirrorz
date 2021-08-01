@@ -99,7 +99,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
     + `S1600000000`: successful. (optional) last successful ended unix timestamp
     + `Y1600000000`: syncing. (optional) start to sync unix timestamp
     + `F1600000000`: failed. (optional) last attempt to sync unix timestamp
-    + `P1600000000`: paused. (optional) the unix timetamp sync stopped
+    + `P1600000000`: paused. (optional) the unix timestamp sync stopped
     + `C`: cache
     + `R`: reverse proxy
     + `U`: unknown
@@ -111,7 +111,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
 
 ## MirrorZ, Mirror site, Third party
 
-MirrorZ only provides the data format (including `cname.json`), frontend and related scripts (e.g `oh-my-mirrorz.py`). Audit on data format, content (e.g. `cname.json`) and adopted technologies (e.g. using reverse proxy in parsers) can be done by MirrorZ. Monitor and Backend are exprimental features of MirrorZ, and MirrorZ provides no warranty on these services.
+MirrorZ only provides the data format (including `cname.json`), frontend and related scripts (e.g `oh-my-mirrorz.py`). Audit on data format, content (e.g. `cname.json`) and adopted technologies (e.g. using reverse proxy in parsers) can be done by MirrorZ. Monitor and Backend are experimental features of MirrorZ, and MirrorZ provides no warranty on these services.
 
 The term 'Mirror site' refers to an actual mirror site and/or the corresponding organization.
 
