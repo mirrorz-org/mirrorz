@@ -133,7 +133,7 @@ async function handle() {
   );
   // 上面的 ; 是一定要的 不然会报错（（（
   // 生成 /os /app /font /
-  ["os", "app", "font"].forEach((category) => {
+  ["font", "app", "os"].forEach((category) => {
     let html = pug.compileFile("./legacy/template/iso_index.pug")({
       sidebar: isolist_name
         .map((n) => {
@@ -153,9 +153,7 @@ async function handle() {
       navbar_active: category,
     });
     wf(`../dist/_/${category}/index.html`, html);
-    if (category == "os") {
-      wf(`../dist/_/index.html`, html);
-    }
+    wf(`../dist/_/index.html`, html);
   });
   // /list/:name
   mlist.forEach((data, id) => {
@@ -166,7 +164,7 @@ async function handle() {
     });
     wf(`../dist/_/list/${name.replace(/ /gi, "")}/index.html`, html);
   });
-  sites.forEach((data) => {
+  sites.sort((a, b) => b.site.abbr.localeCompare(a.site.abbr)).forEach((data) => {
     let html = pug.compileFile("./legacy/template/site.pug")({
       data: data,
       sidebar: sites
@@ -180,10 +178,8 @@ async function handle() {
         })
         .sort((a, b) => a.abbr.localeCompare(b.abbr)),
     });
-    // 目前 BFSU 是排最前的 所以就钦定你是 /site 首页了
-    if (data.site.abbr == "BFSU") {
-      wf(`../dist/_/site/index.html`, html);
-    }
+    // 目前 BFSU 在 MirrorZ 中是排最前的 所以就钦定你是 /site 首页了
+    wf(`../dist/_/site/index.html`, html);
     wf(`../dist/_/site/${data.site.abbr}/index.html`, html);
   });
   wf(
