@@ -1,8 +1,11 @@
 name: Update legacy json
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron:  '0 12 * * *'
+    - cron: "0 13 * * *"
+  push:
+    branches: [master]
 
 jobs: 
   update:
