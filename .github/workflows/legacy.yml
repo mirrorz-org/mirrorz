@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: '14'
       - name: Update json if there is any change
+        env:
+          ACTOR: ${{ secrets.ACTOR }}
         run: |
           git config user.name "${ACTOR}"
           git config user.email "${ACTOR}@users.noreply.github.com"
