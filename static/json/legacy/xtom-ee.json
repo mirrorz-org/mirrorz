@@ -1,1 +1,578 @@
-{"site":{"url":"https://mirrors.xtom.ee","abbr":"XTOM (EE)","name":"XTOM 开源软件镜像站（爱沙尼亚）","email":"mirror AT xtom DOT com","request":"https://github.com/xtomcom/mirrorrequest"},"info":[{"distro":"ubuntu","urls":[{"name":"21.04 (amd64, LiveCD)","url":"/ubuntu-releases/hirsute/ubuntu-21.04-desktop-amd64.iso"},{"name":"20.10 (amd64, LiveCD)","url":"/ubuntu-releases/groovy/ubuntu-20.10-desktop-amd64.iso"},{"name":"20.04.2.0 (amd64, LiveCD)","url":"/ubuntu-releases/focal/ubuntu-20.04.2.0-desktop-amd64.iso"},{"name":"18.04.5 (amd64, LiveCD)","url":"/ubuntu-releases/bionic/ubuntu-18.04.5-desktop-amd64.iso"}],"category":"os"},{"distro":"Debian","urls":[{"name":"10.10.0 (amd64, DVD installer)","url":"/debian-cd/current/amd64/iso-dvd/debian-10.10.0-amd64-DVD-1.iso"},{"name":"10.10.0 (i386, DVD installer)","url":"/debian-cd/current/i386/iso-dvd/debian-10.10.0-i386-DVD-1.iso"},{"name":"10.10.0 (amd64, xfce live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-xfce.iso"},{"name":"10.10.0 (amd64, standard live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-standard.iso"},{"name":"10.10.0 (amd64, mate live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-mate.iso"},{"name":"10.10.0 (amd64, lxqt live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-lxqt.iso"},{"name":"10.10.0 (amd64, lxde live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-lxde.iso"},{"name":"10.10.0 (amd64, kde live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-kde.iso"},{"name":"10.10.0 (amd64, gnome live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-gnome.iso"},{"name":"10.10.0 (amd64, cinnamon live)","url":"/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-cinnamon.iso"},{"name":"testing (amd64, DVD installer)","url":"/debian-cdimage/weekly-builds/amd64/iso-dvd/debian-testing-amd64-DVD-1.iso"},{"name":"testing (i386, DVD installer)","url":"/debian-cdimage/weekly-builds/i386/iso-dvd/debian-testing-i386-DVD-1.iso"},{"name":"testing (amd64, Network installer)","url":"/debian-cdimage/unofficial/non-free/cd-including-firmware/weekly-builds/amd64/iso-cd/firmware-testing-amd64-netinst.iso"},{"name":"testing (i386, Network installer)","url":"/debian-cdimage/unofficial/non-free/cd-including-firmware/weekly-builds/i386/iso-cd/firmware-testing-i386-netinst.iso"}],"category":"os"},{"distro":"Arch Linux","urls":[{"name":"2021.07.01 (x86_64, CLI-only)","url":"/archlinux/iso/latest/archlinux-2021.07.01-x86_64.iso"}],"category":"os"},{"distro":"Fedora","urls":[{"name":"34 (x86_64, Xfce)","url":"/fedora/releases/34/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-34-1.2.iso"},{"name":"34 (x86_64, Workstation)","url":"/fedora/releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso"},{"name":"34 (x86_64, KDE)","url":"/fedora/releases/34/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-34-1.2.iso"},{"name":"34 (aarch64, Workstation)","url":"/fedora/releases/34/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-34-1.2.iso"},{"name":"33 (x86_64, Xfce)","url":"/fedora/releases/33/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-33-1.2.iso"},{"name":"33 (x86_64, Workstation)","url":"/fedora/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso"},{"name":"33 (x86_64, KDE)","url":"/fedora/releases/33/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-33-1.2.iso"},{"name":"33 (aarch64, Workstation)","url":"/fedora/releases/33/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-33-1.2.iso"}],"category":"os"},{"distro":"centos","urls":[{"name":"8.3.2011 (x86_64, minimal)","url":"/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-minimal.iso"},{"name":"8.3.2011 (ppc64le, minimal)","url":"/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-minimal.iso"},{"name":"8.3.2011 (aarch64, minimal)","url":"/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-minimal.iso"},{"name":"7 (x86_64, NetInstall)","url":"/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso"},{"name":"7 (x86_64, Minimal)","url":"/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso"}],"category":"os"}],"mirrors":[{"cname":"alpine","url":"/alpine/","status":"U","help":"","desc":""},{"cname":"anthon","url":"/anthon/","status":"U","help":"","desc":""},{"cname":"archlinux","url":"/archlinux/","status":"U","help":"","desc":""},{"cname":"archlinuxcn","url":"/archlinuxcn/","status":"U","help":"","desc":""},{"cname":"cdnjs","url":"/cdnjs/","status":"U","help":"","desc":""},{"cname":"centos","url":"/centos/","status":"U","help":"","desc":""},{"cname":"centos-altarch","url":"/centos-altarch/","status":"U","help":"","desc":""},{"cname":"debian","url":"/debian/","status":"U","help":"","desc":""},{"cname":"debian-archive","url":"/debian-archive/","status":"U","help":"","desc":""},{"cname":"debian-cd","url":"/debian-cd/","status":"U","help":"","desc":""},{"cname":"debian-cdimage","url":"/debian-cdimage/","status":"U","help":"","desc":""},{"cname":"debian-security","url":"/debian-security/","status":"U","help":"","desc":""},{"cname":"debiancn","url":"/debiancn/","status":"U","help":"","desc":""},{"cname":"deepin","url":"/deepin/","status":"U","help":"","desc":""},{"cname":"docker-ce","url":"/docker-ce/","status":"U","help":"","desc":""},{"cname":"dotdeb","url":"/dotdeb/","status":"U","help":"","desc":""},{"cname":"eclipse","url":"/eclipse/","status":"U","help":"","desc":""},{"cname":"empty","url":"/empty/","status":"U","help":"","desc":""},{"cname":"epel","url":"/epel/","status":"U","help":"","desc":""},{"cname":"fedora","url":"/fedora/","status":"U","help":"","desc":""},{"cname":"fedora-altarch","url":"/fedora-altarch/","status":"U","help":"","desc":""},{"cname":"FreeBSD","url":"/freebsd/","status":"U","help":"","desc":""},{"cname":"FreeBSD-pkg","url":"/freebsd-pkg/","status":"U","help":"","desc":""},{"cname":"FreeBSD-ports","url":"/freebsd-ports/","status":"U","help":"","desc":""},{"cname":"gentoo","url":"/gentoo/","status":"U","help":"","desc":""},{"cname":"homebrew-bottles","url":"/homebrew-bottles/","status":"U","help":"","desc":""},{"cname":"jenkins","url":"/jenkins/","status":"U","help":"","desc":""},{"cname":"logo_ddd.png","url":"/logo_ddd.png/","status":"U","help":"","desc":""},{"cname":"manjaro","url":"/manjaro/","status":"U","help":"","desc":""},{"cname":"mariadb","url":"/mariadb/","status":"U","help":"","desc":""},{"cname":"mxlinux-isos","url":"/mx-isos/","status":"U","help":"","desc":""},{"cname":"mxlinux","url":"/mx-packages/","status":"U","help":"","desc":""},{"cname":"nginx","url":"/nginx/","status":"U","help":"","desc":""},{"cname":"nodesource","url":"/nodesource/","status":"U","help":"","desc":""},{"cname":"osdn","url":"/osdn/","status":"U","help":"","desc":""},{"cname":"percona","url":"/percona/","status":"U","help":"","desc":""},{"cname":"proxmox","url":"/proxmox/","status":"U","help":"","desc":""},{"cname":"putty","url":"/putty/","status":"U","help":"","desc":""},{"cname":"rocky","url":"/rocky/","status":"U","help":"","desc":""},{"cname":"ros","url":"/ros/","status":"U","help":"","desc":""},{"cname":"sb","url":"/sb/","status":"U","help":"","desc":""},{"cname":"solusvm","url":"/solusvm/","status":"U","help":"","desc":""},{"cname":"sury","url":"/sury/","status":"U","help":"","desc":""},{"cname":"ubuntu","url":"/ubuntu/","status":"U","help":"","desc":""},{"cname":"ubuntu-old-releases","url":"/ubuntu-old-releases/","status":"U","help":"","desc":""},{"cname":"ubuntu-ports","url":"/ubuntu-ports/","status":"U","help":"","desc":""},{"cname":"ubuntu-releases","url":"/ubuntu-releases/","status":"U","help":"","desc":""}]}
+{
+  "site": {
+    "url": "https://mirrors.xtom.ee",
+    "abbr": "XTOM (EE)",
+    "name": "XTOM 开源软件镜像站（爱沙尼亚）",
+    "email": "mirror AT xtom DOT com",
+    "request": "https://github.com/xtomcom/mirrorrequest"
+  },
+  "info": [
+    {
+      "distro": "ubuntu",
+      "urls": [
+        {
+          "name": "21.04 (amd64, LiveCD)",
+          "url": "/ubuntu-releases/hirsute/ubuntu-21.04-desktop-amd64.iso"
+        },
+        {
+          "name": "20.10 (amd64, LiveCD)",
+          "url": "/ubuntu-releases/groovy/ubuntu-20.10-desktop-amd64.iso"
+        },
+        {
+          "name": "20.04.2.0 (amd64, LiveCD)",
+          "url": "/ubuntu-releases/focal/ubuntu-20.04.2.0-desktop-amd64.iso"
+        },
+        {
+          "name": "18.04.5 (amd64, LiveCD)",
+          "url": "/ubuntu-releases/bionic/ubuntu-18.04.5-desktop-amd64.iso"
+        }
+      ],
+      "category": "os"
+    },
+    {
+      "distro": "debian",
+      "urls": [
+        {
+          "name": "10.10.0 (amd64, DVD installer)",
+          "url": "/debian-cd/current/amd64/iso-dvd/debian-10.10.0-amd64-DVD-1.iso"
+        },
+        {
+          "name": "10.10.0 (i386, DVD installer)",
+          "url": "/debian-cd/current/i386/iso-dvd/debian-10.10.0-i386-DVD-1.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, xfce live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-xfce.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, standard live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-standard.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, mate live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-mate.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, lxqt live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-lxqt.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, lxde live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-lxde.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, kde live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-kde.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, gnome live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-gnome.iso"
+        },
+        {
+          "name": "10.10.0 (amd64, cinnamon live)",
+          "url": "/debian-cd/current-live/amd64/iso-hybrid/debian-live-10.10.0-amd64-cinnamon.iso"
+        },
+        {
+          "name": "testing (amd64, DVD installer)",
+          "url": "/debian-cdimage/weekly-builds/amd64/iso-dvd/debian-testing-amd64-DVD-1.iso"
+        },
+        {
+          "name": "testing (i386, DVD installer)",
+          "url": "/debian-cdimage/weekly-builds/i386/iso-dvd/debian-testing-i386-DVD-1.iso"
+        },
+        {
+          "name": "testing (amd64, Network installer)",
+          "url": "/debian-cdimage/unofficial/non-free/cd-including-firmware/weekly-builds/amd64/iso-cd/firmware-testing-amd64-netinst.iso"
+        },
+        {
+          "name": "testing (i386, Network installer)",
+          "url": "/debian-cdimage/unofficial/non-free/cd-including-firmware/weekly-builds/i386/iso-cd/firmware-testing-i386-netinst.iso"
+        }
+      ],
+      "category": "os"
+    },
+    {
+      "distro": "archlinux",
+      "urls": [
+        {
+          "name": "2021.08.01 (x86_64, CLI-only)",
+          "url": "/archlinux/iso/latest/archlinux-2021.08.01-x86_64.iso"
+        }
+      ],
+      "category": "os"
+    },
+    {
+      "distro": "fedora",
+      "urls": [
+        {
+          "name": "34 (x86_64, Xfce)",
+          "url": "/fedora/releases/34/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-34-1.2.iso"
+        },
+        {
+          "name": "34 (x86_64, Workstation)",
+          "url": "/fedora/releases/34/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-34-1.2.iso"
+        },
+        {
+          "name": "34 (x86_64, KDE)",
+          "url": "/fedora/releases/34/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-34-1.2.iso"
+        },
+        {
+          "name": "34 (aarch64, Workstation)",
+          "url": "/fedora/releases/34/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-34-1.2.iso"
+        },
+        {
+          "name": "33 (x86_64, Xfce)",
+          "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-Xfce-Live-x86_64-33-1.2.iso"
+        },
+        {
+          "name": "33 (x86_64, Workstation)",
+          "url": "/fedora/releases/33/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-33-1.2.iso"
+        },
+        {
+          "name": "33 (x86_64, KDE)",
+          "url": "/fedora/releases/33/Spins/x86_64/iso/Fedora-KDE-Live-x86_64-33-1.2.iso"
+        },
+        {
+          "name": "33 (aarch64, Workstation)",
+          "url": "/fedora/releases/33/Workstation/aarch64/iso/Fedora-Workstation-Live-aarch64-33-1.2.iso"
+        }
+      ],
+      "category": "os"
+    },
+    {
+      "distro": "centos",
+      "urls": [
+        {
+          "name": "8.3.2011 (x86_64, minimal)",
+          "url": "/centos/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-minimal.iso"
+        },
+        {
+          "name": "8.3.2011 (ppc64le, minimal)",
+          "url": "/centos/8.3.2011/isos/ppc64le/CentOS-8.3.2011-ppc64le-minimal.iso"
+        },
+        {
+          "name": "8.3.2011 (aarch64, minimal)",
+          "url": "/centos/8.3.2011/isos/aarch64/CentOS-8.3.2011-aarch64-minimal.iso"
+        },
+        {
+          "name": "7 (x86_64, NetInstall)",
+          "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso"
+        },
+        {
+          "name": "7 (x86_64, Minimal)",
+          "url": "/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso"
+        }
+      ],
+      "category": "os"
+    }
+  ],
+  "mirrors": [
+    {
+      "cname": "alpine",
+      "url": "/alpine/",
+      "status": "S1627962725X1628048100",
+      "help": "",
+      "desc": "",
+      "size": "1.22 TiB",
+      "upstream": "rsync://rsync.alpinelinux.org/alpine/"
+    },
+    {
+      "cname": "anthon",
+      "url": "/anthon/",
+      "status": "S1627943854X1628030220",
+      "help": "",
+      "desc": "",
+      "size": "1.28 TiB",
+      "upstream": "rsync://repo.aosc.io/anthon/"
+    },
+    {
+      "cname": "archlinux",
+      "url": "/archlinux/",
+      "status": "S1627986186X1627989780",
+      "help": "",
+      "desc": "",
+      "size": "67.47 GiB",
+      "upstream": "rsync://rsync.archlinux.org/ftp_tier1/"
+    },
+    {
+      "cname": "archlinuxcn",
+      "url": "/archlinuxcn/",
+      "status": "S1627985239X1627999620",
+      "help": "",
+      "desc": "",
+      "size": "69.05 GiB",
+      "upstream": "rsync://sync.repo.archlinuxcn.org/repo/"
+    },
+    {
+      "cname": "cdnjs",
+      "url": "/cdnjs/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "centos",
+      "url": "/centos/",
+      "status": "S1627975041X1627989420",
+      "help": "",
+      "desc": "",
+      "size": "292.64 GiB",
+      "upstream": "rsync://msync.centos.org/CentOS/"
+    },
+    {
+      "cname": "centos-altarch",
+      "url": "/centos-altarch/",
+      "status": "S1627977425X1627991820",
+      "help": "",
+      "desc": "",
+      "size": "154.88 GiB",
+      "upstream": "rsync://msync.centos.org/altarch/"
+    },
+    {
+      "cname": "debian",
+      "url": "/debian/",
+      "status": "S1627983038X1627986900",
+      "help": "",
+      "desc": "",
+      "size": "1.40 TiB",
+      "upstream": "rsync://mirrors.xtom.com.hk/debian/"
+    },
+    {
+      "cname": "debian-archive",
+      "url": "/debian-archive/",
+      "status": "S1627972405X1628058720",
+      "help": "",
+      "desc": "",
+      "size": "1.34 TiB",
+      "upstream": "rsync://archive.debian.org/debian-archive/"
+    },
+    {
+      "cname": "debian-cd",
+      "url": "/debian-cd/",
+      "status": "S1627962902X1628049300",
+      "help": "",
+      "desc": "",
+      "size": "210.77 GiB",
+      "upstream": "rsync://cdimage.debian.org/debian-cd/"
+    },
+    {
+      "cname": "debian-cdimage",
+      "url": "/debian-cdimage/",
+      "status": "S1627965157X1628049060",
+      "help": "",
+      "desc": "",
+      "size": "720.72 GiB",
+      "upstream": "rsync://cdimage.debian.org/cdimage/"
+    },
+    {
+      "cname": "debian-security",
+      "url": "/debian-security/",
+      "status": "S1627972933X1628059320",
+      "help": "",
+      "desc": "",
+      "size": "171.56 GiB",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/debian-security/"
+    },
+    {
+      "cname": "debiancn",
+      "url": "/debiancn/",
+      "status": "F1627955100X1628041500",
+      "help": "",
+      "desc": "",
+      "size": "3.43 GiB",
+      "upstream": "rsync://debiancn.org/debiancn/"
+    },
+    {
+      "cname": "deepin",
+      "url": "/deepin/",
+      "status": "S1627964445X1628050800",
+      "help": "",
+      "desc": "",
+      "size": "263.16 GiB",
+      "upstream": "rsync://rsync.deepin.com/deepin/"
+    },
+    {
+      "cname": "docker-ce",
+      "url": "/docker-ce/",
+      "status": "F1627973700X1628060100",
+      "help": "",
+      "desc": "",
+      "size": "561.56 GiB",
+      "upstream": "https://download.docker.com/"
+    },
+    {
+      "cname": "dotdeb",
+      "url": "/dotdeb/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "eclipse",
+      "url": "/eclipse/",
+      "status": "F1627900020X1627986420",
+      "help": "",
+      "desc": "",
+      "size": "1.93 TiB",
+      "upstream": "rsync://mobile.mirrors.ustc.edu.cn/eclipse/"
+    },
+    {
+      "cname": "empty",
+      "url": "/empty/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "epel",
+      "url": "/epel/",
+      "status": "S1627971186X1628057520",
+      "help": "",
+      "desc": "",
+      "size": "275.96 GiB",
+      "upstream": "rsync://dl.fedoraproject.org/fedora-epel/"
+    },
+    {
+      "cname": "fedora",
+      "url": "/fedora/",
+      "status": "S1627971384X1628056560",
+      "help": "",
+      "desc": "",
+      "size": "2.65 TiB",
+      "upstream": "rsync://dl.fedoraproject.org/fedora-enchilada/linux/"
+    },
+    {
+      "cname": "fedora-altarch",
+      "url": "/fedora-altarch/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "FreeBSD",
+      "url": "/freebsd/",
+      "status": "S1627971052X1628057400",
+      "help": "",
+      "desc": "",
+      "size": "651.04 GiB",
+      "upstream": "rsync://ftp.tw.freebsd.org/FreeBSD/"
+    },
+    {
+      "cname": "FreeBSD-pkg",
+      "url": "/freebsd-pkg/",
+      "status": "S1627981450X1627995180",
+      "help": "",
+      "desc": "",
+      "size": "2.70 TiB",
+      "upstream": "http://pkg.freebsd.org"
+    },
+    {
+      "cname": "FreeBSD-ports",
+      "url": "/freebsd-ports/",
+      "status": "S1627959596X1628045580",
+      "help": "",
+      "desc": "",
+      "size": "162.77 GiB",
+      "upstream": "http://distcache.freebsd.org/ports-distfiles/"
+    },
+    {
+      "cname": "gentoo",
+      "url": "/gentoo/",
+      "status": "S1627942496X1628028660",
+      "help": "",
+      "desc": "",
+      "size": "398.07 GiB",
+      "upstream": "rsync://mirror.us.leaseweb.net/gentoo/"
+    },
+    {
+      "cname": "homebrew-bottles",
+      "url": "/homebrew-bottles/",
+      "status": "S1627984546X1627988100",
+      "help": "",
+      "desc": "",
+      "size": "207.92 GiB",
+      "upstream": "http://homebrew.bintray.com/"
+    },
+    {
+      "cname": "jenkins",
+      "url": "/jenkins/",
+      "status": "S1627963991X1628050260",
+      "help": "",
+      "desc": "",
+      "size": "118.12 GiB",
+      "upstream": "rsync://rsync.osuosl.org/jenkins/"
+    },
+    {
+      "cname": "logo_ddd.png",
+      "url": "/logo_ddd.png/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "manjaro",
+      "url": "/manjaro/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "mariadb",
+      "url": "/mariadb/",
+      "status": "S1627969206X1628055600",
+      "help": "",
+      "desc": "",
+      "size": "443.47 GiB",
+      "upstream": "rsync://rsync.osuosl.org/mariadb/"
+    },
+    {
+      "cname": "mxlinux-isos",
+      "url": "/mx-isos/",
+      "status": "S1627958404X1628044800",
+      "help": "",
+      "desc": "",
+      "size": "30.52 GiB",
+      "upstream": "rsync://rsync-mxlinux.org/MX-Linux/"
+    },
+    {
+      "cname": "mxlinux",
+      "url": "/mx-packages/",
+      "status": "S1627958463X1628044800",
+      "help": "",
+      "desc": "",
+      "size": "179.54 GiB",
+      "upstream": "rsync://iso.mxrepo.com/workspace/"
+    },
+    {
+      "cname": "nginx",
+      "url": "/nginx/",
+      "status": "S1627968315X1628054700",
+      "help": "",
+      "desc": "",
+      "size": "51.92 GiB",
+      "upstream": "http://nginx.org/packages/"
+    },
+    {
+      "cname": "nodesource",
+      "url": "/nodesource/",
+      "status": "S1627970870X1628054580",
+      "help": "",
+      "desc": "",
+      "size": "240.07 GiB",
+      "upstream": "https://nodesource.com/"
+    },
+    {
+      "cname": "osdn",
+      "url": "/osdn/",
+      "status": "F1627984080X1627987680",
+      "help": "",
+      "desc": "",
+      "size": "3.84 TiB",
+      "upstream": "rsync://master.dl.osdn.net/download/"
+    },
+    {
+      "cname": "percona",
+      "url": "/percona/",
+      "status": "S1627965491X1628051880",
+      "help": "",
+      "desc": "",
+      "size": "1.88 TiB",
+      "upstream": "rsync://rsync.percona.com/rsync/"
+    },
+    {
+      "cname": "proxmox",
+      "url": "/proxmox/",
+      "status": "S1627971912X1628058300",
+      "help": "",
+      "desc": "",
+      "size": "236.92 GiB",
+      "upstream": "http://download.proxmox.com/"
+    },
+    {
+      "cname": "putty",
+      "url": "/putty/",
+      "status": "S1627961281X1628047680",
+      "help": "",
+      "desc": "",
+      "size": "58.00 MiB",
+      "upstream": "rsync://rsync.chiark.greenend.org.uk/ftp/users/sgtatham/putty-website-mirror/"
+    },
+    {
+      "cname": "rocky",
+      "url": "/rocky/",
+      "status": "S1627979533X1627990980",
+      "help": "",
+      "desc": "",
+      "size": "333.10 GiB",
+      "upstream": "rsync://mirror.netzwerge.de/rocky-linux/"
+    },
+    {
+      "cname": "ros",
+      "url": "/ros/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "sb",
+      "url": "/sb/",
+      "status": "S1627955104X1628041500",
+      "help": "",
+      "desc": "",
+      "size": "69.00 MiB",
+      "upstream": "rsync://mirrors.xtom.com/repo/sb/"
+    },
+    {
+      "cname": "solusvm",
+      "url": "/solusvm/",
+      "status": "S1627971346X1628057520",
+      "help": "",
+      "desc": "",
+      "size": "73.51 GiB",
+      "upstream": "http://templates.solusvm.com/"
+    },
+    {
+      "cname": "sury",
+      "url": "/sury/",
+      "status": "S1627971525X1628056500",
+      "help": "",
+      "desc": "",
+      "size": "15.65 GiB",
+      "upstream": "rsync://packages.sury.xyz/repositories/"
+    },
+    {
+      "cname": "ubuntu",
+      "url": "/ubuntu/",
+      "status": "S1627979599X1628000880",
+      "help": "",
+      "desc": "",
+      "size": "1.44 TiB",
+      "upstream": "rsync://archive.ubuntu.com/ubuntu/"
+    },
+    {
+      "cname": "ubuntu-old-releases",
+      "url": "/ubuntu-old-releases/",
+      "status": "U",
+      "help": "",
+      "desc": ""
+    },
+    {
+      "cname": "ubuntu-ports",
+      "url": "/ubuntu-ports/",
+      "status": "S1627972575X1628058120",
+      "help": "",
+      "desc": "",
+      "size": "1.85 TiB",
+      "upstream": "rsync://ports.ubuntu.com/ubuntu-ports/"
+    },
+    {
+      "cname": "ubuntu-releases",
+      "url": "/ubuntu-releases/",
+      "status": "S1627972621X1627994220",
+      "help": "",
+      "desc": "",
+      "size": "22.07 GiB",
+      "upstream": "rsync://rsync.releases.ubuntu.com/releases/"
+    }
+  ]
+}

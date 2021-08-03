@@ -1,1 +1,200 @@
-{"site":{"url":"https://mirrors.pku.edu.cn","logo":"https://mirrors.pku.edu.cn/static/logo.png","abbr":"PKU","name":"北京大学开源镜像站","homepage":"https://mirrors.pku.edu.cn/Mirrors","issue":"https://github.com/PKUOSC/issues","email":"mirror@pku.edu.cn"},"info":[],"mirrors":[{"cname":"manjaro","url":"/manjaro","status":"S1616086176X1616170200","size":"104.02G"},{"cname":"raspbian","url":"/raspbian","status":"S1616085916X1616170200","size":"511.70G"},{"cname":"ubuntu-releases","url":"/ubuntu-releases","status":"S1616085854X1616170200","size":"25.06G"},{"cname":"ubuntu-cdimages","url":"/ubuntu-cdimages","status":"S1616086208X1616170200","size":"635.70G"},{"cname":"ubuntu","url":"/ubuntu","status":"S1616085851X1616170200","size":"1.56T"},{"cname":"epel","url":"/epel","status":"S1616085497X1616170200","size":"272.21G"},{"cname":"centos","url":"/centos","status":"S1616085153X1616170200","size":"281.85G"},{"cname":"archlinux","url":"/archlinux","status":"S1616085144X1616170200","size":"64.20G"},{"cname":"archlinuxarm","url":"/archlinuxarm","status":"S1616085057X1616170200","size":"106.62G"},{"cname":"linuxmint","url":"/linuxmint","status":"S1616084793X1616170200","size":"36.77G"},{"cname":"linuxmint-cdimages","url":"/linuxmint-cdimages","status":"S1616084790X1616170200","size":"348.40G"},{"cname":"opensuse","url":"/opensuse","status":"S1616084788X1616170200","size":"1.89T"},{"cname":"debian-cd","url":"/debian-cd","status":"S1616084616X1616170200","size":"232.27G"},{"cname":"gentoo","url":"/gentoo","status":"S1616085301X1616170200","size":"410.83G"},{"cname":"debian","url":"/debian","status":"S1616084613X1616170200","size":"1.43T"},{"cname":"huggingface","url":"/huggingface","status":"S1616084006X1616170200"},{"cname":"anaconda","url":"/anaconda","status":"S1616090110X1616170200"},{"cname":"pypi","url":"/pypi","status":"S1616096280X1616180400"}]}
+{
+  "site": {
+    "url": "https://mirrors.pku.edu.cn",
+    "logo": "https://mirrors.pku.edu.cn/static/logo.png",
+    "abbr": "PKU",
+    "name": "北京大学开源镜像站",
+    "homepage": "https://mirrors.pku.edu.cn/Mirrors",
+    "issue": "https://github.com/PKUOSC/issues",
+    "email": "mirror@pku.edu.cn",
+    "logo_darkmode": "https://mirrors.pku.edu.cn/static/dark_logo_72.png",
+    "disk": "30.64TiB/49.11TiB"
+  },
+  "info": [],
+  "mirrors": [
+    {
+      "cname": "manjaro",
+      "url": "/manjaro",
+      "status": "S1627936473X1628007000",
+      "size": "109.33G"
+    },
+    {
+      "cname": "raspbian",
+      "url": "/raspbian",
+      "status": "S1627921636X1628007000",
+      "size": "514.70G"
+    },
+    {
+      "cname": "ubuntu-releases",
+      "url": "/ubuntu-releases",
+      "status": "S1627936380X1628007000",
+      "size": "24.43G"
+    },
+    {
+      "cname": "ubuntu-cdimage",
+      "url": "/ubuntu-cdimage",
+      "status": "S1627938593X1628007000",
+      "size": "634.96G"
+    },
+    {
+      "cname": "ubuntu",
+      "url": "/ubuntu",
+      "status": "S1627935437X1628007000",
+      "size": "1.61T"
+    },
+    {
+      "cname": "epel",
+      "url": "/epel",
+      "status": "S1627934135X1628007000",
+      "size": "309.92G"
+    },
+    {
+      "cname": "centos",
+      "url": "/centos",
+      "status": "S1627933821X1628007000",
+      "size": "510.93G"
+    },
+    {
+      "cname": "archlinux",
+      "url": "/archlinux",
+      "status": "S1627929926X1628007000",
+      "size": "73.62G"
+    },
+    {
+      "cname": "archlinuxarm",
+      "url": "/archlinuxarm",
+      "status": "S1627929910X1628007000",
+      "size": "115.46G"
+    },
+    {
+      "cname": "linuxmint",
+      "url": "/linuxmint",
+      "status": "S1627929734X1628007000",
+      "size": "37.52G"
+    },
+    {
+      "cname": "linuxmint-cd",
+      "url": "/linuxmint-cd",
+      "status": "S1627929716X1628007000",
+      "size": "357.45G"
+    },
+    {
+      "cname": "opensuse",
+      "url": "/opensuse",
+      "status": "S1627929714X1628007000",
+      "size": "2.15T"
+    },
+    {
+      "cname": "debian-cd",
+      "url": "/debian-cd",
+      "status": "S1627923569X1628007000",
+      "size": "233.06G"
+    },
+    {
+      "cname": "gentoo",
+      "url": "/gentoo",
+      "status": "S1627923565X1628007000",
+      "size": "435.50G"
+    },
+    {
+      "cname": "debian",
+      "url": "/debian",
+      "status": "S1627922936X1628007000",
+      "size": "1.59T"
+    },
+    {
+      "cname": "huggingface",
+      "url": "/huggingface",
+      "status": "S1616429630X1616515800"
+    },
+    {
+      "cname": "anaconda",
+      "url": "/anaconda",
+      "status": "S1627921935X1628007000"
+    },
+    {
+      "cname": "pypi",
+      "url": "/pypi",
+      "status": "S1627974869X1628017200"
+    },
+    {
+      "cname": "debian-security",
+      "url": "/debian-security",
+      "status": "S1627922060X1628007000",
+      "size": "188.15G"
+    },
+    {
+      "cname": "deb-multimedia",
+      "url": "/debian-multimedia",
+      "status": "S1627921996X1628007000",
+      "size": "12.16G"
+    },
+    {
+      "cname": "debian-nonfree",
+      "url": "/debian-nonfree",
+      "status": "FO1623342927X1628007000",
+      "size": "367.06G"
+    },
+    {
+      "cname": "hugging-face-models",
+      "url": "/hugging-face-models",
+      "status": "S1627921156X1628007000"
+    },
+    {
+      "cname": "gentoo-portage",
+      "url": "/gentoo-portage",
+      "status": "S1627923128X1628007000",
+      "size": "222.36M"
+    },
+    {
+      "cname": "gentoo-portage-prefix",
+      "url": "/gentoo-portage-prefix",
+      "status": "S1627923046X1628007000",
+      "size": "223.29M"
+    },
+    {
+      "cname": "texstudio.git",
+      "url": "/texstudio.git",
+      "status": "S1627920847X1628007000"
+    },
+    {
+      "cname": "git-repos",
+      "url": "/git-repos",
+      "status": "S1627921056X1628007000"
+    },
+    {
+      "cname": "CTAN",
+      "url": "/ctan",
+      "status": "S1627921056X1628007000",
+      "size": "45.73G"
+    },
+    {
+      "cname": "openwrt.git",
+      "url": "/openwrt.git",
+      "status": "S1627920726X1628007000"
+    },
+    {
+      "cname": "apache",
+      "url": "/apache",
+      "status": "YO1627323411X1627488600",
+      "size": "142.06G"
+    },
+    {
+      "cname": "kubernetes",
+      "url": "/kubernetes",
+      "status": "S1627920606X1628007000",
+      "size": "54.40G"
+    },
+    {
+      "cname": "docker-ce",
+      "url": "/docker-ce",
+      "status": "S1627941258X1628017200"
+    },
+    {
+      "cname": "centos-vault",
+      "url": "/centos-vault",
+      "status": "S1627933733X1628007000",
+      "size": "5.45T"
+    }
+  ]
+}

@@ -1,1 +1,221 @@
-{"site":{"url":"https://mirrors.byrio.org","logo":"https://mirrors.byrio.org/static/img/favicon.ico","abbr":"BYRIO","name":"北京邮电大学开源软件镜像站","issue":"https://github.com/BYRIO/BYRIO-mirrors/issues","request":"https://github.com/BYRIO/BYRIO-mirrors/issues"},"info":[],"mirrors":[{"cname":"HHVM","options_name":"HHVM","url":"/HHVM","status":"F1616224764O1614352312X1616246364","upstream":"rsync://rsync.osuosl.org/hhvm/","size":"1.62T"},{"cname":"NetBSD","options_name":"NetBSD","url":"/NetBSD","status":"S1616234203X1616255803","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/NetBSD/","size":"936.50G"},{"cname":"OpenBSD","options_name":"OpenBSD","url":"/OpenBSD","status":"Y1616224747","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/OpenBSD/","size":"unknown"},{"cname":"OpenBSD","options_name":"OpenBSD","url":"/OpenBSD","status":"F1616205466O1615063219X1616227066","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/OpenBSD/","size":"1.12T"},{"cname":"archlinux","options_name":"archlinux","url":"/archlinux","status":"S1616229509X1616251109","upstream":"rsync://mirrors.kernel.org/archlinux/","size":"120.88G"},{"cname":"archlinuxarm","options_name":"archlinuxarm","url":"/archlinuxarm","status":"S1616224794X1616246394","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/archlinuxarm/","size":"106.70G"},{"cname":"archlinuxcn","options_name":"archlinuxcn","url":"/archlinuxcn","status":"S1616224825X1616246425","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/archlinuxcn/","size":"74.02G"},{"cname":"centos-vault","options_name":"centos-vault","url":"/centos-vault","status":"F1616224951O1616165059X1616246551","upstream":"rsync://linuxsoft.cern.ch/centos-vault/","size":"5.10T"},{"cname":"centos","options_name":"centos","url":"/centos","status":"F1616232927O1613027681X1616254527","upstream":"rsync://mirrors.kernel.org/mirrors/centos/","size":"271.32G"},{"cname":"ceph","options_name":"ceph","url":"/ceph","status":"S1616234304X1616255904","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/ceph/","size":"1.61T"},{"cname":"debian-cd","options_name":"debian-cd","url":"/debian-cd","status":"S1616228351X1616249951","upstream":"rsync://cdimage.debian.org/debian-cd/","size":"232.27G"},{"cname":"debian-security","options_name":"debian-security","url":"/debian-security","status":"S1616224815X1616246415","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/debian-security/","size":"152.93G"},{"cname":"debian","options_name":"debian","url":"/debian","status":"S1616225217X1616246817","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/debian/","size":"1.45T"},{"cname":"docker-ce","options_name":"docker-ce","url":"/docker-ce","status":"S1616224870X1616246470","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/docker-ce/","size":"540.58G"},{"cname":"epel","options_name":"epel","url":"/epel","status":"S1616224795X1616246395","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/epel/","size":"272.21G"},{"cname":"gentoo-portage.git","options_name":"gentoo-portage.git","url":"/gentoo-portage.git","status":"S1616217601X1616239201","upstream":"git://github.com/gentoo-mirror/gentoo.git","size":"4.5G"},{"cname":"gentoo","options_name":"gentoo","url":"/gentoo","status":"S1616225249X1616246849","upstream":"rsync://mirrors.kernel.org/mirrors/gentoo/","size":"408.97G"},{"cname":"gitlab-ce","options_name":"gitlab-ce","url":"/gitlab-ce","status":"S1616223628X1616245228","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/gitlab-ce/","size":"1.98T"},{"cname":"gitlab-ee","options_name":"gitlab-ee","url":"/gitlab-ee","status":"F1603726684O1603683426","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/gitlab-ee/","size":"1.90T"},{"cname":"gitlab-runner","options_name":"gitlab-runner","url":"/gitlab-runner","status":"S1616224797X1616246397","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/gitlab-runner/","size":"68.41G"},{"cname":"homebrew-bottles","options_name":"homebrew-bottles","url":"/homebrew-bottles","status":"S1616224819X1616311219","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/homebrew-bottles/","size":"501.84G"},{"cname":"kali-images","options_name":"kali-images","url":"/kali-images","status":"S1616224035X1616245635","upstream":"rsync://ftp.halifax.rwth-aachen.de/kali-images/","size":"101.13G"},{"cname":"kali","options_name":"kali","url":"/kali","status":"S1616224867X1616246467","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/kali/","size":"987.68G"},{"cname":"kubernetes","options_name":"kubernetes","url":"/kubernetes","status":"S1616227080X1616248680","upstream":"rsync://mirrors6.tuna.tsinghua.edu.cn/kubernetes/","size":"51.34G"},{"cname":"ubuntu-cdimage","options_name":"ubuntu-cdimage","url":"/ubuntu-cdimage","status":"S1616217834X1616239434","upstream":"rsync://cdimage.ubuntu.com/cdimage/","size":"889.92G"},{"cname":"ubuntu-ports","options_name":"ubuntu-ports","url":"/ubuntu-ports","status":"S1616219153X1616240753","upstream":"rsync://ports.ubuntu.com/ubuntu-ports/","size":"2.01T"},{"cname":"ubuntu-releases","options_name":"ubuntu-releases","url":"/ubuntu-releases","status":"S1616220823X1616242423","upstream":"rsync://rsync.releases.ubuntu.com/releases/","size":"25.06G"},{"cname":"ubuntu","options_name":"ubuntu","url":"/ubuntu","status":"S1616232986X1616254586","upstream":"rsync://archive.ubuntu.com/ubuntu/","size":"1.56T"}]}
+{
+  "site": {
+    "url": "https://mirrors.byrio.org",
+    "logo": "https://mirrors.byrio.org/static/img/favicon.ico",
+    "abbr": "BYRIO",
+    "name": "北京邮电大学开源软件镜像站",
+    "issue": "https://github.com/BYRIO/BYRIO-mirrors/issues",
+    "request": "https://github.com/BYRIO/BYRIO-mirrors/issues"
+  },
+  "info": [],
+  "mirrors": [
+    {
+      "cname": "HHVM",
+      "options_name": "HHVM",
+      "url": "/HHVM",
+      "status": "F1627973961X1627995561",
+      "upstream": "rsync://rsync.osuosl.org/hhvm/",
+      "size": "unknown"
+    },
+    {
+      "cname": "NetBSD",
+      "options_name": "NetBSD",
+      "url": "/NetBSD",
+      "status": "F1627967645O1627879527X1627989245",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/NetBSD/",
+      "size": "951.45G"
+    },
+    {
+      "cname": "OpenBSD",
+      "options_name": "OpenBSD",
+      "url": "/OpenBSD",
+      "status": "S1627976585X1627998185",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/OpenBSD/",
+      "size": "1.12T"
+    },
+    {
+      "cname": "archlinux",
+      "options_name": "archlinux",
+      "url": "/archlinux",
+      "status": "Y1627985998O1627733922",
+      "upstream": "rsync://mirrors.kernel.org/archlinux/",
+      "size": "177.02G"
+    },
+    {
+      "cname": "archlinuxarm",
+      "options_name": "archlinuxarm",
+      "url": "/archlinuxarm",
+      "status": "F1627975166O1627910136X1627996766",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/archlinuxarm/",
+      "size": "115.45G"
+    },
+    {
+      "cname": "archlinuxcn",
+      "options_name": "archlinuxcn",
+      "url": "/archlinuxcn",
+      "status": "F1627975541O1627780439X1627997141",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/archlinuxcn/",
+      "size": "74.76G"
+    },
+    {
+      "cname": "centos-vault",
+      "options_name": "centos-vault",
+      "url": "/centos-vault",
+      "status": "F1627967047O1627908054X1627988647",
+      "upstream": "rsync://linuxsoft.cern.ch/centos-vault/",
+      "size": "5.45T"
+    },
+    {
+      "cname": "centos",
+      "options_name": "centos",
+      "url": "/centos",
+      "status": "Y1627964293O1627877280",
+      "upstream": "rsync://mirrors.kernel.org/mirrors/centos/",
+      "size": "510.93G"
+    },
+    {
+      "cname": "ceph",
+      "options_name": "ceph",
+      "url": "/ceph",
+      "status": "S1627974683X1627996283",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/ceph/",
+      "size": "1.97T"
+    },
+    {
+      "cname": "debian-cd",
+      "options_name": "debian-cd",
+      "url": "/debian-cd",
+      "status": "S1627975084X1627996684",
+      "upstream": "rsync://cdimage.debian.org/debian-cd/",
+      "size": "233.06G"
+    },
+    {
+      "cname": "debian-security",
+      "options_name": "debian-security",
+      "url": "/debian-security",
+      "status": "F1627974421O1627931151X1627996021",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/debian-security/",
+      "size": "188.15G"
+    },
+    {
+      "cname": "debian",
+      "options_name": "debian",
+      "url": "/debian",
+      "status": "F1627967892O1627878784X1627989492",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/debian/",
+      "size": "1.60T"
+    },
+    {
+      "cname": "docker-ce",
+      "options_name": "docker-ce",
+      "url": "/docker-ce",
+      "status": "F1627974609O1626656587X1627996209",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/docker-ce/",
+      "size": "1.23T"
+    },
+    {
+      "cname": "epel",
+      "options_name": "epel",
+      "url": "/epel",
+      "status": "F1627975177O1627953448X1627996777",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/epel/",
+      "size": "309.92G"
+    },
+    {
+      "cname": "gentoo-portage.git",
+      "options_name": "gentoo-portage.git",
+      "url": "/gentoo-portage.git",
+      "status": "S1627985834X1628007434",
+      "upstream": "git://github.com/gentoo-mirror/gentoo.git",
+      "size": "4.7G"
+    },
+    {
+      "cname": "gentoo",
+      "options_name": "gentoo",
+      "url": "/gentoo",
+      "status": "F1627969129O1627925366X1627990729",
+      "upstream": "rsync://mirrors.kernel.org/mirrors/gentoo/",
+      "size": "435.50G"
+    },
+    {
+      "cname": "gitlab-ce",
+      "options_name": "gitlab-ce",
+      "url": "/gitlab-ce",
+      "status": "F1627974607O1627715078X1627996207",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/gitlab-ce/",
+      "size": "2.21T"
+    },
+    {
+      "cname": "gitlab-runner",
+      "options_name": "gitlab-runner",
+      "url": "/gitlab-runner",
+      "status": "S1627973906X1627995506",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/gitlab-runner/",
+      "size": "112.64G"
+    },
+    {
+      "cname": "homebrew-bottles",
+      "options_name": "homebrew-bottles",
+      "url": "/homebrew-bottles",
+      "status": "S1627914139X1628000539",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/homebrew-bottles/",
+      "size": "451.02G"
+    },
+    {
+      "cname": "kali-images",
+      "options_name": "kali-images",
+      "url": "/kali-images",
+      "status": "S1627969562X1627991162",
+      "upstream": "rsync://ftp.halifax.rwth-aachen.de/kali-images/",
+      "size": "117.47G"
+    },
+    {
+      "cname": "kali",
+      "options_name": "kali",
+      "url": "/kali",
+      "status": "F1627982588O1627894403X1628004188",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/kali/",
+      "size": "1.08T"
+    },
+    {
+      "cname": "kubernetes",
+      "options_name": "kubernetes",
+      "url": "/kubernetes",
+      "status": "S1627974395X1627995995",
+      "upstream": "rsync://mirrors6.tuna.tsinghua.edu.cn/kubernetes/",
+      "size": "54.40G"
+    },
+    {
+      "cname": "ubuntu-cdimage",
+      "options_name": "ubuntu-cdimage",
+      "url": "/ubuntu-cdimage",
+      "status": "S1627967824X1627989424",
+      "upstream": "rsync://cdimage.ubuntu.com/cdimage/",
+      "size": "909.14G"
+    },
+    {
+      "cname": "ubuntu-ports",
+      "options_name": "ubuntu-ports",
+      "url": "/ubuntu-ports",
+      "status": "S1627965883X1627987483",
+      "upstream": "rsync://ports.ubuntu.com/ubuntu-ports/",
+      "size": "2.07T"
+    },
+    {
+      "cname": "ubuntu-releases",
+      "options_name": "ubuntu-releases",
+      "url": "/ubuntu-releases",
+      "status": "S1627974410X1627996010",
+      "upstream": "rsync://rsync.releases.ubuntu.com/releases/",
+      "size": "24.43G"
+    },
+    {
+      "cname": "ubuntu",
+      "options_name": "ubuntu",
+      "url": "/ubuntu",
+      "status": "S1627979810X1628001410",
+      "upstream": "rsync://archive.ubuntu.com/ubuntu/",
+      "size": "1.61T"
+    }
+  ]
+}

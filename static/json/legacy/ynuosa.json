@@ -1,1 +1,194 @@
-{"site":{"url":"https://mirrors.ynu.edu.cn","abbr":"YNUOSA","name":"云南大学开源镜像站"},"info":[],"mirrors":[{"cname":"arch4edu","options_name":"arch4edu","url":"/arch4edu","status":"S1616497828X1616497948","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/arch4edu/","size":"31.98G"},{"cname":"archlinuxarm","options_name":"archlinuxarm","url":"/archlinuxarm","status":"F1614171903","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/","size":"unknown"},{"cname":"archlinuxcn","options_name":"archlinuxcn","url":"/archlinuxcn","status":"F1614171903","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/","size":"unknown"},{"cname":"debian-cd","options_name":"debian-cd","url":"/debian-cd","status":"F1615814591","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/debian-cd/","size":"unknown"},{"cname":"debian-security","options_name":"debian-security","url":"/debian-security","status":"S1616497890X1616498010","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/debian-security/","size":"152.97G"},{"cname":"kali-images","options_name":"kali-images","url":"/kali-images","status":"F1614171903","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/kali-images/","size":"unknown"},{"cname":"ubuntu","options_name":"ubuntu","url":"/ubuntu","status":"Y1616496093","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu/","size":"unknown"},{"cname":"blackarch","options_name":"blackarch","url":"/blackarch","status":"Y1616497908O1616497785","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/blackarch/","size":"75.73G"},{"cname":"deb-multimedia","options_name":"debian-multimedia","url":"/debian-multimedia","status":"S1616497797X1616497917","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/debian-multimedia/","size":"15.32G"},{"cname":"deepin-cd","options_name":"deepin-cd","url":"/deepin-cd","status":"S1616497904X1616498024","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/deepin-cd/","size":"8.87G"},{"cname":"raspbian","options_name":"raspbian","url":"/raspbian","status":"F1615814591","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/raspbian/","size":"unknown"},{"cname":"tensorflow","options_name":"tensorflow","url":"/tensorflow","status":"F1614155337X1614155397","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/tensorflow/","size":"unknown"},{"cname":"archlinux","options_name":"archlinux","url":"/archlinux","status":"S1616497861X1616497981","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/archlinux/","size":"65.74G"},{"cname":"deepin","options_name":"deepin","url":"/deepin","status":"Y1616497893O1616497768","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/deepin/","size":"209.94G"},{"cname":"docker-ce","options_name":"docker-ce","url":"/docker-ce","status":"F1614156095X1614156155","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/docker-ce/","size":"unknown"},{"cname":"docker","options_name":"docker","url":"/docker","status":"F1614155711X1614155771","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/docker/","size":"unknown"},{"cname":"kali-security","options_name":"kali-security","url":"/kali-security","status":"F1614155294X1614155354","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/kali-security/","size":"unknown"},{"cname":"steamos","options_name":"steamos","url":"/steamos","status":"S1616497887X1616498007","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/steamos/","size":"397.79G"},{"cname":"centos","options_name":"centos","url":"/centos","status":"F1615807094","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/centos/","size":"unknown"},{"cname":"debian-nonfree","options_name":"debian-nonfree","url":"/debian-nonfree","status":"F1614156551X1614156611","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/","size":"unknown"},{"cname":"debian","options_name":"debian","url":"/debian","status":"Y1616497128","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/debian/","size":"unknown"},{"cname":"fedora","options_name":"fedora","url":"/fedora","status":"Y1616497103","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/fedora/","size":"unknown"},{"cname":"kali","options_name":"kali","url":"/kali","status":"Y1616497143","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/kali/","size":"unknown"},{"cname":"ubuntu-cdimage","options_name":"ubuntu-cdimage","url":"/ubuntu-cdimage","status":"F1614154848X1614154908","upstream":"rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/","size":"unknown"}]}
+{
+  "site": {
+    "url": "https://mirrors.ynu.edu.cn",
+    "abbr": "YNUOSA",
+    "name": "云南大学开源镜像站"
+  },
+  "info": [],
+  "mirrors": [
+    {
+      "cname": "archlinuxcn",
+      "options_name": "archlinuxcn",
+      "url": "/archlinuxcn",
+      "status": "S1627978661X1627980461",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/",
+      "size": "75.72G"
+    },
+    {
+      "cname": "blackarch",
+      "options_name": "blackarch",
+      "url": "/blackarch",
+      "status": "S1627980831X1627982631",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/blackarch/",
+      "size": "76.48G"
+    },
+    {
+      "cname": "ubuntu",
+      "options_name": "ubuntu",
+      "url": "/ubuntu",
+      "status": "F1627981025O1626795478X1627982825",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu/",
+      "size": "1.61T"
+    },
+    {
+      "cname": "debian",
+      "options_name": "debian",
+      "url": "/debian",
+      "status": "Y1627942999",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/debian/",
+      "size": "unknown"
+    },
+    {
+      "cname": "docker",
+      "options_name": "docker",
+      "url": "/docker",
+      "status": "F1617162268X1617164068",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/docker/",
+      "size": "unknown"
+    },
+    {
+      "cname": "kali",
+      "options_name": "kali",
+      "url": "/kali",
+      "status": "S1627979631X1627981431",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/kali/",
+      "size": "1.08T"
+    },
+    {
+      "cname": "ubuntu-cdimage",
+      "options_name": "ubuntu-cdimage",
+      "url": "/ubuntu-cdimage",
+      "status": "S1627977439X1627979239",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/",
+      "size": "601.39G"
+    },
+    {
+      "cname": "archlinux",
+      "options_name": "archlinux",
+      "url": "/archlinux",
+      "status": "S1627980816X1627982617",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/archlinux/",
+      "size": "73.76G"
+    },
+    {
+      "cname": "debian-cd",
+      "options_name": "debian-cd",
+      "url": "/debian-cd",
+      "status": "Y1627978746O1624353617",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/debian-cd/",
+      "size": "232.33G"
+    },
+    {
+      "cname": "deb-multimedia",
+      "options_name": "debian-multimedia",
+      "url": "/debian-multimedia",
+      "status": "S1627977470X1627979270",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/debian-multimedia/",
+      "size": "12.16G"
+    },
+    {
+      "cname": "deepin",
+      "options_name": "deepin",
+      "url": "/deepin",
+      "status": "Y1627981026O1621258765",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/deepin/",
+      "size": "209.94G"
+    },
+    {
+      "cname": "docker-ce",
+      "options_name": "docker-ce",
+      "url": "/docker-ce",
+      "status": "S1627979675X1627981475",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/docker-ce/",
+      "size": "561.35G"
+    },
+    {
+      "cname": "fedora",
+      "options_name": "fedora",
+      "url": "/fedora",
+      "status": "F1627977433O1619640363X1627979233",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/fedora/",
+      "size": "1.15T"
+    },
+    {
+      "cname": "kali-security",
+      "options_name": "kali-security",
+      "url": "/kali-security",
+      "status": "F1619939741X1619941541",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/kali-security/",
+      "size": "unknown"
+    },
+    {
+      "cname": "centos",
+      "options_name": "centos",
+      "url": "/centos",
+      "status": "Y1627955824O1622699324",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/centos/",
+      "size": "332.99G"
+    },
+    {
+      "cname": "debian-nonfree",
+      "options_name": "debian-nonfree",
+      "url": "/debian-nonfree",
+      "status": "Y1627980930O1623615452",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/",
+      "size": "166.00G"
+    },
+    {
+      "cname": "debian-security",
+      "options_name": "debian-security",
+      "url": "/debian-security",
+      "status": "S1627978741X1627980541",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/debian-security/",
+      "size": "188.26G"
+    },
+    {
+      "cname": "kali-images",
+      "options_name": "kali-images",
+      "url": "/kali-images",
+      "status": "S1627978745X1627980545",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/kali-images/",
+      "size": "117.47G"
+    },
+    {
+      "cname": "raspbian",
+      "options_name": "raspbian",
+      "url": "/raspbian",
+      "status": "S1627977866X1627979666",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/raspbian/",
+      "size": "514.70G"
+    },
+    {
+      "cname": "steamos",
+      "options_name": "steamos",
+      "url": "/steamos",
+      "status": "S1627980929X1627982729",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/steamos/",
+      "size": "359.59G"
+    },
+    {
+      "cname": "arch4edu",
+      "options_name": "arch4edu",
+      "url": "/arch4edu",
+      "status": "S1627977454X1627979254",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/arch4edu/",
+      "size": "32.78G"
+    },
+    {
+      "cname": "archlinuxarm",
+      "options_name": "archlinuxarm",
+      "url": "/archlinuxarm",
+      "status": "S1627978523X1627980323",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/",
+      "size": "115.46G"
+    },
+    {
+      "cname": "deepin-cd",
+      "options_name": "deepin-cd",
+      "url": "/deepin-cd",
+      "status": "S1627980820X1627982620",
+      "upstream": "rsync://mirrors.tuna.tsinghua.edu.cn/deepin-cd/",
+      "size": "17.89G"
+    }
+  ]
+}

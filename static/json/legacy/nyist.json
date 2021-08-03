@@ -1,1 +1,23 @@
-{"site":{"url":"https://mirror.nyist.edu.cn","abbr":"NYIST","name":"南阳理工学院开源镜像站","email":"mirror at nyist edu cn"},"info":[],"mirrors":[{"cname":"raspbian","url":"/raspbian/","status":"S1615661319","size":"478G"},{"cname":"apache","url":"/apache/","status":"S1615660205","size":"146G"},{"cname":"centos","url":"/centos/","status":"S1615660223","size":"262G"},{"cname":"deepin","url":"/deepin/","status":"S1615660253","size":"196G"},{"cname":"debian","url":"/debian/","status":"S1615660327","size":"1.3T"},{"cname":"fedora","url":"/fedora/","status":"S1615660388","size":"1022G"},{"cname":"kali","url":"/kali/","status":"S1615660428","size":"918G"},{"cname":"mongodb","url":"/mongodb/","status":"S1615660429","size":"64G"},{"cname":"mysql","url":"/mysql/","status":"S1615660433","size":"780G"},{"cname":"openwrt","url":"/openwrt/","status":"S1615661133","size":"798G"},{"cname":"OpenBSD","url":"/OpenBSD/","status":"S1615661170","size":"1.1T"},{"cname":"postgresql","url":"/postgresql/","status":"S1615661198","size":"276G"},{"cname":"redhat","url":"/redhat/","status":"S1615661355","size":"2.9T"},{"cname":"ubuntu","url":"/ubuntu/","status":"S1615661746","size":"1.5T"},{"cname":"zabbix","url":"/zabbix/","status":"S1615661762","size":"56G"},{"cname":"qt","url":"/qt/","status":"S1615661258","size":"1.4T"}]}
+{
+  "site": {
+    "url": "https://mirror.nyist.edu.cn",
+    "abbr": "NYIST",
+    "name": "南阳理工学院开源镜像站",
+    "email": "mirror at nyist edu cn"
+  },
+  "info": [],
+  "mirrors": [
+    {
+      "cname": "ubuntu",
+      "url": "/ubuntu/",
+      "status": "S1627930684",
+      "size": "1.5T"
+    },
+    {
+      "cname": "zabbix",
+      "url": "/zabbix/",
+      "status": "S1627930698",
+      "size": "65G"
+    }
+  ]
+}
