@@ -4,7 +4,7 @@ At [https://mirrors.mirrorz.org](https://mirrors.mirrorz.org) or [https://m.mirr
 
 You may visit [https://m.mirrorz.org/archlinux/](https://m.mirrorz.org/archlinux/). Note that only `/${cname}` from the [frontend](https://mirrorz.org/list)/[monitor](https://mirrorz.org/monitor) are valid pathnames.
 
-Currently this is deployed using Cloudflare Workers. Code with credentials stripped are in `302.js`.
+Currently this is deployed using Cloudflare Workers. Credentials are configured as environment variables.
 
 # 302 Decision
 

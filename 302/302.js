@@ -75,9 +75,9 @@ async function handler(request) {
             return Response.redirect('https://mirrorz.org/about', 302);
 
         // Query influxdb 2.x
-        response = await fetch('http://localhost:8086/api/v2/query?org=your-org', {
+        response = await fetch(INFLUX_URL, {
             headers: {
-                'Authorization': 'Token YourToken',
+                'Authorization': INFLUX_TOKEN,
                 'Content-Type': 'application/vnd.flux',
             },
             method: "POST",
