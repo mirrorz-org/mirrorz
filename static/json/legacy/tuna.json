@@ -1639,8 +1639,8 @@
           "url": "/lineage-rom/full/zippo/20210731/lineage-18.1-20210731-nightly-zippo-signed.zip"
         },
         {
-          "name": "20210720 (z3c, 18.1)",
-          "url": "/lineage-rom/full/z3c/20210720/lineage-18.1-20210720-nightly-z3c-signed.zip"
+          "name": "20210803 (z3c, 18.1)",
+          "url": "/lineage-rom/full/z3c/20210803/lineage-18.1-20210803-nightly-z3c-signed.zip"
         },
         {
           "name": "20210713 (z3c, 17.1)",
@@ -1683,8 +1683,8 @@
           "url": "/lineage-rom/full/walleye/20210720/lineage-18.1-20210720-nightly-walleye-signed.zip"
         },
         {
-          "name": "20210720 (vs995, 18.1)",
-          "url": "/lineage-rom/full/vs995/20210720/lineage-18.1-20210720-nightly-vs995-signed.zip"
+          "name": "20210803 (vs995, 18.1)",
+          "url": "/lineage-rom/full/vs995/20210803/lineage-18.1-20210803-nightly-vs995-signed.zip"
         },
         {
           "name": "20210801 (vs985, 18.1)",
@@ -1727,12 +1727,12 @@
           "url": "/lineage-rom/full/shamu/20210721/lineage-18.1-20210721-nightly-shamu-signed.zip"
         },
         {
-          "name": "20210713 (scorpio, 18.1)",
-          "url": "/lineage-rom/full/scorpio/20210713/lineage-18.1-20210713-nightly-scorpio-signed.zip"
+          "name": "20210803 (scorpio, 18.1)",
+          "url": "/lineage-rom/full/scorpio/20210803/lineage-18.1-20210803-nightly-scorpio-signed.zip"
         },
         {
-          "name": "20210720 (sargo, 18.1)",
-          "url": "/lineage-rom/full/sargo/20210720/lineage-18.1-20210720-nightly-sargo-signed.zip"
+          "name": "20210803 (sargo, 18.1)",
+          "url": "/lineage-rom/full/sargo/20210803/lineage-18.1-20210803-nightly-sargo-signed.zip"
         },
         {
           "name": "20210731 (sailfish, 17.1)",
@@ -1799,8 +1799,8 @@
           "url": "/lineage-rom/full/pioneer/20210722/lineage-18.1-20210722-nightly-pioneer-signed.zip"
         },
         {
-          "name": "20210713 (payton, 18.1)",
-          "url": "/lineage-rom/full/payton/20210713/lineage-18.1-20210713-nightly-payton-signed.zip"
+          "name": "20210803 (payton, 18.1)",
+          "url": "/lineage-rom/full/payton/20210803/lineage-18.1-20210803-nightly-payton-signed.zip"
         },
         {
           "name": "20210730 (osprey, 17.1)",
@@ -1883,16 +1883,16 @@
           "url": "/lineage-rom/full/lithium/20210722/lineage-18.1-20210722-nightly-lithium-signed.zip"
         },
         {
-          "name": "20210720 (lemonadep, 18.1)",
-          "url": "/lineage-rom/full/lemonadep/20210720/lineage-18.1-20210720-nightly-lemonadep-signed.zip"
+          "name": "20210803 (lemonadep, 18.1)",
+          "url": "/lineage-rom/full/lemonadep/20210803/lineage-18.1-20210803-nightly-lemonadep-signed.zip"
         },
         {
-          "name": "20210720 (lavender, 18.1)",
-          "url": "/lineage-rom/full/lavender/20210720/lineage-18.1-20210720-nightly-lavender-signed.zip"
+          "name": "20210803 (lavender, 18.1)",
+          "url": "/lineage-rom/full/lavender/20210803/lineage-18.1-20210803-nightly-lavender-signed.zip"
         },
         {
-          "name": "20210720 (lake, 18.1)",
-          "url": "/lineage-rom/full/lake/20210720/lineage-18.1-20210720-nightly-lake-signed.zip"
+          "name": "20210803 (lake, 18.1)",
+          "url": "/lineage-rom/full/lake/20210803/lineage-18.1-20210803-nightly-lake-signed.zip"
         },
         {
           "name": "20210801 (kuntao, 18.1)",
@@ -2019,8 +2019,8 @@
           "url": "/lineage-rom/full/harpia/20210730/lineage-17.1-20210730-nightly-harpia-signed.zip"
         },
         {
-          "name": "20210720 (hannah, 18.1)",
-          "url": "/lineage-rom/full/hannah/20210720/lineage-18.1-20210720-nightly-hannah-signed.zip"
+          "name": "20210803 (hannah, 18.1)",
+          "url": "/lineage-rom/full/hannah/20210803/lineage-18.1-20210803-nightly-hannah-signed.zip"
         },
         {
           "name": "20210801 (h990, 18.1)",
@@ -2099,12 +2099,12 @@
           "url": "/lineage-rom/full/ether/20210801/lineage-18.1-20210801-nightly-ether-signed.zip"
         },
         {
-          "name": "20210720 (enchilada, 18.1)",
-          "url": "/lineage-rom/full/enchilada/20210720/lineage-18.1-20210720-nightly-enchilada-signed.zip"
+          "name": "20210803 (enchilada, 18.1)",
+          "url": "/lineage-rom/full/enchilada/20210803/lineage-18.1-20210803-nightly-enchilada-signed.zip"
         },
         {
-          "name": "20210720 (dumpling, 18.1)",
-          "url": "/lineage-rom/full/dumpling/20210720/lineage-18.1-20210720-nightly-dumpling-signed.zip"
+          "name": "20210803 (dumpling, 18.1)",
+          "url": "/lineage-rom/full/dumpling/20210803/lineage-18.1-20210803-nightly-dumpling-signed.zip"
         },
         {
           "name": "20210722 (discovery, 18.1)",
@@ -2143,20 +2143,24 @@
           "url": "/lineage-rom/full/d802/20210722/lineage-18.1-20210722-nightly-d802-signed.zip"
         },
         {
-          "name": "20210720 (d801, 18.1)",
-          "url": "/lineage-rom/full/d801/20210720/lineage-18.1-20210720-nightly-d801-signed.zip"
+          "name": "20210803 (d801, 18.1)",
+          "url": "/lineage-rom/full/d801/20210803/lineage-18.1-20210803-nightly-d801-signed.zip"
         },
         {
           "name": "20210721 (d800, 18.1)",
           "url": "/lineage-rom/full/d800/20210721/lineage-18.1-20210721-nightly-d800-signed.zip"
         },
         {
+          "name": "20210803 (d2s, 18.1)",
+          "url": "/lineage-rom/full/d2s/20210803/lineage-18.1-20210803-nightly-d2s-signed.zip"
+        },
+        {
           "name": "20210802 (d1, 18.1)",
           "url": "/lineage-rom/full/d1/20210802/lineage-18.1-20210802-nightly-d1-signed.zip"
         },
         {
-          "name": "20210720 (crosshatch, 18.1)",
-          "url": "/lineage-rom/full/crosshatch/20210720/lineage-18.1-20210720-nightly-crosshatch-signed.zip"
+          "name": "20210803 (crosshatch, 18.1)",
+          "url": "/lineage-rom/full/crosshatch/20210803/lineage-18.1-20210803-nightly-crosshatch-signed.zip"
         },
         {
           "name": "20210731 (crackling, 17.1)",
@@ -2203,8 +2207,8 @@
           "url": "/lineage-rom/full/bonito/20210731/lineage-18.1-20210731-nightly-bonito-signed.zip"
         },
         {
-          "name": "20210720 (blueline, 18.1)",
-          "url": "/lineage-rom/full/blueline/20210720/lineage-18.1-20210720-nightly-blueline-signed.zip"
+          "name": "20210803 (blueline, 18.1)",
+          "url": "/lineage-rom/full/blueline/20210803/lineage-18.1-20210803-nightly-blueline-signed.zip"
         },
         {
           "name": "20210730 (beyondx, 18.1)",
@@ -2225,6 +2229,10 @@
         {
           "name": "20210731 (bardockpro, 17.1)",
           "url": "/lineage-rom/full/bardockpro/20210731/lineage-17.1-20210731-nightly-bardockpro-signed.zip"
+        },
+        {
+          "name": "20210803 (bardock, 18.1)",
+          "url": "/lineage-rom/full/bardock/20210803/lineage-18.1-20210803-nightly-bardock-signed.zip"
         },
         {
           "name": "20210727 (bardock, 17.1)",
@@ -2299,16 +2307,16 @@
           "url": "/lineage-rom/full/X01AD/20210802/lineage-18.1-20210802-nightly-X01AD-signed.zip"
         },
         {
-          "name": "20210720 (X00TD, 18.1)",
-          "url": "/lineage-rom/full/X00TD/20210720/lineage-18.1-20210720-nightly-X00TD-signed.zip"
+          "name": "20210803 (X00TD, 18.1)",
+          "url": "/lineage-rom/full/X00TD/20210803/lineage-18.1-20210803-nightly-X00TD-signed.zip"
         },
         {
           "name": "20210728 (RMX1801, 17.1)",
           "url": "/lineage-rom/full/RMX1801/20210728/lineage-17.1-20210728-nightly-RMX1801-signed.zip"
         },
         {
-          "name": "20210720 (PL2, 18.1)",
-          "url": "/lineage-rom/full/PL2/20210720/lineage-18.1-20210720-nightly-PL2-signed.zip"
+          "name": "20210803 (PL2, 18.1)",
+          "url": "/lineage-rom/full/PL2/20210803/lineage-18.1-20210803-nightly-PL2-signed.zip"
         },
         {
           "name": "20210730 (I01WD, 17.1)",
@@ -9597,23 +9605,145 @@
   ],
   "mirrors": [
     {
-      "cname": "alpine",
-      "options_name": "alpine",
-      "url": "/alpine",
-      "status": "S1627965504X1627987104",
-      "upstream": "rsync://rsync.alpinelinux.org/alpine/",
-      "size": "1.28T",
-      "desc": "Alpine Linux 的安装镜像和官方软件包仓库",
-      "help": "/help/alpine/"
+      "cname": "libreoffice",
+      "options_name": "libreoffice",
+      "url": "/libreoffice",
+      "status": "F1627977009O1627955076X1627998609",
+      "upstream": "rsync://rsync.documentfoundation.org/tdf-pub/",
+      "size": "73.4G",
+      "desc": "自由的办公软件套件"
     },
     {
-      "cname": "cc",
-      "options_name": "cc",
-      "url": "/cc",
-      "status": "Y1627971889O1627950289",
-      "upstream": "rsync://linuxsoft.cern.ch/cc/",
-      "size": "1.19T",
-      "desc": "CERN CentOS"
+      "cname": "linuxmint",
+      "options_name": "linuxmint",
+      "url": "/linuxmint",
+      "status": "S1627980023X1628001623",
+      "upstream": "rsync://mirrors.kernel.org/linuxmint-packages/",
+      "size": "35.7G",
+      "desc": "Linux Mint 的官方软件源",
+      "help": "/help/linuxmint/"
+    },
+    {
+      "cname": "loongson",
+      "options_name": "loongson",
+      "url": "/loongson",
+      "status": "S1627974640X1627996240",
+      "upstream": "rsync://rsync.anheng.com.cn/loongson/",
+      "size": "15.7G",
+      "desc": "用于龙芯电脑的软件包"
+    },
+    {
+      "cname": "nix",
+      "options_name": "nix",
+      "url": "/nix",
+      "status": "S1627916421X1628002821",
+      "upstream": "s3://nix-releases/nix/",
+      "size": "2.54G",
+      "desc": "Nix 软件包管理器",
+      "help": "/help/nix/"
+    },
+    {
+      "cname": "archlinuxcn",
+      "options_name": "archlinuxcn",
+      "url": "/archlinuxcn",
+      "status": "S1627981801X1628003401",
+      "upstream": "rsync://repo@sync.repo.archlinuxcn.org/repo/",
+      "size": "70.9G",
+      "desc": "由 Arch Linux 中文社区驱动的非官方用户仓库，包含中文用户常用软件、工具、字体/美化包等",
+      "help": "/help/archlinuxcn/"
+    },
+    {
+      "cname": "dart-pub",
+      "options_name": "dart-pub",
+      "url": "/dart-pub",
+      "status": "S1627991867X1627993667",
+      "upstream": "https://pub.dev/api",
+      "size": "298G",
+      "desc": "Dart 语言的软件包仓库",
+      "help": "/help/dart-pub/"
+    },
+    {
+      "cname": "fedora-altarch",
+      "options_name": "fedora-altarch",
+      "url": "/fedora-altarch",
+      "status": "S1627990133X1628011733",
+      "upstream": "rsync://download-ib01.fedoraproject.org/fedora-secondary/",
+      "size": "22.20G",
+      "desc": "Fedora Linux 额外平台的安装镜像和官方软件包仓库"
+    },
+    {
+      "cname": "gentoo-portage",
+      "options_name": "gentoo-portage",
+      "url": "/gentoo-portage",
+      "status": "S1627978596X1628000196",
+      "upstream": "rsync://rsync.jp.gentoo.org/gentoo-portage/",
+      "size": "1.18G",
+      "desc": "Gentoo Linux 的 Portage 包管理器镜像源（HTTP / rsync 访问）",
+      "help": "/help/gentoo-portage/"
+    },
+    {
+      "cname": "rustup",
+      "options_name": "rustup",
+      "url": "/rustup",
+      "status": "S1627918385X1628004785",
+      "upstream": "https://rustup.rs/",
+      "size": "1.97T",
+      "desc": "Rust 的官方安装工具",
+      "help": "/help/rustup/"
+    },
+    {
+      "cname": "armbian-releases",
+      "options_name": "armbian-releases",
+      "url": "/armbian-releases",
+      "status": "S1627975992X1627997592",
+      "upstream": "rsync://rsync.armbian.com/dl/",
+      "size": "263G",
+      "desc": "Armbian 的安装镜像"
+    },
+    {
+      "cname": "debian-cd",
+      "options_name": "debian-cd",
+      "url": "/debian-cd",
+      "status": "S1627974297X1627995897",
+      "upstream": "rsync://mirrors.kernel.org/debian-cd/",
+      "size": "217G",
+      "desc": "Debian Linux 的安装镜像"
+    },
+    {
+      "cname": "putty",
+      "options_name": "putty",
+      "url": "/putty",
+      "status": "S1627975375X1627996975N",
+      "upstream": "rsync://rsync.chiark.greenend.org.uk/ftp/users/sgtatham/putty-website-mirror/",
+      "size": "67.5M"
+    },
+    {
+      "cname": "remi",
+      "options_name": "remi",
+      "url": "/remi",
+      "status": "S1627921248X1628007648",
+      "upstream": "rsync://rpms.remirepo.net",
+      "size": "65.1G",
+      "desc": "包含最新版本 PHP 和 MySQL 的第三方 yum 源"
+    },
+    {
+      "cname": "crates.io-index.git",
+      "options_name": "crates.io-index.git",
+      "url": "/help/crates.io-index.git/",
+      "status": "S1627961455X1628004655",
+      "upstream": "git://github.com/rust-lang/crates.io-index.git",
+      "size": "593M",
+      "desc": "面向 Rust 语言的软件包索引 crates.io",
+      "help": "/help/crates.io-index.git/"
+    },
+    {
+      "cname": "debian-security",
+      "options_name": "debian-security",
+      "url": "/debian-security",
+      "status": "S1627988957X1628010557",
+      "upstream": "rsync://rsync.security.debian.org/debian-security/",
+      "size": "188.26G",
+      "desc": "Debian Linux 的安全更新"
     },
     {
       "cname": "glibc.git",
@@ -9626,13 +9756,120 @@
       "help": "/help/glibc.git/"
     },
     {
-      "cname": "ius",
-      "options_name": "ius",
-      "url": "/ius",
-      "status": "S1627975179X1627996779",
-      "upstream": "rsync://origin.repo.ius.io/ius/",
-      "size": "35.05G",
-      "desc": "为企业版 Linux 提供最新软件包的镜像源"
+      "cname": "hackage",
+      "options_name": "hackage",
+      "url": "/hackage",
+      "status": "S1627991718X1628013318",
+      "upstream": "https://hackage.haskell.org/",
+      "size": "14.4G",
+      "desc": "Haskell 社区的中心软件包仓库",
+      "help": "/help/hackage/"
+    },
+    {
+      "cname": "anthon",
+      "options_name": "anthon",
+      "url": "/anthon",
+      "status": "S1627973134X1627994734",
+      "upstream": "rsync://mirror.anthonos.org/anthon/",
+      "size": "1.31T",
+      "desc": "Anthon Linux（安同 Linux）的安装镜像和官方软件包仓库",
+      "help": "/help/anthon/"
+    },
+    {
+      "cname": "archlinuxarm",
+      "options_name": "archlinuxarm",
+      "url": "/archlinuxarm",
+      "status": "S1627977652X1627999252",
+      "upstream": "rsync://ftp.halifax.rwth-aachen.de/archlinux-arm/",
+      "size": "109G",
+      "desc": "用于 ARM 平台的 Arch Linux 镜像和软件包仓库",
+      "help": "/help/archlinuxarm/"
+    },
+    {
+      "cname": "binutils-gdb.git",
+      "options_name": "binutils-gdb.git",
+      "url": "/help/binutils-gdb.git/",
+      "status": "S1627959356X1628002556",
+      "upstream": "git://sourceware.org/git/binutils-gdb.git",
+      "size": "435M",
+      "desc": "Binutils 和 GDB 等开发工具的源码 Git 仓库",
+      "help": "/help/binutils-gdb.git/"
+    },
+    {
+      "cname": "chakra",
+      "options_name": "chakra",
+      "url": "/chakra",
+      "status": "S1627975725X1627997325",
+      "upstream": "rsync://rsync.chakralinux.org/packages/",
+      "size": "55.4G",
+      "desc": "专注于 Qt 与 KDE 软件的 Linux 发行版"
+    },
+    {
+      "cname": "lineageOS",
+      "options_name": "lineageOS",
+      "url": "/help/lineageOS/",
+      "status": "S1627982938X1628026138",
+      "upstream": "https://github.com/LineageOS/mirror",
+      "size": "283G",
+      "desc": "最大的社区Android发行版之一Lineage的源代码",
+      "help": "/help/lineageOS/"
+    },
+    {
+      "cname": "openresty",
+      "options_name": "openresty",
+      "url": "/openresty",
+      "status": "S1627972486X1627994086",
+      "upstream": "https://openresty.org/package/",
+      "size": "24.9G",
+      "desc": "基于 Nginx 与 Lua 的高性能 Web 平台"
+    },
+    {
+      "cname": "raspberrypi",
+      "options_name": "raspberrypi",
+      "url": "/raspberrypi",
+      "status": "S1627980792X1628002392",
+      "upstream": "rsync://apt-repo.raspberrypi.org/archive/debian/",
+      "size": "121G",
+      "desc": "一些专为树莓派提供的 Debian 软件包"
+    },
+    {
+      "cname": "stackage",
+      "options_name": "stackage",
+      "url": "/stackage",
+      "status": "S1627985950X1628007550",
+      "upstream": "https://www.stackage.org/",
+      "size": "65.3G",
+      "desc": "Haskell 项目管理器 stack 所需的元数据与 ghc 安装包的镜像",
+      "help": "/help/stackage/"
+    },
+    {
+      "cname": "julia-releases",
+      "options_name": "julia-releases",
+      "url": "/julia-releases",
+      "status": "S1627915322X1628001722",
+      "upstream": "s3://julialang2/",
+      "size": "67.6G",
+      "desc": "Julia 二进制程序镜像",
+      "help": "/help/julia-releases/"
+    },
+    {
+      "cname": "mysql",
+      "options_name": "mysql",
+      "url": "/mysql",
+      "status": "S1627991545X1627993345",
+      "upstream": "https://repo.mysql.com",
+      "size": "817G",
+      "desc": "MySQL 数据库的安装包及各种工具下载",
+      "help": "/help/mysql/"
+    },
+    {
+      "cname": "openthos",
+      "options_name": "openthos",
+      "url": "/openthos",
+      "status": "S1627975469X1627997069",
+      "upstream": "166.111.131.12:rsync/oto_img/",
+      "size": "8.85G",
+      "desc": "OpenTHOS 的二进制发行包"
     },
     {
       "cname": "repo-ck",
@@ -9645,6 +9882,36 @@
       "help": "/help/repo-ck/"
     },
     {
+      "cname": "CRAN",
+      "options_name": "CRAN",
+      "url": "/CRAN",
+      "status": "S1627986006X1628007606",
+      "upstream": "cran-rsync@cran.r-project.org:./",
+      "size": "338G",
+      "desc": "R 语言的可执行文件、源代码和说明文件，也收录了各种用户撰写的软件包",
+      "help": "/help/CRAN/"
+    },
+    {
+      "cname": "CocoaPods",
+      "options_name": "CocoaPods",
+      "url": "/help/CocoaPods/",
+      "status": "S1627988934X1628032134",
+      "upstream": "git://github.com/CocoaPods",
+      "size": "922M",
+      "desc": "Objective-C 和 Swift 的依赖管理器",
+      "help": "/help/CocoaPods/"
+    },
+    {
+      "cname": "OpenMediaVault",
+      "options_name": "OpenMediaVault",
+      "url": "/OpenMediaVault",
+      "status": "S1627926999X1628013399",
+      "upstream": "https://packages.openmediavault.org/public",
+      "size": "149M",
+      "desc": "基于 Debian Linux 的网络附加存储(NAS)解决方案",
+      "help": "/help/openmediavault/"
+    },
+    {
       "cname": "gitlab-ce",
       "options_name": "gitlab-ce",
       "url": "/gitlab-ce",
@@ -9655,43 +9922,643 @@
       "help": "/help/gitlab-ce/"
     },
     {
-      "cname": "linux-stable.git",
-      "options_name": "linux-stable.git",
-      "url": "/help/linux-stable.git/",
-      "status": "S1627960476X1628003676",
-      "upstream": "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git",
-      "size": "2.3G",
-      "desc": "Linux 内核源代码的 Git 仓库, 稳定版分支",
-      "help": "/help/linux-stable.git/"
+      "cname": "postmarketOS-images",
+      "options_name": "postmarketOS-images",
+      "url": "/postmarketOS-images",
+      "status": "S1627979291X1628000891N",
+      "upstream": "rsync://mirror.postmarketos.org/images/",
+      "size": "439G"
     },
     {
-      "cname": "openthos",
-      "options_name": "openthos",
-      "url": "/openthos",
-      "status": "S1627975469X1627997069",
-      "upstream": "166.111.131.12:rsync/oto_img/",
-      "size": "9.51G",
-      "desc": "OpenTHOS 的二进制发行包"
+      "cname": "pybombs",
+      "options_name": "pybombs",
+      "url": "/pybombs",
+      "status": "S1627956507X1627999707",
+      "upstream": "https://github.com/scateu/pybombs-mirror/",
+      "size": "2.7G",
+      "desc": "为 GNU Radio 设计的编译管理系统",
+      "help": "/help/pybombs/"
     },
     {
-      "cname": "flutter",
-      "options_name": "flutter",
-      "url": "/flutter",
-      "status": "S1627985942X1628072342",
-      "upstream": "https://storage.googleapis.com/flutter_infra/",
-      "size": "945G",
-      "desc": "Flutter 框架 SDK 镜像",
-      "help": "/help/flutter/"
+      "cname": "slackware",
+      "options_name": "slackware",
+      "url": "/slackware",
+      "status": "S1627990845X1628012445",
+      "upstream": "rsync://ftp.slackware.com/slackware/",
+      "size": "142.97G",
+      "desc": "Linux 发行版 Slackware 的源代码和官方软件包仓库"
     },
     {
-      "cname": "julia",
-      "options_name": "julia",
-      "url": "/julia",
-      "status": "S1627986246X1627989846",
-      "upstream": "https://kr.storage.juliahub.com",
-      "size": "1.31T",
-      "desc": "Julia 编程语言的包管理器镜像",
-      "help": "/help/julia/"
+      "cname": "OpenBSD",
+      "options_name": "OpenBSD",
+      "url": "/OpenBSD",
+      "status": "S1627989453X1627996653",
+      "upstream": "rsync://mirror.aarnet.edu.au/openbsd/",
+      "size": "1.12T",
+      "desc": "OpenBSD 的安装镜像和官方软件包仓库"
+    },
+    {
+      "cname": "elasticstack",
+      "options_name": "elasticstack",
+      "url": "/elasticstack",
+      "status": "S1627951363X1628037763",
+      "upstream": "https://artifacts.elastic.co/",
+      "size": "176G",
+      "desc": "ELK 系列数据分析工具，5.x 之后改名为 Elastic Stack"
+    },
+    {
+      "cname": "elrepo",
+      "options_name": "elrepo",
+      "url": "/elrepo",
+      "status": "S1627989216X1628010816",
+      "upstream": "rsync://rsync.elrepo.org/linux+archive/",
+      "size": "62.88G",
+      "desc": "RHEL 及其变体的 RPM 软件包仓库",
+      "help": "/help/elrepo/"
+    },
+    {
+      "cname": "jenkins",
+      "options_name": "jenkins",
+      "url": "/jenkins",
+      "status": "S1627992424X1627999624",
+      "upstream": "rsync://rsync.osuosl.org/jenkins/",
+      "size": "130.21G",
+      "desc": "用 Java 编写的持续集成框架"
+    },
+    {
+      "cname": "llvm-apt",
+      "options_name": "llvm-apt",
+      "url": "/llvm-apt",
+      "status": "S1627941021X1628027421",
+      "upstream": "http://apt.llvm.org",
+      "size": "5.62G",
+      "desc": "LLVM 编译器套件的 APT 安装源"
+    },
+    {
+      "cname": "redhat",
+      "options_name": "redhat",
+      "url": "/redhat",
+      "status": "S1627910849X1627997249",
+      "upstream": "rsync://ftp.redhat.com/redhat/",
+      "size": "2.56T",
+      "desc": "Red Hat Enterprise Linux 源码包（SRPM）仓库"
+    },
+    {
+      "cname": "zabbix",
+      "options_name": "zabbix",
+      "url": "/zabbix",
+      "status": "S1627975933X1627997533",
+      "upstream": "rsync://repo.zabbix.com/mirror/",
+      "size": "67.3G",
+      "desc": "著名的网络监视、管理系统"
+    },
+    {
+      "cname": "sagemath",
+      "options_name": "sagemath",
+      "url": "/sagemath",
+      "status": "S1627989839X1628011439",
+      "upstream": "rsync://files.sagemath.org/sage/",
+      "size": "433.20G",
+      "desc": "构建在 NumPy, SciPy 等工具之上的开源数学软件系统"
+    },
+    {
+      "cname": "ubuntu-releases",
+      "options_name": "ubuntu-releases",
+      "url": "/ubuntu-releases",
+      "status": "S1627974627X1627996227",
+      "upstream": "rsync://rsync.releases.ubuntu.com/releases/",
+      "size": "22.7G",
+      "desc": "包含近几年发行的 Ubuntu 的镜像"
+    },
+    {
+      "cname": "CTAN",
+      "options_name": "CTAN",
+      "url": "/CTAN",
+      "status": "S1627980483X1628002083",
+      "upstream": "rsync://rsync.dante.ctan.org/CTAN/",
+      "size": "48.0G",
+      "desc": "TeX 的各种发行版、软件包和文档",
+      "help": "/help/CTAN/"
+    },
+    {
+      "cname": "chef",
+      "options_name": "chef",
+      "url": "/chef",
+      "status": "S1627814088X1628073288",
+      "upstream": "https://packages.chef.io/repos",
+      "size": "597G",
+      "desc": "自动化服务器配置管理工具",
+      "help": "/help/chef/"
+    },
+    {
+      "cname": "lxc-images",
+      "options_name": "lxc-images",
+      "url": "/lxc-images",
+      "status": "S1627975490X1628018690",
+      "upstream": "https://us.images.linuxcontainers.org/",
+      "size": "416G",
+      "desc": "Linux 容器的镜像",
+      "help": "/help/lxc-images/"
+    },
+    {
+      "cname": "pkgsrc",
+      "options_name": "pkgsrc",
+      "url": "/pkgsrc",
+      "status": "Y1627992433O1627978032",
+      "upstream": "rsync://rsync3.jp.NetBSD.org/pub/pkgsrc/",
+      "size": "2.42T",
+      "desc": "NetBSD 的第三方软件源"
+    },
+    {
+      "cname": "linuxmint-cd",
+      "options_name": "linuxmint-cd",
+      "url": "/linuxmint-cd",
+      "status": "S1627976026X1627997626",
+      "upstream": "rsync://mirrors.kernel.org/linuxmint/",
+      "size": "333G",
+      "desc": "Linux Mint 的安装镜像"
+    },
+    {
+      "cname": "ros2",
+      "options_name": "ros2",
+      "url": "/ros2",
+      "status": "S1627934414X1628020814",
+      "upstream": "http://packages.ros.org/ros2",
+      "size": "33.1G",
+      "desc": "ROS (Robot Operating System) 2.0 版本",
+      "help": "/help/ros2/"
+    },
+    {
+      "cname": "eclipse",
+      "options_name": "eclipse",
+      "url": "/eclipse",
+      "status": "S1627973549X1627995149",
+      "upstream": "rsync://rsync.osuosl.org/eclipse/",
+      "size": "1.99T",
+      "desc": "著名的集成开发环境 Eclipse"
+    },
+    {
+      "cname": "elpa",
+      "options_name": "elpa",
+      "url": "/elpa",
+      "status": "S1627973293X1627994893",
+      "upstream": "rsync://elpa.emacs-china.org/elpa/",
+      "size": "2.04G",
+      "desc": "Emacs 内建包管理器 package.el 的软件源",
+      "help": "/help/elpa/"
+    },
+    {
+      "cname": "fzug",
+      "options_name": "fzug",
+      "url": "/fzug",
+      "status": "S1627974719X1627996319",
+      "upstream": "rsync://fzug-upload.tuna.tsinghua.edu.cn/fzug/",
+      "size": "2.02G",
+      "desc": "Fedora 中文用户组的软件包仓库"
+    },
+    {
+      "cname": "influxdata",
+      "options_name": "influxdata",
+      "url": "/influxdata",
+      "status": "S1627919448X1628005848",
+      "upstream": "https://repos.influxdata.com",
+      "size": "15.6G",
+      "desc": "时间序列数据平台",
+      "help": "/help/influxdata/"
+    },
+    {
+      "cname": "kernel",
+      "options_name": "kernel",
+      "url": "/kernel",
+      "status": "S1627989277X1628010877",
+      "upstream": "rsync://rsync.kernel.org/pub/linux/kernel/",
+      "size": "773.45G",
+      "desc": "各个版本的 Linux 内核源代码压缩包和补丁"
+    },
+    {
+      "cname": "macports",
+      "options_name": "macports",
+      "url": "/macports",
+      "status": "S1627991845X1628013445",
+      "upstream": "rsync://rsync-origin.macports.org/macports/",
+      "size": "1.74T",
+      "desc": "macOS 的一个开源软件包管理系统"
+    },
+    {
+      "cname": "mariadb",
+      "options_name": "mariadb",
+      "url": "/mariadb",
+      "status": "S1627981109X1628002709",
+      "upstream": "rsync://rsync.osuosl.org/mariadb/",
+      "size": "456G",
+      "desc": "衍生于 MySQL 的开源关系数据库",
+      "help": "/help/mariadb/"
+    },
+    {
+      "cname": "ros",
+      "options_name": "ros",
+      "url": "/ros",
+      "status": "S1627985286X1628006886",
+      "upstream": "rsync://mirror.umd.edu/packages.ros.org/ros/",
+      "size": "83.4G",
+      "desc": "ROS提供一系列程序库和工具以帮助软件开发者创建机器人应用软件",
+      "help": "/help/ros/"
+    },
+    {
+      "cname": "aosp-monthly",
+      "options_name": "aosp-monthly",
+      "url": "/aosp-monthly",
+      "status": "S1627974879X1627996479",
+      "upstream": "rsync://bravo.s.tuna.tsinghua.edu.cn/aosp-monthly/",
+      "size": "1.59T",
+      "desc": "AOSP （Android 系统源码）镜像每月打包"
+    },
+    {
+      "cname": "clojars",
+      "options_name": "clojars",
+      "url": "/clojars",
+      "status": "Y1627991414O1627969813",
+      "upstream": "s3://clojars-repo-production/",
+      "size": "97.0G",
+      "desc": "Clojure 语言的第三方软件包仓库"
+    },
+    {
+      "cname": "gentoo-portage.git",
+      "options_name": "gentoo-portage.git",
+      "url": "/help/gentoo-portage.git/",
+      "status": "S1627966398X1628009598",
+      "upstream": "git://github.com/gentoo-mirror/gentoo.git",
+      "size": "4.4G",
+      "desc": "Gentoo Linux 的 Portage 包管理器镜像源（Git 访问）",
+      "help": "/help/gentoo-portage.git/"
+    },
+    {
+      "cname": "nixos-images",
+      "options_name": "nixos-images",
+      "url": "/nixos-images",
+      "status": "S1627980631X1628002231",
+      "upstream": "https://nixos.org/channels",
+      "size": "15.1G",
+      "desc": "NixOS 的安装镜像和虚拟机镜像"
+    },
+    {
+      "cname": "saltstack",
+      "options_name": "saltstack",
+      "url": "/saltstack",
+      "status": "S1627919421X1628005821",
+      "upstream": "s3://repo-saltstack-com/",
+      "size": "65.2G",
+      "desc": "基于 python 的配置管理与运维自动化工具"
+    },
+    {
+      "cname": "tinycorelinux",
+      "options_name": "tinycorelinux",
+      "url": "/tinycorelinux",
+      "status": "S1627984345X1628005945",
+      "upstream": "rsync://www.tinycorelinux.net/tc/",
+      "size": "250G",
+      "desc": "为嵌入式开发的微型 Linux 发行版"
+    },
+    {
+      "cname": "KaOS",
+      "options_name": "KaOS",
+      "url": "/KaOS",
+      "status": "S1627980206X1628001806",
+      "upstream": "rsync://kaosx.tk/kaos/",
+      "size": "14.3G",
+      "desc": "一个基于 KDE 的独立发行版"
+    },
+    {
+      "cname": "centos",
+      "options_name": "centos",
+      "url": "/centos",
+      "status": "S1627985356X1628006956",
+      "upstream": "rsync://msync.centos.org/CentOS/",
+      "size": "314G",
+      "desc": "CentOS 的安装镜像和官方软件包仓库",
+      "help": "/help/centos/"
+    },
+    {
+      "cname": "manjaro-arm",
+      "options_name": "manjaro-arm",
+      "url": "/manjaro-arm",
+      "status": "S1627979260X1628000860",
+      "upstream": "rsync://ftp.osuosl.org/manjaro-arm/repo/",
+      "size": "21.1G",
+      "desc": "Manjaro ARM Linux 的官方软件源"
+    },
+    {
+      "cname": "nix-channels",
+      "options_name": "nix-channels",
+      "url": "/nix-channels",
+      "status": "S1627976969X1627994969",
+      "upstream": "https://nixos.org/channels",
+      "size": "2.40T",
+      "desc": "Nixpkgs 软件包发行版"
+    },
+    {
+      "cname": "CPAN",
+      "options_name": "CPAN",
+      "url": "/CPAN",
+      "status": "S1627983497X1628005097",
+      "upstream": "rsync://cpan-rsync.perl.org/CPAN/",
+      "size": "29.7G",
+      "desc": "Perl 语言软件库",
+      "help": "/help/CPAN/"
+    },
+    {
+      "cname": "ELK",
+      "options_name": "ELK",
+      "url": "/ELK",
+      "status": "S1627919771X1628006171",
+      "upstream": "https://packages.elastic.co",
+      "size": "4.59G",
+      "desc": "现已更名为 Elastic Stack，仅保留用作向后兼容"
+    },
+    {
+      "cname": "NetBSD",
+      "options_name": "NetBSD",
+      "url": "/NetBSD",
+      "status": "S1627972387X1627993987",
+      "upstream": "rsync://rsync.NetBSD.org/NetBSD/",
+      "size": "754G",
+      "desc": "NetBSD 的安装镜像和部分系统源码"
+    },
+    {
+      "cname": "homebrew-bottles",
+      "options_name": "homebrew-bottles",
+      "url": "/homebrew-bottles",
+      "status": "F1627444239",
+      "upstream": "https://homebrew.bintray.com",
+      "size": "422G",
+      "desc": "预编译的 Homebrew 软件包",
+      "help": "/help/homebrew-bottles/"
+    },
+    {
+      "cname": "termux",
+      "options_name": "termux",
+      "url": "/termux",
+      "status": "S1627930970X1628017370",
+      "upstream": "https://dl.bintray.com/termux/termux-packages-24/",
+      "size": "11.9G",
+      "desc": "运行在 Android 上的终端模拟器 Termux 的官方软件包仓库",
+      "help": "/help/termux/"
+    },
+    {
+      "cname": "erlang-solutions",
+      "options_name": "erlang-solutions",
+      "url": "/erlang-solutions",
+      "status": "S1627943102X1628029502",
+      "upstream": "https://packages.erlang-solutions.com",
+      "size": "95.9G",
+      "desc": "为各大 Linux 发行版提供的 Erlang 软件包"
+    },
+    {
+      "cname": "fdroid",
+      "options_name": "fdroid",
+      "url": "/fdroid",
+      "status": "S1627929400X1628015800",
+      "upstream": "rsync://ftp.lysator.liu.se/pub/fdroid/",
+      "size": "651G",
+      "desc": "F-Droid 是 Android 上的自由与开源软件应用商店",
+      "help": "/help/fdroid/"
+    },
+    {
+      "cname": "qt",
+      "options_name": "qt",
+      "url": "/qt",
+      "status": "S1627980006X1628001606",
+      "upstream": "rsync://master.qt-project.org/qt-all/",
+      "size": "1.57T",
+      "desc": "跨平台软件开发库 Qt 的源码、开发工具、文档等"
+    },
+    {
+      "cname": "tlpretest",
+      "options_name": "tlpretest",
+      "url": "/tlpretest",
+      "status": "S1627976196X1627997796",
+      "upstream": "rsync://tug.org/tlpretest/",
+      "size": "179K",
+      "desc": "TeX Live 测试版本的软件包仓库与安装镜像",
+      "help": "/help/tlpretest/"
+    },
+    {
+      "cname": "arch4edu",
+      "options_name": "arch4edu",
+      "url": "/arch4edu",
+      "status": "S1627974629X1627996229",
+      "upstream": "rsync://arch4edu-upload.tuna.tsinghua.edu.cn/arch4edu/",
+      "size": "30.6G",
+      "desc": "用于 Arch Linux 和 Arch Linux ARM 的非官方软件仓库，主要包含科研、教学所需的各种常用软件",
+      "help": "/help/arch4edu/"
+    },
+    {
+      "cname": "gitlab-runner",
+      "options_name": "gitlab-runner",
+      "url": "/gitlab-runner",
+      "status": "S1627942090X1628028490",
+      "upstream": "https://packages.gitlab.com/runner/gitlab-runner",
+      "size": "105G",
+      "desc": "GitLab 持续集成框架版本 10 及以上",
+      "help": "/help/gitlab-runner/"
+    },
+    {
+      "cname": "lyx",
+      "options_name": "lyx",
+      "url": "/lyx",
+      "status": "S1627991901X1628013501",
+      "upstream": "ftp://ftp.lyx.org/pub/lyx/",
+      "size": "26.3G",
+      "desc": "所见即所指的 LaTeX 编辑器"
+    },
+    {
+      "cname": "mongodb",
+      "options_name": "mongodb",
+      "url": "/mongodb",
+      "status": "S1627954863X1628041263",
+      "upstream": "https://repo.mongodb.org",
+      "size": "82.6G",
+      "desc": "开源的跨平台 NoSQL 文档型数据库",
+      "help": "/help/mongodb/"
+    },
+    {
+      "cname": "bioconductor",
+      "options_name": "bioconductor",
+      "url": "/bioconductor",
+      "status": "S1627975010X1627996610",
+      "upstream": "master.bioconductor.org:./",
+      "size": "1.74T",
+      "desc": "开源的基因数据分析处理工具",
+      "help": "/help/bioconductor/"
+    },
+    {
+      "cname": "blender",
+      "options_name": "blender",
+      "url": "/blender",
+      "status": "S1627909889X1627996289",
+      "upstream": "rsync://mirrors.dotsrc.org/blender/",
+      "size": "42.9G",
+      "desc": "专业的三维计算机图形软件"
+    },
+    {
+      "cname": "opensuse",
+      "options_name": "opensuse",
+      "url": "/opensuse",
+      "status": "Y1627991239O1627969638",
+      "upstream": "rsync://fr2.rpmfind.net/linux/opensuse/",
+      "size": "1.61T",
+      "desc": "openSUSE 的安装镜像和官方软件包仓库",
+      "help": "/help/opensuse/"
+    },
+    {
+      "cname": "ubuntu-cdimage",
+      "options_name": "ubuntu-cdimage",
+      "url": "/ubuntu-cdimage",
+      "status": "S1627991262X1628012862",
+      "upstream": "rsync://cdimage.ubuntu.com/cdimage/",
+      "size": "601.39G",
+      "desc": "Ubuntu 及 Ubuntu 衍生版各版本安装镜像"
+    },
+    {
+      "cname": "flightgear",
+      "options_name": "flightgear",
+      "url": "/flightgear",
+      "status": "S1627924307X1628032307",
+      "upstream": "rsync://mirrors.ibiblio.org/flightgear/",
+      "size": "299G",
+      "desc": "多平台的飞行模拟器"
+    },
+    {
+      "cname": "grafana",
+      "options_name": "grafana",
+      "url": "/grafana",
+      "status": "S1627919610X1628006010",
+      "upstream": "https://packages.grafana.com/oss",
+      "size": "38.5G",
+      "desc": "开源的数据可视化工具",
+      "help": "/help/grafana/"
+    },
+    {
+      "cname": "homebrew",
+      "options_name": "homebrew",
+      "url": "/help/homebrew/",
+      "status": "S1627965076X1628008276",
+      "upstream": "git://github.com/Homebrew",
+      "size": "1.9G",
+      "desc": "Homebrew/Linuxbrew 的 taps（软件包描述文件 Git 仓库）",
+      "help": "/help/homebrew/"
+    },
+    {
+      "cname": "openwrt",
+      "options_name": "openwrt",
+      "url": "/openwrt",
+      "status": "S1627988436X1628010036",
+      "upstream": "rsync://downloads.openwrt.org/downloads/",
+      "size": "886.08G",
+      "desc": "OpenWrt/LEDE 软件包镜像源",
+      "help": "/help/openwrt/"
+    },
+    {
+      "cname": "adobe-fonts",
+      "options_name": "adobe-fonts",
+      "url": "/adobe-fonts",
+      "status": "S1627918887X1628005287",
+      "upstream": "git://github.com/adobe-fonts",
+      "size": "45.5G",
+      "desc": "Adobe 公司的开源字体"
+    },
+    {
+      "cname": "apache",
+      "options_name": "apache",
+      "url": "/apache",
+      "status": "S1627985246X1628006846",
+      "upstream": "rsync://rsync.apache.org/apache-dist/",
+      "size": "138G",
+      "desc": "Apache 基金会赞助的各个项目"
+    },
+    {
+      "cname": "artixlinux",
+      "options_name": "artixlinux",
+      "url": "/artixlinux",
+      "status": "S1627980784X1628002384",
+      "upstream": "rsync://mirror1.artixlinux.org/artix-linux/",
+      "size": "11.5G",
+      "desc": "Artix Linux 的官方软件包仓库（基于 Arch Linux 的不使用 systemd 的发行版）"
+    },
+    {
+      "cname": "docker-ce",
+      "options_name": "docker-ce",
+      "url": "/docker-ce",
+      "status": "S1627932844X1628019244",
+      "upstream": "https://download.docker.com/",
+      "size": "524G",
+      "desc": "Docker Community Edition 的安装包",
+      "help": "/help/docker-ce/"
+    },
+    {
+      "cname": "ubuntu",
+      "options_name": "ubuntu",
+      "url": "/ubuntu",
+      "status": "S1627977269X1627998869",
+      "upstream": "rsync://archive.ubuntu.com/ubuntu/",
+      "size": "1.49T",
+      "desc": "流行的 Linux 发行版 Ubuntu 的安装镜像和官方软件包仓库",
+      "help": "/help/ubuntu/"
+    },
+    {
+      "cname": "virtualbox",
+      "options_name": "virtualbox",
+      "url": "/virtualbox",
+      "status": "S1627918114X1628004514",
+      "upstream": "http://download.virtualbox.org/virtualbox",
+      "size": "130G",
+      "desc": "Oracle 的开源的 x86 架构虚拟机",
+      "help": "/help/virtualbox/"
+    },
+    {
+      "cname": "gnu-alpha",
+      "options_name": "gnu-alpha",
+      "url": "/gnu-alpha",
+      "status": "S1627976871X1627998471",
+      "upstream": "rsync://ftp.gnu.org/alpha/",
+      "size": "47.1G",
+      "desc": "一些尚未达到生产质量的 GNU 项目的软件包"
+    },
+    {
+      "cname": "mageia",
+      "options_name": "mageia",
+      "url": "/mageia",
+      "status": "S1627975785X1627997385",
+      "upstream": "rsync://mirrors.kernel.org/mageia/",
+      "size": "550G",
+      "desc": "Mageia Linux（衍生于 Mandriva Linux）的安装镜像和官方软件包仓库"
+    },
+    {
+      "cname": "mxlinux",
+      "options_name": "mxlinux",
+      "url": "/mxlinux",
+      "status": "S1627984575X1628006175",
+      "upstream": "rsync://rsuser@iso.mxrepo.com/workspace/",
+      "size": "184G",
+      "desc": "基于 Debian 的中量级的 Linux 发行版"
+    },
+    {
+      "cname": "postgresql",
+      "options_name": "postgresql",
+      "url": "/postgresql",
+      "status": "S1627974019X1627995619",
+      "upstream": "rsync://ftp.postgresql.org/pgsql-ftp/",
+      "size": "253G",
+      "desc": "著名的开源关系型数据库 PostgreSQL 的镜像"
+    },
+    {
+      "cname": "gentoo",
+      "options_name": "gentoo",
+      "url": "/gentoo",
+      "status": "S1627973472X1627995072",
+      "upstream": "rsync://mirror.us.leaseweb.net/gentoo/",
+      "size": "408G",
+      "desc": "Gentoo Linux 的 Stage 3 镜像"
     },
     {
       "cname": "linux-next.git",
@@ -9704,10 +10571,404 @@
       "help": "/help/linux-next.git/"
     },
     {
+      "cname": "neurodebian",
+      "options_name": "neurodebian",
+      "url": "/neurodebian",
+      "status": "S1627978409X1628000009",
+      "upstream": "rsync://neuro.debian.net/neurodebian/",
+      "size": "72.8G",
+      "desc": "用于神经科学研究的 Debian 软件包源"
+    },
+    {
+      "cname": "osdn",
+      "options_name": "osdn",
+      "url": "/osdn",
+      "status": "F1627991475O1627985923X1627995075",
+      "upstream": "rsync://master.dl.osdn.jp/download/",
+      "size": "8.83T",
+      "desc": "OSDN 网站提供的开源软件下载"
+    },
+    {
+      "cname": "bjlx",
+      "options_name": "bjlx",
+      "url": "/bjlx",
+      "status": "S1627975040X1627996640",
+      "upstream": "rsync://rsync.anheng.com.cn/bjlx/",
+      "size": "3.67G",
+      "desc": "北京龙芯 & Debian 俱乐部 的公开软件源"
+    },
+    {
+      "cname": "blackarch",
+      "options_name": "blackarch",
+      "url": "/blackarch",
+      "status": "S1627984033X1628005633",
+      "upstream": "rsync://www.blackarch.org/blackarch/",
+      "size": "71.6G",
+      "desc": "用于安全评估的基于 Arch Linux 的轻量级发行版"
+    },
+    {
+      "cname": "deepin-cd",
+      "options_name": "deepin-cd",
+      "url": "/deepin-cd",
+      "status": "S1627975180X1627996780",
+      "upstream": "rsync://rsync.deepin.com/releases/",
+      "size": "16.6G",
+      "desc": "Deepin Linux 的安装镜像"
+    },
+    {
+      "cname": "epel",
+      "options_name": "epel",
+      "url": "/epel",
+      "status": "S1627972110X1627993710",
+      "upstream": "rsync://download-ib01.fedoraproject.org/fedora-epel/",
+      "size": "272G",
+      "desc": "企业版 Linux 附加软件包",
+      "help": "/help/epel/"
+    },
+    {
+      "cname": "osmc",
+      "options_name": "osmc",
+      "url": "/osmc",
+      "status": "S1627984019X1628005619",
+      "upstream": "rsync://rsync.samnazarko.co.uk/cdn/",
+      "size": "84.1G",
+      "desc": "免费、开源的媒体中心解决方案"
+    },
+    {
+      "cname": "raspbian",
+      "options_name": "raspbian",
+      "url": "/raspbian",
+      "status": "S1627989136X1628010736",
+      "upstream": "rsync://archive.raspbian.org/archive/",
+      "size": "514.70G",
+      "desc": "为树莓派编译的 Debian 系统软件源",
+      "help": "/help/raspbian/"
+    },
+    {
+      "cname": "videolan-ftp",
+      "options_name": "videolan-ftp",
+      "url": "/videolan-ftp",
+      "status": "S1627911187X1627997587",
+      "upstream": "rsync://rsync.videolan.org/videolan-ftp/",
+      "size": "86.6G",
+      "desc": "简称VLC，是一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件"
+    },
+    {
+      "cname": "gitlab-ee",
+      "options_name": "gitlab-ee",
+      "url": "/gitlab-ee",
+      "status": "S1627954542X1628040942",
+      "upstream": "https://packages.gitlab.com/gitlab/gitlab-ee/",
+      "size": "2.37T",
+      "desc": "Gitlab 企业版"
+    },
+    {
+      "cname": "hugging-face-models",
+      "options_name": "hugging-face-models",
+      "url": "/hugging-face-models",
+      "status": "S1627981542X1627995941N",
+      "upstream": "s3://models.huggingface.co/bert",
+      "size": "unknown",
+      "desc": "Hugging Face Transformers 提供的预训练模型",
+      "help": "/help/hugging-face-models/"
+    },
+    {
+      "cname": "linux-stable.git",
+      "options_name": "linux-stable.git",
+      "url": "/help/linux-stable.git/",
+      "status": "S1627960476X1628003676",
+      "upstream": "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git",
+      "size": "2.3G",
+      "desc": "Linux 内核源代码的 Git 仓库, 稳定版分支",
+      "help": "/help/linux-stable.git/"
+    },
+    {
+      "cname": "nodejs-release",
+      "options_name": "nodejs-release",
+      "url": "/nodejs-release",
+      "status": "S1627990945X1628012545",
+      "upstream": "rsync://unencrypted.nodejs.org/nodejs/release/",
+      "size": "244.95G",
+      "desc": "预编译的 Node.js 二进制程序",
+      "help": "/help/nodejs-release/"
+    },
+    {
+      "cname": "AOSP",
+      "options_name": "AOSP",
+      "url": "/help/AOSP/",
+      "status": "S1627954669X1627997869",
+      "upstream": "https://android.googlesource.com/mirror/manifest",
+      "size": "645G",
+      "desc": "Android 操作系统源代码",
+      "help": "/help/AOSP/"
+    },
+    {
+      "cname": "centos-altarch",
+      "options_name": "centos-altarch",
+      "url": "/centos-altarch",
+      "status": "S1627978488X1628000088",
+      "upstream": "rsync://msync.centos.org/altarch/",
+      "size": "167G",
+      "desc": "CentOS 额外平台的安装镜像和官方软件包仓库",
+      "help": "/help/centos-altarch/"
+    },
+    {
+      "cname": "clickhouse",
+      "options_name": "clickhouse",
+      "url": "/clickhouse",
+      "status": "S1627927887X1628100687",
+      "upstream": "rsync://repo.yandex.ru/yandexrepo/clickhouse/",
+      "size": "1.17T",
+      "desc": "用于联机分析（OLAP）的列式数据库管理系统",
+      "help": "/help/clickhouse/"
+    },
+    {
+      "cname": "debian",
+      "options_name": "debian",
+      "url": "/debian",
+      "status": "S1627979523X1628022723",
+      "upstream": "rsync://syncproxy2.wna.debian.org/debian/",
+      "size": "1.47T",
+      "desc": "Debian Linux 的官方软件包仓库",
+      "help": "/help/debian/"
+    },
+    {
+      "cname": "steamos",
+      "options_name": "steamos",
+      "url": "/steamos",
+      "status": "S1627975263X1628061663",
+      "upstream": "http://repo.steampowered.com",
+      "size": "338G",
+      "desc": "Valve 开发的基于 Debian 的操作系统，包含安装镜像和官方软件包仓库"
+    },
+    {
+      "cname": "voidlinux",
+      "options_name": "voidlinux",
+      "url": "/voidlinux",
+      "status": "S1627936360X1628022760",
+      "upstream": "rsync://mirror.clarkson.edu/voidlinux/",
+      "size": "462G",
+      "desc": "基于 xbps 包管理器的独立 Linux 发行版",
+      "help": "/help/voidlinux/"
+    },
+    {
+      "cname": "armbian",
+      "options_name": "armbian",
+      "url": "/armbian",
+      "status": "S1627992473X1628014073",
+      "upstream": "rsync://rsync.armbian.com/apt/",
+      "size": "65.24G",
+      "desc": "Armbian（面向 ARM 单板机的发行版）的软件源"
+    },
+    {
+      "cname": "cc",
+      "options_name": "cc",
+      "url": "/cc",
+      "status": "Y1627971889O1627950289",
+      "upstream": "rsync://linuxsoft.cern.ch/cc/",
+      "size": "1.19T",
+      "desc": "CERN CentOS"
+    },
+    {
+      "cname": "fedora",
+      "options_name": "fedora",
+      "url": "/fedora",
+      "status": "S1627986647X1628008247",
+      "upstream": "rsync://download-ib01.fedoraproject.org/fedora-enchilada/linux/",
+      "size": "1.32T",
+      "desc": "Fedora Linux 的安装镜像和官方软件包仓库",
+      "help": "/help/fedora/"
+    },
+    {
+      "cname": "openthos-src",
+      "options_name": "openthos-src",
+      "url": "/help/openthos-src/",
+      "status": "S1627960791X1628003991",
+      "upstream": "166.111.131.12:rsync/OPENTHOS/manifest",
+      "size": "28G",
+      "desc": "OpenTHOS 源代码仓库",
+      "help": "/help/openthos-src/"
+    },
+    {
+      "cname": "chakra-releases",
+      "options_name": "chakra-releases",
+      "url": "/chakra-releases",
+      "status": "S1627975385X1627996985",
+      "upstream": "rsync://rsync.chakralinux.org/releases/",
+      "size": "64.2G",
+      "desc": "Chakra 发行版的安装镜像"
+    },
+    {
+      "cname": "gentoo-portage-prefix",
+      "options_name": "gentoo-portage-prefix",
+      "url": "/gentoo-portage-prefix",
+      "status": "S1627979292X1628000892",
+      "upstream": "rsync://rsync.prefix.bitzolder.nl/gentoo-portage-prefix/",
+      "size": "1.17G",
+      "desc": "Gentoo/Prefix 的 Portage 包管理器镜像源（仅适用于 macOS）",
+      "help": "/help/gentoo-prefix/"
+    },
+    {
+      "cname": "kali",
+      "options_name": "kali",
+      "url": "/kali",
+      "status": "S1627977214X1627998814",
+      "upstream": "rsync://ftp.nluug.nl/kali/",
+      "size": "1024G",
+      "desc": "Kali Linux 的官方软件包仓库"
+    },
+    {
+      "cname": "solus",
+      "options_name": "solus",
+      "url": "/solus",
+      "status": "S1627979749X1628001349",
+      "upstream": "rsync://mirrors.rit.edu/solus/",
+      "size": "1.62T",
+      "desc": "Solus 的软件仓库，致力于制作对新手友好的发行版",
+      "help": "/help/solus/"
+    },
+    {
+      "cname": "lineage-rom",
+      "options_name": "lineage-rom",
+      "url": "/lineage-rom",
+      "status": "S1627986404X1628008004",
+      "upstream": "rsync://10.1.0.10:11874/mirror/",
+      "size": "423G",
+      "desc": "最大的社区Android发行版之一Lineage的ROM",
+      "help": "/help/lineage-rom/"
+    },
+    {
+      "cname": "llvm-project.git",
+      "options_name": "llvm-project.git",
+      "url": "/help/llvm-project.git/",
+      "status": "S1627961342X1628004542",
+      "upstream": "git://github.com/llvm/llvm-project.git",
+      "size": "1.6G",
+      "desc": "LLVM 编译器套件的新源码仓库（monorepo）",
+      "help": "/help/llvm-project.git/"
+    },
+    {
+      "cname": "artixlinux-iso",
+      "options_name": "artixlinux-iso",
+      "url": "/artixlinux-iso",
+      "status": "F1627987522O1627544830X1628009122",
+      "upstream": "rsync://download.artixlinux.org/iso/",
+      "size": "43.2G",
+      "desc": "Artix Linux 的安装镜像"
+    },
+    {
+      "cname": "elvish",
+      "options_name": "elvish",
+      "url": "/elvish",
+      "status": "S1627978525X1628000125",
+      "upstream": "rsync://rsync.elv.sh/elvish/",
+      "size": "3.08G",
+      "desc": "TUNA 前会长 xiaq 开发的革命性 Shell"
+    },
+    {
+      "cname": "ius",
+      "options_name": "ius",
+      "url": "/ius",
+      "status": "S1627975179X1627996779",
+      "upstream": "rsync://origin.repo.ius.io/ius/",
+      "size": "33.2G",
+      "desc": "为企业版 Linux 提供最新软件包的镜像源"
+    },
+    {
+      "cname": "kali-images",
+      "options_name": "kali-images",
+      "url": "/kali-images",
+      "status": "S1627971989X1627993589",
+      "upstream": "rsync://ftp.nluug.nl/kali-images/",
+      "size": "109G",
+      "desc": "Kali Linux 的安装镜像"
+    },
+    {
+      "cname": "nixpkgs.git",
+      "options_name": "nixpkgs.git",
+      "url": "/nixpkgs.git",
+      "status": "S1627963633X1628006833",
+      "upstream": "git://github.com/NixOS/nixpkgs.git",
+      "size": "2.2G"
+    },
+    {
+      "cname": "packman",
+      "options_name": "packman",
+      "url": "/packman",
+      "status": "S1627988380X1628009980",
+      "upstream": "rsync://mirror.karneval.cz/packman/",
+      "size": "154.94G",
+      "desc": "为 Debian、Fedora、openSUSE、Ubuntu 提供额外和过期软件包的仓库"
+    },
+    {
+      "cname": "parrot",
+      "options_name": "parrot",
+      "url": "/parrot",
+      "status": "S1627988710X1628010310",
+      "upstream": "rsync://archive.parrotsec.org/parrot/",
+      "size": "345.48G",
+      "desc": "Parrot Linux（专注于安全审计的 Linux 发行版）的安装映像和官方软件源"
+    },
+    {
+      "cname": "raspberry-pi-os-images",
+      "options_name": "raspberry-pi-os-images",
+      "url": "/raspberry-pi-os-images",
+      "status": "S1627740078X1628085678",
+      "upstream": "https://downloads.raspberrypi.org/",
+      "size": "365G",
+      "desc": "Raspberry Pi OS （原 Raspbian）的安装镜像"
+    },
+    {
+      "cname": "ctex",
+      "options_name": "ctex",
+      "url": "/ctex",
+      "status": "S1627974609X1627996209",
+      "upstream": "rsync://ctex-upload.tuna.tsinghua.edu.cn/ctex/",
+      "size": "4.05G",
+      "desc": "旧版 CTEX 安装镜像存档"
+    },
+    {
+      "cname": "endeavouros",
+      "options_name": "endeavouros",
+      "url": "/endeavouros",
+      "status": "S1627975378X1627996978N",
+      "upstream": "rsync://mirror.alpix.eu/endeavouros/",
+      "size": "19.7G"
+    },
+    {
+      "cname": "manjaro",
+      "options_name": "manjaro",
+      "url": "/manjaro",
+      "status": "S1627990904X1628012504",
+      "upstream": "rsync://mirror.yandex.ru/mirrors/manjaro/",
+      "size": "110.65G",
+      "desc": "Manjaro Linux 的官方软件源"
+    },
+    {
+      "cname": "msys2",
+      "options_name": "msys2",
+      "url": "/msys2",
+      "status": "S1627981034X1628002634",
+      "upstream": "http://repo.msys2.org/",
+      "size": "382G",
+      "desc": "用于编译原生 Windows 程序的类 Linux 开发环境",
+      "help": "/help/msys2/"
+    },
+    {
+      "cname": "qemu.git",
+      "options_name": "qemu.git",
+      "url": "/help/qemu.git/",
+      "status": "S1627958280X1628001480",
+      "upstream": "git://git.qemu.org/qemu.git",
+      "size": "229M",
+      "desc": "处理器模拟器 QEMU 的源码 Git 仓库",
+      "help": "/help/qemu.git/"
+    },
+    {
       "cname": "rubygems",
       "options_name": "rubygems",
       "url": "/rubygems",
-      "status": "S1627982849X1627986449",
+      "status": "S1627990179X1627993779",
       "upstream": "https://rubygems.org",
       "size": "536G",
       "desc": "Ruby 的一个包管理器",
@@ -9724,823 +10985,6 @@
       "help": "/help/rudder/"
     },
     {
-      "cname": "gentoo-portage.git",
-      "options_name": "gentoo-portage.git",
-      "url": "/help/gentoo-portage.git/",
-      "status": "S1627966398X1628009598",
-      "upstream": "git://github.com/gentoo-mirror/gentoo.git",
-      "size": "4.4G",
-      "desc": "Gentoo Linux 的 Portage 包管理器镜像源（Git 访问）",
-      "help": "/help/gentoo-portage.git/"
-    },
-    {
-      "cname": "osmc",
-      "options_name": "osmc",
-      "url": "/osmc",
-      "status": "S1627984019X1628005619",
-      "upstream": "rsync://rsync.samnazarko.co.uk/cdn/",
-      "size": "89.39G",
-      "desc": "免费、开源的媒体中心解决方案"
-    },
-    {
-      "cname": "ros2",
-      "options_name": "ros2",
-      "url": "/ros2",
-      "status": "S1627934414X1628020814",
-      "upstream": "http://packages.ros.org/ros2",
-      "size": "33.1G",
-      "desc": "ROS (Robot Operating System) 2.0 版本",
-      "help": "/help/ros2/"
-    },
-    {
-      "cname": "videolan-ftp",
-      "options_name": "videolan-ftp",
-      "url": "/videolan-ftp",
-      "status": "S1627911187X1627997587",
-      "upstream": "rsync://rsync.videolan.org/videolan-ftp/",
-      "size": "86.6G",
-      "desc": "简称VLC，是一款自由、开源的跨平台多媒体播放器及框架，可播放大多数多媒体文件"
-    },
-    {
-      "cname": "archlinux",
-      "options_name": "archlinux",
-      "url": "/archlinux",
-      "status": "S1627983681X1627987281",
-      "upstream": "rsync://rsync.archlinux.org/ftp_tier1/",
-      "size": "73.99G",
-      "desc": "Arch Linux 的安装镜像和官方软件包仓库",
-      "help": "/help/archlinux/"
-    },
-    {
-      "cname": "clojars",
-      "options_name": "clojars",
-      "url": "/clojars",
-      "status": "S1627969813X1627991413",
-      "upstream": "s3://clojars-repo-production/",
-      "size": "97.0G",
-      "desc": "Clojure 语言的第三方软件包仓库"
-    },
-    {
-      "cname": "elpa",
-      "options_name": "elpa",
-      "url": "/elpa",
-      "status": "S1627973293X1627994893",
-      "upstream": "rsync://elpa.emacs-china.org/elpa/",
-      "size": "1.75G",
-      "desc": "Emacs 内建包管理器 package.el 的软件源",
-      "help": "/help/elpa/"
-    },
-    {
-      "cname": "fedora",
-      "options_name": "fedora",
-      "url": "/fedora",
-      "status": "S1627964989X1627986589",
-      "upstream": "rsync://download-ib01.fedoraproject.org/fedora-enchilada/linux/",
-      "size": "1.32T",
-      "desc": "Fedora Linux 的安装镜像和官方软件包仓库",
-      "help": "/help/fedora/"
-    },
-    {
-      "cname": "influxdata",
-      "options_name": "influxdata",
-      "url": "/influxdata",
-      "status": "S1627919448X1628005848",
-      "upstream": "https://repos.influxdata.com",
-      "size": "15.6G",
-      "desc": "时间序列数据平台",
-      "help": "/help/influxdata/"
-    },
-    {
-      "cname": "nixpkgs.git",
-      "options_name": "nixpkgs.git",
-      "url": "/nixpkgs.git",
-      "status": "S1627963633X1628006833",
-      "upstream": "git://github.com/NixOS/nixpkgs.git",
-      "size": "2.2G"
-    },
-    {
-      "cname": "ubuntu-ports",
-      "options_name": "ubuntu-ports",
-      "url": "/ubuntu-ports",
-      "status": "S1627975507X1627997107",
-      "upstream": "rsync://ports.ubuntu.com/ubuntu-ports/",
-      "size": "2.08T",
-      "desc": "armhf, arm64 以及 powerpc 等平台的 Ubuntu 软件仓库",
-      "help": "/help/ubuntu-ports/"
-    },
-    {
-      "cname": "CPAN",
-      "options_name": "CPAN",
-      "url": "/CPAN",
-      "status": "S1627983497X1628005097",
-      "upstream": "rsync://cpan-rsync.perl.org/CPAN/",
-      "size": "27.99G",
-      "desc": "Perl 语言软件库",
-      "help": "/help/CPAN/"
-    },
-    {
-      "cname": "artixlinux",
-      "options_name": "artixlinux",
-      "url": "/artixlinux",
-      "status": "S1627980784X1628002384",
-      "upstream": "rsync://mirror1.artixlinux.org/artix-linux/",
-      "size": "12.04G",
-      "desc": "Artix Linux 的官方软件包仓库（基于 Arch Linux 的不使用 systemd 的发行版）"
-    },
-    {
-      "cname": "bioconductor",
-      "options_name": "bioconductor",
-      "url": "/bioconductor",
-      "status": "S1627975010X1627996610",
-      "upstream": "master.bioconductor.org:./",
-      "size": "1.90T",
-      "desc": "开源的基因数据分析处理工具",
-      "help": "/help/bioconductor/"
-    },
-    {
-      "cname": "deepin-cd",
-      "options_name": "deepin-cd",
-      "url": "/deepin-cd",
-      "status": "S1627975180X1627996780",
-      "upstream": "rsync://rsync.deepin.com/releases/",
-      "size": "17.89G",
-      "desc": "Deepin Linux 的安装镜像"
-    },
-    {
-      "cname": "kali",
-      "options_name": "kali",
-      "url": "/kali",
-      "status": "S1627977214X1627998814",
-      "upstream": "rsync://ftp.nluug.nl/kali/",
-      "size": "1.08T",
-      "desc": "Kali Linux 的官方软件包仓库"
-    },
-    {
-      "cname": "msys2",
-      "options_name": "msys2",
-      "url": "/msys2",
-      "status": "S1627981034X1628002634",
-      "upstream": "http://repo.msys2.org/",
-      "size": "382G",
-      "desc": "用于编译原生 Windows 程序的类 Linux 开发环境",
-      "help": "/help/msys2/"
-    },
-    {
-      "cname": "epel",
-      "options_name": "epel",
-      "url": "/epel",
-      "status": "S1627972110X1627993710",
-      "upstream": "rsync://download-ib01.fedoraproject.org/fedora-epel/",
-      "size": "272G",
-      "desc": "企业版 Linux 附加软件包",
-      "help": "/help/epel/"
-    },
-    {
-      "cname": "github-release",
-      "options_name": "github-release",
-      "url": "/github-release",
-      "status": "S1627956491X1627999691",
-      "upstream": "https://api.github.com/repos/",
-      "size": "44.9G",
-      "desc": "一些项目的 Github Release 镜像"
-    },
-    {
-      "cname": "postmarketOS-images",
-      "options_name": "postmarketOS-images",
-      "url": "/postmarketOS-images",
-      "status": "S1627979291X1628000891N",
-      "upstream": "rsync://mirror.postmarketos.org/images/",
-      "size": "305.25G"
-    },
-    {
-      "cname": "kicad",
-      "options_name": "kicad",
-      "url": "/kicad",
-      "status": "S1627974710X1627996310",
-      "upstream": "s3://kicad-downloads/",
-      "size": "413G",
-      "desc": "开源的电路原理图与 PCB 设计工具",
-      "help": "/help/kicad/"
-    },
-    {
-      "cname": "kodi",
-      "options_name": "kodi",
-      "url": "/kodi",
-      "status": "S1627971258X1627992858",
-      "upstream": "rsync://mirror.yandex.ru/mirrors/xbmc/",
-      "size": "130G",
-      "desc": "开源的多媒体播放器，原名 XBMC"
-    },
-    {
-      "cname": "CRAN",
-      "options_name": "CRAN",
-      "url": "/CRAN",
-      "status": "S1627986006X1628007606",
-      "upstream": "cran-rsync@cran.r-project.org:./",
-      "size": "338.74G",
-      "desc": "R 语言的可执行文件、源代码和说明文件，也收录了各种用户撰写的软件包",
-      "help": "/help/CRAN/"
-    },
-    {
-      "cname": "ELK",
-      "options_name": "ELK",
-      "url": "/ELK",
-      "status": "S1627919771X1628006171",
-      "upstream": "https://packages.elastic.co",
-      "size": "4.59G",
-      "desc": "现已更名为 Elastic Stack，仅保留用作向后兼容"
-    },
-    {
-      "cname": "archlinuxcn",
-      "options_name": "archlinuxcn",
-      "url": "/archlinuxcn",
-      "status": "S1627981801X1628003401",
-      "upstream": "rsync://repo@sync.repo.archlinuxcn.org/repo/",
-      "size": "75.83G",
-      "desc": "由 Arch Linux 中文社区驱动的非官方用户仓库，包含中文用户常用软件、工具、字体/美化包等",
-      "help": "/help/archlinuxcn/"
-    },
-    {
-      "cname": "blackarch",
-      "options_name": "blackarch",
-      "url": "/blackarch",
-      "status": "S1627984033X1628005633",
-      "upstream": "rsync://www.blackarch.org/blackarch/",
-      "size": "76.57G",
-      "desc": "用于安全评估的基于 Arch Linux 的轻量级发行版"
-    },
-    {
-      "cname": "homebrew",
-      "options_name": "homebrew",
-      "url": "/help/homebrew/",
-      "status": "S1627965076X1628008276",
-      "upstream": "git://github.com/Homebrew",
-      "size": "1.9G",
-      "desc": "Homebrew/Linuxbrew 的 taps（软件包描述文件 Git 仓库）",
-      "help": "/help/homebrew/"
-    },
-    {
-      "cname": "kali-images",
-      "options_name": "kali-images",
-      "url": "/kali-images",
-      "status": "S1627971989X1627993589",
-      "upstream": "rsync://ftp.nluug.nl/kali-images/",
-      "size": "109G",
-      "desc": "Kali Linux 的安装镜像"
-    },
-    {
-      "cname": "nix-channels",
-      "options_name": "nix-channels",
-      "url": "/nix-channels",
-      "status": "S1627976969X1627994969",
-      "upstream": "https://nixos.org/channels",
-      "size": "2.41T",
-      "desc": "Nixpkgs 软件包发行版"
-    },
-    {
-      "cname": "slackwarearm",
-      "options_name": "slackwarearm",
-      "url": "/slackwarearm",
-      "status": "S1627976882X1627998482",
-      "upstream": "rsync://ftp.arm.slackware.com/slackwarearm/",
-      "size": "28.69G",
-      "desc": "用于 ARM 设备的 Slackware 发行版源代码和官方软件包仓库"
-    },
-    {
-      "cname": "hackage",
-      "options_name": "hackage",
-      "url": "/hackage",
-      "status": "S1627970074X1627991674",
-      "upstream": "https://hackage.haskell.org/",
-      "size": "14.4G",
-      "desc": "Haskell 社区的中心软件包仓库",
-      "help": "/help/hackage/"
-    },
-    {
-      "cname": "kernel",
-      "options_name": "kernel",
-      "url": "/kernel",
-      "status": "S1627967664X1627989264",
-      "upstream": "rsync://rsync.kernel.org/pub/linux/kernel/",
-      "size": "723G",
-      "desc": "各个版本的 Linux 内核源代码压缩包和补丁"
-    },
-    {
-      "cname": "OpenMediaVault",
-      "options_name": "OpenMediaVault",
-      "url": "/OpenMediaVault",
-      "status": "S1627926999X1628013399",
-      "upstream": "https://packages.openmediavault.org/public",
-      "size": "149M",
-      "desc": "基于 Debian Linux 的网络附加存储(NAS)解决方案",
-      "help": "/help/openmediavault/"
-    },
-    {
-      "cname": "archlinuxarm",
-      "options_name": "archlinuxarm",
-      "url": "/archlinuxarm",
-      "status": "S1627977652X1627999252",
-      "upstream": "rsync://ftp.halifax.rwth-aachen.de/archlinux-arm/",
-      "size": "115.46G",
-      "desc": "用于 ARM 平台的 Arch Linux 镜像和软件包仓库",
-      "help": "/help/archlinuxarm/"
-    },
-    {
-      "cname": "centos-altarch",
-      "options_name": "centos-altarch",
-      "url": "/centos-altarch",
-      "status": "S1627978488X1628000088",
-      "upstream": "rsync://msync.centos.org/altarch/",
-      "size": "223.97G",
-      "desc": "CentOS 额外平台的安装镜像和官方软件包仓库",
-      "help": "/help/centos-altarch/"
-    },
-    {
-      "cname": "centos",
-      "options_name": "centos",
-      "url": "/centos",
-      "status": "S1627985356X1628006956",
-      "upstream": "rsync://msync.centos.org/CentOS/",
-      "size": "511.23G",
-      "desc": "CentOS 的安装镜像和官方软件包仓库",
-      "help": "/help/centos/"
-    },
-    {
-      "cname": "fedora-altarch",
-      "options_name": "fedora-altarch",
-      "url": "/fedora-altarch",
-      "status": "F1627968518O1627946671X1627990118",
-      "upstream": "rsync://download-ib01.fedoraproject.org/fedora-secondary/",
-      "size": "20.7G",
-      "desc": "Fedora Linux 额外平台的安装镜像和官方软件包仓库"
-    },
-    {
-      "cname": "gentoo-portage",
-      "options_name": "gentoo-portage",
-      "url": "/gentoo-portage",
-      "status": "S1627978596X1628000196",
-      "upstream": "rsync://rsync.jp.gentoo.org/gentoo-portage/",
-      "size": "222.47M",
-      "desc": "Gentoo Linux 的 Portage 包管理器镜像源（HTTP / rsync 访问）",
-      "help": "/help/gentoo-portage/"
-    },
-    {
-      "cname": "nix",
-      "options_name": "nix",
-      "url": "/nix",
-      "status": "S1627916421X1628002821",
-      "upstream": "s3://nix-releases/nix/",
-      "size": "2.54G",
-      "desc": "Nix 软件包管理器",
-      "help": "/help/nix/"
-    },
-    {
-      "cname": "termux",
-      "options_name": "termux",
-      "url": "/termux",
-      "status": "S1627930970X1628017370",
-      "upstream": "https://dl.bintray.com/termux/termux-packages-24/",
-      "size": "11.9G",
-      "desc": "运行在 Android 上的终端模拟器 Termux 的官方软件包仓库",
-      "help": "/help/termux/"
-    },
-    {
-      "cname": "zabbix",
-      "options_name": "zabbix",
-      "url": "/zabbix",
-      "status": "S1627975933X1627997533",
-      "upstream": "rsync://repo.zabbix.com/mirror/",
-      "size": "69.02G",
-      "desc": "著名的网络监视、管理系统"
-    },
-    {
-      "cname": "armbian-releases",
-      "options_name": "armbian-releases",
-      "url": "/armbian-releases",
-      "status": "S1627975992X1627997592",
-      "upstream": "rsync://rsync.armbian.com/dl/",
-      "size": "282.31G",
-      "desc": "Armbian 的安装镜像"
-    },
-    {
-      "cname": "gitlab-ee",
-      "options_name": "gitlab-ee",
-      "url": "/gitlab-ee",
-      "status": "S1627954542X1628040942",
-      "upstream": "https://packages.gitlab.com/gitlab/gitlab-ee/",
-      "size": "2.37T",
-      "desc": "Gitlab 企业版"
-    },
-    {
-      "cname": "gnu",
-      "options_name": "gnu",
-      "url": "/gnu",
-      "status": "S1627969755X1627991355",
-      "upstream": "rsync://mirrors.ocf.berkeley.edu/gnu/",
-      "size": "158G",
-      "desc": "GNU 项目的软件包（源代码、文档和部分平台的二进制文件）"
-    },
-    {
-      "cname": "linuxbrew-bottles",
-      "options_name": "linuxbrew-bottles",
-      "url": "/linuxbrew-bottles",
-      "status": "Y1627922514",
-      "upstream": "https://linuxbrew.bintray.com",
-      "size": "68.3G",
-      "desc": "预编译的 Linuxbrew 软件包",
-      "help": "/help/linuxbrew-bottles/"
-    },
-    {
-      "cname": "macports",
-      "options_name": "macports",
-      "url": "/macports",
-      "status": "S1627969995X1627991595",
-      "upstream": "rsync://rsync-origin.macports.org/macports/",
-      "size": "1.60T",
-      "desc": "macOS 的一个开源软件包管理系统"
-    },
-    {
-      "cname": "mxlinux",
-      "options_name": "mxlinux",
-      "url": "/mxlinux",
-      "status": "S1627984575X1628006175",
-      "upstream": "rsync://rsuser@iso.mxrepo.com/workspace/",
-      "size": "196.62G",
-      "desc": "基于 Debian 的中量级的 Linux 发行版"
-    },
-    {
-      "cname": "postmarketOS",
-      "options_name": "postmarketOS",
-      "url": "/postmarketOS",
-      "status": "S1627968622X1627990222N",
-      "upstream": "rsync://mirror.postmarketos.org/postmarketos/",
-      "size": "15.0G"
-    },
-    {
-      "cname": "solus",
-      "options_name": "solus",
-      "url": "/solus",
-      "status": "S1627979749X1628001349",
-      "upstream": "rsync://mirrors.rit.edu/solus/",
-      "size": "1.86T",
-      "desc": "Solus 的软件仓库，致力于制作对新手友好的发行版",
-      "help": "/help/solus/"
-    },
-    {
-      "cname": "armbian",
-      "options_name": "armbian",
-      "url": "/armbian",
-      "status": "S1627970853X1627992453",
-      "upstream": "rsync://rsync.armbian.com/apt/",
-      "size": "59.8G",
-      "desc": "Armbian（面向 ARM 单板机的发行版）的软件源"
-    },
-    {
-      "cname": "dart-pub",
-      "options_name": "dart-pub",
-      "url": "/dart-pub",
-      "status": "S1627985619X1627987419",
-      "upstream": "https://pub.dev/api",
-      "size": "298G",
-      "desc": "Dart 语言的软件包仓库",
-      "help": "/help/dart-pub/"
-    },
-    {
-      "cname": "dotdeb",
-      "options_name": "dotdeb",
-      "url": "/dotdeb",
-      "status": "S1627975715X1627997315",
-      "upstream": "rsync://mirror.us.leaseweb.net/dotdeb/",
-      "size": "25.22G",
-      "desc": "用于 Debian 服务器的额外镜像源"
-    },
-    {
-      "cname": "flutter-sdk.git",
-      "options_name": "flutter-sdk.git",
-      "url": "/help/flutter-sdk.git/",
-      "status": "S1627959939X1628003138",
-      "upstream": "git://github.com/flutter/flutter.git",
-      "size": "464M",
-      "desc": "Flutter 框架源码镜像",
-      "help": "/help/flutter-sdk.git/"
-    },
-    {
-      "cname": "gitlab-runner",
-      "options_name": "gitlab-runner",
-      "url": "/gitlab-runner",
-      "status": "S1627942090X1628028490",
-      "upstream": "https://packages.gitlab.com/runner/gitlab-runner",
-      "size": "105G",
-      "desc": "GitLab 持续集成框架版本 10 及以上",
-      "help": "/help/gitlab-runner/"
-    },
-    {
-      "cname": "lineageOS",
-      "options_name": "lineageOS",
-      "url": "/help/lineageOS/",
-      "status": "S1627982938X1628026138",
-      "upstream": "https://github.com/LineageOS/mirror",
-      "size": "283G",
-      "desc": "最大的社区Android发行版之一Lineage的源代码",
-      "help": "/help/lineageOS/"
-    },
-    {
-      "cname": "tlpretest",
-      "options_name": "tlpretest",
-      "url": "/tlpretest",
-      "status": "S1627976196X1627997796",
-      "upstream": "rsync://tug.org/tlpretest/",
-      "size": "1.49K",
-      "desc": "TeX Live 测试版本的软件包仓库与安装镜像",
-      "help": "/help/tlpretest/"
-    },
-    {
-      "cname": "ubuntu",
-      "options_name": "ubuntu",
-      "url": "/ubuntu",
-      "status": "S1627977269X1627998869",
-      "upstream": "rsync://archive.ubuntu.com/ubuntu/",
-      "size": "1.61T",
-      "desc": "流行的 Linux 发行版 Ubuntu 的安装镜像和官方软件包仓库",
-      "help": "/help/ubuntu/"
-    },
-    {
-      "cname": "artixlinux-iso",
-      "options_name": "artixlinux-iso",
-      "url": "/artixlinux-iso",
-      "status": "F1627965908O1627544830X1627987508",
-      "upstream": "rsync://download.artixlinux.org/iso/",
-      "size": "43.2G",
-      "desc": "Artix Linux 的安装镜像"
-    },
-    {
-      "cname": "elrepo",
-      "options_name": "elrepo",
-      "url": "/elrepo",
-      "status": "S1627967605X1627989205",
-      "upstream": "rsync://rsync.elrepo.org/linux+archive/",
-      "size": "56.8G",
-      "desc": "RHEL 及其变体的 RPM 软件包仓库",
-      "help": "/help/elrepo/"
-    },
-    {
-      "cname": "llvm",
-      "options_name": "llvm",
-      "url": "/help/llvm/",
-      "status": "F1627960508X1628003708",
-      "upstream": "https://git.llvm.org/git",
-      "size": "unknown",
-      "desc": "LLVM 编译器套件的多个 git 源码仓库（已停止更新）",
-      "help": "/help/llvm/"
-    },
-    {
-      "cname": "proxmox",
-      "options_name": "proxmox",
-      "url": "/proxmox",
-      "status": "S1627974232X1628060632",
-      "upstream": "http://download.proxmox.com",
-      "size": "74.4G",
-      "desc": "服务器虚拟化环境 Linux 发行版 Proxmox VE",
-      "help": "/help/proxmox/"
-    },
-    {
-      "cname": "raspberry-pi-os-images",
-      "options_name": "raspberry-pi-os-images",
-      "url": "/raspberry-pi-os-images",
-      "status": "S1627740078X1628085678",
-      "upstream": "https://downloads.raspberrypi.org/",
-      "size": "365G",
-      "desc": "Raspberry Pi OS （原 Raspbian）的安装镜像"
-    },
-    {
-      "cname": "rustup",
-      "options_name": "rustup",
-      "url": "/rustup",
-      "status": "S1627918385X1628004785",
-      "upstream": "https://rustup.rs/",
-      "size": "1.97T",
-      "desc": "Rust 的官方安装工具",
-      "help": "/help/rustup/"
-    },
-    {
-      "cname": "winehq",
-      "options_name": "winehq",
-      "url": "/winehq",
-      "status": "S1627982414X1628004014",
-      "upstream": "ftp://ftp.winehq.org/pub/",
-      "size": "35.9G",
-      "desc": "Wine （允许类 Unix 操作系统运行 Windows 程序）"
-    },
-    {
-      "cname": "cygwin",
-      "options_name": "cygwin",
-      "url": "/cygwin",
-      "status": "S1627980255X1628001855",
-      "upstream": "rsync://mirrors.kernel.org/sourceware/cygwin/",
-      "size": "167.38G",
-      "desc": "Cygwin 官方软件包仓库",
-      "help": "/help/cygwin/"
-    },
-    {
-      "cname": "elasticstack",
-      "options_name": "elasticstack",
-      "url": "/elasticstack",
-      "status": "S1627951363X1628037763",
-      "upstream": "https://artifacts.elastic.co/",
-      "size": "176G",
-      "desc": "ELK 系列数据分析工具，5.x 之后改名为 Elastic Stack"
-    },
-    {
-      "cname": "hugging-face-models",
-      "options_name": "hugging-face-models",
-      "url": "/hugging-face-models",
-      "status": "S1627981542X1627995941N",
-      "upstream": "s3://models.huggingface.co/bert",
-      "size": "unknown",
-      "desc": "Hugging Face Transformers 提供的预训练模型",
-      "help": "/help/hugging-face-models/"
-    },
-    {
-      "cname": "neurodebian",
-      "options_name": "neurodebian",
-      "url": "/neurodebian",
-      "status": "S1627978409X1628000009",
-      "upstream": "rsync://neuro.debian.net/neurodebian/",
-      "size": "77.48G",
-      "desc": "用于神经科学研究的 Debian 软件包源"
-    },
-    {
-      "cname": "racket-installers",
-      "options_name": "racket-installers",
-      "url": "/racket-installers",
-      "status": "S1627979032X1628000632",
-      "upstream": "rsync://mirror.csclub.uwaterloo.ca/racket/racket-installers/",
-      "size": "63.12G",
-      "desc": "Racket 语言环境安装包"
-    },
-    {
-      "cname": "ubuntu-cdimage",
-      "options_name": "ubuntu-cdimage",
-      "url": "/ubuntu-cdimage",
-      "status": "S1627968483X1627990083",
-      "upstream": "rsync://cdimage.ubuntu.com/cdimage/",
-      "size": "560G",
-      "desc": "Ubuntu 及 Ubuntu 衍生版各版本安装镜像"
-    },
-    {
-      "cname": "anthon",
-      "options_name": "anthon",
-      "url": "/anthon",
-      "status": "S1627973134X1627994734",
-      "upstream": "rsync://mirror.anthonos.org/anthon/",
-      "size": "1.44T",
-      "desc": "Anthon Linux（安同 Linux）的安装镜像和官方软件包仓库",
-      "help": "/help/anthon/"
-    },
-    {
-      "cname": "ceph",
-      "options_name": "ceph",
-      "url": "/ceph",
-      "status": "S1627966123X1627987723",
-      "upstream": "rsync://download.ceph.com/ceph/",
-      "size": "1.79T",
-      "desc": "高性能对象存储和文件系统",
-      "help": "/help/ceph/"
-    },
-    {
-      "cname": "debian",
-      "options_name": "debian",
-      "url": "/debian",
-      "status": "S1627979523X1628022723",
-      "upstream": "rsync://syncproxy2.wna.debian.org/debian/",
-      "size": "1.5T",
-      "desc": "Debian Linux 的官方软件包仓库",
-      "help": "/help/debian/"
-    },
-    {
-      "cname": "gnu-alpha",
-      "options_name": "gnu-alpha",
-      "url": "/gnu-alpha",
-      "status": "S1627976871X1627998471",
-      "upstream": "rsync://ftp.gnu.org/alpha/",
-      "size": "50.43G",
-      "desc": "一些尚未达到生产质量的 GNU 项目的软件包"
-    },
-    {
-      "cname": "openresty",
-      "options_name": "openresty",
-      "url": "/openresty",
-      "status": "S1627972486X1627994086",
-      "upstream": "https://openresty.org/package/",
-      "size": "24.9G",
-      "desc": "基于 Nginx 与 Lua 的高性能 Web 平台"
-    },
-    {
-      "cname": "opensuse",
-      "options_name": "opensuse",
-      "url": "/opensuse",
-      "status": "S1627969638X1627991238",
-      "upstream": "rsync://fr2.rpmfind.net/linux/opensuse/",
-      "size": "1.55T",
-      "desc": "openSUSE 的安装镜像和官方软件包仓库",
-      "help": "/help/opensuse/"
-    },
-    {
-      "cname": "chef",
-      "options_name": "chef",
-      "url": "/chef",
-      "status": "S1627814088X1628073288",
-      "upstream": "https://packages.chef.io/repos",
-      "size": "597G",
-      "desc": "自动化服务器配置管理工具",
-      "help": "/help/chef/"
-    },
-    {
-      "cname": "nodejs-release",
-      "options_name": "nodejs-release",
-      "url": "/nodejs-release",
-      "status": "S1627969158X1627990758",
-      "upstream": "rsync://unencrypted.nodejs.org/nodejs/release/",
-      "size": "229G",
-      "desc": "预编译的 Node.js 二进制程序",
-      "help": "/help/nodejs-release/"
-    },
-    {
-      "cname": "pkgsrc",
-      "options_name": "pkgsrc",
-      "url": "/pkgsrc",
-      "status": "S1627978032X1627992432",
-      "upstream": "rsync://rsync3.jp.NetBSD.org/pub/pkgsrc/",
-      "size": "2.42T",
-      "desc": "NetBSD 的第三方软件源"
-    },
-    {
-      "cname": "pybombs",
-      "options_name": "pybombs",
-      "url": "/pybombs",
-      "status": "S1627956507X1627999707",
-      "upstream": "https://github.com/scateu/pybombs-mirror/",
-      "size": "2.7G",
-      "desc": "为 GNU Radio 设计的编译管理系统",
-      "help": "/help/pybombs/"
-    },
-    {
-      "cname": "saltstack",
-      "options_name": "saltstack",
-      "url": "/saltstack",
-      "status": "S1627919421X1628005821",
-      "upstream": "s3://repo-saltstack-com/",
-      "size": "65.2G",
-      "desc": "基于 python 的配置管理与运维自动化工具"
-    },
-    {
-      "cname": "CTAN",
-      "options_name": "CTAN",
-      "url": "/CTAN",
-      "status": "S1627980483X1628002083",
-      "upstream": "rsync://rsync.dante.ctan.org/CTAN/",
-      "size": "47.87G",
-      "desc": "TeX 的各种发行版、软件包和文档",
-      "help": "/help/CTAN/"
-    },
-    {
-      "cname": "centos-vault",
-      "options_name": "centos-vault",
-      "url": "/centos-vault",
-      "status": "S1627980477X1628002077",
-      "upstream": "rsync://linuxsoft.cern.ch/centos-vault/",
-      "size": "5.45T",
-      "desc": "为旧版本 CentOS 提供服务的软件包仓库",
-      "help": "/help/centos-vault/"
-    },
-    {
-      "cname": "nixos-images",
-      "options_name": "nixos-images",
-      "url": "/nixos-images",
-      "status": "S1627980631X1628002231",
-      "upstream": "https://nixos.org/channels",
-      "size": "15.1G",
-      "desc": "NixOS 的安装镜像和虚拟机镜像"
-    },
-    {
-      "cname": "puppy",
-      "options_name": "puppy",
-      "url": "/puppy",
-      "status": "S1627975526X1627997126",
-      "upstream": "rsync://distro.ibiblio.org/puppylinux/",
-      "size": "118.07G",
-      "desc": "为家用电脑设计的轻量级 Linux 发行版"
-    },
-    {
-      "cname": "sagemath",
-      "options_name": "sagemath",
-      "url": "/sagemath",
-      "status": "S1627968233X1627989833",
-      "upstream": "rsync://files.sagemath.org/sage/",
-      "size": "403G",
-      "desc": "构建在 NumPy, SciPy 等工具之上的开源数学软件系统"
-    },
-    {
       "cname": "bananian",
       "options_name": "bananian",
       "url": "/bananian",
@@ -10551,223 +10995,23 @@
       "help": "/help/bananian/"
     },
     {
-      "cname": "chakra-releases",
-      "options_name": "chakra-releases",
-      "url": "/chakra-releases",
-      "status": "S1627975385X1627996985",
-      "upstream": "rsync://rsync.chakralinux.org/releases/",
-      "size": "68.99G",
-      "desc": "Chakra 发行版的安装镜像"
+      "cname": "cygwin",
+      "options_name": "cygwin",
+      "url": "/cygwin",
+      "status": "S1627980255X1628001855",
+      "upstream": "rsync://mirrors.kernel.org/sourceware/cygwin/",
+      "size": "159G",
+      "desc": "Cygwin 官方软件包仓库",
+      "help": "/help/cygwin/"
     },
     {
-      "cname": "julia-releases",
-      "options_name": "julia-releases",
-      "url": "/julia-releases",
-      "status": "S1627915322X1628001722",
-      "upstream": "s3://julialang2/",
-      "size": "67.6G",
-      "desc": "Julia 二进制程序镜像",
-      "help": "/help/julia-releases/"
-    },
-    {
-      "cname": "llvm-apt",
-      "options_name": "llvm-apt",
-      "url": "/llvm-apt",
-      "status": "S1627941021X1628027421",
-      "upstream": "http://apt.llvm.org",
-      "size": "5.62G",
-      "desc": "LLVM 编译器套件的 APT 安装源"
-    },
-    {
-      "cname": "binutils-gdb.git",
-      "options_name": "binutils-gdb.git",
-      "url": "/help/binutils-gdb.git/",
-      "status": "S1627959356X1628002556",
-      "upstream": "git://sourceware.org/git/binutils-gdb.git",
-      "size": "435M",
-      "desc": "Binutils 和 GDB 等开发工具的源码 Git 仓库",
-      "help": "/help/binutils-gdb.git/"
-    },
-    {
-      "cname": "linux-firmware.git",
-      "options_name": "linux-firmware.git",
-      "url": "/help/linux-firmware.git/",
-      "status": "S1627957750X1628000950",
-      "upstream": "git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git",
-      "size": "428M",
-      "desc": "Linux 内核附带的固件 Git 仓库",
-      "help": "/help/linux-firmware.git/"
-    },
-    {
-      "cname": "lxc-images",
-      "options_name": "lxc-images",
-      "url": "/lxc-images",
-      "status": "S1627975490X1628018690",
-      "upstream": "https://us.images.linuxcontainers.org/",
-      "size": "408G",
-      "desc": "Linux 容器的镜像",
-      "help": "/help/lxc-images/"
-    },
-    {
-      "cname": "openwrt",
-      "options_name": "openwrt",
-      "url": "/openwrt",
-      "status": "S1627966500X1627988100",
-      "upstream": "rsync://downloads.openwrt.org/downloads/",
-      "size": "886.08G",
-      "desc": "OpenWrt/LEDE 软件包镜像源",
-      "help": "/help/openwrt/"
-    },
-    {
-      "cname": "remi",
-      "options_name": "remi",
-      "url": "/remi",
-      "status": "S1627921248X1628007648",
-      "upstream": "rsync://rpms.remirepo.net",
-      "size": "65.1G",
-      "desc": "包含最新版本 PHP 和 MySQL 的第三方 yum 源"
-    },
-    {
-      "cname": "osdn",
-      "options_name": "osdn",
-      "url": "/osdn",
-      "status": "S1627985923X1627989523",
-      "upstream": "rsync://master.dl.osdn.jp/download/",
-      "size": "8.83T",
-      "desc": "OSDN 网站提供的开源软件下载"
-    },
-    {
-      "cname": "raspbian",
-      "options_name": "raspbian",
-      "url": "/raspbian",
-      "status": "S1627967102X1627988702",
-      "upstream": "rsync://archive.raspbian.org/archive/",
-      "size": "489G",
-      "desc": "为树莓派编译的 Debian 系统软件源",
-      "help": "/help/raspbian/"
-    },
-    {
-      "cname": "ubuntukylin",
-      "options_name": "ubuntukylin",
-      "url": "/ubuntukylin",
-      "status": "S1627977965X1627999565N",
-      "upstream": "rsync://user@service.ubuntukylin.com:8873/rsync/free/",
-      "size": "8.20G"
-    },
-    {
-      "cname": "linuxmint",
-      "options_name": "linuxmint",
-      "url": "/linuxmint",
-      "status": "S1627980023X1628001623",
-      "upstream": "rsync://mirrors.kernel.org/linuxmint-packages/",
-      "size": "37.52G",
-      "desc": "Linux Mint 的官方软件源",
-      "help": "/help/linuxmint/"
-    },
-    {
-      "cname": "stackage",
-      "options_name": "stackage",
-      "url": "/stackage",
-      "status": "S1627985950X1628007550",
-      "upstream": "https://www.stackage.org/",
-      "size": "65.3G",
-      "desc": "Haskell 项目管理器 stack 所需的元数据与 ghc 安装包的镜像",
-      "help": "/help/stackage/"
-    },
-    {
-      "cname": "KaOS",
-      "options_name": "KaOS",
-      "url": "/KaOS",
-      "status": "S1627980206X1628001806",
-      "upstream": "rsync://kaosx.tk/kaos/",
-      "size": "15.22G",
-      "desc": "一个基于 KDE 的独立发行版"
-    },
-    {
-      "cname": "OpenBSD",
-      "options_name": "OpenBSD",
-      "url": "/OpenBSD",
-      "status": "S1627981700X1627988900",
-      "upstream": "rsync://mirror.aarnet.edu.au/openbsd/",
-      "size": "1.12T",
-      "desc": "OpenBSD 的安装镜像和官方软件包仓库"
-    },
-    {
-      "cname": "anaconda",
-      "options_name": "anaconda",
-      "url": "/anaconda",
-      "status": "S1627981241X1628024441",
-      "upstream": "https://repo.continuum.io/",
-      "size": "4.72T",
-      "desc": "用于科学计算的 Python 发行版",
-      "help": "/help/anaconda/"
-    },
-    {
-      "cname": "docker-ce",
-      "options_name": "docker-ce",
-      "url": "/docker-ce",
-      "status": "S1627932844X1628019244",
-      "upstream": "https://download.docker.com/",
-      "size": "524G",
-      "desc": "Docker Community Edition 的安装包",
-      "help": "/help/docker-ce/"
-    },
-    {
-      "cname": "elvish",
-      "options_name": "elvish",
-      "url": "/elvish",
-      "status": "S1627978525X1628000125",
-      "upstream": "rsync://rsync.elv.sh/elvish/",
-      "size": "3.28G",
-      "desc": "TUNA 前会长 xiaq 开发的革命性 Shell"
-    },
-    {
-      "cname": "linux.git",
-      "options_name": "linux.git",
-      "url": "/help/linux.git/",
-      "status": "S1627960366X1628003566",
-      "upstream": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
-      "size": "1.9G",
-      "desc": "Linux 内核源代码的 Git 仓库",
-      "help": "/help/linux.git/"
-    },
-    {
-      "cname": "packman",
-      "options_name": "packman",
-      "url": "/packman",
-      "status": "S1627966768X1627988368",
-      "upstream": "rsync://mirror.karneval.cz/packman/",
-      "size": "148G",
-      "desc": "为 Debian、Fedora、openSUSE、Ubuntu 提供额外和过期软件包的仓库"
-    },
-    {
-      "cname": "percona",
-      "options_name": "percona",
-      "url": "/percona",
-      "status": "S1627966011X1627987611",
-      "upstream": "rsync://rsync.percona.com/rsync/",
-      "size": "1.93T",
-      "desc": "开源的数据库解决方案，详见 http://www.percona.com"
-    },
-    {
-      "cname": "CocoaPods",
-      "options_name": "CocoaPods",
-      "url": "/help/CocoaPods/",
-      "status": "S1627945718X1627988918",
-      "upstream": "git://github.com/CocoaPods",
-      "size": "922M",
-      "desc": "Objective-C 和 Swift 的依赖管理器",
-      "help": "/help/CocoaPods/"
-    },
-    {
-      "cname": "crates.io-index.git",
-      "options_name": "crates.io-index.git",
-      "url": "/help/crates.io-index.git/",
-      "status": "S1627961455X1628004655",
-      "upstream": "git://github.com/rust-lang/crates.io-index.git",
-      "size": "593M",
-      "desc": "面向 Rust 语言的软件包索引 crates.io",
-      "help": "/help/crates.io-index.git/"
+      "cname": "dotdeb",
+      "options_name": "dotdeb",
+      "url": "/dotdeb",
+      "status": "S1627975715X1627997315",
+      "upstream": "rsync://mirror.us.leaseweb.net/dotdeb/",
+      "size": "23.8G",
+      "desc": "用于 Debian 服务器的额外镜像源"
     },
     {
       "cname": "gcc.git",
@@ -10780,434 +11024,32 @@
       "help": "/help/gcc.git/"
     },
     {
-      "cname": "gentoo-portage-prefix",
-      "options_name": "gentoo-portage-prefix",
-      "url": "/gentoo-portage-prefix",
-      "status": "S1627979292X1628000892",
-      "upstream": "rsync://rsync.prefix.bitzolder.nl/gentoo-portage-prefix/",
-      "size": "223.41M",
-      "desc": "Gentoo/Prefix 的 Portage 包管理器镜像源（仅适用于 macOS）",
-      "help": "/help/gentoo-prefix/"
-    },
-    {
-      "cname": "grafana",
-      "options_name": "grafana",
-      "url": "/grafana",
-      "status": "S1627919610X1628006010",
-      "upstream": "https://packages.grafana.com/oss",
-      "size": "38.5G",
-      "desc": "开源的数据可视化工具",
-      "help": "/help/grafana/"
-    },
-    {
-      "cname": "mysql",
-      "options_name": "mysql",
-      "url": "/mysql",
-      "status": "S1627984867X1627986667",
-      "upstream": "https://repo.mysql.com",
-      "size": "817G",
-      "desc": "MySQL 数据库的安装包及各种工具下载",
-      "help": "/help/mysql/"
-    },
-    {
-      "cname": "voidlinux",
-      "options_name": "voidlinux",
-      "url": "/voidlinux",
-      "status": "S1627936360X1628022760",
-      "upstream": "rsync://mirror.clarkson.edu/voidlinux/",
-      "size": "462G",
-      "desc": "基于 xbps 包管理器的独立 Linux 发行版",
-      "help": "/help/voidlinux/"
-    },
-    {
-      "cname": "aosp-monthly",
-      "options_name": "aosp-monthly",
-      "url": "/aosp-monthly",
-      "status": "S1627974879X1627996479",
-      "upstream": "rsync://bravo.s.tuna.tsinghua.edu.cn/aosp-monthly/",
-      "size": "1.75T",
-      "desc": "AOSP （Android 系统源码）镜像每月打包"
-    },
-    {
-      "cname": "deepin",
-      "options_name": "deepin",
-      "url": "/deepin",
-      "status": "S1627981200X1628002800",
-      "upstream": "rsync://rsync.deepin.com/deepin/",
-      "size": "286.46G",
-      "desc": "Deepin Linux 的官方软件包仓库"
-    },
-    {
-      "cname": "endeavouros",
-      "options_name": "endeavouros",
-      "url": "/endeavouros",
-      "status": "S1627975378X1627996978N",
-      "upstream": "rsync://mirror.alpix.eu/endeavouros/",
-      "size": "21.13G"
-    },
-    {
-      "cname": "raspberrypi",
-      "options_name": "raspberrypi",
-      "url": "/raspberrypi",
-      "status": "S1627980792X1628002392",
-      "upstream": "rsync://apt-repo.raspberrypi.org/archive/debian/",
-      "size": "128.84G",
-      "desc": "一些专为树莓派提供的 Debian 软件包"
-    },
-    {
-      "cname": "slackware",
-      "options_name": "slackware",
-      "url": "/slackware",
-      "status": "S1627969040X1627990640",
-      "upstream": "rsync://ftp.slackware.com/slackware/",
-      "size": "89.6G",
-      "desc": "Linux 发行版 Slackware 的源代码和官方软件包仓库"
-    },
-    {
-      "cname": "virtualbox",
-      "options_name": "virtualbox",
-      "url": "/virtualbox",
-      "status": "S1627918114X1628004514",
-      "upstream": "http://download.virtualbox.org/virtualbox",
-      "size": "130G",
-      "desc": "Oracle 的开源的 x86 架构虚拟机",
-      "help": "/help/virtualbox/"
-    },
-    {
-      "cname": "AdoptOpenJDK",
-      "options_name": "AdoptOpenJDK",
-      "url": "/AdoptOpenJDK",
-      "status": "S1627896000X1628241600",
-      "upstream": "https://adoptopenjdk.jfrog.io/adoptopenjdk",
-      "size": "155G",
-      "desc": "社区维护的 OpenJDK 二进制包",
-      "help": "/help/adoptopenjdk/"
-    },
-    {
-      "cname": "blender",
-      "options_name": "blender",
-      "url": "/blender",
-      "status": "S1627909889X1627996289",
-      "upstream": "rsync://mirrors.dotsrc.org/blender/",
-      "size": "42.9G",
-      "desc": "专业的三维计算机图形软件"
-    },
-    {
-      "cname": "ctex",
-      "options_name": "ctex",
-      "url": "/ctex",
-      "status": "S1627974609X1627996209",
-      "upstream": "rsync://ctex-upload.tuna.tsinghua.edu.cn/ctex/",
-      "size": "4.35G",
-      "desc": "旧版 CTEX 安装镜像存档"
-    },
-    {
-      "cname": "mongodb",
-      "options_name": "mongodb",
-      "url": "/mongodb",
-      "status": "S1627954863X1628041263",
-      "upstream": "https://repo.mongodb.org",
-      "size": "82.6G",
-      "desc": "开源的跨平台 NoSQL 文档型数据库",
-      "help": "/help/mongodb/"
-    },
-    {
-      "cname": "putty",
-      "options_name": "putty",
-      "url": "/putty",
-      "status": "S1627975375X1627996975N",
-      "upstream": "rsync://rsync.chiark.greenend.org.uk/ftp/users/sgtatham/putty-website-mirror/",
-      "size": "63.11M"
-    },
-    {
-      "cname": "pypi",
-      "options_name": "pypi",
-      "url": "/pypi",
-      "status": "S1627986137X1627986437",
-      "upstream": "https://pypi.python.org/",
-      "size": "7.21T",
-      "desc": "Python 软件包索引源",
-      "help": "/help/pypi/"
-    },
-    {
-      "cname": "loongson",
-      "options_name": "loongson",
-      "url": "/loongson",
-      "status": "S1627974640X1627996240",
-      "upstream": "rsync://rsync.anheng.com.cn/loongson/",
-      "size": "16.75G",
-      "desc": "用于龙芯电脑的软件包"
-    },
-    {
-      "cname": "manjaro-arm",
-      "options_name": "manjaro-arm",
-      "url": "/manjaro-arm",
-      "status": "S1627979260X1628000860",
-      "upstream": "rsync://ftp.osuosl.org/manjaro-arm/repo/",
-      "size": "22.11G",
-      "desc": "Manjaro ARM Linux 的官方软件源"
-    },
-    {
-      "cname": "libreoffice",
-      "options_name": "libreoffice",
-      "url": "/libreoffice",
-      "status": "F1627977009O1627955076X1627998609",
-      "upstream": "rsync://rsync.documentfoundation.org/tdf-pub/",
-      "size": "78.50G",
-      "desc": "自由的办公软件套件"
-    },
-    {
-      "cname": "mageia",
-      "options_name": "mageia",
-      "url": "/mageia",
-      "status": "S1627975785X1627997385",
-      "upstream": "rsync://mirrors.kernel.org/mageia/",
-      "size": "1.10T",
-      "desc": "Mageia Linux（衍生于 Mandriva Linux）的安装镜像和官方软件包仓库"
-    },
-    {
-      "cname": "ros",
-      "options_name": "ros",
-      "url": "/ros",
-      "status": "S1627985286X1628006886",
-      "upstream": "rsync://mirror.umd.edu/packages.ros.org/ros/",
-      "size": "87.42G",
-      "desc": "ROS提供一系列程序库和工具以帮助软件开发者创建机器人应用软件",
-      "help": "/help/ros/"
-    },
-    {
-      "cname": "tinycorelinux",
-      "options_name": "tinycorelinux",
-      "url": "/tinycorelinux",
-      "status": "S1627984345X1628005945",
-      "upstream": "rsync://www.tinycorelinux.net/tc/",
-      "size": "260.28G",
-      "desc": "为嵌入式开发的微型 Linux 发行版"
-    },
-    {
-      "cname": "AOSP",
-      "options_name": "AOSP",
-      "url": "/help/AOSP/",
-      "status": "S1627954669X1627997869",
-      "upstream": "https://android.googlesource.com/mirror/manifest",
-      "size": "645G",
-      "desc": "Android 操作系统源代码",
-      "help": "/help/AOSP/"
-    },
-    {
-      "cname": "chakra",
-      "options_name": "chakra",
-      "url": "/chakra",
-      "status": "S1627975725X1627997325",
-      "upstream": "rsync://rsync.chakralinux.org/packages/",
-      "size": "58.96G",
-      "desc": "专注于 Qt 与 KDE 软件的 Linux 发行版"
-    },
-    {
-      "cname": "debian-cd",
-      "options_name": "debian-cd",
-      "url": "/debian-cd",
-      "status": "S1627974297X1627995897",
-      "upstream": "rsync://mirrors.kernel.org/debian-cd/",
-      "size": "233.06G",
-      "desc": "Debian Linux 的安装镜像"
-    },
-    {
-      "cname": "gentoo",
-      "options_name": "gentoo",
-      "url": "/gentoo",
-      "status": "S1627973472X1627995072",
-      "upstream": "rsync://mirror.us.leaseweb.net/gentoo/",
-      "size": "435.60G",
-      "desc": "Gentoo Linux 的 Stage 3 镜像"
-    },
-    {
-      "cname": "homebrew-bottles",
-      "options_name": "homebrew-bottles",
-      "url": "/homebrew-bottles",
-      "status": "F1627444239",
-      "upstream": "https://homebrew.bintray.com",
-      "size": "422G",
-      "desc": "预编译的 Homebrew 软件包",
-      "help": "/help/homebrew-bottles/"
-    },
-    {
-      "cname": "qemu.git",
-      "options_name": "qemu.git",
-      "url": "/help/qemu.git/",
-      "status": "S1627958280X1628001480",
-      "upstream": "git://git.qemu.org/qemu.git",
-      "size": "229M",
-      "desc": "处理器模拟器 QEMU 的源码 Git 仓库",
-      "help": "/help/qemu.git/"
-    },
-    {
-      "cname": "steamos",
-      "options_name": "steamos",
-      "url": "/steamos",
-      "status": "S1627975263X1628061663",
-      "upstream": "http://repo.steampowered.com",
-      "size": "338G",
-      "desc": "Valve 开发的基于 Debian 的操作系统，包含安装镜像和官方软件包仓库"
-    },
-    {
-      "cname": "NetBSD",
-      "options_name": "NetBSD",
-      "url": "/NetBSD",
-      "status": "S1627972387X1627993987",
-      "upstream": "rsync://rsync.NetBSD.org/NetBSD/",
-      "size": "754G",
-      "desc": "NetBSD 的安装镜像和部分系统源码"
-    },
-    {
-      "cname": "arch4edu",
-      "options_name": "arch4edu",
-      "url": "/arch4edu",
-      "status": "S1627974629X1627996229",
-      "upstream": "rsync://arch4edu-upload.tuna.tsinghua.edu.cn/arch4edu/",
-      "size": "32.78G",
-      "desc": "用于 Arch Linux 和 Arch Linux ARM 的非官方软件仓库，主要包含科研、教学所需的各种常用软件",
-      "help": "/help/arch4edu/"
-    },
-    {
-      "cname": "bjlx",
-      "options_name": "bjlx",
-      "url": "/bjlx",
-      "status": "S1627975040X1627996640",
-      "upstream": "rsync://rsync.anheng.com.cn/bjlx/",
-      "size": "3.89G",
-      "desc": "北京龙芯 & Debian 俱乐部 的公开软件源"
-    },
-    {
-      "cname": "mariadb",
-      "options_name": "mariadb",
-      "url": "/mariadb",
-      "status": "S1627981109X1628002709",
-      "upstream": "rsync://rsync.osuosl.org/mariadb/",
-      "size": "487.80G",
-      "desc": "衍生于 MySQL 的开源关系数据库",
-      "help": "/help/mariadb/"
-    },
-    {
-      "cname": "postgresql",
-      "options_name": "postgresql",
-      "url": "/postgresql",
-      "status": "S1627974019X1627995619",
-      "upstream": "rsync://ftp.postgresql.org/pgsql-ftp/",
-      "size": "266.33G",
-      "desc": "著名的开源关系型数据库 PostgreSQL 的镜像"
-    },
-    {
-      "cname": "redhat",
-      "options_name": "redhat",
-      "url": "/redhat",
-      "status": "S1627910849X1627997249",
-      "upstream": "rsync://ftp.redhat.com/redhat/",
-      "size": "2.56T",
-      "desc": "Red Hat Enterprise Linux 源码包（SRPM）仓库"
-    },
-    {
-      "cname": "fdroid",
-      "options_name": "fdroid",
-      "url": "/fdroid",
-      "status": "S1627929400X1628015800",
-      "upstream": "rsync://ftp.lysator.liu.se/pub/fdroid/",
-      "size": "651G",
-      "desc": "F-Droid 是 Android 上的自由与开源软件应用商店",
-      "help": "/help/fdroid/"
-    },
-    {
-      "cname": "git-repo",
-      "options_name": "git-repo",
-      "url": "/help/git-repo/",
-      "status": "S1627958231X1628001431",
-      "upstream": "https://gerrit.googlesource.com/git-repo",
-      "size": "11M",
-      "desc": "Google 开发的项目依赖下载工具 repo 的镜像",
-      "help": "/help/git-repo/"
-    },
-    {
-      "cname": "jenkins",
-      "options_name": "jenkins",
-      "url": "/jenkins",
-      "status": "S1627985191X1627992391",
-      "upstream": "rsync://rsync.osuosl.org/jenkins/",
-      "size": "130.21G",
-      "desc": "用 Java 编写的持续集成框架"
-    },
-    {
-      "cname": "qubesos",
-      "options_name": "qubesos",
-      "url": "/qubesos",
-      "status": "S1627973958X1627995558",
-      "upstream": "rsync://rsync.qubes-os.org/qubes-mirror/",
-      "size": "410.82G",
-      "desc": "一个面向安全的桌面操作系统，利用虚拟化技术隔离应用来提供安全保障",
-      "help": "/help/qubesos/"
-    },
-    {
-      "cname": "manjaro",
-      "options_name": "manjaro",
-      "url": "/manjaro",
-      "status": "S1627969209X1627990809",
-      "upstream": "rsync://mirror.yandex.ru/mirrors/manjaro/",
-      "size": "104G",
-      "desc": "Manjaro Linux 的官方软件源"
-    },
-    {
-      "cname": "adobe-fonts",
-      "options_name": "adobe-fonts",
-      "url": "/adobe-fonts",
-      "status": "S1627918887X1628005287",
-      "upstream": "git://github.com/adobe-fonts",
-      "size": "45.5G",
-      "desc": "Adobe 公司的开源字体"
-    },
-    {
       "cname": "deb-multimedia",
       "options_name": "debian-multimedia",
       "url": "/debian-multimedia",
-      "status": "S1627968550X1627990150",
+      "status": "S1627990291X1628011891",
       "upstream": "rsync://www.deb-multimedia.org/deb/",
-      "size": "11.9G",
+      "size": "11.77G",
       "desc": "Debian Linux 第三方多媒体软件源"
     },
     {
-      "cname": "eclipse",
-      "options_name": "eclipse",
-      "url": "/eclipse",
-      "status": "S1627973549X1627995149",
-      "upstream": "rsync://rsync.osuosl.org/eclipse/",
-      "size": "2.10T",
-      "desc": "著名的集成开发环境 Eclipse"
+      "cname": "linux-firmware.git",
+      "options_name": "linux-firmware.git",
+      "url": "/help/linux-firmware.git/",
+      "status": "S1627957750X1628000950",
+      "upstream": "git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git",
+      "size": "428M",
+      "desc": "Linux 内核附带的固件 Git 仓库",
+      "help": "/help/linux-firmware.git/"
     },
     {
-      "cname": "erlang-solutions",
-      "options_name": "erlang-solutions",
-      "url": "/erlang-solutions",
-      "status": "S1627943102X1628029502",
-      "upstream": "https://packages.erlang-solutions.com",
-      "size": "95.9G",
-      "desc": "为各大 Linux 发行版提供的 Erlang 软件包"
-    },
-    {
-      "cname": "flightgear",
-      "options_name": "flightgear",
-      "url": "/flightgear",
-      "status": "S1627924307X1628032307",
-      "upstream": "rsync://mirrors.ibiblio.org/flightgear/",
-      "size": "299G",
-      "desc": "多平台的飞行模拟器"
-    },
-    {
-      "cname": "lineage-rom",
-      "options_name": "lineage-rom",
-      "url": "/lineage-rom",
-      "status": "Y1627982254O1627960654",
-      "upstream": "rsync://10.1.0.10:11874/mirror/",
-      "size": "440.43G",
-      "desc": "最大的社区Android发行版之一Lineage的ROM",
-      "help": "/help/lineage-rom/"
+      "cname": "racket-installers",
+      "options_name": "racket-installers",
+      "url": "/racket-installers",
+      "status": "S1627979032X1628000632",
+      "upstream": "rsync://mirror.csclub.uwaterloo.ca/racket/racket-installers/",
+      "size": "58.8G",
+      "desc": "Racket 语言环境安装包"
     },
     {
       "cname": "ubuntu-cloud-images",
@@ -11215,18 +11057,18 @@
       "url": "/ubuntu-cloud-images",
       "status": "S1627975006X1627996606",
       "upstream": "rsync://cloud-images.ubuntu.com/cloud-images/",
-      "size": "451.12G",
+      "size": "420G",
       "desc": "适用于公有云的 Ubuntu 安装镜像",
       "help": "/help/ubuntu-cloud-images/"
     },
     {
-      "cname": "fzug",
-      "options_name": "fzug",
-      "url": "/fzug",
-      "status": "S1627974719X1627996319",
-      "upstream": "rsync://fzug-upload.tuna.tsinghua.edu.cn/fzug/",
-      "size": "2.16G",
-      "desc": "Fedora 中文用户组的软件包仓库"
+      "cname": "gnu",
+      "options_name": "gnu",
+      "url": "/gnu",
+      "status": "S1627991365X1628012965",
+      "upstream": "rsync://mirrors.ocf.berkeley.edu/gnu/",
+      "size": "168.37G",
+      "desc": "GNU 项目的软件包（源代码、文档和部分平台的二进制文件）"
     },
     {
       "cname": "kubernetes",
@@ -11239,42 +11081,129 @@
       "help": "/help/kubernetes/"
     },
     {
-      "cname": "llvm-project.git",
-      "options_name": "llvm-project.git",
-      "url": "/help/llvm-project.git/",
-      "status": "S1627961342X1628004542",
-      "upstream": "git://github.com/llvm/llvm-project.git",
-      "size": "1.6G",
-      "desc": "LLVM 编译器套件的新源码仓库（monorepo）",
-      "help": "/help/llvm-project.git/"
+      "cname": "proxmox",
+      "options_name": "proxmox",
+      "url": "/proxmox",
+      "status": "S1627974232X1628060632",
+      "upstream": "http://download.proxmox.com",
+      "size": "74.4G",
+      "desc": "服务器虚拟化环境 Linux 发行版 Proxmox VE",
+      "help": "/help/proxmox/"
     },
     {
-      "cname": "lyx",
-      "options_name": "lyx",
-      "url": "/lyx",
-      "status": "S1627970242X1627991842",
-      "upstream": "ftp://ftp.lyx.org/pub/lyx/",
-      "size": "26.3G",
-      "desc": "所见即所指的 LaTeX 编辑器"
+      "cname": "qubesos",
+      "options_name": "qubesos",
+      "url": "/qubesos",
+      "status": "S1627973958X1627995558",
+      "upstream": "rsync://rsync.qubes-os.org/qubes-mirror/",
+      "size": "364G",
+      "desc": "一个面向安全的桌面操作系统，利用虚拟化技术隔离应用来提供安全保障",
+      "help": "/help/qubesos/"
     },
     {
-      "cname": "openthos-src",
-      "options_name": "openthos-src",
-      "url": "/help/openthos-src/",
-      "status": "S1627960791X1628003991",
-      "upstream": "166.111.131.12:rsync/OPENTHOS/manifest",
-      "size": "28G",
-      "desc": "OpenTHOS 源代码仓库",
-      "help": "/help/openthos-src/"
+      "cname": "linuxbrew-bottles",
+      "options_name": "linuxbrew-bottles",
+      "url": "/linuxbrew-bottles",
+      "status": "Y1627922514",
+      "upstream": "https://linuxbrew.bintray.com",
+      "size": "68.3G",
+      "desc": "预编译的 Linuxbrew 软件包",
+      "help": "/help/linuxbrew-bottles/"
     },
     {
-      "cname": "qt",
-      "options_name": "qt",
-      "url": "/qt",
-      "status": "S1627980006X1628001606",
-      "upstream": "rsync://master.qt-project.org/qt-all/",
-      "size": "1.72T",
-      "desc": "跨平台软件开发库 Qt 的源码、开发工具、文档等"
+      "cname": "percona",
+      "options_name": "percona",
+      "url": "/percona",
+      "status": "S1627987634X1628009234",
+      "upstream": "rsync://rsync.percona.com/rsync/",
+      "size": "2.12T",
+      "desc": "开源的数据库解决方案，详见 http://www.percona.com"
+    },
+    {
+      "cname": "ubuntukylin",
+      "options_name": "ubuntukylin",
+      "url": "/ubuntukylin",
+      "status": "S1627977965X1627999565N",
+      "upstream": "rsync://user@service.ubuntukylin.com:8873/rsync/free/",
+      "size": "7.63G"
+    },
+    {
+      "cname": "winehq",
+      "options_name": "winehq",
+      "url": "/winehq",
+      "status": "S1627982414X1628004014",
+      "upstream": "ftp://ftp.winehq.org/pub/",
+      "size": "35.9G",
+      "desc": "Wine （允许类 Unix 操作系统运行 Windows 程序）"
+    },
+    {
+      "cname": "alpine",
+      "options_name": "alpine",
+      "url": "/alpine",
+      "status": "S1627987319X1628008919",
+      "upstream": "rsync://rsync.alpinelinux.org/alpine/",
+      "size": "1.38T",
+      "desc": "Alpine Linux 的安装镜像和官方软件包仓库",
+      "help": "/help/alpine/"
+    },
+    {
+      "cname": "anaconda",
+      "options_name": "anaconda",
+      "url": "/anaconda",
+      "status": "S1627981241X1628024441",
+      "upstream": "https://repo.continuum.io/",
+      "size": "4.79T",
+      "desc": "用于科学计算的 Python 发行版",
+      "help": "/help/anaconda/"
+    },
+    {
+      "cname": "archlinux",
+      "options_name": "archlinux",
+      "url": "/archlinux",
+      "status": "S1627990907X1627994507",
+      "upstream": "rsync://rsync.archlinux.org/ftp_tier1/",
+      "size": "73.57G",
+      "desc": "Arch Linux 的安装镜像和官方软件包仓库",
+      "help": "/help/archlinux/"
+    },
+    {
+      "cname": "linux.git",
+      "options_name": "linux.git",
+      "url": "/help/linux.git/",
+      "status": "S1627960366X1628003566",
+      "upstream": "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git",
+      "size": "1.9G",
+      "desc": "Linux 内核源代码的 Git 仓库",
+      "help": "/help/linux.git/"
+    },
+    {
+      "cname": "centos-vault",
+      "options_name": "centos-vault",
+      "url": "/centos-vault",
+      "status": "S1627980477X1628002077",
+      "upstream": "rsync://linuxsoft.cern.ch/centos-vault/",
+      "size": "3.14T",
+      "desc": "为旧版本 CentOS 提供服务的软件包仓库",
+      "help": "/help/centos-vault/"
+    },
+    {
+      "cname": "git-repo",
+      "options_name": "git-repo",
+      "url": "/help/git-repo/",
+      "status": "S1627958231X1628001431",
+      "upstream": "https://gerrit.googlesource.com/git-repo",
+      "size": "11M",
+      "desc": "Google 开发的项目依赖下载工具 repo 的镜像",
+      "help": "/help/git-repo/"
+    },
+    {
+      "cname": "puppy",
+      "options_name": "puppy",
+      "url": "/puppy",
+      "status": "S1627975526X1627997126",
+      "upstream": "rsync://distro.ibiblio.org/puppylinux/",
+      "size": "110G",
+      "desc": "为家用电脑设计的轻量级 Linux 发行版"
     },
     {
       "cname": "rpmfusion",
@@ -11282,37 +11211,57 @@
       "url": "/rpmfusion",
       "status": "S1627982036X1628003636",
       "upstream": "rsync://mirror.de.leaseweb.net/rpmfusion/",
-      "size": "187.40G",
+      "size": "157G",
       "desc": "RPM Fusion 提供了一些 Fedora Project 和 Red Hat 不包含的软件",
       "help": "/help/rpmfusion/"
     },
     {
-      "cname": "ubuntu-releases",
-      "options_name": "ubuntu-releases",
-      "url": "/ubuntu-releases",
-      "status": "S1627974627X1627996227",
-      "upstream": "rsync://rsync.releases.ubuntu.com/releases/",
-      "size": "24.43G",
-      "desc": "包含近几年发行的 Ubuntu 的镜像"
+      "cname": "slackwarearm",
+      "options_name": "slackwarearm",
+      "url": "/slackwarearm",
+      "status": "S1627976882X1627998482",
+      "upstream": "rsync://ftp.arm.slackware.com/slackwarearm/",
+      "size": "27.5G",
+      "desc": "用于 ARM 设备的 Slackware 发行版源代码和官方软件包仓库"
     },
     {
-      "cname": "apache",
-      "options_name": "apache",
-      "url": "/apache",
-      "status": "S1627985246X1628006846",
-      "upstream": "rsync://rsync.apache.org/apache-dist/",
-      "size": "148.14G",
-      "desc": "Apache 基金会赞助的各个项目"
+      "cname": "ceph",
+      "options_name": "ceph",
+      "url": "/ceph",
+      "status": "S1627987734X1628009334",
+      "upstream": "rsync://download.ceph.com/ceph/",
+      "size": "1.97T",
+      "desc": "高性能对象存储和文件系统",
+      "help": "/help/ceph/"
     },
     {
-      "cname": "clickhouse",
-      "options_name": "clickhouse",
-      "url": "/clickhouse",
-      "status": "S1627927887X1628100687",
-      "upstream": "rsync://repo.yandex.ru/yandexrepo/clickhouse/",
-      "size": "1.17T",
-      "desc": "用于联机分析（OLAP）的列式数据库管理系统",
-      "help": "/help/clickhouse/"
+      "cname": "deepin",
+      "options_name": "deepin",
+      "url": "/deepin",
+      "status": "S1627981200X1628002800",
+      "upstream": "rsync://rsync.deepin.com/deepin/",
+      "size": "272G",
+      "desc": "Deepin Linux 的官方软件包仓库"
+    },
+    {
+      "cname": "flutter",
+      "options_name": "flutter",
+      "url": "/flutter",
+      "status": "S1627985942X1628072342",
+      "upstream": "https://storage.googleapis.com/flutter_infra/",
+      "size": "946G",
+      "desc": "Flutter 框架 SDK 镜像",
+      "help": "/help/flutter/"
+    },
+    {
+      "cname": "julia",
+      "options_name": "julia",
+      "url": "/julia",
+      "status": "S1627989943X1627993543",
+      "upstream": "https://kr.storage.juliahub.com",
+      "size": "1.31T",
+      "desc": "Julia 编程语言的包管理器镜像",
+      "help": "/help/julia/"
     },
     {
       "cname": "debian-nonfree",
@@ -11320,35 +11269,94 @@
       "url": "/debian-nonfree",
       "status": "S1627973985X1627995585",
       "upstream": "rsync://cdimage.debian.org/cdimage-unofficial/non-free/",
-      "size": "385.78G",
+      "size": "402G",
       "desc": "Debian Linux 的非自由软件包仓库"
     },
     {
-      "cname": "debian-security",
-      "options_name": "debian-security",
-      "url": "/debian-security",
-      "status": "S1627967306X1627988906",
-      "upstream": "rsync://rsync.security.debian.org/debian-security/",
-      "size": "177G",
-      "desc": "Debian Linux 的安全更新"
+      "cname": "github-release",
+      "options_name": "github-release",
+      "url": "/github-release",
+      "status": "S1627956491X1627999691",
+      "upstream": "https://api.github.com/repos/",
+      "size": "44.9G",
+      "desc": "一些项目的 Github Release 镜像"
     },
     {
-      "cname": "linuxmint-cd",
-      "options_name": "linuxmint-cd",
-      "url": "/linuxmint-cd",
-      "status": "S1627976026X1627997626",
-      "upstream": "rsync://mirrors.kernel.org/linuxmint/",
-      "size": "357.45G",
-      "desc": "Linux Mint 的安装镜像"
+      "cname": "pypi",
+      "options_name": "pypi",
+      "url": "/pypi",
+      "status": "Y1627992979O1627992676",
+      "upstream": "https://pypi.python.org/",
+      "size": "7.21T",
+      "desc": "Python 软件包索引源",
+      "help": "/help/pypi/"
     },
     {
-      "cname": "parrot",
-      "options_name": "parrot",
-      "url": "/parrot",
-      "status": "S1627966999X1627988599",
-      "upstream": "rsync://archive.parrotsec.org/parrot/",
-      "size": "329G",
-      "desc": "Parrot Linux（专注于安全审计的 Linux 发行版）的安装映像和官方软件源"
+      "cname": "ubuntu-ports",
+      "options_name": "ubuntu-ports",
+      "url": "/ubuntu-ports",
+      "status": "S1627975507X1627997107",
+      "upstream": "rsync://ports.ubuntu.com/ubuntu-ports/",
+      "size": "1.93T",
+      "desc": "armhf, arm64 以及 powerpc 等平台的 Ubuntu 软件仓库",
+      "help": "/help/ubuntu-ports/"
+    },
+    {
+      "cname": "llvm",
+      "options_name": "llvm",
+      "url": "/help/llvm/",
+      "status": "F1627960508X1628003708",
+      "upstream": "https://git.llvm.org/git",
+      "size": "unknown",
+      "desc": "LLVM 编译器套件的多个 git 源码仓库（已停止更新）",
+      "help": "/help/llvm/"
+    },
+    {
+      "cname": "postmarketOS",
+      "options_name": "postmarketOS",
+      "url": "/postmarketOS",
+      "status": "S1627990367X1628011967N",
+      "upstream": "rsync://mirror.postmarketos.org/postmarketos/",
+      "size": "15.94G"
+    },
+    {
+      "cname": "AdoptOpenJDK",
+      "options_name": "AdoptOpenJDK",
+      "url": "/AdoptOpenJDK",
+      "status": "S1627896000X1628241600",
+      "upstream": "https://adoptopenjdk.jfrog.io/adoptopenjdk",
+      "size": "155G",
+      "desc": "社区维护的 OpenJDK 二进制包",
+      "help": "/help/adoptopenjdk/"
+    },
+    {
+      "cname": "flutter-sdk.git",
+      "options_name": "flutter-sdk.git",
+      "url": "/help/flutter-sdk.git/",
+      "status": "S1627959939X1628003138",
+      "upstream": "git://github.com/flutter/flutter.git",
+      "size": "464M",
+      "desc": "Flutter 框架源码镜像",
+      "help": "/help/flutter-sdk.git/"
+    },
+    {
+      "cname": "kicad",
+      "options_name": "kicad",
+      "url": "/kicad",
+      "status": "S1627974710X1627996310",
+      "upstream": "s3://kicad-downloads/",
+      "size": "416G",
+      "desc": "开源的电路原理图与 PCB 设计工具",
+      "help": "/help/kicad/"
+    },
+    {
+      "cname": "kodi",
+      "options_name": "kodi",
+      "url": "/kodi",
+      "status": "S1627992871X1628014471",
+      "upstream": "rsync://mirror.yandex.ru/mirrors/xbmc/",
+      "size": "149.50G",
+      "desc": "开源的多媒体播放器，原名 XBMC"
     },
     {
       "cname": "AUR",
@@ -11359,27 +11367,27 @@
     {
       "cname": "manjaro-cd",
       "url": "/osdn/storage/g/m/ma/manjaro/",
-      "status": "S1627985923X1627989523"
+      "status": "F1627991475O1627985923X1627995075"
     },
     {
       "cname": "manjaro-arm-cd",
       "url": "/osdn/storage/g/m/ma/manjaro-arm/",
-      "status": "S1627985923X1627989523"
+      "status": "F1627991475O1627985923X1627995075"
     },
     {
       "cname": "mxlinux-isos",
       "url": "/osdn/storage/g/m/mx/mx-linux/ISOs/",
-      "status": "S1627985923X1627989523"
+      "status": "F1627991475O1627985923X1627995075"
     },
     {
       "cname": "garuda-linux",
       "url": "/osdn/storage/g/g/ga/garuda-linux/",
-      "status": "S1627985923X1627989523"
+      "status": "F1627991475O1627985923X1627995075"
     },
     {
       "cname": "linuxlite-cd",
       "url": "/osdn/storage/g/l/li/linuxlite/",
-      "status": "S1627985923X1627989523"
+      "status": "F1627991475O1627985923X1627995075"
     },
     {
       "cname": "prometheus",
