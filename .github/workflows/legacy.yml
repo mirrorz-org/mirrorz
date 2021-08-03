@@ -1,0 +1,32 @@
+name: Update legacy json
+
+on:
+  schedule:
+    - cron:  '0 12 * * *'
+
+jobs: 
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Update json if there is any change
+        run: |
+          git config user.name "${ACTOR}"
+          git config user.email "${ACTOR}@users.noreply.github.com"
+          cd scripts/legacy
+          yarn
+          printf "legacy: update json\n\n" > commit-msg
+          node update.js | tee -a commit-msg | grep -e ': update$' && git commit -aF commit-msg
+          rm commit-msg
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: legacy-update-json
+          delete-branch: true
+          title: "Update legacy json"
