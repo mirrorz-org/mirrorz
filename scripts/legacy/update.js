@@ -69,6 +69,7 @@ const LIST = {
   // "tongji"
   // x "uestc"
   // x "opentuna"
+  "opentuna"  : "https://status.tuna.wiki/mirrorz/static/opentuna.json",
 };
 
 const diff = require("./diff");

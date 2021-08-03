@@ -35,13 +35,12 @@ module.exports = function (o, n) {
         let on = find(od.urls, na, "name")
         let nn = find(nd.urls, na, "name")
         if (nn === null)
-          log += '- ' + 'info:' + d + ':urls:' + na + '\n'
-          log += `- info:${d}:urls:${na}\n`
+          log += `- info:${d}:name:${na}\n`
         if (on === null)
-          log += `+ info:${d}:urls:${na}\n`
+          log += `+ info:${d}:name:${na}\n`
         if (on !== null && nn !== null && on.url !== nn.url) {
-          log += `- info:${d}:urls:${na}:url:${on.url}\n`
-          log += `+ info:${d}:urls:${na}:url:${nn.url}\n`
+          log += `- info:${d}:name:${na}:url:${on.url}\n`
+          log += `+ info:${d}:name:${na}:url:${nn.url}\n`
         }
       }
     }
