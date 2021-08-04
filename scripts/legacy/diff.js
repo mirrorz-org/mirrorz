@@ -50,9 +50,9 @@ module.exports = function (o, n) {
   for (c of mirrorscnames) {
     let oc = find(o.mirrors, c, "cname")
     let nc = find(n.mirrors, c, "cname")
-    if (oc === null)
-      log += `- mirrors:${c}\n`
     if (nc === null)
+      log += `- mirrors:${c}\n`
+    if (oc === null)
       log += `+ mirrors:${c}\n`
     if (oc !== null && nc !== null) {
       for (k of ["url", "desc", "help", "upstream"]) {
