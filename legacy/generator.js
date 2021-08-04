@@ -24,13 +24,27 @@ handle();
 async function handle() {
   // 这里可能会下载失败，可能要再改改
   await asyncForEach(require("../src/config/mirrors"), async (url) => {
+    let remote_flag = true;
     try {
-      console.log("downloading", url);
-      let data = await fetch(url, { timeout: 15000 });
-      sites.push(await data.json());
+      if (url.includes("https://mirrorz.org/static")) {
+        // /static 为本地的，直接读文件
+        let url_local = url.replace("https://mirrorz.org", "/..");
+        console.log("hit local file", `${url_local}`);
+        sites.push(require(`${__dirname}${url_local}`));
+        remote_flag = false;
+      }
     } catch (error) {
       // 这里没有用 .error 怕整个 CI 炸
-      console.log("download error", url);
+      console.warn("hit error", url);
+    }
+    if (remote_flag) {
+      try {
+        console.log("downloading", url);
+        let data = await fetch(url, { timeout: 15000 });
+        sites.push(await data.json());
+      } catch (error) {
+        console.warn("download error", url);
+      }
     }
   });
   sites.forEach((s, sid) => {
@@ -164,24 +178,26 @@ async function handle() {
     });
     wf(`../dist/_/list/${name.replace(/ /gi, "")}/index.html`, html);
   });
-  sites.sort((a, b) => b.site.abbr.localeCompare(a.site.abbr)).forEach((data) => {
-    let html = pug.compileFile("./legacy/template/site.pug")({
-      data: data,
-      sidebar: sites
-        .map((n) => {
-          return {
-            url: `/_/site/${n.site.abbr}`,
-            abbr: n.site.abbr,
-            logo: n.site.logo,
-            active: n.site.abbr == data.site.abbr,
-          };
-        })
-        .sort((a, b) => a.abbr.localeCompare(b.abbr)),
+  sites
+    .sort((a, b) => b.site.abbr.localeCompare(a.site.abbr))
+    .forEach((data) => {
+      let html = pug.compileFile("./legacy/template/site.pug")({
+        data: data,
+        sidebar: sites
+          .map((n) => {
+            return {
+              url: `/_/site/${n.site.abbr}`,
+              abbr: n.site.abbr,
+              logo: n.site.logo,
+              active: n.site.abbr == data.site.abbr,
+            };
+          })
+          .sort((a, b) => a.abbr.localeCompare(b.abbr)),
+      });
+      // 目前 BFSU 在 MirrorZ 中是排最前的 所以就钦定你是 /site 首页了
+      wf(`../dist/_/site/index.html`, html);
+      wf(`../dist/_/site/${data.site.abbr}/index.html`, html);
     });
-    // 目前 BFSU 在 MirrorZ 中是排最前的 所以就钦定你是 /site 首页了
-    wf(`../dist/_/site/index.html`, html);
-    wf(`../dist/_/site/${data.site.abbr}/index.html`, html);
-  });
   wf(
     `../dist/_/about/index.html`,
     pug.compileFile("./legacy/template/about.pug")({
@@ -192,7 +208,7 @@ async function handle() {
 // 随便写的垃圾函数 其实应该 import 个 path 处理 subpath
 // wf -> write file
 function wf(path, data) {
-  console.log("w", path);
+  console.log("w", path.replace("..", "/_"));
   let subpath = path.split("/");
   delete subpath[subpath.length - 1];
   subpath = __dirname + "/" + subpath.join("/");
