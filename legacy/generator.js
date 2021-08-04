@@ -38,12 +38,11 @@ async function handle() {
       console.warn("hit error", url);
     }
     if (remote_flag) {
-      try {
-        console.log("downloading", url);
-        let data = await fetch(url, { timeout: 15000 });
-        sites.push(await data.json());
-      } catch (error) {
+      let data = await download_file(url)
+      if (data == "e") {
         console.warn("download error", url);
+      } else {
+        sites.push(data);
       }
     }
   });
@@ -222,5 +221,23 @@ function wf(path, data) {
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
+  }
+}
+/**
+ * download file (with retry)
+ * @param {*} url url
+ * @returns {JSON}
+ */
+async function download_file(url, try_time = 0) {
+  try {
+    console.log("downloading", try_time, url);
+    let data = await fetch(url, { timeout: 15000 });
+    return await data.json();
+  } catch (error) {
+    console.warn("download error", try_time, url);
+    if (try_time > 5) {
+      return "e";
+    }
+    return download_file(url.replace("sss", ""), try_time + 1);
   }
 }
