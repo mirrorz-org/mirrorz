@@ -13,170 +13,194 @@
   "info": [],
   "mirrors": [
     {
-      "cname": "debian-cd",
-      "options_name": "debian-cd",
-      "url": "/debian-cd",
-      "status": "S1627974108X1627988508",
-      "upstream": "rsync://mirrors.kernel.org/debian-cd/",
-      "size": "233.06G"
+      "cname": "homebrew",
+      "options_name": "homebrew",
+      "url": "/homebrew",
+      "status": "S1628069454X1628155854",
+      "upstream": "https://github.com/Homebrew",
+      "size": "2.11G"
     },
     {
-      "cname": "debian-nonfree",
-      "options_name": "debian-nonfree",
-      "url": "/debian-nonfree",
-      "status": "Y1627971043",
-      "upstream": "rsync://cdimage.debian.org/cdimage-unofficial/non-free/",
-      "size": "3.78T"
-    },
-    {
-      "cname": "fedora",
-      "options_name": "fedora",
-      "url": "/fedora",
-      "status": "F1627984668O1625775716X1628071068",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/fedora/",
-      "size": "1.79T"
-    },
-    {
-      "cname": "raspberrypi",
-      "options_name": "raspberrypi",
-      "url": "/raspberrypi",
-      "status": "S1627900420X1627986820",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/raspberrypi/",
-      "size": "128.62G"
-    },
-    {
-      "cname": "ubuntukylin",
-      "options_name": "ubuntukylin",
-      "url": "/ubuntukylin",
-      "status": "S1627986266X1628072666",
-      "upstream": "rsync://user@service.ubuntukylin.com:8873/rsync/",
-      "size": "17.21G"
-    },
-    {
-      "cname": "anaconda",
-      "options_name": "anaconda",
-      "url": "/anaconda",
-      "status": "S1627967563X1628053963",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/anaconda/",
-      "size": "5.21T"
-    },
-    {
-      "cname": "archlinuxarm",
-      "options_name": "archlinuxarm",
-      "url": "/archlinuxarm",
-      "status": "S1627945180X1628031580",
-      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/archlinuxarm/",
-      "size": "115.46G"
-    },
-    {
-      "cname": "debian-security",
-      "options_name": "debian-security",
-      "url": "/debian-security",
-      "status": "S1627980546X1627994946",
-      "upstream": "rsync://rsync.security.debian.org/debian-security/",
-      "size": "188.26G"
-    },
-    {
-      "cname": "docker-ce",
-      "options_name": "docker-ce",
-      "url": "/docker-ce",
-      "status": "F1627983925O1626648636X1628070325",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/docker-ce/",
-      "size": "522.8G"
-    },
-    {
-      "cname": "elrepo",
-      "options_name": "elrepo",
-      "url": "/elrepo",
-      "status": "S1627986286X1628072686",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/elrepo/",
-      "size": "62.88G"
-    },
-    {
-      "cname": "epel",
-      "options_name": "epel",
-      "url": "/epel",
-      "status": "F1627984067O1625829154X1628070467",
-      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/epel/",
-      "size": "227.3G"
-    },
-    {
-      "cname": "manjaro-cd",
-      "options_name": "manjaro-cd",
-      "url": "/manjaro-cd",
-      "status": "S1627981140X1628067540",
-      "upstream": "rsync://ftp.iij.ad.jp/pub/osdn.jp/storage/g/m/ma/manjaro/",
-      "size": "21.66G"
-    },
-    {
-      "cname": "manjaro",
-      "options_name": "manjaro",
-      "url": "/manjaro",
-      "status": "S1627965188X1628051588",
-      "upstream": "rsync://mirror.yandex.ru/mirrors/manjaro/",
-      "size": "109.84G"
-    },
-    {
-      "cname": "alpine",
-      "options_name": "alpine",
-      "url": "/alpine",
-      "status": "S1627974273X1627988673",
-      "upstream": "rsync://rsync.alpinelinux.org/alpine/",
-      "size": "1.38T"
-    },
-    {
-      "cname": "archlinuxcn",
-      "options_name": "archlinuxcn",
-      "url": "/archlinuxcn",
-      "status": "S1627985173X1627999573",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/archlinuxcn/",
-      "size": "75.19G"
+      "cname": "kali",
+      "options_name": "kali",
+      "url": "/kali",
+      "status": "S1628075240",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/kali/",
+      "size": "1.08T"
     },
     {
       "cname": "OpenBSD",
       "options_name": "openbsd",
       "url": "/openbsd",
-      "status": "S1627972845X1628059245",
+      "status": "S1628060393X1628146793",
       "upstream": "rsync://mirrors.bfsu.edu.cn/OpenBSD/",
       "size": "1.12T"
     },
     {
-      "cname": "kali-images",
-      "options_name": "kali-images",
-      "url": "/kali-images",
-      "status": "S1627902969X1627989369",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/kali-images/",
-      "size": "117.47G"
+      "cname": "archlinuxcn",
+      "options_name": "archlinuxcn",
+      "url": "/archlinuxcn",
+      "status": "S1628140970X1628155370",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/archlinuxcn/",
+      "size": "74.76G"
     },
     {
-      "cname": "deepin-cd",
-      "options_name": "deepin-cd",
-      "url": "/deepin-cd",
-      "status": "S1627980928X1628067328",
-      "upstream": "rsync://rsync.deepin.com/cdimage/",
-      "size": "207.02G"
+      "cname": "debian-cd",
+      "options_name": "debian-cd",
+      "url": "/debian-cd",
+      "status": "S1628132839X1628147239",
+      "upstream": "rsync://mirrors.kernel.org/debian-cd/",
+      "size": "233.06G"
+    },
+    {
+      "cname": "debian-security",
+      "options_name": "debian-security",
+      "url": "/debian-security",
+      "status": "S1628128636X1628143036",
+      "upstream": "rsync://rsync.security.debian.org/debian-security/",
+      "size": "188.37G"
     },
     {
       "cname": "deepin",
       "options_name": "deepin",
       "url": "/deepin",
-      "status": "S1627910925X1627997325",
+      "status": "S1628089262X1628175662",
       "upstream": "rsync://rsync.deepin.com/deepin/",
       "size": "286.46G"
     },
     {
-      "cname": "fedora-altarch",
-      "options_name": "fedora-altarch",
-      "url": "/fedora-altarch",
-      "status": "S1627969043X1628055443",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/fedora-altarch/",
-      "size": "22.20G"
+      "cname": "epel",
+      "options_name": "epel",
+      "url": "/epel",
+      "status": "F1628135686O1625829154X1628222086",
+      "upstream": "rsync://mirrors.kernel.org/fedora-epel/",
+      "size": "227.76G"
+    },
+    {
+      "cname": "pypi",
+      "options_name": "pypi",
+      "url": "/pypi",
+      "status": "U",
+      "upstream": "https://pypi.python.org/",
+      "size": "6.87T"
+    },
+    {
+      "cname": "ubuntu-cdimage",
+      "options_name": "ubuntu-cdimage",
+      "url": "/ubuntu-cdimage",
+      "status": "S1628087724X1628174124",
+      "upstream": "rsync://cdimage.ubuntu.com/cdimage/",
+      "size": "913.99G"
+    },
+    {
+      "cname": "centos-altarch",
+      "options_name": "centos-altarch",
+      "url": "/centos-altarch",
+      "status": "S1628136326X1628222726",
+      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/centos-altarch/",
+      "size": "223.45G"
+    },
+    {
+      "cname": "kali-images",
+      "options_name": "kali-images",
+      "url": "/kali-images",
+      "status": "S1628075780X1628162180",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/kali-images/",
+      "size": "117.47G"
+    },
+    {
+      "cname": "proxmox",
+      "options_name": "proxmox",
+      "url": "/proxmox",
+      "status": "S1628093000X1628179400",
+      "upstream": "http://download.proxmox.com",
+      "size": "66.74G"
+    },
+    {
+      "cname": "raspberrypi",
+      "options_name": "raspberrypi",
+      "url": "/raspberrypi",
+      "status": "S1628073559X1628159959",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/raspberrypi/",
+      "size": "129.07G"
+    },
+    {
+      "cname": "ubuntu",
+      "options_name": "ubuntu",
+      "url": "/ubuntu",
+      "status": "S1628131739X1628146139",
+      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/ubuntu/",
+      "size": "1.62T"
+    },
+    {
+      "cname": "archlinux",
+      "options_name": "archlinux",
+      "url": "/archlinux",
+      "status": "S1628130150X1628144550",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/archlinux/",
+      "size": "73.57G"
+    },
+    {
+      "cname": "armbian-releases",
+      "options_name": "armbian-releases",
+      "url": "/armbian-releases",
+      "status": "S1628137072X1628223472",
+      "upstream": "rsync://rsync.armbian.com/dl/",
+      "size": "275.77G"
+    },
+    {
+      "cname": "deepin-cd",
+      "options_name": "deepin-cd",
+      "url": "/deepin-cd",
+      "status": "S1628067345X1628153745",
+      "upstream": "rsync://rsync.deepin.com/cdimage/",
+      "size": "207.02G"
+    },
+    {
+      "cname": "docker-ce",
+      "options_name": "docker-ce",
+      "url": "/docker-ce",
+      "status": "Y1628133183O1626648636",
+      "upstream": "https://download.docker.com/",
+      "size": "523.93G"
+    },
+    {
+      "cname": "manjaro",
+      "options_name": "manjaro",
+      "url": "/manjaro",
+      "status": "S1628056607X1628143007",
+      "upstream": "rsync://mirror.yandex.ru/mirrors/manjaro/",
+      "size": "109.54G"
+    },
+    {
+      "cname": "alpine",
+      "options_name": "alpine",
+      "url": "/alpine",
+      "status": "Y1628139539O1628125138",
+      "upstream": "rsync://rsync.alpinelinux.org/alpine/",
+      "size": "1.39T"
+    },
+    {
+      "cname": "ubuntukylin",
+      "options_name": "ubuntukylin",
+      "url": "/ubuntukylin",
+      "status": "S1628072682X1628159082",
+      "upstream": "rsync://user@service.ubuntukylin.com:8873/rsync/",
+      "size": "17.21G"
+    },
+    {
+      "cname": "fedora",
+      "options_name": "fedora",
+      "url": "/fedora",
+      "status": "F1628135708O1625775716X1628222108",
+      "upstream": "rsync://mirrors.kernel.org/fedora-enchilada/linux/",
+      "size": "1.39T"
     },
     {
       "cname": "homebrew-bottles",
       "options_name": "homebrew-bottles",
       "url": "/homebrew-bottles",
-      "status": "S1627971826X1628058226",
+      "status": "S1628060597X1628146997",
       "upstream": "rsync://mirrors.bfsu.edu.cn/homebrew-bottles/",
       "size": "451.02G"
     },
@@ -184,161 +208,137 @@
       "cname": "manjaro-arm",
       "options_name": "manjaro-arm",
       "url": "/manjaro-arm",
-      "status": "S1627926257X1628012657",
+      "status": "S1628099752X1628186152",
       "upstream": "rsync://ftp.osuosl.org/manjaro-arm/repo/",
       "size": "22.11G"
     },
     {
-      "cname": "opensuse",
-      "options_name": "opensuse",
-      "url": "/opensuse",
-      "status": "Y1627942119O1627669764",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/opensuse/",
-      "size": "2.71T"
+      "cname": "anaconda",
+      "options_name": "anaconda",
+      "url": "/anaconda",
+      "status": "S1628069547X1628155948",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/anaconda/",
+      "size": "5.22T"
     },
     {
-      "cname": "ubuntu",
-      "options_name": "ubuntu",
-      "url": "/ubuntu",
-      "status": "S1627975982X1627990382",
-      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/ubuntu/",
-      "size": "1.61T"
-    },
-    {
-      "cname": "centos-altarch",
-      "options_name": "centos-altarch",
-      "url": "/centos-altarch",
-      "status": "S1627984212X1628070612",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/centos-altarch/",
-      "size": "223.97G"
-    },
-    {
-      "cname": "debian",
-      "options_name": "debian",
-      "url": "/debian",
-      "status": "Y1627967693O1627953291",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/debian/",
-      "size": "1.49T"
-    },
-    {
-      "cname": "ceph",
-      "options_name": "ceph",
-      "url": "/ceph",
-      "status": "S1627939453X1628025853",
-      "upstream": "rsync://download.ceph.com/ceph/",
-      "size": "1.97T"
-    },
-    {
-      "cname": "ubuntu-cdimage",
-      "options_name": "ubuntu-cdimage",
-      "url": "/ubuntu-cdimage",
-      "status": "Y1627947822O1625966396",
-      "upstream": "rsync://cdimage.ubuntu.com/cdimage/",
-      "size": "1024.0G"
-    },
-    {
-      "cname": "homebrew",
-      "options_name": "homebrew",
-      "url": "/homebrew",
-      "status": "S1627973302X1628059702",
-      "upstream": "https://github.com/Homebrew",
-      "size": "2.12G"
-    },
-    {
-      "cname": "kali",
-      "options_name": "kali",
-      "url": "/kali",
-      "status": "S1627975482X1628061882",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/kali/",
-      "size": "1.08T"
-    },
-    {
-      "cname": "pypi",
-      "options_name": "pypi",
-      "url": "/pypi",
-      "status": "Y1627982362O1627806567",
-      "upstream": "https://pypi.python.org/",
-      "size": "6.71T"
-    },
-    {
-      "cname": "ubuntu-ports",
-      "options_name": "ubuntu-ports",
-      "url": "/ubuntu-ports",
-      "status": "S1627936888X1628023288",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/ubuntu-ports/",
-      "size": "2.06T"
-    },
-    {
-      "cname": "centos",
-      "options_name": "centos",
-      "url": "/centos",
-      "status": "S1627973497X1627987897",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/centos/",
-      "size": "511.23G"
+      "cname": "archlinuxarm",
+      "options_name": "archlinuxarm",
+      "url": "/archlinuxarm",
+      "status": "S1628118940X1628205340",
+      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/archlinuxarm/",
+      "size": "115.48G"
     },
     {
       "cname": "eclipse",
       "options_name": "eclipse",
       "url": "/eclipse",
-      "status": "Y1627984032",
+      "status": "S1628085612X1628172012",
       "upstream": "rsync://rsync.osuosl.org/eclipse/",
-      "size": "2.0T"
+      "size": "2.10T"
     },
     {
-      "cname": "armbian",
-      "options_name": "armbian",
-      "url": "/armbian",
-      "status": "S1627933831X1628020231",
-      "upstream": "rsync://rsync.armbian.com/apt/",
-      "size": "65.24G"
+      "cname": "elrepo",
+      "options_name": "elrepo",
+      "url": "/elrepo",
+      "status": "S1628072777X1628159177",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/elrepo/",
+      "size": "62.88G"
     },
     {
-      "cname": "openwrt",
-      "options_name": "openwrt",
-      "url": "/openwrt",
-      "status": "S1627916252X1628002652",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/openwrt/",
-      "size": "849.61G"
+      "cname": "fedora-altarch",
+      "options_name": "fedora-altarch",
+      "url": "/fedora-altarch",
+      "status": "F1628135369O1628055466X1628221769",
+      "upstream": "rsync://mirrors.kernel.org/fedora-secondary/",
+      "size": "22.20G"
     },
     {
-      "cname": "proxmox",
-      "options_name": "proxmox",
-      "url": "/proxmox",
-      "status": "S1627920144X1628006544",
-      "upstream": "http://download.proxmox.com",
-      "size": "66.74G"
+      "cname": "opensuse",
+      "options_name": "opensuse",
+      "url": "/opensuse",
+      "status": "Y1628132719O1627669764",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/opensuse/",
+      "size": "2.74T"
     },
     {
       "cname": "ubuntu-releases",
       "options_name": "ubuntu-releases",
       "url": "/ubuntu-releases",
-      "status": "S1627972801X1627987201",
+      "status": "S1628131339X1628145739",
       "upstream": "rsync://rsync.releases.ubuntu.com/releases/",
       "size": "24.43G"
     },
     {
-      "cname": "archlinux",
-      "options_name": "archlinux",
-      "url": "/archlinux",
-      "status": "S1627980946X1627995346",
-      "upstream": "rsync://mirrors.bfsu.edu.cn/archlinux/",
-      "size": "73.70G"
+      "cname": "ceph",
+      "options_name": "ceph",
+      "url": "/ceph",
+      "status": "S1628112968X1628199368",
+      "upstream": "rsync://download.ceph.com/ceph/",
+      "size": "1.97T"
     },
     {
-      "cname": "armbian-releases",
-      "options_name": "armbian-releases",
-      "url": "/armbian-releases",
-      "status": "S1627964077X1628050477",
-      "upstream": "rsync://rsync.armbian.com/dl/",
-      "size": "282.31G"
+      "cname": "debian-nonfree",
+      "options_name": "debian-nonfree",
+      "url": "/debian-nonfree",
+      "status": "F1628134001X1628220402",
+      "upstream": "rsync://cdimage.debian.org/cdimage-unofficial/non-free/",
+      "size": "3.82T"
+    },
+    {
+      "cname": "openwrt",
+      "options_name": "openwrt",
+      "url": "/openwrt",
+      "status": "S1628141051X1628227451",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/openwrt/",
+      "size": "886.05G"
+    },
+    {
+      "cname": "ubuntu-ports",
+      "options_name": "ubuntu-ports",
+      "url": "/ubuntu-ports",
+      "status": "Y1628116893O1628030492",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/ubuntu-ports/",
+      "size": "1.9T"
     },
     {
       "cname": "aosp-monthly",
       "options_name": "aosp-monthly",
       "url": "/aosp-monthly",
-      "status": "S1627919208X1628005608",
+      "status": "S1628092017X1628178417",
       "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/aosp-monthly/",
       "size": "132.68G"
+    },
+    {
+      "cname": "armbian",
+      "options_name": "armbian",
+      "url": "/armbian",
+      "status": "S1628139435X1628225835",
+      "upstream": "rsync://rsync.armbian.com/apt/",
+      "size": "67.66G"
+    },
+    {
+      "cname": "centos",
+      "options_name": "centos",
+      "url": "/centos",
+      "status": "S1628137278X1628151678",
+      "upstream": "rsync://rsync.mirrors.ustc.edu.cn/repo/centos/",
+      "size": "512.33G"
+    },
+    {
+      "cname": "debian",
+      "options_name": "debian",
+      "url": "/debian",
+      "status": "Y1628135002O1628125565",
+      "upstream": "rsync://mirrors.bfsu.edu.cn/debian/",
+      "size": "1.53T"
+    },
+    {
+      "cname": "manjaro-cd",
+      "options_name": "manjaro-cd",
+      "url": "/manjaro-cd",
+      "status": "S1628067545X1628153945",
+      "upstream": "rsync://ftp.iij.ad.jp/pub/osdn.jp/storage/g/m/ma/manjaro/",
+      "size": "21.66G"
     }
   ]
 }

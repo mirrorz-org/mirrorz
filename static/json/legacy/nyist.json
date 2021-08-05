@@ -8,15 +8,69 @@
   "info": [],
   "mirrors": [
     {
+      "cname": "kali",
+      "url": "/kali/",
+      "status": "S1628102317",
+      "size": "1007G"
+    },
+    {
+      "cname": "mongodb",
+      "url": "/mongodb/",
+      "status": "S1628102319",
+      "size": "83G"
+    },
+    {
+      "cname": "mysql",
+      "url": "/mysql/",
+      "status": "S1628102322",
+      "size": "762G"
+    },
+    {
+      "cname": "openwrt",
+      "url": "/openwrt/",
+      "status": "S1628102662",
+      "size": "776G"
+    },
+    {
+      "cname": "OpenBSD",
+      "url": "/OpenBSD/",
+      "status": "S1628102700",
+      "size": "1.1T"
+    },
+    {
+      "cname": "postgresql",
+      "url": "/postgresql/",
+      "status": "S1628102737",
+      "size": "248G"
+    },
+    {
+      "cname": "qt",
+      "url": "/qt/",
+      "status": "S1628102810",
+      "size": "1.6T"
+    },
+    {
+      "cname": "raspbian",
+      "url": "/raspbian/",
+      "status": "S1628102869",
+      "size": "481G"
+    },
+    {
+      "cname": "redhat",
+      "url": "/redhat/",
+      "status": "S1628102908",
+      "size": "3.3T"
+    },
+    {
       "cname": "ubuntu",
       "url": "/ubuntu/",
-      "status": "S1627930684",
+      "status": "S1628103089",
       "size": "1.5T"
     },
     {
       "cname": "zabbix",
       "url": "/zabbix/",
-      "status": "S1627930698",
+      "status": "S1628103103",
       "size": "65G"
     }
   ]
