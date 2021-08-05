@@ -5,12 +5,7 @@
 /node_modules
 /dist
 /.parcel-cache
-head.pug
 .DS_Store
 /drop
 /tests/*.spec.[jt]s-snapshots
 /test-results
-/monitor/node_modules
-/monitor/yarn.lock
-/scripts/legacy/node_modules
-/scripts/legacy/yarn.lock
