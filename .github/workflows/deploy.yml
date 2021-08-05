@@ -1,6 +1,7 @@
 name: Yarn build and Publish to another repo
 
 on:
+  workflow_dispatch:
   push:
     branches: [master]
   pull_request:
@@ -17,8 +18,30 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Prepare static
+        run: |
+          git clone https://github.com/mirrorz-org/mirrorz-json-legacy.git static/json/json-legacy
+          mv static/json/json-legacy/data static/json/legacy
+          rm -rf static/json/json-legacy
+          git clone https://github.com/mirrorz-org/mirrorz-json-site.git static/json/site
+      - name: Prepare parser, config, oh-my-mirrorz
+        run: |
+          git clone https://github.com/mirrorz-org/mirrorz-parser.git src/parser
+          git clone https://github.com/mirrorz-org/mirrorz-config.git src/config
+          git clone https://github.com/mirrorz-org/oh-my-mirrorz.git scripts/oh-my-mirrorz
+      - name: Prepare legacy
+        run: |
+          git clone https://github.com/mirrorz-org/mirrorz-legacy.git legacy
+          ln -s ../../ legacy/mirrorz
+          ln -s ../src/config legacy/config
+          ln -s ../static/json/legacy legacy/json-legacy
       - name: Install dependencies
         run: yarn --frozen-lockfile
+      - name: Install legacy dependencies
+        run: |
+          cd legacy
+          yarn --frozen-lockfile
+          cd ..
       - name: oh-my-mirrorz build
         run: |
           sed -i "s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g" scripts/oh-my-mirrorz/oh-my-mirrorz.py

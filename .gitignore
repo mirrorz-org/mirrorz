@@ -9,3 +9,10 @@
 /drop
 /tests/*.spec.[jt]s-snapshots
 /test-results
+
+/src/config
+/src/parser
+/legacy
+/scripts/oh-my-mirrorz
+/static/json/legacy
+/static/json/site
