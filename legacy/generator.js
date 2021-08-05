@@ -26,7 +26,7 @@ async function handle() {
   await asyncForEach(require("../src/config/mirrors"), async (url) => {
     let remote_flag = true;
     try {
-      if (url.includes("https://mirrorz.org/static")) {
+      if (url.substr(0, 26) == "https://mirrorz.org/static") {
         // /static 为本地的，直接读文件
         let url_local = url.replace("https://mirrorz.org", "/..");
         console.log("hit local file", `${url_local}`);
