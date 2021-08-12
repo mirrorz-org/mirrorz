@@ -34,7 +34,7 @@ jobs:
       - name: Prepare legacy
         run: |
           git clone https://github.com/mirrorz-org/mirrorz-legacy.git legacy
-          ln -s ../../ legacy/mirrorz
+          ln -s ../ legacy/mirrorz
           ln -s ../src/config legacy/config
           ln -s ../static/json/legacy legacy/json-legacy
       - name: Install dependencies
