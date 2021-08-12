@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./ui/Root";
 import "./css/style.scss";
 import("./css/deferred.scss"); // Async load
+import './i18n/';
 
 function bootstrap() {
   console.log("Meow: bootstrap");

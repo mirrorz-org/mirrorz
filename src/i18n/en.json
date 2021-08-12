@@ -1,0 +1,16 @@
+{
+  "about": {
+    "about": "About",
+    "intro": "Intro",
+    "repo": "Repo",
+    "logo": "Logo",
+    "usage": "Usage",
+    "valid_urls": "The following urls are all valid.",
+    "legacy": "The following urls are for static webpage, you can use w3m/lynx to view them",
+    "legacy_usage": "More usage of static webpage is documented in the above url",
+    "speedtest": "Use the below script for speed test!",
+    "302_js": "Experimental Feature: 302 Backend",
+    "search": "Experimental Feature: Search Backend",
+    "todo": "TODO and possible projects"
+  }
+}

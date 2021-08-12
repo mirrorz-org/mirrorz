@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { Logo } from "./Icon";
 import { ParsedMirror, Site } from "../schema";
 
@@ -19,27 +20,28 @@ const Para = React.memo(({ title, content }: { title: string, content: React.Rea
 });
 
 export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[] }[] }) => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="about">
-      <Para title="Intro" content={(
+      <Para title={t("about.intro")} content={(
         <div>
           <p>"Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ."</p>
           <p>"A final site for Mirror sites."</p>
         </div>
       )} />
-      <Para title="Repo" content={(
+      <Para title={t("about.repo")} content={(
         <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
       )} />
-      <Para title="Logo" content={site.map(({ site, parsed }, idx) => (
+      <Para title={t("about.logo")} content={site.map(({ site, parsed }, idx) => (
         <div className="about-powered-by" key={site.abbr}>
           <Logo site={site} className="about-logo" />
           {site.abbr}
         </div>
       ))}
       />
-      <Para title="Usage" content={(
+      <Para title={t("about.usage")} content={(
         <ul>
-          <li>The following urls are all valid.</li>
+          <li>{t("about.valid_urls")}</li>
           <li>{config.url}/</li>
           <li>{config.url}/os/ArchLinux</li>
           <li>{config.url}/app/Git</li>
@@ -53,29 +55,29 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
           <li>{config.url}/about</li>
           { config.about.includes("monitor") && (<li>{config.url}/monitor</li>) }
           { config.about.includes("legacy") && (<>
-            <li>The following urls are for static webpage, you can use w3m/lynx to view them</li>
+            <li>{t("about.legacy")}</li>
             <li>{config.url}/_/</li>
             <li>{config.url}/_/about</li>
-            <li>More usage of static webpage is documented in the above url</li>
+            <li>{t("about.legacy_usage")}</li>
           </>)}
           { config.about.includes("oh-my-mirrorz") && (<>
-            <li>Use the below script for speed test!</li>
+            <li>{t("about.speedtest")}</li>
             <li>{config.url}/oh-my-mirrorz.py</li>
             <li><code>curl {config.url}/oh-my-mirrorz.py | python3</code></li>
           </>)}
           { config.about.includes("302-js") && (<>
-            <li>Experimental Feature: 302 Backend</li>
+            <li>{t("about.302_js")}</li>
             <li>https://mirrors.mirrorz.org/archlinux</li>
             <li>https://m.mirrorz.org/centos</li>
           </>)}
           { config.about.includes("search") && (<>
-            <li>Experimental Feature: Search Backend</li>
+            <li>{t("about.search")}</li>
             <li>https://search.mirrorz.org/archlinux/</li>
             <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
           </>)}
         </ul>
       )} />
-      <Para title="TODO and possible projects" content={(
+      <Para title={t("about.todo")} content={(
         <ul>
           <li>More participating mirrors</li>
           <li>oh-my-mirrorz. One script to change all your mirrors (currently only speedtest was implemented). Ref to <a href="http://github.com/tuna/oh-my-tuna" target="_blank">http://github.com/tuna/oh-my-tuna</a></li>
