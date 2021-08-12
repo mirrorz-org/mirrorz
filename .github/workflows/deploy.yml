@@ -37,7 +37,7 @@ jobs:
         run: |
           git clone https://github.com/mirrorz-org/mirrorz-legacy.git legacy
           ln -s ../ legacy/mirrorz
-          ln -s ../src/config legacy/config
+          ln -s ../src/config/config.json legacy/config.json
           ln -s ../static/json/legacy legacy/json-legacy
       - name: Install dependencies
         run: yarn --frozen-lockfile
