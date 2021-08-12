@@ -2,6 +2,8 @@ import React from "react";
 import { Logo } from "./Icon";
 import { ParsedMirror, Site } from "../schema";
 
+import config from "../config/config.json";
+
 const Para = React.memo(({ title, content }: { title: string, content: React.ReactNode }) => {
   return (
     <div className="para">
@@ -21,8 +23,8 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
     <div className="about">
       <Para title="Intro" content={(
         <div>
-          <p>Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.</p>
-          <p>A final site for Mirror sites.</p>
+          <p>"Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ."</p>
+          <p>"A final site for Mirror sites."</p>
         </div>
       )} />
       <Para title="Repo" content={(
@@ -38,30 +40,39 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
       <Para title="Usage" content={(
         <ul>
           <li>The following urls are all valid.</li>
-          <li>https://mirrorz.org/</li>
-          <li>https://mirrorz.org/os/ArchLinux</li>
-          <li>https://mirrorz.org/app/Git</li>
-          <li>https://mirrorz.org/font</li>
-          <li>https://mirrorz.org/list</li>
-          <li>https://mirrorz.org/list/pypi</li>
-          <li>https://mirrorz.org/list/%5B0-9%5D%2B</li>
-          <li>https://mirrorz.org/site</li>
-          <li>https://mirrorz.org/site/BFSU</li>
-          <li>https://mirrorz.org/site/OpenTUNA/Y</li>
-          <li>https://mirrorz.org/about</li>
-          <li>https://mirrorz.org/monitor</li>
-          <li>The following urls are for static webpage, you can use w3m/lynx to view them</li>
-          <li>https://mirrorz.org/_/</li>
-          <li>https://mirrorz.org/_/about</li>
-          <li>More usage of static webpage is documented in the above url</li>
-          <li>Use the below script for speed test!</li>
-          <li>https://mirrorz.org/oh-my-mirrorz.py</li>
-          <li><code>curl https://mirrorz.org/oh-my-mirrorz.py | python3</code></li>
-          <li>Experimental Feature: Backend</li>
-          <li>https://mirrors.mirrorz.org/archlinux</li>
-          <li>https://m.mirrorz.org/centos</li>
-          <li>https://search.mirrorz.org/archlinux/</li>
-          <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
+          <li>{config.url}/</li>
+          <li>{config.url}/os/ArchLinux</li>
+          <li>{config.url}/app/Git</li>
+          <li>{config.url}/font</li>
+          <li>{config.url}/list</li>
+          <li>{config.url}/list/pypi</li>
+          <li>{config.url}/list/%5B0-9%5D%2B</li>
+          <li>{config.url}/site</li>
+          <li>{config.url}/site/BFSU</li>
+          <li>{config.url}/site/OpenTUNA/Y</li>
+          <li>{config.url}/about</li>
+          { config.about.includes("monitor") && (<li>{config.url}/monitor</li>) }
+          { config.about.includes("legacy") && (<>
+            <li>The following urls are for static webpage, you can use w3m/lynx to view them</li>
+            <li>{config.url}/_/</li>
+            <li>{config.url}/_/about</li>
+            <li>More usage of static webpage is documented in the above url</li>
+          </>)}
+          { config.about.includes("oh-my-mirrorz") && (<>
+            <li>Use the below script for speed test!</li>
+            <li>{config.url}/oh-my-mirrorz.py</li>
+            <li><code>curl {config.url}/oh-my-mirrorz.py | python3</code></li>
+          </>)}
+          { config.about.includes("302-js") && (<>
+            <li>Experimental Feature: 302 Backend</li>
+            <li>https://mirrors.mirrorz.org/archlinux</li>
+            <li>https://m.mirrorz.org/centos</li>
+          </>)}
+          { config.about.includes("search") && (<>
+            <li>Experimental Feature: Search Backend</li>
+            <li>https://search.mirrorz.org/archlinux/</li>
+            <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
+          </>)}
         </ul>
       )} />
       <Para title="TODO and possible projects" content={(
