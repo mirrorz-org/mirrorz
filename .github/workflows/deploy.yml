@@ -52,6 +52,7 @@ jobs:
       - name: Build
         run: |
           yarn build
+          yarn ohmymirrorz_deploy
           yarn legacy_build
           mkdir -p drop
           tar -czf drop/dist.tar.gz dist

@@ -35,11 +35,11 @@
   "scripts": {
     "debug_build": "parcel build index.html",
     "build": "parcel build --no-source-maps index.html",
-    "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME scripts/oh-my-mirrorz/oh-my-mirrorz.py dist/ && ln -sf ./index.html dist/404.html",
+    "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && ln -sf ./index.html dist/404.html",
     "legacy_build": "cd legacy && node ./generator.js && cd ../ && cp -ar legacy/dist/_ dist/",
-    "start": "parcel index.html",
+    "ohmymirrorz_deploy": "cp scripts/oh-my-mirrorz/oh-my-mirrorz.py dist/",
     "half_start": "(yarn debug_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
-    "full_start": "(yarn debug_build && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py)",
+    "full_start": "(yarn debug_build && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "test": "playwright test --config=tests/playwright.config.ts",
     "download-snapshot-baseline": "ts-node tests/download-snapshot-baseline.ts",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
