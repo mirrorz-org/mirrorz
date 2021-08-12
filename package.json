@@ -33,7 +33,7 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "dev_env": "ln -sf config/localhost.1234.json src/config/config.json",
+    "dev_env": "ln -sf config/localhost.1234.json src/config/config.json && ln -sf ../config/config.json src/parser/config.json",
     "debug_build": "yarn dev_env && parcel build index.html",
     "build": "parcel build --no-source-maps index.html",
     "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && ln -sf ./index.html dist/404.html",
