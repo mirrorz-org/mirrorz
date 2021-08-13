@@ -4007,6 +4007,11 @@ fault@^1.0.0:
   dependencies:
     format "^0.2.0"
 
+fclone@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.nlark.com/fclone/download/fclone-1.0.11.tgz#10e85da38bfea7fc599341c296ee1d77266ee640"
+  integrity sha1-EOhdo4v+p/xZk0HClu4ddyZu5kA=
+
 fd-slicer@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fd-slicer/-/fd-slicer-1.1.0.tgz#25c7c89cb1f9077f8891bbe61d8f390eae256f1e"
@@ -6419,6 +6424,21 @@ postcss@^8.2.1, postcss@^8.2.9, postcss@^8.3.0:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
+posthtml-expressions@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.nlark.com/posthtml-expressions/download/posthtml-expressions-1.8.1.tgz#b3bcabef1dc7a7849f6b78ab659c20200a2b9010"
+  integrity sha1-s7yr7x3Hp4Sfa3irZZwgIAorkBA=
+  dependencies:
+    fclone "^1.0.11"
+    posthtml-match-helper "^1.0.1"
+    posthtml-parser "^0.10.0"
+    posthtml-render "^3.0.0"
+
+posthtml-match-helper@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/posthtml-match-helper/download/posthtml-match-helper-1.0.1.tgz#451253de8e5844a348e963ad5edd7769eb129513"
+  integrity sha1-RRJT3o5YRKNI6WOtXt13aesSlRM=
+
 posthtml-parser@^0.10.0:
   version "0.10.0"
   resolved "https://registry.nlark.com/posthtml-parser/download/posthtml-parser-0.10.0.tgz?cache=0&sync_timestamp=1627458400323&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fposthtml-parser%2Fdownload%2Fposthtml-parser-0.10.0.tgz#7b90f5327c18de7efe1ffc535a4ad71e824ce169"
@@ -6470,6 +6490,14 @@ posthtml@^0.15.2:
 posthtml@^0.16.4:
   version "0.16.5"
   resolved "https://registry.nlark.com/posthtml/download/posthtml-0.16.5.tgz#d32f5cf32436516d49e0884b2367d0a1424136f6"
+  integrity sha1-0y9c8yQ2UW1J4IhLI2fQoUJBNvY=
+  dependencies:
+    posthtml-parser "^0.10.0"
+    posthtml-render "^3.0.0"
+
+posthtml@^0.16.5:
+  version "0.16.5"
+  resolved "https://registry.nlark.com/posthtml/download/posthtml-0.16.5.tgz?cache=0&sync_timestamp=1627460121612&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fposthtml%2Fdownload%2Fposthtml-0.16.5.tgz#d32f5cf32436516d49e0884b2367d0a1424136f6"
   integrity sha1-0y9c8yQ2UW1J4IhLI2fQoUJBNvY=
   dependencies:
     posthtml-parser "^0.10.0"

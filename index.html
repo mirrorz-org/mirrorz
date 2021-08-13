@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MirrorZ.org</title>
+    <!-- {{ }} is posthtml-expressions syntax -->
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="./src/css/style.scss">
     <link rel="icon" type="image/svg+xml" href="/static/img/mirrorz.svg">
     <!-- <link rel="preload" as="stylesheet" href="./src/css/deferred.scss"> -->
@@ -17,7 +18,7 @@
         height: 100vh;
       }
     </style>
-    <noscript>You need javascript to view this page properly.<br/>Or you may use the <a href="/_/">legacy page</a></noscript>
-    <div id="app"><div class="loading">Loading...</div></div>
+    <noscript>{{ javascript }}<br/>{{ legacy_page_prompt_pre }}<a href="/_/">{{ legacy_page }}</a>{{ legacy_page_prompt_post }}</noscript>
+    <div id="app"><div class="loading">{{ loading }}</div></div>
   </body>
 </html>

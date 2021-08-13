@@ -33,6 +33,7 @@ jobs:
           git clone https://github.com/mirrorz-org/mirrorz-i18n.git src/i18n
           ln -s config/mirrorz.org.json src/config/config.json
           ln -s ../config/config.json src/parser/config.json
+          ln -s ../config/config.json src/i18n/config.json
           git clone https://github.com/mirrorz-org/oh-my-mirrorz.git scripts/oh-my-mirrorz
       - name: Prepare legacy
         run: |

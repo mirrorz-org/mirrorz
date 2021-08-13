@@ -2,7 +2,6 @@
 !static/**/*.json
 !package.json
 !.babelrc.json
-!src/i18n/*.json
 /node_modules
 /dist
 /.parcel-cache
