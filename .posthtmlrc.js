@@ -4,7 +4,8 @@ const i18n = require("./src/i18n/");
 const meta = config.meta ?? {};
 meta["og:url"] = config.url;
 meta["og:title"] = config.display;
-meta["og:image"] = "/static/img/mirrorz.svg";
+meta["og:site_name"] = config.display;
+meta["og:image"] = config.url + "/static/img/mirrorz.svg";
 meta["og:type"] = "website";
 
 module.exports = {
