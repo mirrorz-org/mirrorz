@@ -1,18 +1,6 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { useTranslation } from 'react-i18next';
 import Icon from './Icon';
-
-const STATUS_TEXT_MAPPING = {
-  S: 'Success',
-  Y: 'Syncing',
-  F: 'Failed',
-  P: 'Paused',
-  C: 'Cache',
-  R: 'Proxy',
-  U: 'Unknown',
-  O: 'Last Success',
-  X: 'Next',
-  N: 'New',
-};
 
 const STATUS_ICON_MAPPING = {
   S: 'done',
@@ -100,15 +88,16 @@ const absoluteFormat = (date: Date) => {
 }
 
 const relativeFormat = (date: Date) => {
+  const { t, i18n } = useTranslation();
   const plural = (numf: number, str: string, prefix: string, suffix: string) => {
     const num = Math.round(numf);
     return prefix +
-      num.toString() + " " +
-      (num == 1 ? str : str + "s") +
+      num.toString() + t("time.bw_quant_unit") +
+      t("time." + (num == 1 ? str : str + "s")) +
       suffix;
   }
-  const agoF = (num: number, str: string) => plural(num, str, "", " ago");
-  const inF = (num: number, str: string) => plural(num, str, "in ", "");
+  const agoF = (num: number, str: string) => plural(num, str, t("time.ago_pre"), t("time.ago"));
+  const inF = (num: number, str: string) => plural(num, str, t("time.in"), t("time.in_suf"));
 
   const scale = [60, 60, 24, 30, 365, 1e15];
   const scaleStr = ["second", "minute", "hour", "day", "month", "year"];
@@ -122,6 +111,7 @@ const relativeFormat = (date: Date) => {
 }
 
 export const StatusList = React.memo(({ mapper }: { mapper: { [_: string]: number } }) => {
+  const { t, i18n } = useTranslation();
   return (
     <div>
       {ALL_STATUS.map((s) => {
@@ -129,7 +119,7 @@ export const StatusList = React.memo(({ mapper }: { mapper: { [_: string]: numbe
           return (
             <div className={"status " + STATUS_CLASS_MAPPING[s]} key={s}>
               <Icon>{STATUS_ICON_MAPPING[s]}</Icon>
-              <div>{STATUS_TEXT_MAPPING[s]}</div>
+              <div>{t("status."+s)}</div>
               {mapper[s] !== 0 && (
                 <div className="status-time">
                   <div>{"| " + absoluteFormat(new Date(mapper[s] * 1000))}</div>

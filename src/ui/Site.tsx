@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { generatePath, Link, useHistory, useParams, useRouteMatch } from "react-router-dom";
 import { Logo } from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
@@ -16,19 +17,22 @@ const MetaLine = React.memo(({ left, right, link = false }: { left: string, righ
   </div>
 ));
 
-const Meta = React.memo(({ site }: { site: Site }) => (
-  <div className="site-meta">
-    {site.url && (<MetaLine left="URL" right={site.url} link={true} />)}
-    {site.name && (<MetaLine left="Name" right={site.name} />)}
-    {site.homepage && (<MetaLine left="Homepage" right={site.homepage} link={true} />)}
-    {site.disk && (<MetaLine left="Disk" right={site.disk} />)}
-    {site.issue && (<MetaLine left="Issue" right={site.issue} link={true} />)}
-    {site.request && (<MetaLine left="Mirror Request" right={site.request} link={true} />)}
-    {site.email && (<MetaLine left="Email" right={site.email} />)}
-    {site.group && (<MetaLine left="Group" right={site.group} />)}
-    {site.note && (<MetaLine left="Note" right={site.note} />)}
-  </div>
-));
+const Meta = React.memo(({ site }: { site: Site }) => {
+  const { t, i18n } = useTranslation();
+  return (
+    <div className="site-meta">
+      {site.url && (<MetaLine left={t("site.url")} right={site.url} link={true} />)}
+      {site.name && (<MetaLine left={t("site.name")} right={site.name} />)}
+      {site.homepage && (<MetaLine left={t("site.homepage")} right={site.homepage} link={true} />)}
+      {site.disk && (<MetaLine left={t("site.disk")} right={site.disk} />)}
+      {site.issue && (<MetaLine left={t("site.issue")} right={site.issue} link={true} />)}
+      {site.request && (<MetaLine left={t("site.request")} right={site.request} link={true} />)}
+      {site.email && (<MetaLine left={t("site.email")} right={site.email} />)}
+      {site.group && (<MetaLine left={t("site.group")} right={site.group} />)}
+      {site.note && (<MetaLine left={t("site.note")} right={site.note} />)}
+    </div>
+  );
+});
 
 const siteUrl = (path: string, site: Site) => generatePath(path, { siteSlug: site.abbr.replace(/\s/g, '') });
 

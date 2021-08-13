@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
+import { useTranslation } from 'react-i18next';
 import { Link, useRouteMatch, useParams, generatePath, useHistory } from "react-router-dom";
 import Icon from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
@@ -77,6 +78,7 @@ const Group = React.memo((
 });
 
 export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
+  const { t, i18n } = useTranslation();
   const history = useHistory(), match = useRouteMatch(), params = useParams() as { filter?: string };
   const [filter, setFilter] = useState(params.filter ?? "");
 
@@ -131,7 +133,7 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   return (
     <div className={"mirrorz"}>
       <div className="search">
-        <input value={filter} onChange={updateFilter} onKeyDown={uploadFilter} placeholder="Filter (Support regex)" />
+        <input value={filter} onChange={updateFilter} onKeyDown={uploadFilter} placeholder={t("mirrors_prompt")} />
         <Icon>search</Icon>
       </div>
 

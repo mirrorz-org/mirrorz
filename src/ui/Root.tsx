@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { useTranslation } from 'react-i18next';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +17,7 @@ import { Page404 } from "./404";
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
+  const { t, i18n } = useTranslation();
   const mirrorz = useMirrorzSites();
 
   const mirrorzList = useMemo(() => Object.values(mirrorz), [mirrorz]);
@@ -47,13 +49,13 @@ export default React.memo(() => {
             <img src="/static/img/mirrorz.svg" className="sidebar-logo" alt="ISO" />
           </NavLink>
           <NavLink to="/list" activeClassName="active">
-            <h2>List</h2>
+            <h2 dangerouslySetInnerHTML={{__html: t("list.list")}} />
           </NavLink>
           <NavLink to="/site" activeClassName="active">
-            <h2>Site</h2>
+            <h2 dangerouslySetInnerHTML={{__html: t("site.site")}} />
           </NavLink>
           <NavLink to="/about" activeClassName="active">
-            <h2>About</h2>
+            <h2>{t("about.about")}</h2>
           </NavLink>
         </div>
         <main>

@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { useTranslation } from 'react-i18next';
 import { Link, useParams } from "react-router-dom";
 import { Logo404 } from './Icon';
 import { Info, Site } from "../schema";
@@ -7,6 +8,7 @@ import { Page404 } from "./404";
 type IsoInfo = { site: Site, info: Info[] }[];
 
 const Urls = React.memo(({ isoinfo, category, distro }: { isoinfo: IsoInfo, category: string, distro: string }) => {
+  const { t, i18n } = useTranslation();
   const i = isoinfo.map(({ site, info }) => {
     const i = info
       .filter(i => i.category.replace(/\s/g, '') === category && i.distro.replace(/\s/g, '') === distro)
@@ -20,11 +22,16 @@ const Urls = React.memo(({ isoinfo, category, distro }: { isoinfo: IsoInfo, cate
     return i.length === 0 ? null : <div key={site.abbr}>{i}</div>;
   }).filter(e => e !== null);
   return i.length === 0
-    ? <Logo404 logo={distro != ''} str={"Select one " + category + " from the sidebar"} />
+    ? <Logo404 logo={distro != ''} str={t("iso.prompt", { 
+      category: (category === "os"
+        ? t("iso.os_norm")
+        : t("iso." + category))
+    })} />
     : <>{i}</>;
 });
 
 export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
+  const { t, i18n } = useTranslation();
   const params = useParams() as { category?: "os" | "app" | "font", distro?: string };
   const category = params.category ?? "os", distro = params.distro ?? "";
 
@@ -45,7 +52,10 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
       <div className="category">
         {Array.from(allCat).map((c, idx) => (
           <Link to={`/${c.replace(/\s/g, '')}`} key={idx + c} className={c.replace(/\s/g, '') == category ? "active" : ""}>
-            <h2>{c}</h2>
+            { c == "os"
+              ? (<h2 dangerouslySetInnerHTML={{__html: t("iso." + c, c)}} />)
+              : (<h2>{t("iso." + c, c)}</h2>)
+            }
           </Link>
         ))}
       </div>

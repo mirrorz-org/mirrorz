@@ -1,4 +1,26 @@
 {
+  "iso": {
+    "os": "os",
+    "os_norm": "os",
+    "app": "app",
+    "font": "font",
+    "prompt": "Select one {{category}} from the sidebar"
+  },
+  "list": {
+    "list": "List"
+  },
+  "site": {
+    "site": "Site",
+    "url": "URL",
+    "name": "Name",
+    "homepage": "Homepage",
+    "disk": "Disk",
+    "issue": "Issue",
+    "request": "Mirror Request",
+    "email": "Email",
+    "group": "Group",
+    "note": "Note"
+  },
   "about": {
     "about": "About",
     "intro": "Intro",
@@ -12,5 +34,38 @@
     "302_js": "Experimental Feature: 302 Backend",
     "search": "Experimental Feature: Search Backend",
     "todo": "TODO and possible projects"
-  }
+  },
+  "status": {
+    "S": "Success",
+    "Y": "Syncing",
+    "F": "Failed",
+    "P": "Paused",
+    "C": "Cache",
+    "R": "Proxy",
+    "U": "Unknown",
+    "O": "Last Success",
+    "X": "Next",
+    "N": "New"
+  },
+  "time": {
+    "ago": " ago",
+    "ago_pre": "",
+    "in": "in ",
+    "in_suf": "",
+    "bw_quant_unit": " ",
+    "second": "second",
+    "minute": "minute",
+    "hour": "hour",
+    "day": "day",
+    "month": "month",
+    "year": "year",
+    "seconds": "seconds",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "months": "months",
+    "years": "years"
+  },
+  "404_prompt": "Navigate with the sidebar",
+  "mirrors_prompt": "Filter (Support regex)"
 }

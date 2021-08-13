@@ -29,8 +29,9 @@
   float: left;
   width: $category;
   height: $category;
-  line-height: $category;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Active/current link */
