@@ -4,6 +4,9 @@
     <meta charset="utf-8" />
     <!-- {{ }} is posthtml-expressions syntax -->
     <title>{{ title }}</title>
+    <each loop="v, k in meta">
+      <meta property="{{ k }}" content="{{ v }}">
+    </each>
     <link rel="stylesheet" href="./src/css/style.scss">
     <link rel="icon" type="image/svg+xml" href="/static/img/mirrorz.svg">
     <!-- <link rel="preload" as="stylesheet" href="./src/css/deferred.scss"> -->
