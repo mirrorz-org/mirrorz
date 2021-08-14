@@ -44,15 +44,11 @@ jobs:
           cd legacy
           yarn --frozen-lockfile
           cd ..
-      - name: oh-my-mirrorz build
-        run: |
-          sed -i "s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g" scripts/oh-my-mirrorz/oh-my-mirrorz.py
-          sed -i "s^mirrors = \[\]^mirrors = $(node -e 'console.log(JSON.stringify(require("./src/config/mirrors")))')^" scripts/oh-my-mirrorz/oh-my-mirrorz.py
       - name: Build
         run: |
           yarn build
-          yarn ohmymirrorz_deploy
           yarn legacy_build
+          yarn ohmymirrorz_build
           mkdir -p drop
           tar -czf drop/dist.tar.gz dist
       - name: Upload dist package as artifact
