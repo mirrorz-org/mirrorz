@@ -51,8 +51,8 @@
     "cngi_env": "yarn cngi_ln && yarn other_ln",
     "legacy_env": "ln -sTf ../ legacy/mirrorz && ln -sTf ../src/config/config.json legacy/config.json && ln -sTf ../src/i18n legacy/i18n && ln -sTf ../static/json/legacy legacy/json-legacy",
     "check_config": "node -e 'console.log(require(\"./src/config/config.json\").about.includes(process.argv[1]))'",
-    "debug_build": "yarn dev_env && parcel build index.html",
-    "build": "parcel build --no-source-maps index.html",
+    "debug_build": "yarn dev_env && parcel build index.html && yarn gen_ver",
+    "build": "parcel build --no-source-maps index.html && yarn gen_ver",
     "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && ln -sf ./index.html dist/404.html",
     "legacy_build": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && cd legacy && node ./generator.js && cd ../ && cp -ar legacy/dist/_ dist/ || echo No legacy config",
     "ohmymirrorz_date": "sed -i \"s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g\" dist/oh-my-mirrorz.py",
@@ -63,6 +63,15 @@
     "full_start": "(yarn debug_build && yarn legacy_env && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "test": "playwright test --config=tests/playwright.config.ts",
     "download-snapshot-baseline": "ts-node tests/download-snapshot-baseline.ts",
-    "lint:fix": "eslint --fix ./src --ignore-path .gitignore"
+    "lint:fix": "eslint --fix ./src --ignore-path .gitignore",
+    "ver": "git log --oneline -1 --abbrev-commit",
+    "config_ver": "git -C src/config log --oneline -1 --abbrev-commit",
+    "parser_ver": "git -C src/parser log --oneline -1 --abbrev-commit",
+    "i18n_ver": "git -C src/i18n log --oneline -1 --abbrev-commit",
+    "json_site_ver": "git -C static/json/site log --oneline -1 --abbrev-commit",
+    "json_legacy_ver": "cat static/json/legacy/lastupdate",
+    "legacy_ver": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && git -C legacy/ log --oneline -1 --abbrev-commit || true",
+    "ohmymirrorz_ver": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && git -C scripts/oh-my-mirrorz log --oneline -1 --abbrev-commit || true",
+    "gen_ver": "echo frontend: $(yarn run -s ver) > dist/version; echo config: $(yarn run -s config_ver) >> dist/version; echo parser: $(yarn run -s parser_ver) >> dist/version; echo i18n: $(yarn run -s i18n_ver) >> dist/version; echo json_site: $(yarn run -s json_site_ver) >> dist/version; echo json_legacy: $(yarn run -s json_legacy_ver) >> dist/version; echo legacy: $(yarn run -s legacy_ver) >> dist/version; echo ohmymirrorz: $(yarn run -s ohmymirrorz_ver) >> dist/version"
   }
 }
