@@ -65,13 +65,13 @@
     "download-snapshot-baseline": "ts-node tests/download-snapshot-baseline.ts",
     "lint:fix": "eslint --fix ./src --ignore-path .gitignore",
     "ver": "git log --oneline -1 --abbrev-commit",
-    "config_ver": "git -C src/config log --oneline -1 --abbrev-commit",
-    "parser_ver": "git -C src/parser log --oneline -1 --abbrev-commit",
-    "i18n_ver": "git -C src/i18n log --oneline -1 --abbrev-commit",
-    "json_site_ver": "git -C static/json/site log --oneline -1 --abbrev-commit",
+    "config_ver": "(cd src/config; git log --oneline -1 --abbrev-commit)",
+    "parser_ver": "(cd src/parser; git log --oneline -1 --abbrev-commit)",
+    "i18n_ver": "(cd src/i18n; git log --oneline -1 --abbrev-commit)",
+    "json_site_ver": "(cd static/json/site && git log --oneline -1 --abbrev-commit)",
     "json_legacy_ver": "cat static/json/legacy/lastupdate",
-    "legacy_ver": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && git -C legacy/ log --oneline -1 --abbrev-commit || true",
-    "ohmymirrorz_ver": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && git -C scripts/oh-my-mirrorz log --oneline -1 --abbrev-commit || true",
+    "legacy_ver": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && (cd legacy/ ; git log --oneline -1 --abbrev-commit) || true",
+    "ohmymirrorz_ver": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && (cd scripts/oh-my-mirrorz; git log --oneline -1 --abbrev-commit) || true",
     "gen_ver": "echo frontend: $(yarn run -s ver) > dist/version; echo config: $(yarn run -s config_ver) >> dist/version; echo parser: $(yarn run -s parser_ver) >> dist/version; echo i18n: $(yarn run -s i18n_ver) >> dist/version; echo json_site: $(yarn run -s json_site_ver) >> dist/version; echo json_legacy: $(yarn run -s json_legacy_ver) >> dist/version; echo legacy: $(yarn run -s legacy_ver) >> dist/version; echo ohmymirrorz: $(yarn run -s ohmymirrorz_ver) >> dist/version"
   }
 }
