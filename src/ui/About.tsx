@@ -75,6 +75,14 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
             <li>https://search.mirrorz.org/archlinux/</li>
             <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
           </>)}
+          { config.about.includes("302-go") && (<>
+            <li>{t("about.302_go")}</li>
+            <li>Arch Linux: <code>Server = {config.url}/archlinux/$repo/os/$arch</code></li>
+            <li>Debian: <code>deb {config.url}/debian/ bullseye main contrib non-free</code></li>
+            <li>Ubuntu: <code>deb {config.url}/ubuntu/ focal main restricted universe multiverse</code></li>
+            <li>CentOS/Fedora: <code>baseurl={config.url}</code></li>
+            <li>{t("about.302_go_more")}</li>
+          </>)}
         </ul>
       )} />
       <Para title={t("about.todo")} content={(
