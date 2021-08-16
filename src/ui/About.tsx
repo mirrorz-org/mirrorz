@@ -64,6 +64,7 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
             <li>{t("about.speedtest")}</li>
             <li>{config.url}/oh-my-mirrorz.py</li>
             <li><code>curl {config.url}/oh-my-mirrorz.py | python3</code></li>
+            <li><code>curl {config.url}/oh-my-mirrorz.py | nix-shell -p python39 -p python39Packages.requests --run python</code></li>
           </>)}
           { config.about.includes("302-js") && (<>
             <li>{t("about.302_js")}</li>
