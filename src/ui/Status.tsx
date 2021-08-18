@@ -87,7 +87,7 @@ const absoluteFormat = (date: Date) => {
     pad(date.getSeconds(), 2) + ' UTC' + offsetStr;
 }
 
-const relativeFormat = (date: Date) => {
+const relativeFormat = (date: Date) => useMemo(() =>{
   const { t, i18n } = useTranslation();
   const plural = (numf: number, str: string, prefix: string, suffix: string) => {
     const num = Math.round(numf);
@@ -108,7 +108,7 @@ const relativeFormat = (date: Date) => {
       return now > dateValue ? agoF(offset, scaleStr[i]) : inF(offset, scaleStr[i]);
     offset /= scale[i];
   }
-}
+}, [date]);
 
 export const StatusList = React.memo(({ mapper }: { mapper: { [_: string]: number } }) => {
   const { t, i18n } = useTranslation();
