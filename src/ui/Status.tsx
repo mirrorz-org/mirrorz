@@ -87,8 +87,7 @@ const absoluteFormat = (date: Date) => {
     pad(date.getSeconds(), 2) + ' UTC' + offsetStr;
 }
 
-const relativeFormat = (date: Date) => {
-  const { t, i18n } = useTranslation();
+const relativeFormat = (date: Date, t: (_: string) => string) => {
   const plural = (numf: number, str: string, prefix: string, suffix: string) => {
     const num = Math.round(numf);
     return prefix +
@@ -123,7 +122,7 @@ export const StatusList = React.memo(({ mapper }: { mapper: { [_: string]: numbe
               {mapper[s] !== 0 && (
                 <div className="status-time">
                   <div>{"| " + absoluteFormat(new Date(mapper[s] * 1000))}</div>
-                  <div>{"| " + relativeFormat(new Date(mapper[s] * 1000))}</div>
+                  <div>{"| " + relativeFormat(new Date(mapper[s] * 1000), t)}</div>
                 </div>
               )}
             </div>
