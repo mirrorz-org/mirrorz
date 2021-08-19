@@ -101,7 +101,7 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
         regex = null;
       else
         // user input may be invalid regex
-        regex = new RegExp(filter);
+        regex = new RegExp(filter, 'i');
     } catch (error) {
       regex = null;
     }
