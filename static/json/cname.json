@@ -122,5 +122,8 @@
   "Debian non-free": "debian non-free",
   "Fedora": "fedora",
   "Arch Linux RISC-V": "archriscv",
-  "nodejs": "nodejs-release"
+  "nodejs": "nodejs-release",
+  "ArchLinux": "archlinux",
+  "RockyLinux": "rocky",
+  "rockylinux": "rocky"
 }
