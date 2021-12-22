@@ -100,8 +100,8 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
     + `Y1600000000`: syncing. (optional) start to sync unix timestamp
     + `F1600000000`: failed. (optional) last attempt to sync unix timestamp
     + `P1600000000`: paused. (optional) the unix timestamp sync stopped
-    + `C`: cache
-    + `R`: reverse proxy
+    + `C`: reverse proxy with cache
+    + `R`: reverse proxy without cache
     + `U`: unknown
     + `X1600000000`: (auxiliary) next scheduled sync unix timestamp
     + `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
