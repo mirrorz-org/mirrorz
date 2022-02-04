@@ -28,6 +28,7 @@
   "git/homebrew-cask-versions.git": "homebrew-cask-versions.git",
   "git/homebrew-services.git": "homebrew-services.git",
   "git/homebrew-install.git": "homebrew-install.git",
+  "git/homebrew-bundle.git": "homebrew-bundle.git",
   "git/linuxbrew-core.git": "linuxbrew-core.git",
   "git/llvm-project.git": "llvm-project.git",
   "git/ohmyzsh.git": "ohmyzsh.git",
@@ -125,5 +126,13 @@
   "nodejs": "nodejs-release",
   "ArchLinux": "archlinux",
   "RockyLinux": "rocky",
-  "rockylinux": "rocky"
+  "rockylinux": "rocky",
+  "Rocky": "rocky",
+  "archlinux-arm": "archlinuxarm",
+  "git/spdk.git": "spdk.git",
+  "github/SJTUBeamer": "SJTUBeamer",
+  "git/SJTUBeamer.git": "SJTUBeamer.git",
+  "github/SJTUThesis": "SJTUThesis",
+  "git/SJTUThesis.git": "SJTUThesis.git",
+  "git/SJTUTex.git": "SJTUTex.git"
 }
