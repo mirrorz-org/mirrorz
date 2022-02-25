@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { generatePath, Link, useHistory, useParams, useRouteMatch } from "react-router-dom";
-import { Logo } from './Icon';
+import Icon, { Logo } from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 import { ParsedMirror, Site } from "../schema";
 
@@ -65,12 +65,20 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
             {parsed.sort((a, b) => a.cname.localeCompare(b.cname))
               // Status filter from URL
               .filter(m => stat === undefined || !m.status || m.status.indexOf(stat) !== -1)
-              .map(({ cname, status }, idx) =>
+              .map(({ cname, status, upstream }, idx) =>
                 <div className="site-group" key={idx}>
                   <h2 className="heading">
                     {cname}
                   </h2>
-                  {status && (<StatusList mapper={statusMapper(status)} />)}
+                  <div>
+                    {stat && upstream && (
+                      <div className="upstream">
+                        <Icon>outbound</Icon>
+                        {upstream}
+                      </div>
+                    )}
+                    {status && (<StatusList mapper={statusMapper(status)} />)}
+                  </div>
                 </div>)}
           </div>
         </div>)}
