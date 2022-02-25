@@ -5,16 +5,17 @@ import { ParsedMirror, Site } from "../schema";
 
 import config from "../config/config.json";
 
-const Para = React.memo(({ title, content }: { title: string, content: React.ReactNode }) => {
+const Para = React.memo(({ title, content, html }: { title: string, content: React.ReactNode, html: string }) => {
   return (
     <div className="para">
       <div className="para-title">
         <div className="para-title-icon">#</div>
         <div className="para-title-text">{title}</div>
       </div>
-      <div className="para-content">
+      {content && (<div className="para-content">
         {content}
-      </div>
+      </div>)}
+      {html && (<div className="para-content" dangerouslySetInnerHTML={{__html: html}} />)}
     </div>
   )
 });
@@ -23,12 +24,7 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
   const { t, i18n } = useTranslation();
   return (
     <div className="about">
-      <Para title={t("about.intro")} content={(
-        <div>
-          <p>"Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ."</p>
-          <p>"A final site for Mirror sites."</p>
-        </div>
-      )} />
+      <Para title={t("about.intro")} html={config.intro} />
       <Para title={t("about.repo")} content={(
         <a href="https://github.com/tuna/mirrorz" target="_blank">https://github.com/tuna/mirrorz</a>
       )} />
