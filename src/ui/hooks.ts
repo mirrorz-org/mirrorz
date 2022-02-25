@@ -35,13 +35,19 @@ export function useMirrorzSites() {
     useEffect(() => {
         initAllMirrors();
 
+        // try it again, dealing with network glitch
+        const timeout = setTimeout(() => {
+            console.log("Try load data again");
+            initAllMirrors();
+        }, 15 * 1000);
+
         const interval = setInterval(() => {
             console.log("Page", document.visibilityState);
             if (document.visibilityState === "visible") {
                 console.log("Refresh data");
                 initAllMirrors();
             }
-        }, 30 * 1000);
+        }, 300 * 1000);
 
         return () => clearInterval(interval);
     }, []);
