@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- {{ }} is posthtml-expressions syntax -->
+<html lang="{{ lang }}">
   <head>
     <meta charset="utf-8" />
-    <!-- {{ }} is posthtml-expressions syntax -->
     <title>{{ title }}</title>
     <each loop="v, k in meta">
       <meta property="{{ k }}" content="{{ v }}">

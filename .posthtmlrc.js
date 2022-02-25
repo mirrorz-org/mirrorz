@@ -12,6 +12,7 @@ module.exports = {
   "plugins": {
     "posthtml-expressions": {
       "locals": {
+        "lang": config.language,
         "title": config.display,
         "javascript": i18n.t("index.javascript"),
         "legacy_page_prompt_pre": i18n.t("index.legacy_page_prompt_pre"),
