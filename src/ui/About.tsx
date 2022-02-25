@@ -38,46 +38,58 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
       <Para title={t("about.usage")} content={(
         <ul>
           <li>{t("about.valid_urls")}</li>
-          <li>{config.url}/</li>
-          <li>{config.url}/os/ArchLinux</li>
-          <li>{config.url}/app/Git</li>
-          <li>{config.url}/font</li>
-          <li>{config.url}/list</li>
-          <li>{config.url}/list/pypi</li>
-          <li>{config.url}/list/%5B0-9%5D%2B</li>
-          <li>{config.url}/site</li>
-          <li>{config.url}/site/BFSU</li>
-          <li>{config.url}/site/OpenTUNA/Y</li>
-          <li>{config.url}/about</li>
-          { config.about.includes("monitor") && (<li>{config.url}/monitor</li>) }
+            <ul>
+              <li>{config.url}/</li>
+              <li>{config.url}/os/ArchLinux</li>
+              <li>{config.url}/app/Git</li>
+              <li>{config.url}/font</li>
+              <li>{config.url}/list</li>
+              <li>{config.url}/list/pypi</li>
+              <li>{config.url}/list/[0-9]+</li>
+              <li>{config.url}/site</li>
+              <li>{config.url}/site/BFSU</li>
+              <li>{config.url}/site/OpenTUNA/Y</li>
+              <li>{config.url}/about</li>
+              { config.about.includes("monitor") && (<li>{config.url}/monitor</li>) }
+            </ul>
           { config.about.includes("legacy") && (<>
             <li>{t("about.legacy")}</li>
-            <li>{config.url}/_/</li>
-            <li>{config.url}/_/about</li>
-            <li>{t("about.legacy_usage")}</li>
+              <ul>
+                <li>{config.url}/_/</li>
+                <li>{config.url}/_/about</li>
+                <li>{t("about.legacy_usage")}</li>
+              </ul>
           </>)}
           { config.about.includes("oh-my-mirrorz") && (<>
             <li>{t("about.speedtest")}</li>
-            <li>{config.url}/oh-my-mirrorz.py</li>
-            <li><code>curl {config.url}/oh-my-mirrorz.py | python3</code></li>
-            <li><code>curl {config.url}/oh-my-mirrorz.py | nix-shell -p python39 -p python39Packages.requests --run python</code></li>
+              <ul>
+                <li>{config.url}/oh-my-mirrorz.py</li>
+                <li><code>curl {config.url}/oh-my-mirrorz.py | python3</code></li>
+                <li><code>curl {config.url}/oh-my-mirrorz.py | nix-shell -p python39 -p python39Packages.requests --run python</code></li>
+              </ul>
           </>)}
           { config.about.includes("302-js") && (<>
             <li>{t("about.302_js")}</li>
-            <li>https://mirrors.mirrorz.org/archlinux</li>
-            <li>https://m.mirrorz.org/centos</li>
+              <ul>
+                <li>https://mirrors.mirrorz.org/archlinux</li>
+                <li>https://m.mirrorz.org/centos</li>
+              </ul>
           </>)}
           { config.about.includes("search") && (<>
             <li>{t("about.search")}</li>
-            <li>https://search.mirrorz.org/archlinux/</li>
-            <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
+              <ul>
+                <li>https://search.mirrorz.org/archlinux/</li>
+                <li>https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums</li>
+              </ul>
           </>)}
           { config.about.includes("302-go") && (<>
             <li>{t("about.302_go")}</li>
-            <li>Arch Linux: <code>Server = {config.url}/archlinux/$repo/os/$arch</code></li>
-            <li>Debian: <code>deb {config.url}/debian/ bullseye main contrib non-free</code></li>
-            <li>Ubuntu: <code>deb {config.url}/ubuntu/ focal main restricted universe multiverse</code></li>
-            <li>CentOS/Fedora: <code>baseurl={config.url}</code></li>
+              <ul>
+                <li>Arch Linux: <code>Server = {config.url}/archlinux/$repo/os/$arch</code></li>
+                <li>Debian: <code>deb {config.url}/debian/ bullseye main contrib non-free</code></li>
+                <li>Ubuntu: <code>deb {config.url}/ubuntu/ focal main restricted universe multiverse</code></li>
+                <li>CentOS/Fedora: <code>baseurl={config.url}</code></li>
+              </ul>
             <li>{t("about.302_go_more")}</li>
           </>)}
         </ul>
