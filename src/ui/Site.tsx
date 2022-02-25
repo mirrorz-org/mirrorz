@@ -70,7 +70,7 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
                   <h2 className="heading">
                     {cname}
                   </h2>
-                  <StatusList mapper={statusMapper(status)} />
+                  {status && (<StatusList mapper={statusMapper(status)} />)}
                 </div>)}
           </div>
         </div>)}
