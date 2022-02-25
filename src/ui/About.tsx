@@ -89,8 +89,8 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
                 <li>Debian: <code>deb {config.url}/debian/ bullseye main contrib non-free</code></li>
                 <li>Ubuntu: <code>deb {config.url}/ubuntu/ focal main restricted universe multiverse</code></li>
                 <li>CentOS/Fedora: <code>baseurl={config.url}</code></li>
+                <li>{t("about.302_go_more")}</li>
               </ul>
-            <li>{t("about.302_go_more")}</li>
           </>)}
         </ul>
       )} />
