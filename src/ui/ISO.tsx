@@ -22,7 +22,7 @@ const Urls = React.memo(({ isoinfo, category, distro }: { isoinfo: IsoInfo, cate
     return i.length === 0 ? null : <div key={site.abbr}>{i}</div>;
   }).filter(e => e !== null);
   return i.length === 0
-    ? <Logo404 logo={distro != ''} str={t("iso.prompt", { 
+    ? <Logo404 logo={distro != ""} str={t("iso.prompt", {
       category: (category === "os"
         ? t("iso.os_norm")
         : t("iso." + category))
@@ -33,7 +33,8 @@ const Urls = React.memo(({ isoinfo, category, distro }: { isoinfo: IsoInfo, cate
 export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   const { t, i18n } = useTranslation();
   const params = useParams() as { category?: "os" | "app" | "font", distro?: string };
-  const category = params.category ?? "os", distro = params.distro ?? "";
+  // if mirrorz.org/ then default to mirrorz.org/os/ubuntu
+  const category = params.category ?? "os", distro = params.distro ?? (params.category ? "" : "ubuntu");
 
   const [allCat, allDistro] = useMemo(() => {
     const allCat = new Set(isoinfo.flatMap(x => x.info.map(y => y.category)));
@@ -77,5 +78,5 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
         </div>
       </div>
     </div>
-  ) : <Page404 />;
+  ) : allCat.size ? <Page404 /> : <></>;
 });
