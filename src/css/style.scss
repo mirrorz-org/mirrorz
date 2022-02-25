@@ -64,6 +64,10 @@ h3 {
   }
 }
 
+code {
+  @include monospace;
+}
+
 #app, #app-container {
   padding: 0 0;
   margin: 0 0;
