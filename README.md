@@ -10,7 +10,7 @@ A final site for Mirror sites.
 
 Also legacy webpages (for w3m and noscript users) are provided in [https://mirrorz.org/\_/](https://mirrorz.org/_/)
 
-A speed test script [oh-my-mirrorz.py](https://mirrorz.org/oh-my-mirrorz.py) is also provided. See [README](scripts/oh-my-mirrorz/README.md) to more info.
+A speed test script [oh-my-mirrorz.py](https://mirrorz.org/oh-my-mirrorz.py) is also provided. See [README](https://github.com/mirrorz-org/oh-my-mirrorz) to more info.
 
 ## Intro
 
