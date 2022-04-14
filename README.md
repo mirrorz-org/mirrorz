@@ -8,7 +8,7 @@ A final site for Mirror sites.
 
 <https://mirrorz.org> and <https://mirrors.cernet.edu.cn>
 
-Also legacy webpages (for w3m and noscript users) are provided in <https://mirrorz.org/\_/> and <https://mirrors.cernet.edu.cn/\_/>
+Also legacy webpages (for w3m and noscript users) are provided in <https://mirrorz.org/_/> and <https://mirrors.cernet.edu.cn/_/>
 
 A speed test script [oh-my-mirrorz.py](https://mirrorz.org/oh-my-mirrorz.py) is also provided. See [README](https://github.com/mirrorz-org/oh-my-mirrorz) for more info.
 
