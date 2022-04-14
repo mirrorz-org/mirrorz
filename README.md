@@ -109,25 +109,15 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `mirrors.help` may be empty, or the same rule as `mirrors.url`
   - `mirrors.upstream`, `mirrors.size` may be empty
 
-## MirrorZ, Mirror site, Third party
+## Developing and Contributing
 
-MirrorZ only provides the data format (including `cname.json`), frontend and related scripts (e.g `oh-my-mirrorz.py`). Audit on data format, content (e.g. `cname.json`) and adopted technologies (e.g. using reverse proxy in parsers) can be done by MirrorZ. Monitor and Backend are experimental features of MirrorZ, and MirrorZ provides no warranty on these services.
+### Repo organization
 
-The term 'Mirror site' refers to an actual mirror site and/or the corresponding organization.
+This repo depends on other repos in this organization to provide full functionality; However, they are not submodules as we need to bump submodules whenever there is an update, which is painful. We just use the latest version of each repo when building.
 
-The term 'Third party' refers to individuals/organizations that contribute to this project. This may overlap with 'Mirror site'.
+For full preparation of all the repos, you should refer to the `Prepare` steps in [Github Actions](https://github.com/mirrorz-org/mirrorz/blob/master/.github/workflows/deploy.yml).
 
-Data like `mirrorz.json` or `site.json` and parsers in `src/parser` are contributed/maintained by some Third party, and can be placed in this repo for convenience. More specifically, to make parser/data usable by MirrorZ (e.g. data format, CORS policy) is the responsibility of one Third party; also it is optional for one Third party to support some feature like legacy page and oh-my-mirrorz.
-
-## Contributing and Developing
-
-### Third party
-
-For one Third party, it should either add and maintain their url to a mirrorz json file in `src/config/upstream.js` and `src/config/mirrors.js` (legacy page and script support), in the url `https` is needed; Or, integrate their frontend parser in `src/parser` and `src/Root.jsx`, where the generated `mirrorz.json` is called _dynamic_ `mirrorz.json`, and may generate a _static_ `mirrorz.json` by [debug interface](https://mirrorz.org/debug) in `/static/json/legacy/` and add the corresponding url in `src/config/mirrors.js` for legacy page and script support.
-
-For Third party providing an url to a mirrorz json file, it may also contribute their `mirrorz.json` generating scripts in the directory `scripts`.
-
-Big changes by Third party should be made through PR like adding a new parser/generating script. Small changes like changing content in `site.json` or generating scripts can be done by pushing to the master.
+Note that `yarn mirrorz_env` prepares for <https://mirrorz.org>. When you are debugging, it is recommended to use `yarn dev_env` and `yarn debug_build`, which builds the site for <http://localhost:1234>. Other `env` like `cngi_env` and `cernet_env` prepares for other sites that mirrorz maintain.
 
 ### Frontend
 
@@ -144,7 +134,7 @@ to start a local server. It is often convenient for debugging frontend features 
 
 #### Parser, local new static files
 
-To debug one `src/parser` with new json to be hosted in MirrorZ, one may change `https://mirrorz.org/static/json/legacy` to `http://localhost:1234/static/json/legacy` for example, and use
+To debug one `src/parser` with new site json in `static/json/site`, use
 
 ```
 yarn --frozen-lockfile
@@ -183,16 +173,25 @@ yarn legacy_build
 
 Note that `legacy_build` has dependencies on files `yarn build` has made.
 
-Meanwhile, to generate the complete `oh-my-mirrorz.py`, one should use the following commands
+Meanwhile, to generate the complete `oh-my-mirrorz.py`, one should use the following command
 
 ```
-sed -i "s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g" scripts/oh-my-mirrorz/oh-my-mirrorz.py
-sed -i "s^mirrors = \[\]^mirrors = $(node -e 'console.log(JSON.stringify(require("./src/config/mirrors")))')^" scripts/oh-my-mirrorz/oh-my-mirrorz.py
+yarn ohmymirrorz_build
+```
+
+If one want all parts, one can use the following command to accomplish all the steps above
+
+```
+yarn full_build
 ```
 
 ### Misc
 
 Currently `*.json` is ignored in `.gitignore` (not ignored in `/static`). If one wants to commit a json file, they should use `git add -f`.
+
+### Contributing
+
+Other contributing guidelines are maintained in <https://github.com/mirrorz-org/org/wiki>
 
 <!--
  vim: ts=2 sts=2 sw=2
