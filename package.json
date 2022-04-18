@@ -75,6 +75,14 @@
     "json_legacy_ver": "cat static/json/legacy/lastupdate",
     "legacy_ver": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && (cd legacy/ ; git log --oneline -1 --abbrev-commit) || true",
     "ohmymirrorz_ver": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && (cd scripts/oh-my-mirrorz; git log --oneline -1 --abbrev-commit) || true",
-    "gen_ver": "echo frontend: $(yarn run -s ver); echo config: $(yarn run -s config_ver); echo parser: $(yarn run -s parser_ver); echo i18n: $(yarn run -s i18n_ver); echo json_site: $(yarn run -s json_site_ver); echo json_legacy: $(yarn run -s json_legacy_ver); echo legacy: $(yarn run -s legacy_ver); echo ohmymirrorz: $(yarn run -s ohmymirrorz_ver)"
+    "gen_ver": "echo frontend: $(yarn run -s ver); echo config: $(yarn run -s config_ver); echo parser: $(yarn run -s parser_ver); echo i18n: $(yarn run -s i18n_ver); echo json_site: $(yarn run -s json_site_ver); echo json_legacy: $(yarn run -s json_legacy_ver); echo legacy: $(yarn run -s legacy_ver); echo ohmymirrorz: $(yarn run -s ohmymirrorz_ver)",
+    "config_pull": "(cd src/config; git pull)",
+    "parser_pull": "(cd src/parser; git pull)",
+    "i18n_pull": "(cd src/i18n; git pull)",
+    "json_site_pull": "(cd static/json/site; git pull)",
+    "json_legacy_pull": "(cd static/json/legacy; git pull)",
+    "legacy_pull": "(cd static/json/legacy; git pull)",
+    "ohmymirrorz_pull": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && (cd scripts/oh-my-mirrorz; git pull) || true",
+    "pull": "git pull; yarn config_pull; yarn parser_pull; yarn i18n_pull; yarn json_site_pull; yarn json_legacy_pull; yarn legacy_pull; yarn ohmymirrorz_pull"
   }
 }
