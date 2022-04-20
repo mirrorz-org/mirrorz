@@ -67,13 +67,13 @@ export const useMirrorsList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
 export const useIsoInfoList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
     Object.values(sites).map(({ site, info }) => ({
         site,
-        info: info.map(({ category, distro, urls }) => ({
+        info: info ? info.map(({ category, distro, urls }) => ({
             category,
             distro,
             urls: urls.map(({ name, url }) => ({
                 name,
                 url: absoluteUrlOrConcatWithBase(url, site.url)
             })),
-        }))
+        })) : [],
     })).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)),
     [sites]);
