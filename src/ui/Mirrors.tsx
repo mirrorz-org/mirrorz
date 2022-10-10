@@ -86,6 +86,7 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   const grouped = useMemo(() =>
     Object.entries(groupBy(mirrors, m => m.cname))
       .map(([k, v]) => ({ sortKey: k.toLowerCase(), group: k, entries: v }))
+      .filter(({ group }) => group !== "")
     , [mirrors]);
 
   const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
