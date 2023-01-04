@@ -134,5 +134,9 @@
   "git/SJTUBeamer.git": "SJTUBeamer.git",
   "github/SJTUThesis": "SJTUThesis",
   "git/SJTUThesis.git": "SJTUThesis.git",
-  "git/SJTUTex.git": "SJTUTex.git"
+  "git/SJTUTeX.git": "SJTUTex.git",
+  "github/vscodium": "VSCodium",
+  "vscodium": "VSCodium",
+  "adoptium": "Adoptium",
+  "BioArchLinux": "bioarchlinux"
 }
