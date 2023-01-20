@@ -36,6 +36,18 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   // if mirrorz.org/ then default to mirrorz.org/os/ubuntu
   const category = params.category ?? "os", distro = params.distro ?? (params.category ? "" : "ubuntu");
 
+  const priority = (c: string) => {
+    if (c === "os") {
+        return 0;
+    } else if (c === "app") {
+        return 1;
+    } else if (c === "font") {
+        return 2;
+    } else {
+        return 100;
+    }
+  }
+
   const [allCat, allDistro] = useMemo(() => {
     const allCat = new Set(isoinfo.flatMap(x => x.info.map(y => y.category)));
     // If duplicated keys found in the array given to `Object.fromEntries`, 
@@ -51,7 +63,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   return allCat.has(category) ? (
     <div className="iso">
       <div className="category">
-        {Array.from(allCat).map((c, idx) => (
+        {Array.from(allCat).sort((l, r) => priority(l) - priority(r)).map((c, idx) => (
           <Link to={`/${c.replace(/\s/g, '')}`} key={idx + c} className={c.replace(/\s/g, '') == category ? "active" : ""}>
             { c == "os"
               ? (<h2 dangerouslySetInnerHTML={{__html: t("iso." + c, c)}} />)
