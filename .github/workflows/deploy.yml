@@ -59,6 +59,7 @@ jobs:
           retention-days: 3
   screenshots:
     name: Visual diff
+    if: ${{ false }}  # TODO: disable for now. Should provide a mock env
     runs-on: ubuntu-latest
     needs:
       - build
