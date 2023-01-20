@@ -138,5 +138,6 @@
   "github/vscodium": "VSCodium",
   "vscodium": "VSCodium",
   "adoptium": "Adoptium",
-  "BioArchLinux": "bioarchlinux"
+  "BioArchLinux": "bioarchlinux",
+  "Lineageos": "LineageOS"
 }
