@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import upstreams from "../config/upstream";
 import { Parser } from "../parser";
+import lint from "../parser/lint";
 import { Mirror, Mirrorz, ParsedMirror, Site } from "../schema";
 import { absoluteUrlOrConcatWithBase, emptyOrAbsolutUrlOrConcatWithBase } from "./utils";
 
 async function MirrorzLoader(source: string | Parser) {
     try {
-        return typeof source === "string" ? await (await fetch(source)).json() as Mirrorz : await source();
+        return typeof source === "string" ? lint(await (await fetch(source)).json()) as Mirrorz : await source();
     } catch (err) {
         console.warn("MirrorzLoader", typeof source === "string" ? source : "", err);
     }
