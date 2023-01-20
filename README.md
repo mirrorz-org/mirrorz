@@ -95,6 +95,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `mirrors.desc` may differ for each mirror site since there are `excludes` for some mirror site
   - `mirrors.desc` may be empty
   - if `mirrors.url` begins with a slash `/`, it should be appended to `site.url` to form a full url
+  - `mirrors.url` should not end with slash `/`
   - `mirrors.status` is a concat of strings of pattern `[A-Z](\d+)?`. Only one main status is allowed; the number of auxiliary status is not limited.
     + `S1600000000`: successful. (optional) last successful ended unix timestamp
     + `Y1600000000`: syncing. (optional) start to sync unix timestamp
