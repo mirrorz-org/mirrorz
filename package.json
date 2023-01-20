@@ -53,7 +53,7 @@
     "check_config": "node -e 'console.log(require(\"./src/config/config.json\").about.includes(process.argv[1]))'",
     "debug_build": "yarn dev_env && parcel build --no-optimize --no-content-hash index.html && yarn run -s gen_ver > dist/version",
     "build": "parcel build --no-source-maps index.html && yarn run -s gen_ver > dist/version",
-    "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json",
+    "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json && node scripts/legacy-pack.js > dist/static/json/legacy-pack.json",
     "legacy_build": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && cd legacy && node ./generator.js && cd ../ && cp -ar legacy/dist/_ dist/ || echo No legacy config",
     "ohmymirrorz_date": "sed -i \"s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g\" dist/oh-my-mirrorz.py",
     "ohmymirrorz_ua_url": "sed -i \"s|^UA_URL.*|UA_URL = '$(node -e 'console.log(require(\"./src/config/config.json\").url)')'|g\" dist/oh-my-mirrorz.py",
