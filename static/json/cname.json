@@ -127,6 +127,7 @@
   "ArchLinux": "archlinux",
   "RockyLinux": "rocky",
   "rockylinux": "rocky",
+  "rocky-linux": "rocky",
   "Rocky": "rocky",
   "archlinux-arm": "archlinuxarm",
   "git/spdk.git": "spdk.git",
