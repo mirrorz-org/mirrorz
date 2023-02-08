@@ -4,7 +4,6 @@
   "aosp": "AOSP",
   "armbian-dl": "armbian-releases",
   "bioc": "bioconductor",
-  "crates.io-index": "crates.io-index.git",
   "debian-multimedia": "deb-multimedia",
   "lineageos": "lineage-rom",
   "mysql-repo": "mysql",
