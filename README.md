@@ -20,13 +20,13 @@ For end users, this is not a good experience as they need to search for availabl
 
 To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
-## Data Format v1.5 (draft)
+## Data Format v1.6
 
 A `mirrorz.json` in the following format describes all the data of one mirror site in MirrorZ.
 
 ```json
 {
-  "version": 1.5,
+  "version": 1.6,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/img/logo.svg",
