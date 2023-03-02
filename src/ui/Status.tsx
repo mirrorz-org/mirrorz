@@ -4,6 +4,7 @@ import Icon from './Icon';
 
 const STATUS_ICON_MAPPING = {
   S: 'done',
+  D: 'pending',
   Y: 'sync',
   F: 'error',
   P: 'pause',
@@ -17,6 +18,7 @@ const STATUS_ICON_MAPPING = {
 
 const STATUS_CLASS_MAPPING = {
   S: 'success',
+  D: 'pending',
   P: 'pause',
   Y: 'syncing',
   F: 'failed',
@@ -30,8 +32,8 @@ const STATUS_CLASS_MAPPING = {
 
 type STATUS_TYPE = keyof typeof STATUS_CLASS_MAPPING;
 
-const MAIN_STATUS: STATUS_TYPE[] = ["S", "Y", "F", "P", "C", "R", "U"];
-const ALL_STATUS: STATUS_TYPE[] = ["S", "Y", "F", "P", "C", "R", "U", "O", "X", "N"];
+const MAIN_STATUS: STATUS_TYPE[] = ["S", "D", "Y", "F", "P", "C", "R", "U"];
+const ALL_STATUS: STATUS_TYPE[] = ["S", "D", "Y", "F", "P", "C", "R", "U", "O", "X", "N"];
 
 
 export const statusMapper = (status: string) => {
