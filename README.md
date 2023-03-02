@@ -98,6 +98,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `mirrors.url` should not end with slash `/`
   - `mirrors.status` is a concat of strings of pattern `[A-Z](\d+)?`. Only one main status is allowed; the number of auxiliary status is not limited.
     + `S1600000000`: successful. (optional) last successful ended unix timestamp
+    + `D1600000000`: pending. (optional) pending to sync unix timestamp
     + `Y1600000000`: syncing. (optional) start to sync unix timestamp
     + `F1600000000`: failed. (optional) last attempt to sync unix timestamp
     + `P1600000000`: paused. (optional) the unix timestamp sync stopped
