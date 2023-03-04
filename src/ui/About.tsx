@@ -37,6 +37,12 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
       />
       <Para title={t("about.usage")} content={(
         <ul>
+          { config.about.includes("mirrors_help") && (<>
+            <li>{t("about.mirrors_help")}</li>
+              <ul>
+                <li>{config.mirrors_help_url}</li>
+              </ul>
+          </>)}
           <li>{t("about.valid_urls")}</li>
             <ul>
               <li>{config.url}/</li>
