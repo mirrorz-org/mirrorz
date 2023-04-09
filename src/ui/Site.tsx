@@ -4,6 +4,7 @@ import { generatePath, Link, useHistory, useParams, useRouteMatch } from "react-
 import Icon, { Logo } from './Icon';
 import { Summary, statusMapper, statusSum, StatusList } from './Status';
 import { ParsedMirror, Site } from "../schema";
+import { RepoScoring } from "../schema/scoring";
 
 type SiteRouteParams = {
   siteSlug?: string,
@@ -17,8 +18,27 @@ const MetaLine = React.memo(({ left, right, link = false }: { left: string, righ
   </div>
 ));
 
-const Meta = React.memo(({ site }: { site: Site }) => {
+
+
+const Meta = React.memo(({ site, score }: { site: Site, score?: RepoScoring }) => {
   const { t, i18n } = useTranslation();
+
+  function TagFromScore(score: RepoScoring) {
+    let tags = [];
+    // score.pos is not used by the frontend
+    if (score.mask > 0) {
+        tags.push(t("tag.mask"));
+    }
+    if (score.isp > 0) {
+        tags.push(t("tag.isp"));
+    }
+    if (score.geo < 200) { // 200km
+        tags.push(t("tag.geo"));
+    }
+    return tags.join("/");
+  }
+
+  const tag = score ? TagFromScore(score) : "";
   return (
     <div className="site-meta">
       {site.url && (<MetaLine left={t("site.url")} right={site.url} link={true} />)}
@@ -30,13 +50,14 @@ const Meta = React.memo(({ site }: { site: Site }) => {
       {site.email && (<MetaLine left={t("site.email")} right={site.email} />)}
       {site.group && (<MetaLine left={t("site.group")} right={site.group} />)}
       {site.note && (<MetaLine left={t("site.note")} right={site.note} />)}
+      {score && tag && (<MetaLine left={t("site.note")} right={tag} />)}
     </div>
   );
 });
 
 const siteUrl = (path: string, site: Site) => generatePath(path, { siteSlug: site.abbr.replace(/\s/g, '') });
 
-export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[] }[] }) => {
+export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[], score?: RepoScoring }[] }) => {
   const history = useHistory(), match = useRouteMatch(), params = useParams() as SiteRouteParams;
   const curr = params.siteSlug, stat = params.statusFilter;
 
@@ -58,9 +79,9 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
           </Link>
         ))}
       </div>
-      {site.filter(s => s.site.abbr.replace(/\s/g, '') === curr).map(({ site, parsed }) =>
+      {site.filter(s => s.site.abbr.replace(/\s/g, '') === curr).map(({ site, parsed, score }) =>
         <div className="site-content" key={site.abbr}>
-          <Meta site={site} />
+          <Meta site={site} score={score} />
           <div className="site-mirrors">
             {parsed.sort((a, b) => a.cname.localeCompare(b.cname))
               // Status filter from URL

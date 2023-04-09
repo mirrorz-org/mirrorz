@@ -93,7 +93,7 @@ export const useSitesList = (sites: { [_: string]: Mirrorz }, scoring: Scoring) 
             scoring.scores.forEach((r: RepoScoring) => {
                 sitesListSortedByAbbr.forEach((s) => {
                     if (s.site.abbr == r.abbr) {
-                        sitesListSortedByScoring.push(s);
+                        sitesListSortedByScoring.push({...s, score: r});
                     }
                 });
             });
