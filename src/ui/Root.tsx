@@ -12,18 +12,19 @@ import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
-import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList } from "./hooks";
+import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList, useScoring } from "./hooks";
 import { Page404 } from "./404";
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
   const { t, i18n } = useTranslation();
   const mirrorz = useMirrorzSites();
+  const scoring = useScoring();
 
   const mirrorzList = useMemo(() => Object.values(mirrorz), [mirrorz]);
   const mirrorsList = useMirrorsList(mirrorz);
   const isoinfoList = useIsoInfoList(mirrorz);
-  const siteList = useSitesList(mirrorz);
+  const siteList = useSitesList(mirrorz, scoring);
 
   return (
     <Router>

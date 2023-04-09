@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import upstreams from "../config/upstream";
+import config from "../config/config";
 import { Parser } from "../parser";
 import lint from "../parser/lint";
 import { Mirror, Mirrorz, ParsedMirror, Site } from "../schema";
+import { RepoScoring, Scoring } from "../schema/scoring";
 import { absoluteUrlOrConcatWithBase, emptyOrAbsolutUrlOrConcatWithBase } from "./utils";
 
 async function MirrorzLoader(source: string | Parser) {
@@ -10,6 +12,15 @@ async function MirrorzLoader(source: string | Parser) {
         return typeof source === "string" ? lint(await (await fetch(source)).json()) as Mirrorz : await source();
     } catch (err) {
         console.warn("MirrorzLoader", typeof source === "string" ? source : "", err);
+    }
+}
+
+async function ScoringLoader(cname: string) {
+    try {
+        if (config.about.includes("302-go"))
+            return await (await fetch("/api/scoring/" + cname)).json() as Scoring;
+    } catch (err) {
+        console.warn("MirrorzScoringLoader", cname, err);
     }
 }
 
@@ -55,12 +66,52 @@ export function useMirrorzSites() {
     return mirrorz;
 }
 
-export const useSitesList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
-    Object.values(sites).map(({ site, mirrors }) => ({
-        site,
-        parsed: mirrors.map(mirror => parseMirror(site, mirror))
-    })).sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)),
-    [sites]);
+export function useScoring() {
+    const [scoring, setScoring] = useState<Scoring>();
+    function initScoring() {
+        ScoringLoader("").then(m => m && setScoring(m));
+    }
+    useEffect(() => {
+        initScoring();
+    }, []);
+    return scoring;
+}
+
+export const useSitesList = (sites: { [_: string]: Mirrorz }, scoring: Scoring) => useMemo(() => {
+        const sitesListRaw = Object.values(sites).map(({ site, mirrors }) => ({
+            site,
+            parsed: mirrors.map(mirror => parseMirror(site, mirror))
+        }));
+
+        const sitesListSortedByAbbr = sitesListRaw.sort((a, b) => a.site.abbr.localeCompare(b.site.abbr));
+
+        if (scoring === undefined) {
+            return sitesListSortedByAbbr;
+        } else {
+            const sitesListSortedByScoring: { site: Site, parsed: ParsedMirror[] }[] = [];
+            // sort according to score
+            scoring.scores.forEach((r: RepoScoring) => {
+                sitesListSortedByAbbr.forEach((s) => {
+                    if (s.site.abbr == r.abbr) {
+                        sitesListSortedByScoring.push(s);
+                    }
+                });
+            });
+            // collect other
+            sitesListSortedByAbbr.forEach((s) => {
+                let included = false;
+                sitesListSortedByScoring.forEach((r) => {
+                    if (s.site.abbr == r.site.abbr) {
+                        included = true;
+                    }
+                });
+                if (!included) {
+                    sitesListSortedByScoring.push(s)
+                }
+            });
+            return sitesListSortedByScoring;
+        }
+    }, [sites, scoring]);
 
 export const useMirrorsList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
     Object.values(sites).flatMap(({ site, mirrors }) => mirrors.map(mirror => parseMirror(site, mirror))), [sites]);
