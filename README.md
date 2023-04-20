@@ -20,13 +20,13 @@ For end users, this is not a good experience as they need to search for availabl
 
 To make things easy, MirrorZ is intended to include all mirrorS, so a unified interface is needed.
 
-## Data Format v1.6
+## Data Format v1.7
 
 A `mirrorz.json` in the following format describes all the data of one mirror site in MirrorZ.
 
 ```json
 {
-  "version": 1.6,
+  "version": 1.7,
   "site": {
     "url": "https://example.org",
     "logo": "https://example.org/img/logo.svg",
@@ -40,7 +40,8 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
     "group": "QQ: 10086 and/or Telegram @something",
     "disk": "may be any string showing usage of disk, e.g. usage",
     "note": "may be any string; like speed limit or connection limit",
-    "big": "/speedtest/1000mb.bin"
+    "big": "/speedtest/1000mb.bin",
+    "maintenance": false
   },
   "info": [
     {
@@ -86,6 +87,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `site.logo_darkmode` is used when browser uses dark mode. Note that it should be set only after `site.logo` is set
   - `site.url` should not end with slash `/`
   - `site.big` should be a valid url to a big file, used by `oh-my-mirrorz.py` for speed testing
+  - `site.maintenance` is a boolean value, indicating whether the site is under maintenance. If true, mirrorz-302 will not redirect to the site
 * `info` is used for category view
   - all field of `info` is mandatory
   - `info` may be left empty as `[]`
