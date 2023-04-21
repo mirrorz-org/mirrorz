@@ -88,7 +88,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `site.logo_darkmode` is used when browser uses dark mode. Note that it should be set only after `site.logo` is set
   - `site.url` should not end with slash `/`
   - `site.big` should be a valid url to a big file, used by `oh-my-mirrorz.py` for speed testing
-  - `site.disable` is a boolean value, indicating whether the site is available for service. If true, this site will be marked as disabled in mirrorz webpage, and mirrorz-302 will not redirect to the site
+  - `site.disable` is a boolean value, indicating whether the site is available for service. Its default value is false. If true, this site will be marked as disabled in mirrorz webpage, and mirrorz-302 will not redirect to the site
 * `info` is used for category view
   - all field of `info` is mandatory
   - `info` may be left empty as `[]`
