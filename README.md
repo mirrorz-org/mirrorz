@@ -6,7 +6,7 @@ A final site for Mirror sites.
 
 ## Demo
 
-<https://mirrorz.org> and <https://mirrors.cernet.edu.cn>
+<https://mirrorz.org> and <https://mirrors.cernet.edu.cn/list>
 
 Also legacy webpages (for w3m and noscript users) are provided in <https://mirrorz.org/_/> and <https://mirrors.cernet.edu.cn/_/>
 
