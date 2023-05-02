@@ -139,5 +139,6 @@
   "vscodium": "VSCodium",
   "adoptium": "Adoptium",
   "BioArchLinux": "bioarchlinux",
-  "Lineageos": "LineageOS"
+  "Lineageos": "LineageOS",
+  "docker-registry": "docker-hub"
 }
