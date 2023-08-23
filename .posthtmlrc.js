@@ -1,5 +1,5 @@
 const config = require("./src/config/config.json");
-const i18n = require("./src/i18n/");
+const i18n = require("./src/i18n/index.js");
 
 const meta = config.meta ?? {};
 meta["og:url"] = config.url;
