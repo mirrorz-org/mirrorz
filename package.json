@@ -28,6 +28,7 @@
     "posthtml": "^0.16.5",
     "posthtml-expressions": "^1.8.1",
     "prettier": "^2.3.1",
+    "process": "^0.11.10",
     "ts-node": "^10.0.0"
   },
   "dependencies": {
@@ -81,6 +82,7 @@
     "json_legacy_pull": "(cd static/json/legacy; git pull)",
     "legacy_pull": "(cd legacy; git pull)",
     "ohmymirrorz_pull": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && (cd scripts/oh-my-mirrorz; git pull) || true",
-    "pull": "git pull; yarn config_pull; yarn parser_pull; yarn i18n_pull; yarn json_site_pull; yarn json_legacy_pull; yarn legacy_pull; yarn ohmymirrorz_pull"
+    "pull": "git pull; yarn config_pull; yarn parser_pull; yarn i18n_pull; yarn json_site_pull; yarn json_legacy_pull; yarn legacy_pull; yarn ohmymirrorz_pull",
+    "start": "parcel serve index.html"
   }
 }
