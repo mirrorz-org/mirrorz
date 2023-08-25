@@ -26,10 +26,11 @@
   text-decoration: none;
   margin: 0;
   width: $sidebar;
-  height: $sidebar;
+  min-height: $sidebar;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 /* Active/current link */

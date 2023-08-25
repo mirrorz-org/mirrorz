@@ -14,6 +14,9 @@ import Debug from "./Debug";
 import Monitor from "./Monitor";
 import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList, useScoring } from "./hooks";
 import { Page404 } from "./404";
+import Icon from "./Icon";
+
+import config from "../config/config.json";
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
@@ -55,6 +58,9 @@ export default React.memo(() => {
           <NavLink to="/site" activeClassName="active">
             <h2 dangerouslySetInnerHTML={{__html: t("site.site")}} />
           </NavLink>
+          {config.mirrorz_help && <a href={config.mirrorz_help} target="_blank">
+            <h2 dangerouslySetInnerHTML={{__html: t("help")}} /><Icon>open_in_new</Icon>
+          </a>}
           <NavLink to="/about" activeClassName="active">
             <h2>{t("about.about")}</h2>
           </NavLink>
