@@ -14,7 +14,6 @@ import Debug from "./Debug";
 import Monitor from "./Monitor";
 import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList, useScoring } from "./hooks";
 import { Page404 } from "./404";
-import Icon from "./Icon";
 
 import config from "../config/config.json";
 
@@ -59,7 +58,7 @@ export default React.memo(() => {
             <h2 dangerouslySetInnerHTML={{__html: t("site.site")}} />
           </NavLink>
           {config.mirrorz_help && <a href={config.mirrorz_help} target="_blank" rel="noopener">
-            <h2 dangerouslySetInnerHTML={{__html: t("help")}} /><Icon>open_in_new</Icon>
+            <h2 dangerouslySetInnerHTML={{__html: t("help")}} />
           </a>}
           <NavLink to="/about" activeClassName="active">
             <h2>{t("about.about")}</h2>
