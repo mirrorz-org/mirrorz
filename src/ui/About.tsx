@@ -54,7 +54,7 @@ export default React.memo(({ site }: { site: { site: Site, parsed: ParsedMirror[
               <li>{config.url}/list/[0-9]+</li>
               <li>{config.url}/site</li>
               <li>{config.url}/site/BFSU</li>
-              <li>{config.url}/site/OpenTUNA/Y</li>
+              <li>{config.url}/site/TUNA/Y</li>
               <li>{config.url}/about</li>
               { config.about.includes("monitor") && (<li>{config.url}/monitor</li>) }
             </ul>
