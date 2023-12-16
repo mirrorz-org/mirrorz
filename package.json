@@ -22,7 +22,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^6.0.0",
     "mime-types": "^2.1.31",
-    "octokit": "^1.0.6",
+    "octokit": "^3.1.2",
     "parcel": "^2.0.1",
     "playwright": "^1.12.2",
     "posthtml": "^0.16.5",
