@@ -52,7 +52,7 @@ jobs:
           mkdir -p drop
           tar -czf drop/dist.tar.gz dist
       - name: Upload dist package as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: drop/dist.tar.gz
@@ -89,7 +89,7 @@ jobs:
           yarn test --update-snapshots
       - name: Upload screenshot baseline as artifacts
         if: ${{ github.ref == 'refs/heads/master' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: screenshot-baseline
           path: |
@@ -104,7 +104,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload screenshot differences as artifacts
         if: ${{ github.ref != 'refs/heads/master' && always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: screenshots
           path: |
