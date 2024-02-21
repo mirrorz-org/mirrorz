@@ -196,7 +196,7 @@ Currently `*.json` is ignored in `.gitignore` (not ignored in `/static`). If one
 
 ### Contributing
 
-Other contributing guidelines are maintained in <https://github.com/mirrorz-org/org/wiki>
+Other contributing guidelines are maintained in <https://github.com/mirrorz-org/org/>
 
 <!--
  vim: ts=2 sts=2 sw=2
