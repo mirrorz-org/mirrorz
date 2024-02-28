@@ -11,7 +11,7 @@ async function MirrorzLoader(source: string | Parser) {
     try {
         return typeof source === "string" ? lint(await (await fetch(source)).json()) as Mirrorz : await source();
     } catch (err) {
-        console.warn("MirrorzLoader", typeof source === "string" ? source : "", err);
+        console.warn("MirrorzLoader", typeof source === "string" ? source : `(${typeof source}) ${source}`, err);
     }
 }
 
