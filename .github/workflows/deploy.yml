@@ -12,6 +12,9 @@ on:
 jobs: 
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build_type: [mirrorz, cernet]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,7 +34,7 @@ jobs:
           git clone https://github.com/mirrorz-org/mirrorz-parser.git src/parser
           git clone https://github.com/mirrorz-org/mirrorz-config.git src/config
           git clone https://github.com/mirrorz-org/mirrorz-i18n.git src/i18n
-          yarn mirrorz_env
+          yarn ${{ matrix.build_type }}_env
           git clone https://github.com/mirrorz-org/oh-my-mirrorz.git scripts/oh-my-mirrorz
       - name: Prepare legacy
         run: |
@@ -50,12 +53,12 @@ jobs:
           yarn legacy_build
           yarn ohmymirrorz_build
           mkdir -p drop
-          tar -czf drop/dist.tar.gz dist
+          tar -czf drop/dist-${{ matrix.build_type }}.tar.gz dist
       - name: Upload dist package as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: drop/dist.tar.gz
+          name: dist-${{ matrix.build_type }}
+          path: drop/dist-${{ matrix.build_type }}.tar.gz
           retention-days: 3
   screenshots:
     name: Visual diff
@@ -113,6 +116,9 @@ jobs:
           retention-days: 3
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build_type: [mirrorz, cernet]
     if: ${{ github.ref == 'refs/heads/master' }}
     needs:
       - build
@@ -123,15 +129,19 @@ jobs:
       - name: Download dist package
         uses: actions/download-artifact@v4
         with:
-          name: dist
+          name: dist-${{ matrix.build_type }}
       - name: Commit and publish
         env: 
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_REPOSITORY: ${{ secrets.PUBLISH_REPOSITORY }}
         run: |
-          tar xzf dist.tar.gz
+          tar xzf dist-${{ matrix.build_type }}.tar.gz
           remote_repo="https://x-access-token:${ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
-          remote_branch="master"
+          if [[ "${{ matrix.build_type }}" == "mirrorz" ]]; then
+            remote_branch="master"
+          else
+            remote_branch="cernet"
+          fi
           git_commit_id=$(git rev-parse --short HEAD)
           mkdir _site_remote && cd _site_remote
           git init
@@ -139,11 +149,12 @@ jobs:
           git config user.email "bot@mirrorz.org"
           git remote add origin $remote_repo
           git pull origin $remote_branch
+          git checkout $remote_branch
           git rm -rf .
           git clean -fxd
           cp -ar ../dist/*  ./
           touch .nojekyll
           git add .
-          git commit -m "Github Action auto build for https://github.com/tuna/mirrorz/commit/${git_commit_id}" --allow-empty
+          git commit -m "Github Action auto build for https://github.com/mirrorz-org/mirrorz/commit/${git_commit_id}" --allow-empty
           git push -u origin $remote_branch
 
