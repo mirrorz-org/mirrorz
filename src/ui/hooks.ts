@@ -122,7 +122,7 @@ export const useIsoInfoList = (sites: { [_: string]: Mirrorz }) => useMemo(() =>
         info: info ? info.map(({ category, distro, urls }) => ({
             category,
             distro,
-            urls: urls.map(({ name, url }) => ({
+            urls: (urls || []).map(({ name, url }) => ({
                 name,
                 url: absoluteUrlOrConcatWithBase(url, site.url)
             })),
