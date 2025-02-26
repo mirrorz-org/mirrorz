@@ -140,5 +140,6 @@
   "adoptium": "Adoptium",
   "BioArchLinux": "bioarchlinux",
   "Lineageos": "LineageOS",
-  "docker-registry": "docker-hub"
+  "docker-registry": "docker-hub",
+  "python-release": "python"
 }
