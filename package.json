@@ -24,7 +24,7 @@
     "mime-types": "^2.1.31",
     "octokit": "^3.1.2",
     "parcel": "^2.0.1",
-    "playwright": "^1.12.2",
+    "playwright": "^1.55.1",
     "posthtml": "^0.16.5",
     "posthtml-expressions": "^1.8.1",
     "prettier": "^2.3.1",
