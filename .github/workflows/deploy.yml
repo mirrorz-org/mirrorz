@@ -80,7 +80,7 @@ jobs:
           npx playwright install-deps
           npx playwright install
       - name: Download dist package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: dist
       - name: Unzip dist package
@@ -127,7 +127,7 @@ jobs:
         with:
           submodules: true
       - name: Download dist package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: dist-${{ matrix.build_type }}
       - name: Commit and publish
