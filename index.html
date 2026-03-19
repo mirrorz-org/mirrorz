@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <title>{{ title }}</title>
     <each loop="v, k in meta">
-      <meta property="{{ k }}" content="{{ v }}">
+      <meta property="{{ k }}" content="{{ v }}" />
     </each>
-    <link rel="stylesheet" href="./src/css/style.scss">
-    <link rel="icon" type="image/svg+xml" href="/static/img/mirrorz.svg">
+    <link rel="stylesheet" href="./src/css/style.scss" />
+    <link rel="icon" type="image/svg+xml" href="/static/img/mirrorz.svg" />
     <!-- <link rel="preload" as="stylesheet" href="./src/css/deferred.scss"> -->
     <script type="module" src="./src/index.jsx"></script>
   </head>
@@ -21,7 +21,11 @@
         height: 100vh;
       }
     </style>
-    <noscript>{{ javascript }}<br/>{{ legacy_page_prompt_pre }}<a href="/_/">{{ legacy_page }}</a>{{ legacy_page_prompt_post }}</noscript>
+    <noscript
+      >{{ javascript }}<br />{{ legacy_page_prompt_pre }}<a href="/_/"
+        >{{ legacy_page }}</a
+      >{{ legacy_page_prompt_post }}</noscript
+    >
     <div id="app"><div class="loading">{{ loading }}</div></div>
   </body>
 </html>

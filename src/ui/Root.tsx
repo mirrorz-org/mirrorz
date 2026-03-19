@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +12,13 @@ import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
-import { useIsoInfoList, useMirrorsList, useMirrorzSites, useSitesList, useScoring } from "./hooks";
+import {
+  useIsoInfoList,
+  useMirrorsList,
+  useMirrorzSites,
+  useSitesList,
+  useScoring,
+} from "./hooks";
 import { Page404 } from "./404";
 
 import config from "../config/config.json";
@@ -49,17 +55,23 @@ export default React.memo(() => {
               return false;
             }}
           >
-            <img src="/static/img/mirrorz.svg" className="sidebar-logo" alt="ISO" />
+            <img
+              src="/static/img/mirrorz.svg"
+              className="sidebar-logo"
+              alt="ISO"
+            />
           </NavLink>
           <NavLink to="/list" activeClassName="active">
-            <h2 dangerouslySetInnerHTML={{__html: t("list.list")}} />
+            <h2 dangerouslySetInnerHTML={{ __html: t("list.list") }} />
           </NavLink>
           <NavLink to="/site" activeClassName="active">
-            <h2 dangerouslySetInnerHTML={{__html: t("site.site")}} />
+            <h2 dangerouslySetInnerHTML={{ __html: t("site.site") }} />
           </NavLink>
-          {config.mirrors_help_url && <a href={config.mirrors_help_url} target="_blank" rel="noopener">
-            <h2 dangerouslySetInnerHTML={{__html: t("help")}} />
-          </a>}
+          {config.mirrors_help_url && (
+            <a href={config.mirrors_help_url} target="_blank" rel="noopener">
+              <h2 dangerouslySetInnerHTML={{ __html: t("help") }} />
+            </a>
+          )}
           <NavLink to="/about" activeClassName="active">
             <h2>{t("about.about")}</h2>
           </NavLink>

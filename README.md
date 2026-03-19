@@ -47,12 +47,12 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
     {
       "distro": "Debian",
       "category": "os",
-            "urls": [
-                {
-                    "name": "10.7.0 (amd64, CD installer with xfce)",
-                    "url": "/debian-cd/current/amd64/iso-cd/debian-10.7.0-amd64-xfce-CD-1.iso"
-                }
-            ]
+      "urls": [
+        {
+          "name": "10.7.0 (amd64, CD installer with xfce)",
+          "url": "/debian-cd/current/amd64/iso-cd/debian-10.7.0-amd64-xfce-CD-1.iso"
+        }
+      ]
     }
   ],
   "mirrors": [
@@ -80,37 +80,37 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
 
 ### Notes
 
-* `version` is optional for version 1.x
+- `version` is optional for version 1.x
   - previous versions of this protocol could be found in git history; protocols in v1.x are back-ward compatible
-* `site` provides the global info about one mirror site
+- `site` provides the global info about one mirror site
   - only `site.url` and `site.abbr` are mandatory
   - `site.logo` should not be of format `ico`. Also, at least 64x64 resolution is required
   - `site.logo_darkmode` is used when browser uses dark mode. Note that it should be set only after `site.logo` is set
   - `site.url` should not end with slash `/`
   - `site.big` should be a valid url to a big file, used by `oh-my-mirrorz.py` for speed testing
   - `site.disable` is a boolean value, indicating whether the site is available for service. Its default value is false. If true, this site will be marked as disabled in mirrorz webpage, and mirrorz-302 will not redirect to the site
-* `info` is used for category view
+- `info` is used for category view
   - all field of `info` is mandatory
   - `info` may be left empty as `[]`
   - the name of `info.distro` should be agreed and have a mapping, maintained in `cname.json`
-* `mirrors` is used for list view
+- `mirrors` is used for list view
   - the name of `mirrors.cname` should be agreed and have a mapping, maintained in `cname.json`
   - `mirrors.desc` may differ for each mirror site since there are `excludes` for some mirror site
   - `mirrors.desc` may be empty
   - if `mirrors.url` begins with a slash `/`, it should be appended to `site.url` to form a full url
   - `mirrors.url` should not end with slash `/`
   - `mirrors.status` is a concat of strings of pattern `[A-Z](\d+)?`. Only one main status is allowed; the number of auxiliary status is not limited.
-    + `S1600000000`: successful. (optional) last successful ended unix timestamp
-    + `D1600000000`: pending. (optional) pending to sync unix timestamp
-    + `Y1600000000`: syncing. (optional) start to sync unix timestamp
-    + `F1600000000`: failed. (optional) last attempt to sync unix timestamp
-    + `P1600000000`: paused. (optional) the unix timestamp sync stopped
-    + `C`: reverse proxy with cache
-    + `R`: reverse proxy without cache
-    + `U`: unknown
-    + `X1600000000`: (auxiliary) next scheduled sync unix timestamp
-    + `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
-    + `O1600000000`: (auxiliary) old successful timestamp, used only when it is syncing or failed
+    - `S1600000000`: successful. (optional) last successful ended unix timestamp
+    - `D1600000000`: pending. (optional) pending to sync unix timestamp
+    - `Y1600000000`: syncing. (optional) start to sync unix timestamp
+    - `F1600000000`: failed. (optional) last attempt to sync unix timestamp
+    - `P1600000000`: paused. (optional) the unix timestamp sync stopped
+    - `C`: reverse proxy with cache
+    - `R`: reverse proxy without cache
+    - `U`: unknown
+    - `X1600000000`: (auxiliary) next scheduled sync unix timestamp
+    - `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
+    - `O1600000000`: (auxiliary) old successful timestamp, used only when it is syncing or failed
   - `mirrors.help` may be empty, or the same rule as `mirrors.url`
   - `mirrors.upstream`, `mirrors.size`, `mirrors.disable` may be empty
 

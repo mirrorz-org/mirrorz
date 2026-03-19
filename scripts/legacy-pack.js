@@ -1,6 +1,6 @@
 // pack legacy json into one file
 // adapted from mirrorz-legacy/generator.js
-config = require("../src/config/config.json")
+config = require("../src/config/config.json");
 
 let sites = [];
 
@@ -19,4 +19,4 @@ for (const abbr in config.mirrors) {
   }
 }
 
-console.log(JSON.stringify(sites))
+console.log(JSON.stringify(sites));

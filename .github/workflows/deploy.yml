@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [master]
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -22,7 +22,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '18'
+          node-version: "18"
       - name: Prepare static
         run: |
           git clone https://github.com/mirrorz-org/mirrorz-json-legacy.git static/json/json-legacy
@@ -62,7 +62,7 @@ jobs:
           retention-days: 3
   screenshots:
     name: Visual diff
-    if: ${{ false }}  # TODO: disable for now. Should provide a mock env
+    if: ${{ false }} # TODO: disable for now. Should provide a mock env
     runs-on: ubuntu-latest
     needs:
       - build
@@ -73,7 +73,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Install dependencies
         run: |
           yarn --frozen-lockfile
@@ -131,7 +131,7 @@ jobs:
         with:
           name: dist-${{ matrix.build_type }}
       - name: Commit and publish
-        env: 
+        env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_REPOSITORY: ${{ secrets.PUBLISH_REPOSITORY }}
         run: |
@@ -157,4 +157,3 @@ jobs:
           git add .
           git commit -m "Github Action auto build for https://github.com/mirrorz-org/mirrorz/commit/${git_commit_id}" --allow-empty
           git push -u origin $remote_branch
-

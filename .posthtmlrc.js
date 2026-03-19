@@ -9,18 +9,18 @@ meta["og:image"] = config.url + "/static/img/mirrorz.svg";
 meta["og:type"] = "website";
 
 module.exports = {
-  "plugins": {
+  plugins: {
     "posthtml-expressions": {
-      "locals": {
-        "lang": config.language,
-        "title": config.display,
-        "javascript": i18n.t("index.javascript"),
-        "legacy_page_prompt_pre": i18n.t("index.legacy_page_prompt_pre"),
-        "legacy_page_prompt_post": i18n.t("index.legacy_page_prompt_post"),
-        "legacy_page": i18n.t("index.legacy_page"),
-        "loading": i18n.t("index.loading"),
-        "meta": meta,
-      }
-    }
-  }
-}
+      locals: {
+        lang: config.language,
+        title: config.display,
+        javascript: i18n.t("index.javascript"),
+        legacy_page_prompt_pre: i18n.t("index.legacy_page_prompt_pre"),
+        legacy_page_prompt_post: i18n.t("index.legacy_page_prompt_post"),
+        legacy_page: i18n.t("index.legacy_page"),
+        loading: i18n.t("index.loading"),
+        meta: meta,
+      },
+    },
+  },
+};
