@@ -31,7 +31,7 @@ export default React.memo(() => {
 
   const mirrorzList = useMemo(() => Object.values(mirrorz), [mirrorz]);
   const mirrorsList = useMirrorsList(mirrorz);
-  const isoinfoList = useIsoInfoList(mirrorz);
+  const isoinfoList = useIsoInfoList(mirrorz, scoring);
   const siteList = useSitesList(mirrorz, scoring);
 
   return (

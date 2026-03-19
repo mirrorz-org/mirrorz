@@ -10,6 +10,40 @@ import {
   emptyOrAbsolutUrlOrConcatWithBase,
 } from "./utils";
 
+// Generic sorting function for sites with optional scoring
+function sortSitesByScoring<T extends { site: Site }>(
+  sitesList: T[],
+  scoring?: Scoring
+): T[] {
+  const sitesListSortedByAbbr = sitesList.sort((a, b) =>
+    a.site.abbr.localeCompare(b.site.abbr)
+  );
+
+  if (scoring === undefined) {
+    return sitesListSortedByAbbr;
+  }
+
+  const sitesListSortedByScoring: (T & { score?: RepoScoring })[] = [];
+  scoring.scores.forEach((r: RepoScoring) => {
+    sitesListSortedByAbbr.forEach((s) => {
+      if (s.site.abbr === r.abbr) {
+        sitesListSortedByScoring.push({ ...s, score: r });
+      }
+    });
+  });
+
+  sitesListSortedByAbbr.forEach((s) => {
+    const included = sitesListSortedByScoring.some(
+      (r) => r.site.abbr === s.site.abbr
+    );
+    if (!included) {
+      sitesListSortedByScoring.push(s);
+    }
+  });
+
+  return sitesListSortedByScoring;
+}
+
 async function MirrorzLoader(source: string | Parser) {
   try {
     return typeof source === "string"
@@ -93,45 +127,14 @@ export function useScoring() {
 
 export const useSitesList = (
   sites: { [_: string]: Mirrorz },
-  scoring: Scoring
+  scoring?: Scoring
 ) =>
   useMemo(() => {
     const sitesListRaw = Object.values(sites).map(({ site, mirrors }) => ({
       site,
       parsed: mirrors.map((mirror) => parseMirror(site, mirror)),
     }));
-
-    const sitesListSortedByAbbr = sitesListRaw.sort((a, b) =>
-      a.site.abbr.localeCompare(b.site.abbr)
-    );
-
-    if (scoring === undefined) {
-      return sitesListSortedByAbbr;
-    } else {
-      const sitesListSortedByScoring: { site: Site; parsed: ParsedMirror[] }[] =
-        [];
-      // sort according to score
-      scoring.scores.forEach((r: RepoScoring) => {
-        sitesListSortedByAbbr.forEach((s) => {
-          if (s.site.abbr == r.abbr) {
-            sitesListSortedByScoring.push({ ...s, score: r });
-          }
-        });
-      });
-      // collect other
-      sitesListSortedByAbbr.forEach((s) => {
-        let included = false;
-        sitesListSortedByScoring.forEach((r) => {
-          if (s.site.abbr == r.site.abbr) {
-            included = true;
-          }
-        });
-        if (!included) {
-          sitesListSortedByScoring.push(s);
-        }
-      });
-      return sitesListSortedByScoring;
-    }
+    return sortSitesByScoring(sitesListRaw, scoring);
   }, [sites, scoring]);
 
 export const useMirrorsList = (sites: { [_: string]: Mirrorz }) =>
@@ -143,23 +146,23 @@ export const useMirrorsList = (sites: { [_: string]: Mirrorz }) =>
     [sites]
   );
 
-export const useIsoInfoList = (sites: { [_: string]: Mirrorz }) =>
-  useMemo(
-    () =>
-      Object.values(sites)
-        .map(({ site, info }) => ({
-          site,
-          info: info
-            ? info.map(({ category, distro, urls }) => ({
-                category,
-                distro,
-                urls: (urls || []).map(({ name, url }) => ({
-                  name,
-                  url: absoluteUrlOrConcatWithBase(url, site.url),
-                })),
-              }))
-            : [],
-        }))
-        .sort((a, b) => a.site.abbr.localeCompare(b.site.abbr)),
-    [sites]
-  );
+export const useIsoInfoList = (
+  sites: { [_: string]: Mirrorz },
+  scoring?: Scoring
+) =>
+  useMemo(() => {
+    const sitesListRaw = Object.values(sites).map(({ site, info }) => ({
+      site,
+      info: info
+        ? info.map(({ category, distro, urls }) => ({
+            category,
+            distro,
+            urls: (urls || []).map(({ name, url }) => ({
+              name,
+              url: absoluteUrlOrConcatWithBase(url, site.url),
+            })),
+          }))
+        : [],
+    }));
+    return sortSitesByScoring(sitesListRaw, scoring);
+  }, [sites, scoring]);
