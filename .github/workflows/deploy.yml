@@ -50,7 +50,6 @@ jobs:
         run: |
           yarn build
           yarn legacy_build
-          yarn ohmymirrorz_build
           mkdir -p drop
           tar -czf drop/dist-${{ matrix.build_type }}.tar.gz dist
       - name: Upload dist package as artifact

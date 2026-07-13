@@ -56,7 +56,7 @@
     "build": "parcel build --no-source-maps index.html && yarn run -s gen_ver > dist/version",
     "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json && node scripts/legacy-pack.js > dist/static/json/legacy-pack.json",
     "legacy_build": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && cd legacy && node ./generator.js && cd ../ && cp -ar legacy/dist/_ dist/ || echo No legacy config",
-    "full_build": "yarn clean && yarn build && yarn legacy_build && yarn ohmymirrorz_build",
+    "full_build": "yarn clean && yarn build && yarn legacy_build",
     "half_start": "(yarn debug_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "full_start": "(yarn debug_build && yarn legacy_env && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "test": "playwright test --config=tests/playwright.config.ts",
