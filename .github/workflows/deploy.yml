@@ -28,10 +28,8 @@ jobs:
           git clone https://github.com/mirrorz-org/mirrorz-json-legacy.git static/json/json-legacy
           mv static/json/json-legacy/data static/json/legacy
           rm -rf static/json/json-legacy
-          git clone https://github.com/mirrorz-org/mirrorz-json-site.git static/json/site
-      - name: Prepare parser, config, i18n
+      - name: Prepare config and i18n
         run: |
-          git clone https://github.com/mirrorz-org/mirrorz-parser.git src/parser
           git clone https://github.com/mirrorz-org/mirrorz-config.git src/config
           yarn ${{ matrix.build_type }}_env
       - name: Prepare legacy

@@ -137,7 +137,7 @@ to start a local server. It is often convenient for debugging frontend features 
 
 #### Parser, local new static files
 
-To debug one `src/parser` with new site json in `static/json/site`, use
+To debug one parser from `src/config/parser` with new site json in `src/config/json-site`, use
 
 ```
 yarn --frozen-lockfile
