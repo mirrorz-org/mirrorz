@@ -1,0 +1,10 @@
+/node_modules
+/dist
+head.pug
+about.pug
+config
+config.json
+json-legacy
+mirrorz
+i18n
+yarn-error.log

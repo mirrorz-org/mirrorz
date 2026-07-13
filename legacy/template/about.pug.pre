@@ -1,0 +1,47 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a(href='/_/')
+          img.sidebar-logo(src='/static/img/mirrorz.svg',alt='ISO')
+        a(href='/_/list')
+          h2!= i18n.t("list.list")
+        a(href='/_/site')
+          h2!= i18n.t("site.site")
+        a.active(aria-current='page',href='/_/about')
+          h2= i18n.t("about.about")
+      main
+        .about
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text= i18n.t("about.intro")
+            .para-content
+              div
+                p Your next MirrorS is not MirrorS, nor MirrorSes, it's MirrorZ.
+                p A final site for Mirror sites.
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text= i18n.t("about.repo")
+            .para-content
+              a(href='https://github.com/tuna/mirrorz', target='_blank') https://github.com/tuna/mirrorz
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text= i18n.t("about.logo")
+            .para-content
+              each d in sites
+                .about-powered-by
+                  if(d.site.logo)
+                    img.about-logo(src=(d.site.logo ? d.site.logo : ''), alt='logo')
+                  = d.site.abbr
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text= i18n.t("about.usage")
+            .para-content
+              ul
+                li= i18n.t("about.valid_urls")

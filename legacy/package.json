@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "i18next": "^20.4.0",
+    "node-fetch": "^2.6.1",
+    "pug": "^3.0.2"
+  },
+  "scripts": {
+    "build": "yarn legacy_build",
+    "legacy_build": "node ./legacy/generator.js"
+  }
+}

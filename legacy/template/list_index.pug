@@ -1,0 +1,22 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a(href='/_/')
+          img.sidebar-logo(src='/static/img/mirrorz.svg',alt='ISO')
+        a.active(aria-current='page',href='/_/list')
+          h2!= i18n.t("list.list")
+        a(href='/_/site')
+          h2!= i18n.t("site.site")
+        a(href='/_/about')
+          h2= i18n.t("about.about")
+      main
+        .mirrorz
+          .mirrors
+            each d in data
+              .group
+                a(href=d.url)
+                  h2.heading
+                    =d.name

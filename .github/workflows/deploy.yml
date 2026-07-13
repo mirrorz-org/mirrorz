@@ -37,7 +37,6 @@ jobs:
           yarn ${{ matrix.build_type }}_env
       - name: Prepare legacy
         run: |
-          git clone https://github.com/mirrorz-org/mirrorz-legacy.git legacy
           yarn legacy_env
       - name: Install dependencies
         run: yarn --frozen-lockfile

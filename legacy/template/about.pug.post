@@ -1,0 +1,21 @@
+          .para
+            .para-title
+              .para-title-icon #
+              .para-title-text= i18n.t("about.todo")
+            .para-content
+              ul
+                li More participating mirrors
+                li
+                  | oh-my-mirrorz. One script to change all your mirrors (currently only speedtest was implemented). Ref to 
+                  a(href='http://github.com/tuna/oh-my-tuna', target='_blank') http://github.com/tuna/oh-my-tuna
+                li
+                  | Load Balancing Backend (hard). Ref to 
+                  a(href='http://github.com/tuna/mirrorhub', target='_blank') http://github.com/tuna/mirrorhub
+                  | . Currently a experimental backend is deployed.
+                li
+                  | Search Backend (hard). Ref to 
+                  a(href='https://github.com/tuna/issues/issues/1012', target='_blank') https://github.com/tuna/issues/issues/1012
+                  | . Currently a experimental backend is deployed.
+                li Mobile browser support
+                li i18n/l10n
+                li mirrorz.json protocol/data format discussion and upgrade

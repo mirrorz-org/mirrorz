@@ -1,0 +1,69 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a(href='/_/')
+          img.sidebar-logo(src='/static/img/mirrorz.svg',alt='ISO')
+        a(href='/_/list')
+          h2!= i18n.t("list.list")
+        a.active(aria-current='page',href='/_/site')
+          h2!= i18n.t("site.site")
+        a(href='/_/about')
+          h2= i18n.t("about.about")
+      main
+        .site
+          .site-abbr
+            each d in sidebar
+              a(href=d.url)
+                div(class=(d.active ? 'group-header active' : 'group-header'))
+                  if(d.logo)
+                    img.logo(src=d.logo, alt='logo')
+                  h2.heading=d.abbr
+          .site-content
+            .site-meta
+              if data.site.url
+                .meta-line
+                  span.meta-left= i18n.t("site.url") + ':'
+                  a(href=data.site.url)
+                    span.meta-right=data.site.url
+              if data.site.name
+                .meta-line
+                  span.meta-left= i18n.t("site.name") + ':'
+                  span.meta-right=data.site.name
+              if data.site.homepage
+                .meta-line
+                  span.meta-left= i18n.t("site.homepage") + ':'
+                  a(href=data.site.homepage)
+                    span.meta-right=data.site.homepage
+              if data.site.disk
+                .meta-line
+                  span.meta-left= i18n.t("site.disk") + ':'
+                  span.meta-right=data.site.disk
+              if data.site.issue
+                .meta-line
+                  span.meta-left= i18n.t("site.issue") + ':'
+                  a(href=data.site.issue)
+                    span.meta-right=data.site.issue
+              if data.site.request
+                .meta-line
+                  span.meta-left= i18n.t("site.request") + ':'
+                  a(href=data.site.issue)
+                    span.meta-right=data.site.request
+              if data.site.email
+                .meta-line
+                  span.meta-left= i18n.t("site.email") + ':'
+                  span.meta-right=data.site.email
+              if data.site.group
+                .meta-line
+                  span.meta-left= i18n.t("site.group") + ':'
+                  span.meta-right=data.site.group
+              if data.site.note
+                .meta-line
+                  span.meta-left= i18n.t("site.note") + ':'
+                  span.meta-right=data.site.note
+            .site-mirrors
+              each d in data.mirrors
+                .site-group
+                  h2.heading=d.cname

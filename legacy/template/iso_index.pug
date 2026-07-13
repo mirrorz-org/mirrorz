@@ -1,0 +1,31 @@
+doctype html
+html
+  include head.pug
+  body
+    #app-container
+      .sidebar
+        a.active(aria-current='page', href='/_/')
+          img.sidebar-logo(src='/static/img/mirrorz.svg',alt='ISO')
+        a(href='/_/list')
+          h2!= i18n.t("list.list")
+        a(href='/_/site')
+          h2!= i18n.t("site.site")
+        a(href='/_/about')
+          h2= i18n.t("about.about")
+      main
+        .iso
+          .category
+            a(href='/_/os',class=(navbar_active === 'os' ? 'active' : ''))
+              h2!= i18n.t("iso.os")
+            a(href='/_/app',class=(navbar_active === 'app' ? 'active' : ''))
+              h2= i18n.t("iso.app")
+            a(href='/_/font',class=(navbar_active === 'font' ? 'active' : ''))
+              h2= i18n.t("iso.font")
+          .distro-urls-container
+            .distro
+              each d in sidebar
+                a(href=d.url)
+                  h3=d.name
+            .urls
+              .logo-404
+                div= i18n.t("iso.prompt", { category: i18n.t("iso." + (navbar_active === 'os' ? 'os_norm': navbar_active)) })
