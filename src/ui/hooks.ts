@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import upstreams from "../config/upstream";
 import config from "../config/config";
-import { Parser } from "../config/parser";
 import lint from "../config/parser/lint";
 import { Mirror, Mirrorz, ParsedMirror, Site } from "../schema";
 import { RepoScoring, Scoring } from "../schema/scoring";
@@ -9,6 +8,8 @@ import {
   absoluteUrlOrConcatWithBase,
   emptyOrAbsolutUrlOrConcatWithBase,
 } from "./utils";
+
+type Parser = () => Promise<Mirrorz>;
 
 // Generic sorting function for sites with optional scoring
 function sortSitesByScoring<T extends { site: Site }>(

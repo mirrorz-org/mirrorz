@@ -46,7 +46,7 @@
     "lo_ln": "ln -sfn config/localhost.1234.json src/config/config.json",
     "mirrorz_ln": "ln -sfn config/mirrorz.org.json src/config/config.json",
     "cernet_ln": "ln -sfn config/mirrors.cernet.edu.cn.json src/config/config.json",
-    "other_ln": "ln -sfn ../config/config.json src/i18n/config.json && ln -sfn ../../config.json src/config/parser/config.json",
+    "other_ln": "ln -sfn ../config/config.json src/i18n/config.json",
     "dev_env": "yarn lo_ln && yarn other_ln",
     "mirrorz_env": "yarn mirrorz_ln && yarn other_ln",
     "cernet_env": "yarn cernet_ln && yarn other_ln",
