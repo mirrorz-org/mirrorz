@@ -10,8 +10,6 @@ A final site for Mirror sites.
 
 Also legacy webpages (for w3m and noscript users) are provided in <https://mirrorz.org/_/> and <https://mirrors.cernet.edu.cn/_/>
 
-A speed test script [oh-my-mirrorz.py](https://mirrorz.org/oh-my-mirrorz.py) is also provided. See [README](https://github.com/mirrorz-org/oh-my-mirrorz) for more info.
-
 ## Intro
 
 Mirror sites are heterogeneous. It is hard for a single mirror to provide all mirrors, so differences occur.
@@ -87,7 +85,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
   - `site.logo` should not be of format `ico`. Also, at least 64x64 resolution is required
   - `site.logo_darkmode` is used when browser uses dark mode. Note that it should be set only after `site.logo` is set
   - `site.url` should not end with slash `/`
-  - `site.big` should be a valid url to a big file, used by `oh-my-mirrorz.py` for speed testing
+  - `site.big` should be a valid url to a big file, allowing clients to do speedtest when requesting mannerly.
   - `site.disable` is a boolean value, indicating whether the site is available for service. Its default value is false. If true, this site will be marked as disabled in mirrorz webpage, and mirrorz-302 will not redirect to the site
 - `info` is used for category view
   - all field of `info` is mandatory
@@ -177,12 +175,6 @@ yarn legacy_build
 ```
 
 Note that `legacy_build` has dependencies on files `yarn build` has made.
-
-Meanwhile, to generate the complete `oh-my-mirrorz.py`, one should use the following command
-
-```
-yarn ohmymirrorz_build
-```
 
 If one want all parts, one can use the following command to accomplish all the steps above
 

@@ -56,10 +56,6 @@
     "build": "parcel build --no-source-maps index.html && yarn run -s gen_ver > dist/version",
     "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json && node scripts/legacy-pack.js > dist/static/json/legacy-pack.json",
     "legacy_build": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && cd legacy && node ./generator.js && cd ../ && cp -ar legacy/dist/_ dist/ || echo No legacy config",
-    "ohmymirrorz_date": "sed -i \"s/^VERSION.*/VERSION = '$(date +'%Y%m%d')'/g\" dist/oh-my-mirrorz.py",
-    "ohmymirrorz_ua_url": "sed -i \"s|^UA_URL.*|UA_URL = '$(node -e 'console.log(require(\"./src/config/config.json\").url)')'|g\" dist/oh-my-mirrorz.py",
-    "ohmymirrorz_mirrors": "sed -i \"s^mirrors = \\[\\]^mirrors = $(node -e 'console.log(JSON.stringify(require(\"./src/config/mirrors\")))')^\" dist/oh-my-mirrorz.py",
-    "ohmymirrorz_build": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && cp scripts/oh-my-mirrorz/oh-my-mirrorz.py dist/ && yarn ohmymirrorz_date && yarn ohmymirrorz_ua_url && yarn ohmymirrorz_mirrors || echo No oh-my-mirrorz config",
     "full_build": "yarn clean && yarn build && yarn legacy_build && yarn ohmymirrorz_build",
     "half_start": "(yarn debug_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "full_start": "(yarn debug_build && yarn legacy_env && yarn legacy_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
@@ -73,7 +69,6 @@
     "json_site_ver": "(cd static/json/site && git log --oneline -1 --abbrev-commit)",
     "json_legacy_ver": "cat static/json/legacy/lastupdate",
     "legacy_ver": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && (cd legacy/ ; git log --oneline -1 --abbrev-commit) || true",
-    "ohmymirrorz_ver": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && (cd scripts/oh-my-mirrorz; git log --oneline -1 --abbrev-commit) || true",
     "gen_ver": "echo frontend: $(yarn run -s ver); echo config: $(yarn run -s config_ver); echo parser: $(yarn run -s parser_ver); echo i18n: $(yarn run -s i18n_ver); echo json_site: $(yarn run -s json_site_ver); echo json_legacy: $(yarn run -s json_legacy_ver); echo legacy: $(yarn run -s legacy_ver); echo ohmymirrorz: $(yarn run -s ohmymirrorz_ver)",
     "config_pull": "(cd src/config; git pull)",
     "parser_pull": "(cd src/parser; git pull)",
@@ -81,7 +76,6 @@
     "json_site_pull": "(cd static/json/site; git pull)",
     "json_legacy_pull": "(cd static/json/legacy; git pull)",
     "legacy_pull": "(cd legacy; git pull)",
-    "ohmymirrorz_pull": "[ \"$(yarn run --silent check_config oh-my-mirrorz)\" = \"true\" ] && (cd scripts/oh-my-mirrorz; git pull) || true",
     "pull": "git pull; yarn config_pull; yarn parser_pull; yarn i18n_pull; yarn json_site_pull; yarn json_legacy_pull; yarn legacy_pull; yarn ohmymirrorz_pull",
     "start": "parcel serve index.html"
   }

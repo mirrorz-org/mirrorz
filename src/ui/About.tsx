@@ -95,17 +95,6 @@ export default React.memo(
                   </ul>
                 </>
               )}
-              {config.about.includes("oh-my-mirrorz") && (
-                <>
-                  <li>{t("about.speedtest")}</li>
-                  <ul>
-                    <li>{config.url}/oh-my-mirrorz.py</li>
-                    <li>
-                      <code>curl {config.url}/oh-my-mirrorz.py | python3</code>
-                    </li>
-                  </ul>
-                </>
-              )}
               {config.about.includes("302-js") && (
                 <>
                   <li>{t("about.302_js")}</li>
