@@ -1,0 +1,79 @@
+{
+  "iso": {
+    "os": "💿",
+    "os_norm": "💿",
+    "app": "📱",
+    "font": "🗛",
+    "prompt": "👈 {{category}}"
+  },
+  "list": {
+    "list": "😋"
+  },
+  "site": {
+    "site": "💳",
+    "url": "✨",
+    "name": "❤️",
+    "homepage": "🏠",
+    "disk": "💾",
+    "issue": "✉️",
+    "request": "📥",
+    "email": "📧",
+    "group": "🏘️",
+    "note": "📝"
+  },
+  "about": {
+    "about": "📋",
+    "intro": "Intro",
+    "repo": "Repo",
+    "logo": "Logo",
+    "usage": "Usage",
+    "valid_urls": "The following urls are all valid.",
+    "legacy": "The following urls are for static webpage, you can use w3m/lynx to view them",
+    "legacy_usage": "More usage of static webpage is documented in the above url",
+    "speedtest": "Use the below script for speed test!",
+    "302_js": "Experimental Feature: 302 Backend",
+    "search": "Experimental Feature: Search Backend",
+    "todo": "TODO and possible projects"
+  },
+  "status": {
+    "S": "✅",
+    "D": "⏳",
+    "Y": "🔁",
+    "F": "❌",
+    "P": "⏸",
+    "C": "⤴️",
+    "R": "⤵️",
+    "U": "❕",
+    "O": "⭕️",
+    "X": "➡️",
+    "N": "🆕"
+  },
+  "time": {
+    "ago": " ago",
+    "ago_pre": "",
+    "in": "in ",
+    "in_suf": "",
+    "bw_quant_unit": " ",
+    "second": "second",
+    "minute": "minute",
+    "hour": "hour",
+    "day": "day",
+    "month": "month",
+    "year": "year",
+    "seconds": "seconds",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "months": "months",
+    "years": "years"
+  },
+  "404_prompt": "Navigate with the sidebar",
+  "mirrors_prompt": "Filter (Support regex)",
+  "index": {
+    "javascript": "You need javascript to view this page properly.",
+    "legacy_page_prompt_pre": "Or you may use the ",
+    "legacy_page_prompt_post": "",
+    "legacy_page": "legacy page",
+    "loading": "Loading..."
+  }
+}
