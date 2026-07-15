@@ -53,7 +53,7 @@
     "legacy_env": "ln -sfn ../ legacy/mirrorz && ln -sfn ../src/config/config.json legacy/config.json && ln -sfn ../src/i18n legacy/i18n && ln -sfn ../static/json/legacy legacy/json-legacy",
     "check_config": "node -e 'console.log(require(\"./src/config/config.json\").about.includes(process.argv[1]))'",
     "debug_build": "yarn dev_env && parcel build --no-optimize --no-content-hash index.html && yarn run -s gen_ver > dist/version",
-    "build": "parcel build --no-source-maps index.html && yarn run -s gen_ver > dist/version",
+    "build": "parcel build --no-source-maps index.html && yarn run -s gen_ver > dist/version && mkdir -p dist/static/json && cp src/config/cname.json dist/static/json/cname.json",
     "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json && node scripts/legacy-pack.js > dist/static/json/legacy-pack.json",
     "legacy_build": "[ \"$(yarn run --silent check_config legacy)\" = \"true\" ] && cd legacy && node ./generator.js && cd ../ && cp -ar legacy/dist/_ dist/ || echo No legacy config",
     "full_build": "yarn clean && yarn build && yarn legacy_build",
