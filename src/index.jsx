@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./ui/Root";
 import "./css/style.scss";
-import("./css/deferred.scss"); // Async load
+import("@fontsource/noto-sans-sc/400.css"); // Async load
+import("@fontsource/noto-sans-sc/700.css"); // Async load
 import "./i18n";
 
 function bootstrap() {
