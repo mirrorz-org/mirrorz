@@ -16,8 +16,9 @@
   min-height: $search;
   background: $search-bg;
   z-index: 1;
-  box-shadow: $shadow 0 3px 6px;
-  border-top: $primary 5px solid;
+  box-shadow: 0 12px 28px $shadow;
+  border-bottom: rgba(20, 117, 128, 0.16) 1px solid;
+  backdrop-filter: blur(18px);
 
   display: flex;
   /* `+` selector can only select element AFTER another */
@@ -26,14 +27,15 @@
   input {
     @include monospace;
     line-height: $search;
-    font-size: 36px;
+    font-size: 34px;
     width: 100%;
     height: 100%;
     border: none;
     outline: 0;
     padding: 0;
     background: transparent;
-    padding-right: 20px;
+    padding-right: 28px;
+    color: rgb(22, 45, 51);
   }
 
   .material-icons {
@@ -56,6 +58,7 @@
   flex: 0 1 auto;
   max-height: 100%;
   overflow-y: auto;
+  padding: 18px 0;
 
   display: flex;
   flex-wrap: wrap;
@@ -117,7 +120,7 @@
 }
 
 .group {
-  padding: 0 80px;
+  padding: 0 56px;
   flex-basis: $flexbox;
   flex-grow: 1;
 
@@ -144,18 +147,38 @@
 .group-header {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px 18px;
   cursor: default;
+  background: rgba(255, 255, 255, 0.72);
+  border: rgba(20, 117, 128, 0.12) 1px solid;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(15, 44, 52, 0.08);
+
+  h2 {
+    margin: 0;
+  }
 }
 
 .group-items {
-  padding: 0 50px;
+  padding: 0 24px;
+
+  > div {
+    margin: 0 0 12px 0;
+    padding: 8px 14px 12px 14px;
+    background: rgba(255, 255, 255, 0.54);
+    border: rgba(20, 117, 128, 0.09) 1px solid;
+    border-radius: 14px;
+  }
 }
 
 .desc {
   padding: 10px 20px;
   margin-top: 10px;
-  border-left: $desc 10px solid;
+  border-left: $desc 6px solid;
+  border-radius: 10px;
+  background: rgba(20, 117, 128, 0.05);
 
   &.missing {
     color: $desc-missing;

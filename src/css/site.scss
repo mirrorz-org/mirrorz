@@ -10,7 +10,7 @@
 
 .site-abbr {
   height: 100%;
-  background-color: $bar-bg;
+  background: linear-gradient(180deg, rgb(18, 43, 50), rgb(28, 68, 76));
   width: $site-abbr;
   flex-shrink: 0;
   overflow-y: auto;
@@ -27,16 +27,20 @@
 
 .site-abbr .group-header {
   display: block;
-  color: $bar-text;
+  color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
   margin: 0;
   padding: 25px;
   float: top;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Active/current link */
 .site-abbr .group-header.active {
-  background-color: $primary;
+  background: linear-gradient(135deg, $primary, rgb(36, 154, 161));
   color: $bar-text-hover;
 }
 
@@ -44,6 +48,16 @@
 .site-abbr .group-header:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
+}
+
+.site-abbr .success {
+  color: rgb(140, 255, 158);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.site-abbr .syncing {
+  color: rgb(135, 176, 255);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .site-content {
@@ -54,15 +68,18 @@
 
 .site-meta {
   padding: 30px 10px;
-  background-color: $bar-bg;
+  background: $search-bg;
   z-index: 1;
-  box-shadow: $shadow 0px 3px 6px;
+  box-shadow: 0 12px 28px $shadow;
+  border-bottom: rgba(20, 117, 128, 0.16) 1px solid;
+  backdrop-filter: blur(18px);
 }
 
 .site-mirrors {
-  padding: 0 15px 0 15px;
+  padding: 18px 15px;
   display: flex;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 .site-group {
@@ -72,7 +89,10 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 10px;
-  border-bottom: $hline 1px solid;
+  background: rgba(255, 255, 255, 0.66);
+  border: rgba(20, 117, 128, 0.1) 1px solid;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15, 44, 52, 0.07);
 
   &:hover {
     background-color: $list-header-bg;
@@ -82,6 +102,11 @@
 .logo {
   display: block;
   height: 24pt;
+  max-width: calc(100% - 8px);
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 10px;
+  object-fit: contain;
   //filter: drop-shadow(0 0 3px $site-logo-shadow);
 }
 

@@ -2,20 +2,25 @@
 
 @media (prefers-color-scheme: dark) {
   .sidebar,
-  .category,
   .distro,
   .site-abbr {
-    background: #1f1f1f;
+    background: linear-gradient(180deg, #0d232a, #142f36);
   }
+  .category,
+  .search,
   .site-meta {
-    background: #333;
+    background: rgba(20, 32, 36, 0.88);
+    border-color: rgba(255, 255, 255, 0.08);
   }
   .meta-line > span {
     color: #d2d2d2;
   }
   .urls,
-  body {
-    background: #393939;
+  html body {
+    background:
+      radial-gradient(circle at top left, rgba(36, 154, 161, 0.14), transparent 30rem),
+      #121c20;
+    color: #e6eef0;
   }
   .group a,
   .upstream,
@@ -36,7 +41,26 @@
     color: #ffffff;
   }
   .about {
-    background: #212121;
+    background: #121c20;
+  }
+  .group-header,
+  .group-items > div,
+  .site-group {
+    background: rgba(25, 38, 43, 0.82);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  }
+  .group:hover .group-header,
+  .group.group-expanded .group-header,
+  .site-group:hover {
+    background: rgba(37, 58, 64, 0.86);
+  }
+  .search input {
+    color: #f2fbfb;
+  }
+  .search input::placeholder,
+  .search .material-icons {
+    color: rgba(255, 255, 255, 0.62);
   }
   .para-title-icon,
   .para-title-text,

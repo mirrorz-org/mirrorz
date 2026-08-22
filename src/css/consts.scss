@@ -1,20 +1,20 @@
 @use "sass:color";
 
-$primary: rgb(21, 101, 138);
-$bar-bg: rgb(241, 241, 241);
-$bar-bg-hover: rgb(55, 55, 55);
+$primary: rgb(20, 117, 128);
+$bar-bg: rgb(248, 251, 251);
+$bar-bg-hover: rgb(22, 48, 55);
 $bar-text: black;
 $bar-text-hover: white;
 $site-logo-shadow: white;
-$search-bg: color.change(color.mix(white, $primary, 75%), $alpha: 0.8);
+$search-bg: color.change(color.mix(white, $primary, 88%), $alpha: 0.86);
 $search-icon: black;
 $list-item-icon: rgba(0, 0, 0, 0.38);
-$list-header-bg: rgba(0, 0, 0, 0.05);
+$list-header-bg: rgba(20, 117, 128, 0.08);
 $list-header-text: black;
 $desc: color.change($primary, $alpha: 0.2);
 $desc-missing: rgba(0, 0, 0, 0.38);
-$hline: rgb(23, 23, 23);
-$shadow: rgba(0, 0, 0, 0.3);
+$hline: rgb(215, 226, 229);
+$shadow: rgba(15, 44, 52, 0.18);
 $shadow-darkmode: rgba(128, 128, 128, 0.3);
 
 $jiegec: #4169e3;

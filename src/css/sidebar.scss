@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   min-width: $sidebar;
-  background-color: $bar-bg;
+  background: linear-gradient(180deg, rgb(13, 35, 42), rgb(22, 59, 67));
   height: 100%;
   overflow-y: auto;
   z-index: 3;
@@ -22,7 +22,7 @@
 
 .sidebar a {
   filter: none;
-  color: $bar-text;
+  color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
   margin: 0;
   width: $sidebar;
@@ -31,17 +31,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: $primary;
+  background: linear-gradient(135deg, $primary, rgb(36, 154, 161));
   color: $bar-text-hover;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: $bar-bg-hover;
+  background-color: rgba(255, 255, 255, 0.1);
   color: $bar-text-hover;
 }
 

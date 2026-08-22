@@ -10,10 +10,12 @@
 .category {
   flex: 0 0 $category;
   height: $category;
-  background-color: $bar-bg;
+  background: $search-bg;
   width: 100%;
   z-index: 2;
-  box-shadow: $shadow 0 3px 6px;
+  box-shadow: 0 12px 28px $shadow;
+  border-bottom: rgba(20, 117, 128, 0.16) 1px solid;
+  backdrop-filter: blur(18px);
 }
 
 .category h2 {
@@ -33,11 +35,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 /* Active/current link */
 .category a.active {
-  background-color: $primary;
+  background: linear-gradient(135deg, $primary, rgb(36, 154, 161));
   color: $bar-text-hover;
 }
 
@@ -93,10 +96,11 @@
   flex: 0 0 $distro;
   height: 100%;
   overflow-y: auto;
-  background-color: $bar-bg;
+  background: rgba(248, 251, 251, 0.92);
   width: $distro;
   z-index: 1;
-  box-shadow: $shadow 3px 0 6px;
+  box-shadow: 0 12px 28px $shadow;
+  border-right: rgba(20, 117, 128, 0.12) 1px solid;
 }
 
 .distro h3 {

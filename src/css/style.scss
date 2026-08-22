@@ -27,6 +27,10 @@ body {
   /* introduced by commit 00b0c2b */
   overflow: hidden;
   @include sans;
+  color: rgb(22, 45, 51);
+  background:
+    radial-gradient(circle at top left, rgba(20, 117, 128, 0.16), transparent 28rem),
+    linear-gradient(135deg, rgb(249, 252, 252), rgb(237, 246, 246));
 }
 
 main {
@@ -52,6 +56,7 @@ h2 {
   @include monospace;
   margin: 10px 0 5px 0;
   font-size: 24px;
+  letter-spacing: -0.02em;
 }
 
 h3 {
@@ -83,4 +88,5 @@ code {
 .sidebar-logo {
   display: block;
   height: 64px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.14));
 }
