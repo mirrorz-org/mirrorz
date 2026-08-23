@@ -53,6 +53,8 @@
 }
 
 .mirrors {
+  --list-stripe-bg: #{$list-stripe-bg};
+
   flex: 0 1 auto;
   max-height: 100%;
   overflow-y: auto;
@@ -121,6 +123,10 @@
   flex-basis: $flexbox;
   flex-grow: 1;
 
+  &:nth-child(even) {
+    background-color: var(--list-stripe-bg);
+  }
+
   a {
     text-decoration: none;
     color: $list-header-text;
@@ -138,6 +144,31 @@
 
   &.group-expanded .group-header {
     background-color: $list-header-bg;
+  }
+}
+
+// Groups wrap row-by-row. Stripe the whole visual row instead of every second
+// item, which would otherwise turn into solid alternating columns.
+@media screen and (min-width: 1300px) and (max-width: 1899px) {
+  .group:nth-child(even) {
+    background-color: transparent;
+  }
+
+  .group:nth-child(4n + 3),
+  .group:nth-child(4n + 4) {
+    background-color: var(--list-stripe-bg);
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  .group:nth-child(even) {
+    background-color: transparent;
+  }
+
+  .group:nth-child(6n + 4),
+  .group:nth-child(6n + 5),
+  .group:nth-child(6n + 6) {
+    background-color: var(--list-stripe-bg);
   }
 }
 

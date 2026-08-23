@@ -172,15 +172,17 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
       </div>
 
       <div className="mirrors">
-        {filtered.map(({ group, entries, filtered, defaultCollapse }) => (
-          <Group
-            key={group}
-            filtered={filtered}
-            group={group}
-            entries={entries}
-            defaultCollapse={defaultCollapse}
-          />
-        ))}
+        {filtered
+          .filter(({ filtered }) => !filtered)
+          .map(({ group, entries, filtered, defaultCollapse }) => (
+            <Group
+              key={group}
+              filtered={filtered}
+              group={group}
+              entries={entries}
+              defaultCollapse={defaultCollapse}
+            />
+          ))}
       </div>
     </div>
   );

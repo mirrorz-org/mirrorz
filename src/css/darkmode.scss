@@ -17,6 +17,9 @@
   body {
     background: #393939;
   }
+  .mirrors {
+    --list-stripe-bg: rgba(255, 255, 255, 0.035);
+  }
   .group a,
   .upstream,
   .desc {
