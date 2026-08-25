@@ -11,6 +11,7 @@ import Icon, { Logo } from "./Icon";
 import { Summary, statusMapper, statusSum, StatusList } from "./Status";
 import { ParsedMirror, Site } from "../schema";
 import { RepoScoring } from "../schema/scoring";
+import { RedirectBadge } from "./RedirectBadge";
 
 type SiteRouteParams = {
   siteSlug?: string;
@@ -118,7 +119,9 @@ export default React.memo(
                 onClick={() => history.push(siteUrl(match.path, site))}
               >
                 <Logo site={site} className="logo" />
-                <h2 className="heading">{site.abbr}</h2>
+                <h2 className="heading">
+                  {site.abbr} <RedirectBadge abbr={site.abbr} />
+                </h2>
                 <div>
                   <Summary
                     sum={statusSum(

@@ -11,6 +11,7 @@ import Icon from "./Icon";
 import { Summary, statusMapper, statusSum, StatusList } from "./Status";
 import { ParsedMirror } from "../schema";
 import { groupBy } from "./utils";
+import { RedirectBadge } from "./RedirectBadge";
 
 const Group = React.memo(
   ({
@@ -69,6 +70,7 @@ const Group = React.memo(
                     <h3>
                       <a href={full} target="_blank">
                         {source}
+                        <RedirectBadge abbr={source} />
                       </a>
                       {help && (
                         <a className="help" href={help} target="_blank">

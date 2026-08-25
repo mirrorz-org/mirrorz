@@ -84,5 +84,6 @@
     "isp": "Same ISP",
     "geo": "Geographically Close"
   },
-  "help": "Help"
+  "help": "Help",
+  "redirect_badge": "Participates in redirects."
 }
