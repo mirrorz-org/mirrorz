@@ -1,0 +1,46 @@
+@use "./consts.scss" as *;
+
+.redirect-badge {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-left: 0.4em;
+  padding: 0.1em 0.35em 0;
+  border: 1px solid currentColor;
+  border-radius: 0.5em;
+  color: currentColor;
+  font-size: 0.6em;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.mirror-source {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-abbr .heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .redirect-badge {
+    margin-left: 0;
+  }
+}
+
+.site-abbr .group-header.active .redirect-badge {
+  color: $bar-text-hover;
+}
+
+@media (prefers-color-scheme: dark) {
+  .redirect-badge {
+    color: #d2d2d2;
+  }
+
+  .site-abbr .group-header.active .redirect-badge {
+    color: $bar-text-hover;
+  }
+}

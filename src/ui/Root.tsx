@@ -22,12 +22,17 @@ import {
 import { Page404 } from "./404";
 
 import config from "../config/config.json";
+import { RedirectSitesContext } from "./RedirectBadge";
 
 // eslint-disable-next-line react/display-name
 export default React.memo(() => {
   const { t, i18n } = useTranslation();
   const mirrorz = useMirrorzSites();
   const scoring = useScoring();
+  const redirectSites = useMemo(
+    () => new Set(scoring?.scores.map(({ abbr }) => abbr) ?? []),
+    [scoring]
+  );
 
   const mirrorzList = useMemo(() => Object.values(mirrorz), [mirrorz]);
   const mirrorsList = useMirrorsList(mirrorz);
@@ -35,71 +40,73 @@ export default React.memo(() => {
   const siteList = useSitesList(mirrorz, scoring);
 
   return (
-    <Router>
-      <div id="app-container">
-        <div className="sidebar">
-          <NavLink
-            to="/"
-            activeClassName="active"
-            isActive={(_, location) => {
-              if (
-                location.pathname === "/" ||
-                (!location.pathname.startsWith("/list") &&
-                  !location.pathname.startsWith("/site") &&
-                  !location.pathname.startsWith("/about") &&
-                  !location.pathname.startsWith("/debug") &&
-                  !location.pathname.startsWith("/monitor"))
-              ) {
-                return true;
-              }
-              return false;
-            }}
-          >
-            <img
-              src="/static/img/mirrorz.svg"
-              className="sidebar-logo"
-              alt="ISO"
-            />
-          </NavLink>
-          <NavLink to="/list" activeClassName="active">
-            <h2 dangerouslySetInnerHTML={{ __html: t("list.list") }} />
-          </NavLink>
-          <NavLink to="/site" activeClassName="active">
-            <h2 dangerouslySetInnerHTML={{ __html: t("site.site") }} />
-          </NavLink>
-          {config.mirrors_help_url && (
-            <a href={config.mirrors_help_url} target="_blank" rel="noopener">
-              <h2 dangerouslySetInnerHTML={{ __html: t("help") }} />
-            </a>
-          )}
-          <NavLink to="/about" activeClassName="active">
-            <h2>{t("about.about")}</h2>
-          </NavLink>
+    <RedirectSitesContext.Provider value={redirectSites}>
+      <Router>
+        <div id="app-container">
+          <div className="sidebar">
+            <NavLink
+              to="/"
+              activeClassName="active"
+              isActive={(_, location) => {
+                if (
+                  location.pathname === "/" ||
+                  (!location.pathname.startsWith("/list") &&
+                    !location.pathname.startsWith("/site") &&
+                    !location.pathname.startsWith("/about") &&
+                    !location.pathname.startsWith("/debug") &&
+                    !location.pathname.startsWith("/monitor"))
+                ) {
+                  return true;
+                }
+                return false;
+              }}
+            >
+              <img
+                src="/static/img/mirrorz.svg"
+                className="sidebar-logo"
+                alt="ISO"
+              />
+            </NavLink>
+            <NavLink to="/list" activeClassName="active">
+              <h2 dangerouslySetInnerHTML={{ __html: t("list.list") }} />
+            </NavLink>
+            <NavLink to="/site" activeClassName="active">
+              <h2 dangerouslySetInnerHTML={{ __html: t("site.site") }} />
+            </NavLink>
+            {config.mirrors_help_url && (
+              <a href={config.mirrors_help_url} target="_blank" rel="noopener">
+                <h2 dangerouslySetInnerHTML={{ __html: t("help") }} />
+              </a>
+            )}
+            <NavLink to="/about" activeClassName="active">
+              <h2>{t("about.about")}</h2>
+            </NavLink>
+          </div>
+          <main>
+            <Switch>
+              <Route path="/list/:filter?" exact>
+                <Mirrors mirrors={mirrorsList} />
+              </Route>
+              <Route path="/site/:siteSlug?/:statusFilter?" exact>
+                <Site site={siteList} />
+              </Route>
+              <Route path="/about" exact>
+                <About site={siteList} />
+              </Route>
+              <Route path="/debug" exact>
+                <Debug mirrorz={mirrorzList} />
+              </Route>
+              <Route path="/monitor" exact>
+                <Monitor />
+              </Route>
+              <Route path={["/", "/:category?/:distro?"]} exact>
+                <ISO isoinfo={isoinfoList} />
+              </Route>
+              <Page404 />
+            </Switch>
+          </main>
         </div>
-        <main>
-          <Switch>
-            <Route path="/list/:filter?" exact>
-              <Mirrors mirrors={mirrorsList} />
-            </Route>
-            <Route path="/site/:siteSlug?/:statusFilter?" exact>
-              <Site site={siteList} />
-            </Route>
-            <Route path="/about" exact>
-              <About site={siteList} />
-            </Route>
-            <Route path="/debug" exact>
-              <Debug mirrorz={mirrorzList} />
-            </Route>
-            <Route path="/monitor" exact>
-              <Monitor />
-            </Route>
-            <Route path={["/", "/:category?/:distro?"]} exact>
-              <ISO isoinfo={isoinfoList} />
-            </Route>
-            <Page404 />
-          </Switch>
-        </main>
-      </div>
-    </Router>
+      </Router>
+    </RedirectSitesContext.Provider>
   );
 });

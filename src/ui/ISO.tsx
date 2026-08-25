@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Logo404 } from "./Icon";
 import { Info, Site } from "../schema";
 import { Page404 } from "./404";
+import { RedirectBadge } from "./RedirectBadge";
 
 type IsoInfo = { site: Site; info: Info[] }[];
 
@@ -28,7 +29,9 @@ const Urls = React.memo(
           )
           .map((i) => (
             <div key={site.abbr}>
-              <h3>{site.abbr}</h3>
+              <h3>
+                {site.abbr} <RedirectBadge abbr={site.abbr} />
+              </h3>
               <ul>
                 {i.urls.map(({ name, url }, idx) => (
                   <li key={site.abbr + name + idx}>

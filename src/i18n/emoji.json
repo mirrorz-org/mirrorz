@@ -67,6 +67,7 @@
     "months": "months",
     "years": "years"
   },
+  "redirect_badge": "🔀 Redirect",
   "404_prompt": "Navigate with the sidebar",
   "mirrors_prompt": "Filter (Support regex)",
   "index": {

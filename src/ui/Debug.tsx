@@ -1,5 +1,6 @@
 import React from "react";
 import { Mirrorz } from "../schema";
+import { RedirectBadge } from "./RedirectBadge";
 
 export default React.memo(({ mirrorz }: { mirrorz: Mirrorz[] }) => (
   <div>
@@ -15,6 +16,7 @@ export default React.memo(({ mirrorz }: { mirrorz: Mirrorz[] }) => (
             download={z.site.abbr + ".json"}
           >
             {z.site.abbr}
+            <RedirectBadge abbr={z.site.abbr} />
           </a>
         </div>
       ))}
