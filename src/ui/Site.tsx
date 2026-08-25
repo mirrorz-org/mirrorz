@@ -120,7 +120,8 @@ export default React.memo(
               >
                 <Logo site={site} className="logo" />
                 <h2 className="heading">
-                  {site.abbr} <RedirectBadge abbr={site.abbr} />
+                  {site.abbr}
+                  <RedirectBadge abbr={site.abbr} />
                 </h2>
                 <div>
                   <Summary

@@ -21,6 +21,16 @@
   align-items: center;
 }
 
+.site-abbr .heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .redirect-badge {
+    margin-left: 0;
+  }
+}
+
 .site-abbr .group-header.active .redirect-badge {
   color: $bar-text-hover;
 }
