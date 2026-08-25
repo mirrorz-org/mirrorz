@@ -5,7 +5,7 @@
   align-items: center;
   vertical-align: middle;
   margin-left: 0.4em;
-  padding: 0.05em 0.35em;
+  padding: 0.1em 0.35em 0;
   border: 1px solid currentColor;
   border-radius: 0.5em;
   color: currentColor;
@@ -14,6 +14,11 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
   white-space: nowrap;
+}
+
+.mirror-source {
+  display: inline-flex;
+  align-items: center;
 }
 
 .site-abbr .group-header.active .redirect-badge {

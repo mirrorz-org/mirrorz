@@ -68,7 +68,7 @@ const Group = React.memo(
                 ) => (
                   <div key={idx}>
                     <h3>
-                      <a href={full} target="_blank">
+                      <a className="mirror-source" href={full} target="_blank">
                         {source}
                         <RedirectBadge abbr={source} />
                       </a>
