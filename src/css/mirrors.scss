@@ -110,7 +110,16 @@
 }
 
 .summary {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+  }
 }
 
 .filtered,
