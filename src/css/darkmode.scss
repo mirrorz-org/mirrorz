@@ -38,6 +38,14 @@
   .sidebar a:hover:not(.active) {
     color: #ffffff;
   }
+  .site-abbr .group-header.active {
+    background-color: rgba($primary, 0.28);
+    color: $bar-text-hover;
+  }
+  .site-abbr .group-header:hover:not(.active) {
+    background-color: rgba($primary, 0.16);
+    color: $bar-text-hover;
+  }
   .about {
     background: #212121;
   }

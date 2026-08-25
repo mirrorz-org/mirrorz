@@ -36,14 +36,15 @@
 
 /* Active/current link */
 .site-abbr .group-header.active {
-  background-color: $primary;
-  color: $bar-text-hover;
+  background-color: rgba($primary, 0.12);
+  box-shadow: inset 4px 0 $primary;
+  color: $bar-text;
 }
 
 /* Links on mouse-over */
 .site-abbr .group-header:hover:not(.active) {
-  background-color: $bar-bg-hover;
-  color: $bar-text-hover;
+  background-color: rgba($primary, 0.07);
+  color: $bar-text;
 }
 
 .site-content {

@@ -31,10 +31,6 @@
   }
 }
 
-.site-abbr .group-header.active .redirect-badge {
-  color: $bar-text-hover;
-}
-
 @media (prefers-color-scheme: dark) {
   .redirect-badge {
     color: #d2d2d2;
