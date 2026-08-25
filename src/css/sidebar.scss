@@ -45,21 +45,37 @@
   color: $bar-text-hover;
 }
 
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
-@media screen and (max-width: 700px) {
-  #app-container {
-    flex-direction: column;
-  }
+/* On narrow screens, make the sidebar into a single-row topbar. */
+@media screen and (max-width: $mobile-breakpoint) {
   .sidebar {
     width: 100%;
-    height: auto; /* may be two line */
-    min-height: $sidebar;
+    min-width: 0;
+    height: 56px;
+    min-height: 56px;
+    display: flex;
+    flex: 0 0 56px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: $shadow 0 3px 6px;
+    scrollbar-width: thin;
   }
-  main {
-    max-height: unset !important;
-    height: unset !important;
-  }
+
   .sidebar a {
-    float: left;
+    width: auto;
+    min-width: 68px;
+    min-height: 56px;
+    padding: 0 8px;
+    flex: 1 0 auto;
+    float: none;
+  }
+
+  .sidebar h2 {
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .sidebar-logo {
+    height: 34px;
   }
 }

@@ -100,6 +100,7 @@ export default React.memo(
   }: {
     site: { site: Site; parsed: ParsedMirror[]; score?: RepoScoring }[];
   }) => {
+    const { t } = useTranslation();
     const history = useHistory(),
       match = useRouteMatch(),
       params = useParams() as SiteRouteParams;
@@ -107,7 +108,7 @@ export default React.memo(
       stat = params.statusFilter;
 
     return (
-      <div className="site">
+      <div className={"site" + (curr ? " has-selection" : "")}>
         <div className="site-abbr">
           {site.map(({ site, parsed }, idx) => (
             <Link to={siteUrl(match.path, site)} key={idx}>
@@ -138,6 +139,12 @@ export default React.memo(
           .filter((s) => s.site.abbr.replace(/\s/g, "") === curr)
           .map(({ site, parsed, score }) => (
             <div className="site-content" key={site.abbr}>
+              <div className="site-mobile-header">
+                <Link to="/site" aria-label={t("site.back")}>
+                  <Icon>arrow_back</Icon>
+                  <span>{site.abbr}</span>
+                </Link>
+              </div>
               <Meta site={site} score={score} />
               <div className="site-mirrors">
                 {parsed

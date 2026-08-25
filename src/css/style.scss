@@ -85,3 +85,30 @@ code {
   display: block;
   height: 64px;
 }
+
+@media screen and (max-width: $mobile-breakpoint) {
+  body {
+    min-width: 0;
+  }
+
+  #app-container {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  main {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}

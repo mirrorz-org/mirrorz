@@ -78,3 +78,52 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .para {
+    margin: 18px 14px 8px;
+  }
+
+  .para-title {
+    padding: 12px 0;
+  }
+
+  .para-title-icon {
+    width: 36px;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .para-title-text {
+    font-size: 21px;
+    line-height: 30px;
+  }
+
+  .para-content {
+    min-width: 0;
+    padding: 8px 8px 28px 28px;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+
+    ul {
+      min-width: 0;
+      padding-left: 22px;
+    }
+
+    li,
+    a {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .about-logo {
+    height: 56px;
+    max-width: 56px;
+  }
+
+  .about-powered-by {
+    margin: 8px;
+    min-width: 56px;
+  }
+}

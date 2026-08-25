@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 import { Logo404 } from "./Icon";
@@ -66,6 +66,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   // if mirrorz.org/ then default to mirrorz.org/os/ubuntu
   const category = params.category ?? "os",
     distro = params.distro ?? (params.category ? "" : "ubuntu");
+  const distroList = useRef<HTMLDivElement>(null);
 
   const priority = (c: string) => {
     if (c === "os") {
@@ -97,6 +98,14 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
     return [allCat, allDistro];
   }, [isoinfo]);
 
+  useEffect(() => {
+    const list = distroList.current;
+    const active = list?.querySelector<HTMLElement>("a.active");
+    if (!list || !active) return;
+    list.scrollLeft =
+      active.offsetLeft - (list.clientWidth - active.offsetWidth) / 2;
+  }, [category, distro, allDistro]);
+
   return allCat.has(category) ? (
     <div className="iso">
       <div className="category">
@@ -107,9 +116,18 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
               to={`/${c.replace(/\s/g, "")}`}
               key={idx + c}
               className={c.replace(/\s/g, "") == category ? "active" : ""}
+              aria-current={
+                c.replace(/\s/g, "") == category ? "page" : undefined
+              }
             >
               {c == "os" ? (
-                <h2 dangerouslySetInnerHTML={{ __html: t("iso." + c, c) }} />
+                <>
+                  <h2
+                    className="category-label-desktop"
+                    dangerouslySetInnerHTML={{ __html: t("iso." + c, c) }}
+                  />
+                  <h2 className="category-label-mobile">{t("iso.os_norm")}</h2>
+                </>
               ) : (
                 <h2>{t("iso." + c, c)}</h2>
               )}
@@ -117,7 +135,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
           ))}
       </div>
       <div className="distro-urls-container">
-        <div className="distro">
+        <div className="distro" ref={distroList}>
           {Object.entries(allDistro)
             .sort((a, b) => a[0].localeCompare(b[0]))
             .filter(([_, c]) => c.replace(/\s/g, "") === category)
@@ -129,6 +147,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
                   to={`/${nc}/${nd}`}
                   key={idx + nd}
                   className={nd == distro ? "active" : ""}
+                  aria-current={nd == distro ? "page" : undefined}
                 >
                   <h3>{d}</h3>
                 </Link>

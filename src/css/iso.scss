@@ -21,6 +21,10 @@
   line-height: 1.8em;
 }
 
+.category-label-mobile {
+  display: none;
+}
+
 .category a {
   filter: none;
   display: block;
@@ -124,4 +128,86 @@
 .distro a:hover:not(.active) {
   background-color: $bar-bg-hover;
   color: $bar-text-hover;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .category {
+    flex: 0 0 52px;
+    height: 52px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+
+  .category a {
+    float: none;
+    width: auto;
+    min-width: 72px;
+    height: 52px;
+    padding: 0 12px;
+    flex: 0 0 auto;
+  }
+
+  .category h2 {
+    font-size: 18px;
+  }
+
+  .category-label-desktop {
+    display: none;
+  }
+
+  .category-label-mobile {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .distro-urls-container {
+    height: auto;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+
+  .distro {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    flex: 0 0 52px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-shadow: $shadow 0 3px 6px;
+    scrollbar-width: thin;
+  }
+
+  .distro a {
+    min-width: max-content;
+    min-height: 52px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .distro h3 {
+    white-space: nowrap;
+  }
+
+  .urls {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .urls ul {
+    padding-left: 36px;
+  }
+
+  .urls li {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .urls h3 {
+    padding: 8px 16px 0;
+  }
 }

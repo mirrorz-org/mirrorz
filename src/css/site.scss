@@ -101,4 +101,136 @@
 .meta-line {
   margin-left: 20px;
 }
+
+.site-mobile-header {
+  display: none;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .site {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .site-abbr {
+    width: 100%;
+    min-width: 0;
+    box-shadow: none;
+  }
+
+  .site.has-selection .site-abbr {
+    display: none;
+  }
+
+  .site-abbr .group-header {
+    min-height: 72px;
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: center;
+  }
+
+  .site-abbr .group-header > :first-child {
+    grid-row: 1 / span 2;
+  }
+
+  .site-abbr .group-header > .heading {
+    grid-column: 2;
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .site-abbr .group-header > :last-child {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .site-abbr .summary {
+    justify-content: flex-start;
+    margin: 4px 0 0;
+  }
+
+  .site-abbr .logo {
+    width: 40px;
+    height: auto;
+    max-height: 40px;
+    object-fit: contain;
+  }
+
+  .site-content {
+    min-width: 0;
+  }
+
+  .site-mobile-header {
+    min-height: 52px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: $bar-bg;
+    box-shadow: $shadow 0 3px 6px;
+
+    a {
+      min-width: 0;
+      min-height: 52px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: $bar-text;
+      filter: none;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .site-meta {
+    padding: 12px 16px;
+  }
+
+  .meta-line {
+    min-width: 0;
+    margin: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+
+    a,
+    .meta-right {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  .meta-left {
+    margin: 0 0 2px;
+    font-size: 16px;
+  }
+
+  .meta-right {
+    font-size: 15px;
+  }
+
+  .site-mirrors {
+    padding: 0 12px;
+    display: block;
+  }
+
+  .site-group {
+    min-width: 0;
+    padding: 10px 4px;
+    flex-direction: column;
+    gap: 4px;
+
+    .heading,
+    > div {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+  }
+}
 @include meta.load-css("./darkmode.scss");

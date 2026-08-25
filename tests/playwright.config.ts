@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig } from "@playwright/test";
+import { devices, PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   use: {
     headless: true,
@@ -19,6 +19,13 @@ const config: PlaywrightTestConfig = {
     {
       name: "WebKit",
       use: { browserName: "webkit" },
+    },
+    {
+      name: "Mobile Chromium",
+      use: {
+        ...devices["iPhone 13"],
+        browserName: "chromium",
+      },
     },
   ],
 };

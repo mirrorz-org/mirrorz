@@ -11,6 +11,7 @@
   },
   "site": {
     "site": "Site",
+    "back": "Back to site list",
     "url": "URL",
     "name": "Name",
     "homepage": "Homepage",
