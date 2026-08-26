@@ -12,6 +12,7 @@ import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
+import Icon from "./Icon";
 import {
   useIsoInfoList,
   useMirrorsList,
@@ -46,6 +47,7 @@ export default React.memo(() => {
           <div className="sidebar">
             <NavLink
               to="/"
+              className="sidebar-brand"
               activeClassName="active"
               isActive={(_, location) => {
                 if (
@@ -64,21 +66,25 @@ export default React.memo(() => {
               <img
                 src="/static/img/mirrorz.svg"
                 className="sidebar-logo"
-                alt="ISO"
+                alt={config.display || "Home"}
               />
             </NavLink>
             <NavLink to="/list" activeClassName="active">
+              <Icon>list_alt</Icon>
               <h2 dangerouslySetInnerHTML={{ __html: t("list.list") }} />
             </NavLink>
             <NavLink to="/site" activeClassName="active">
+              <Icon>dns</Icon>
               <h2 dangerouslySetInnerHTML={{ __html: t("site.site") }} />
             </NavLink>
             {config.mirrors_help_url && (
               <a href={config.mirrors_help_url} target="_blank" rel="noopener">
+                <Icon>help_outline</Icon>
                 <h2 dangerouslySetInnerHTML={{ __html: t("help") }} />
               </a>
             )}
             <NavLink to="/about" activeClassName="active">
+              <Icon>info_outline</Icon>
               <h2>{t("about.about")}</h2>
             </NavLink>
           </div>

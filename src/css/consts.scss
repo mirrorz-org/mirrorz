@@ -1,45 +1,6 @@
-@use "sass:color";
-
-$primary: rgb(21, 101, 138);
-$bar-bg: rgb(241, 241, 241);
-$bar-bg-hover: rgb(55, 55, 55);
-$bar-text: black;
-$bar-text-hover: white;
-$site-logo-shadow: white;
-$search-bg: color.change(color.mix(white, $primary, 75%), $alpha: 0.8);
-$search-icon: black;
-$list-item-icon: rgba(0, 0, 0, 0.38);
-$list-header-bg: rgba(0, 0, 0, 0.05);
-$list-stripe-bg: rgba(0, 0, 0, 0.025);
-$list-header-text: black;
-$desc: color.change($primary, $alpha: 0.2);
-$desc-missing: rgba(0, 0, 0, 0.38);
-$hline: rgb(23, 23, 23);
-$shadow: rgba(0, 0, 0, 0.3);
-$shadow-darkmode: rgba(128, 128, 128, 0.3);
-
-$jiegec: #4169e3;
-$jiegec-green: #41b4e3;
-$tuna: #6793cf;
-
-$success: green;
-$pending: $jiegec-green;
-$failed: red;
-$syncing: $jiegec;
-$unknown: gray;
-$pause: gray;
-$new: cyan;
-$oldsuccess: brown;
-$next: orange;
-$cache: #8a5a00;
-$proxy: #8a5a00;
-
-$sidebar: 100px;
-$search: 100px;
-$category: 100px;
-$distro: 200px;
-$site-abbr: 300px;
-$column: 600px;
+$sidebar: 92px;
+$distro: 236px;
+$site-abbr: 292px;
 $flexbox: 440px;
 $flexbox-wide-group: 600px;
 $mobile-breakpoint: 800px;

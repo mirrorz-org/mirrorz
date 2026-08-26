@@ -1,17 +1,16 @@
-@use "./consts.scss" as *;
-
 .redirect-badge {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-  margin-left: 0.4em;
-  padding: 0.1em 0.35em 0;
-  border: 1px solid currentColor;
-  border-radius: 0.5em;
-  color: currentColor;
-  font-size: 0.6em;
-  font-weight: 600;
-  line-height: 1.2;
+  margin-left: 7px;
+  padding: 0 6px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 4px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.6;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
@@ -28,15 +27,5 @@
 
   .redirect-badge {
     margin-left: 0;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .redirect-badge {
-    color: #d2d2d2;
-  }
-
-  .site-abbr .group-header.active .redirect-badge {
-    color: $bar-text-hover;
   }
 }

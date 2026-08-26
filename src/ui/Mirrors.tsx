@@ -51,7 +51,7 @@ const Group = React.memo(
         >
           <div className="group-header" id={group} onClick={toggleCollapse}>
             <h2 className="heading">
-              {collapse ? <Icon>add</Icon> : <Icon>remove</Icon>}
+              {collapse ? <Icon>chevron_right</Icon> : <Icon>expand_more</Icon>}
               {group}
             </h2>
             <div>{summary}</div>
@@ -163,14 +163,16 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
 
   return (
     <div className={"mirrorz"}>
-      <div className="search">
-        <input
-          value={filter}
-          onChange={updateFilter}
-          onKeyDown={uploadFilter}
-          placeholder={t("mirrors_prompt")}
-        />
-        <Icon>search</Icon>
+      <div className="toolbar">
+        <div className="search">
+          <input
+            value={filter}
+            onChange={updateFilter}
+            onKeyDown={uploadFilter}
+            placeholder={t("mirrors_prompt")}
+          />
+          <Icon>search</Icon>
+        </div>
       </div>
 
       <div className="mirrors">

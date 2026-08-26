@@ -11,10 +11,12 @@
 .logo-404 div {
   font-size: 24pt;
   font-style: italic;
-  opacity: 0.3;
+  color: var(--text-faint);
 }
 
 .logo-404 img {
-  width: 60%;
-  margin-bottom: 50px;
+  width: 50%;
+  max-width: 480px;
+  margin-bottom: 40px;
+  opacity: 0.85;
 }

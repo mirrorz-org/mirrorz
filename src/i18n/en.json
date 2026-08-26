@@ -1,10 +1,12 @@
 {
   "iso": {
     "os": "os",
-    "os_norm": "os",
-    "app": "app",
-    "font": "font",
-    "prompt": "Select one {{category}} from the sidebar"
+    "os_norm": "OS",
+    "app": "Apps",
+    "font": "Fonts",
+    "prompt": "Choose from the {{category}} list on the left",
+    "tagline": "Download from the fastest mirror near you",
+    "tagline_sub": "OS images, applications and fonts from university and community mirror sites."
   },
   "list": {
     "list": "List"
