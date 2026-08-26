@@ -53,7 +53,7 @@
     "cernet_env": "yarn cernet_ln && yarn other_ln",
     "debug_build": "yarn dev_env && parcel build --no-optimize --no-content-hash index.html && yarn run -s gen_ver > dist/version",
     "build": "parcel build --no-source-maps index.html && yarn run -s gen_ver > dist/version && mkdir -p dist/static/json && cp src/config/cname.json dist/static/json/cname.json",
-    "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json",
+    "postbuild": "rsync -rL --exclude=.git static robots.txt CNAME dist/ && cp dist/index.html dist/404.html && cp -L src/config/config.json dist/static/json/config.json && node scripts/legacy-pack.js > dist/static/json/legacy-pack.json",
     "full_build": "yarn clean && yarn build",
     "full_start": "(yarn debug_build && yarn postbuild && cd dist && python3 ../scripts/gh-cors.py 1234)",
     "test": "playwright test --config=tests/playwright.config.ts",
