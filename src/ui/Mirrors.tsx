@@ -161,6 +161,12 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   const end = performance.now();
   //console.log(`Sort`, end - begin);
 
+  const shownCount = filtered.filter(({ filtered }) => !filtered).length;
+  const siteCount = useMemo(
+    () => new Set(mirrors.map(({ source }) => source)).size,
+    [mirrors]
+  );
+
   return (
     <div className={"mirrorz"}>
       <div className="toolbar">
@@ -173,6 +179,13 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
           />
           <Icon>search</Icon>
         </div>
+        <span className="result-count">
+          {t("mirrors_count", {
+            shown: shownCount,
+            total: grouped.length,
+            sites: siteCount,
+          })}
+        </span>
       </div>
 
       <div className="mirrors">

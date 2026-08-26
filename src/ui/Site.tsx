@@ -64,6 +64,10 @@ const Meta = React.memo(
     const tag = score ? TagFromScore(score) : "";
     return (
       <div className="site-meta">
+        <h1 className="site-title">
+          {site.abbr}
+          <RedirectBadge abbr={site.abbr} />
+        </h1>
         {site.url && (
           <MetaLine left={t("site.url")} right={site.url} link={true} />
         )}

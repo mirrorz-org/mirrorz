@@ -6,7 +6,8 @@
     "font": "🗛",
     "prompt": "👈 {{category}}",
     "tagline": "🚀🪞",
-    "tagline_sub": "💿📱🗛"
+    "tagline_sub": "💿📱🗛",
+    "filter": "🔍"
   },
   "list": {
     "list": "😋"
@@ -72,6 +73,7 @@
   "redirect_badge": "🔀 Redirect",
   "404_prompt": "Navigate with the sidebar",
   "mirrors_prompt": "Filter (Support regex)",
+  "mirrors_count": "{{shown}} / {{total}} 📦 · {{sites}} 🏫",
   "index": {
     "javascript": "You need javascript to view this page properly.",
     "legacy_page_prompt_pre": "Or you may use the ",

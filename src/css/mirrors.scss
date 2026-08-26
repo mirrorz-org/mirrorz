@@ -67,6 +67,12 @@
   }
 }
 
+.result-count {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
 .mirrors {
   flex: 1 1 auto;
   min-height: 0;
@@ -214,6 +220,10 @@
     input {
       font-size: 15px;
     }
+  }
+
+  .result-count {
+    display: none;
   }
 
   .mirrors {

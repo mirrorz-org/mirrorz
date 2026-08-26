@@ -109,6 +109,41 @@
   background-color: var(--bg);
 }
 
+.mini-search {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 14px 8px;
+  padding: 5px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-faint);
+
+  &:focus-within {
+    border-color: var(--accent);
+  }
+
+  .material-icons {
+    font-size: 16px;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    font-size: 13.5px;
+    color: var(--text);
+
+    &::placeholder {
+      color: var(--text-faint);
+    }
+  }
+}
+
 .distro {
   flex: 1 1 auto;
   min-height: 0;
@@ -181,6 +216,10 @@
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--border);
+  }
+
+  .mini-search {
+    display: none;
   }
 
   .distro {

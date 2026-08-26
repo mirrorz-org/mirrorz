@@ -6,7 +6,8 @@
     "font": "字体",
     "prompt": "请从左侧列表选择一个{{category}}",
     "tagline": "就近下载，选择最快的开源镜像",
-    "tagline_sub": "操作系统、应用与字体镜像，由高校与社区镜像站提供。"
+    "tagline_sub": "操作系统、应用与字体镜像，由高校与社区镜像站提供。",
+    "filter": "筛选…"
   },
   "list": {
     "list": "镜 像<br/>列 表"
@@ -75,6 +76,7 @@
   },
   "404_prompt": "请使用侧边栏",
   "mirrors_prompt": "搜索（支持正则表达式）",
+  "mirrors_count": "{{shown}} / {{total}} 个镜像 · {{sites}} 个站点",
   "index": {
     "javascript": "请启用 Javascript 使得该页面正确显示",
     "legacy_page_prompt_pre": "或可使用",

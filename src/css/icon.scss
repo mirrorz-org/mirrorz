@@ -1,3 +1,17 @@
+/* Initials chip shown when a site publishes no logo */
+.logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--accent-tint-strong);
+  border: none;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 11px;
+  overflow: hidden;
+}
+
 .logo-404 {
   display: flex;
   align-items: center;

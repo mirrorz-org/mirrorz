@@ -6,7 +6,8 @@
     "font": "Fonts",
     "prompt": "Choose from the {{category}} list on the left",
     "tagline": "Download from the fastest mirror near you",
-    "tagline_sub": "OS images, applications and fonts from university and community mirror sites."
+    "tagline_sub": "OS images, applications and fonts from university and community mirror sites.",
+    "filter": "Filter…"
   },
   "list": {
     "list": "List"
@@ -75,6 +76,7 @@
   },
   "404_prompt": "Navigate with the sidebar",
   "mirrors_prompt": "Filter (Support regex)",
+  "mirrors_count": "{{shown}} / {{total}} projects · {{sites}} sites",
   "index": {
     "javascript": "You need javascript to view this page properly.",
     "legacy_page_prompt_pre": "Or you may use the ",

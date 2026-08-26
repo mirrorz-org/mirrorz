@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
-import { Logo404 } from "./Icon";
+import Icon, { Logo404 } from "./Icon";
 import { Info, Site } from "../schema";
 import { Page404 } from "./404";
 import { RedirectBadge } from "./RedirectBadge";
@@ -67,6 +67,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   const category = params.category ?? "os",
     distro = params.distro ?? (params.category ? "" : "ubuntu");
   const distroList = useRef<HTMLDivElement>(null);
+  const [distroFilter, setDistroFilter] = useState("");
 
   const priority = (c: string) => {
     if (c === "os") {
@@ -130,10 +131,23 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
       </header>
       <div className="distro-urls-container">
         <div className="distro-panel">
+          <label className="mini-search">
+            <Icon>search</Icon>
+            <input
+              value={distroFilter}
+              onChange={(ev) => setDistroFilter(ev.target.value)}
+              placeholder={t("iso.filter")}
+            />
+          </label>
           <div className="distro" ref={distroList}>
             {Object.entries(allDistro)
               .sort((a, b) => a[0].localeCompare(b[0]))
               .filter(([_, c]) => c.replace(/\s/g, "") === category)
+              .filter(
+                ([d, _]) =>
+                  distroFilter === "" ||
+                  d.toLowerCase().includes(distroFilter.toLowerCase())
+              )
               .map(([d, c], idx) => {
                 const nc = c.replace(/\s/g, "");
                 const nd = d.replace(/\s/g, "");

@@ -92,6 +92,14 @@
   gap: 5px 40px;
 }
 
+.site-title {
+  grid-column: 1 / -1;
+  margin: 0 0 4px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
+
 .site-mirrors {
   padding: 8px 32px 40px;
   display: grid;
