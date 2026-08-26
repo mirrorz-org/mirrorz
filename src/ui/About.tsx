@@ -153,15 +153,6 @@ export default React.memo(
                   <UrlList urls={[`${config.url}/monitor`]} />
                 </li>
               )}
-              {config.about.includes("legacy") && (
-                <li>
-                  <h3>{t("about.legacy")}</h3>
-                  <p>{t("about.legacy_description")}</p>
-                  <UrlList
-                    urls={[`${config.url}/_/`, `${config.url}/_/about`]}
-                  />
-                </li>
-              )}
               {config.about.includes("302-js") && (
                 <li>
                   <h3>{t("about.302_js")}</h3>

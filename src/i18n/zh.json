@@ -41,16 +41,13 @@
     "project": "项目与反馈",
     "project_description": "MirrorZ 是开源项目。你可以在代码仓库中查看源码、报告网站问题或参与改进。下载内容本身的问题请联系对应的镜像站。",
     "advanced": "高级功能",
-    "advanced_description": "以下入口适合需要固定链接、无 JavaScript 页面、运行状态或自动跳转等功能的用户；普通下载通常不需要使用它们。",
+    "advanced_description": "以下入口适合需要固定链接、运行状态或自动跳转等功能的用户；普通下载通常不需要使用它们。",
     "intro": "简介",
     "repo": "项目地址",
     "logo": "徽标",
     "usage": "用法",
     "valid_urls": "以下所有链接均有效",
     "valid_urls_description": "这些地址可以直接访问、收藏或分享。地址中的项目名和站点名可替换为你需要的内容。",
-    "legacy": "以下网页为静态网页，可使用 w3m/lynx 浏览",
-    "legacy_description": "静态页面不依赖 JavaScript，适合终端浏览器、低性能设备或脚本受限的环境。它保留原有的分类首页。",
-    "legacy_usage": "有关静态网页的更多用法，在上述网址中",
     "speedtest": "可用以下的脚本测速（需要系统安装 python3 与 curl）",
     "302_js": "实验性功能： 302 后端",
     "302_js_description": "访问统一地址后，服务会尝试把请求跳转到合适的镜像站。该功能仍属实验性质，不建议依赖它保存唯一的下载地址。",
@@ -101,9 +98,6 @@
   "mirrors_prompt": "搜索（支持正则表达式）",
   "index": {
     "javascript": "请启用 Javascript 使得该页面正确显示",
-    "legacy_page_prompt_pre": "或可使用",
-    "legacy_page_prompt_post": "",
-    "legacy_page": "静态网页",
     "loading": "加载中"
   },
   "tag": {

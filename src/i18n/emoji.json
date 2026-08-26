@@ -40,16 +40,13 @@
     "project": "🧑‍💻 Project",
     "project_description": "View the source code, report problems, or contribute.",
     "advanced": "🛠️ Advanced",
-    "advanced_description": "Direct links, static pages, monitoring, redirects, and search.",
+    "advanced_description": "Direct links, monitoring, redirects, and search.",
     "intro": "Intro",
     "repo": "Repo",
     "logo": "Logo",
     "usage": "Usage",
     "valid_urls": "The following urls are all valid.",
     "valid_urls_description": "Open, bookmark, or share these direct addresses.",
-    "legacy": "The following urls are for static webpage, you can use w3m/lynx to view them",
-    "legacy_description": "JavaScript-free pages for terminal and restricted browsers.",
-    "legacy_usage": "More usage of static webpage is documented in the above url",
     "speedtest": "Use the below script for speed test!",
     "302_js": "Experimental Feature: 302 Backend",
     "302_js_description": "Experimental redirects to a suitable mirror site.",
@@ -101,9 +98,6 @@
   "mirrors_prompt": "Filter (Support regex)",
   "index": {
     "javascript": "You need javascript to view this page properly.",
-    "legacy_page_prompt_pre": "Or you may use the ",
-    "legacy_page_prompt_post": "",
-    "legacy_page": "legacy page",
     "loading": "Loading..."
   }
 }

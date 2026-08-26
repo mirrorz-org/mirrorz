@@ -41,16 +41,13 @@
     "project": "Project and feedback",
     "project_description": "MirrorZ is open source. Use the repository to inspect the code, report a website problem, or contribute an improvement. For problems with downloaded content, contact the mirror site that supplied it.",
     "advanced": "Advanced features",
-    "advanced_description": "These entries are intended for fixed links, JavaScript-free browsing, service monitoring, or automatic redirects. They are not normally needed for an ordinary download.",
+    "advanced_description": "These entries are intended for fixed links, service monitoring, or automatic redirects. They are not normally needed for an ordinary download.",
     "intro": "Intro",
     "repo": "Repo",
     "logo": "Logo",
     "usage": "Usage",
     "valid_urls": "The following urls are all valid.",
     "valid_urls_description": "These addresses can be opened directly, bookmarked, or shared. Replace the project or site name in a path with the item you need.",
-    "legacy": "The following urls are for static webpage, you can use w3m/lynx to view them",
-    "legacy_description": "The static pages do not require JavaScript and work with terminal browsers, low-powered devices, or restricted environments. Their original category-based home page is retained.",
-    "legacy_usage": "More usage of static webpage is documented in the above url",
     "speedtest": "Use the below script for speed test (requires python3 and curl)!",
     "302_js": "Experimental Feature: 302 Backend",
     "302_js_description": "A shared address attempts to redirect each request to a suitable mirror site. This feature is experimental, so do not rely on it as the only saved location for a download.",
@@ -101,9 +98,6 @@
   "mirrors_prompt": "Filter (Support regex)",
   "index": {
     "javascript": "You need javascript to view this page properly.",
-    "legacy_page_prompt_pre": "Or you may use the ",
-    "legacy_page_prompt_post": "",
-    "legacy_page": "legacy page",
     "loading": "Loading..."
   },
   "tag": {

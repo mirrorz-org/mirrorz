@@ -32,20 +32,11 @@ jobs:
         run: |
           git clone https://github.com/mirrorz-org/mirrorz-config.git src/config
           yarn ${{ matrix.build_type }}_env
-      - name: Prepare legacy
-        run: |
-          yarn legacy_env
       - name: Install dependencies
         run: yarn --frozen-lockfile
-      - name: Install legacy dependencies
-        run: |
-          cd legacy
-          yarn --frozen-lockfile
-          cd ..
       - name: Build
         run: |
           yarn build
-          yarn legacy_build
           mkdir -p drop
           tar -czf drop/dist-${{ matrix.build_type }}.tar.gz dist
       - name: Upload dist package as artifact
