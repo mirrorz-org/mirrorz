@@ -148,7 +148,7 @@
   a,
   .meta-right {
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
   }
 }
 
@@ -221,10 +221,20 @@
     grid-template-columns: 1fr;
   }
 
+  /* the sticky mobile header already shows the site name */
+  .site-title {
+    display: none;
+  }
+
   .meta-line {
     display: flex;
     flex-direction: column;
     margin: 0 0 6px;
+
+    a,
+    .meta-right {
+      overflow-wrap: anywhere;
+    }
   }
 
   .meta-left {

@@ -3,7 +3,7 @@ import { Mirrorz } from "../schema";
 import { RedirectBadge } from "./RedirectBadge";
 
 export default React.memo(({ mirrorz }: { mirrorz: Mirrorz[] }) => (
-  <div>
+  <div className="debug">
     {mirrorz
       .sort((a, b) => a.site.abbr.localeCompare(b.site.abbr))
       .map((z) => (

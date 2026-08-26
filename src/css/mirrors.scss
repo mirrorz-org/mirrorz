@@ -82,6 +82,8 @@
   padding: 10px 30px 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  /* dense so a full-width expanded group does not orphan its row */
+  grid-auto-flow: row dense;
   gap: 0 36px;
   align-content: start;
 }
@@ -103,7 +105,8 @@
   }
 }
 
-.help {
+/* .group a would otherwise win the color on the resting state */
+.group a.help {
   margin-left: 8px;
   display: flex;
   align-items: center;
@@ -181,7 +184,8 @@
 }
 
 .group-items {
-  padding: 6px 12px 14px 34px;
+  /* the div always exists; only pad it when the group is expanded */
+  padding: 0 12px 0 34px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 14px 32px;
@@ -190,6 +194,10 @@
     margin: 0 0 3px;
     font-size: 15px;
   }
+}
+
+.group-expanded .group-items {
+  padding: 6px 12px 14px 34px;
 }
 
 .desc {
@@ -246,9 +254,13 @@
   }
 
   .group-items {
-    padding: 6px 8px 12px 16px;
+    padding: 0 8px 0 16px;
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .group-expanded .group-items {
+    padding: 6px 8px 12px 16px;
   }
 
   .group-items > div,

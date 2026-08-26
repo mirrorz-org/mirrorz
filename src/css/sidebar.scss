@@ -73,10 +73,11 @@
   .sidebar {
     width: 100%;
     min-width: 0;
-    height: 56px;
-    min-height: 56px;
+    /* 56px links + 1px bottom border (border-box) */
+    height: 57px;
+    min-height: 57px;
     display: flex;
-    flex: 0 0 56px;
+    flex: 0 0 57px;
     overflow-x: auto;
     overflow-y: hidden;
     border-right: none;

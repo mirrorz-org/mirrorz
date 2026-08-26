@@ -88,6 +88,13 @@ code {
   height: 46px;
 }
 
+.debug {
+  padding: 20px 30px;
+  overflow-y: auto;
+  max-height: 100%;
+  line-height: 1.9;
+}
+
 @media screen and (max-width: $mobile-breakpoint) {
   body {
     min-width: 0;
