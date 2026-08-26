@@ -12,6 +12,7 @@ import Site from "./Site";
 import About from "./About";
 import Debug from "./Debug";
 import Monitor from "./Monitor";
+import Icon from "./Icon";
 import {
   useIsoInfoList,
   useMirrorsList,
@@ -44,43 +45,41 @@ export default React.memo(() => {
       <Router>
         <div id="app-container">
           <div className="sidebar">
-            <NavLink
-              to="/"
-              activeClassName="active"
-              isActive={(_, location) => {
-                if (
-                  location.pathname === "/" ||
-                  (!location.pathname.startsWith("/list") &&
-                    !location.pathname.startsWith("/site") &&
-                    !location.pathname.startsWith("/about") &&
-                    !location.pathname.startsWith("/debug") &&
-                    !location.pathname.startsWith("/monitor"))
-                ) {
-                  return true;
-                }
-                return false;
-              }}
-            >
+            <NavLink to="/" activeClassName="active" exact>
               <img
                 src="/static/img/mirrorz.svg"
                 className="sidebar-logo"
-                alt="ISO"
+                alt="MirrorZ"
               />
             </NavLink>
+            <NavLink
+              to="/os"
+              activeClassName="active"
+              isActive={(_, location) =>
+                ["/os", "/app", "/font"].some(
+                  (path) =>
+                    location.pathname === path ||
+                    location.pathname.startsWith(path + "/")
+                )
+              }
+            >
+              <Icon aria-hidden="true">get_app</Icon>
+              <h2>{t("download")}</h2>
+            </NavLink>
             <NavLink to="/list" activeClassName="active">
-              <h2 dangerouslySetInnerHTML={{ __html: t("list.list") }} />
+              <Icon aria-hidden="true">view_list</Icon>
+              <h2>{t("list.list")}</h2>
             </NavLink>
             <NavLink to="/site" activeClassName="active">
-              <h2 dangerouslySetInnerHTML={{ __html: t("site.site") }} />
+              <Icon aria-hidden="true">public</Icon>
+              <h2>{t("site.site")}</h2>
             </NavLink>
             {config.mirrors_help_url && (
               <a href={config.mirrors_help_url} target="_blank" rel="noopener">
-                <h2 dangerouslySetInnerHTML={{ __html: t("help") }} />
+                <Icon aria-hidden="true">help_outline</Icon>
+                <h2>{t("help")}</h2>
               </a>
             )}
-            <NavLink to="/about" activeClassName="active">
-              <h2>{t("about.about")}</h2>
-            </NavLink>
           </div>
           <main>
             <Switch>
@@ -90,7 +89,7 @@ export default React.memo(() => {
               <Route path="/site/:siteSlug?/:statusFilter?" exact>
                 <Site site={siteList} />
               </Route>
-              <Route path="/about" exact>
+              <Route path={["/", "/about"]} exact>
                 <About site={siteList} />
               </Route>
               <Route path="/debug" exact>
@@ -99,7 +98,7 @@ export default React.memo(() => {
               <Route path="/monitor" exact>
                 <Monitor />
               </Route>
-              <Route path={["/", "/:category?/:distro?"]} exact>
+              <Route path="/:category/:distro?" exact>
                 <ISO isoinfo={isoinfoList} />
               </Route>
               <Page404 />

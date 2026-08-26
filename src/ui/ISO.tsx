@@ -122,10 +122,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
             >
               {c == "os" ? (
                 <>
-                  <h2
-                    className="category-label-desktop"
-                    dangerouslySetInnerHTML={{ __html: t("iso." + c, c) }}
-                  />
+                  <h2 className="category-label-desktop">{t("iso." + c, c)}</h2>
                   <h2 className="category-label-mobile">{t("iso.os_norm")}</h2>
                 </>
               ) : (

@@ -29,8 +29,12 @@
   h2,
   h3,
   .para-title-text,
+  .para-description,
   .para-content {
     color: #e0e0e0;
+  }
+  .about-guide-item {
+    background: rgba($primary, 0.12);
   }
   li::marker {
     color: #a0a0a0;

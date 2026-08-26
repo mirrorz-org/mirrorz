@@ -25,6 +25,10 @@
   display: none;
 }
 
+.category-label-desktop {
+  white-space: nowrap;
+}
+
 .category a {
   filter: none;
   display: block;
@@ -32,8 +36,11 @@
   text-decoration: none;
   margin: 0;
   float: left;
-  width: $category;
+  width: auto;
+  min-width: $category;
   height: $category;
+  padding: 0 24px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;

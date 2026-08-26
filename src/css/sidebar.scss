@@ -17,7 +17,13 @@
 /* Sidebar links */
 .sidebar h2 {
   margin: 0;
-  line-height: 1.8em;
+  line-height: 1.25;
+}
+
+.sidebar a > .material-icons {
+  margin-bottom: 5px;
+  font-size: 30px;
+  line-height: 1;
 }
 
 .sidebar a {
@@ -54,18 +60,17 @@
     min-height: 56px;
     display: flex;
     flex: 0 0 56px;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
     box-shadow: $shadow 0 3px 6px;
-    scrollbar-width: thin;
   }
 
   .sidebar a {
-    width: auto;
-    min-width: 68px;
+    width: 0;
+    min-width: 0;
     min-height: 56px;
-    padding: 0 8px;
-    flex: 1 0 auto;
+    padding: 0 4px;
+    flex: 1 1 0;
     float: none;
   }
 
@@ -73,6 +78,11 @@
     font-size: 16px;
     line-height: 1.25;
     text-align: center;
+  }
+
+  .sidebar a > .material-icons {
+    margin-bottom: 2px;
+    font-size: 22px;
   }
 
   .sidebar-logo {
