@@ -140,19 +140,22 @@
 }
 
 .group {
-  min-width: 0;
+  /* Let the header and expanded details participate in the parent grid
+     independently. This keeps the other headers in the same row visible when
+     one group's details span the full width below them. */
+  display: contents;
 
   a {
     text-decoration: none;
     color: var(--text);
   }
 
-  > a:hover {
-    text-decoration: none;
+  > a {
+    min-width: 0;
   }
 
-  &.group-expanded {
-    grid-column: 1 / -1;
+  > a:hover {
+    text-decoration: none;
   }
 
   &.group-expanded .group-header {
@@ -188,9 +191,8 @@
 }
 
 .group-items {
-  /* the div always exists; only pad it when the group is expanded */
-  padding: 0 12px 0 34px;
-  display: grid;
+  display: none;
+  grid-column: 1 / -1;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 14px 32px;
 
@@ -201,6 +203,7 @@
 }
 
 .group-expanded .group-items {
+  display: grid;
   padding: 6px 12px 14px 34px;
 }
 

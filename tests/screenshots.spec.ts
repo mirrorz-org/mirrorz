@@ -51,6 +51,32 @@ test.describe("home and download routes", () => {
   });
 });
 
+test.describe("desktop list layout", () => {
+  test("expanding a group keeps the other headers in its row visible", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(baseUrl + "/list/");
+    await page.waitForTimeout(1000);
+
+    const headers = page.locator(".group-header");
+    const first = await headers.nth(0).boundingBox();
+    const second = await headers.nth(1).boundingBox();
+    expect(first).not.toBeNull();
+    expect(second).not.toBeNull();
+    expect(Math.abs(first!.y - second!.y)).toBeLessThan(2);
+
+    await headers.nth(0).click();
+
+    const expandedFirst = await headers.nth(0).boundingBox();
+    const expandedSecond = await headers.nth(1).boundingBox();
+    await expect(headers.nth(1)).toBeVisible();
+    expect(expandedFirst).not.toBeNull();
+    expect(expandedSecond).not.toBeNull();
+    expect(Math.abs(expandedFirst!.y - expandedSecond!.y)).toBeLessThan(2);
+  });
+});
+
 test.describe("mobile responsive layout", () => {
   test.skip(({ isMobile }) => !isMobile, "mobile project only");
 
