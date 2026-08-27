@@ -111,7 +111,7 @@
     "isp": "Same ISP",
     "geo": "Geographically Close"
   },
-  "download": "Get",
+  "download": "Download",
   "help": "Help",
   "redirect_badge": "Participates in 302 redirect dispatch"
 }
