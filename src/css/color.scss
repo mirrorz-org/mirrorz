@@ -91,10 +91,12 @@
 }
 
 /* Per-mirror status line: fixed-width label column so timestamps share one
-   vertical axis regardless of label length */
+   vertical axis regardless of label length. The time column has a minimum
+   width so shrink-to-fit contexts (Site page rows) resolve to one block
+   width and labels also align across cards. */
 .status {
   display: grid;
-  grid-template-columns: minmax(118px, max-content) auto;
+  grid-template-columns: minmax(118px, max-content) minmax(110px, auto);
   align-items: center;
   column-gap: 10px;
   padding: 2.5px 0;
