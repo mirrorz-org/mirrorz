@@ -130,11 +130,24 @@
 }
 
 .about-logo {
+  display: block;
   width: 52px;
   height: 52px;
   padding: 6px;
   object-fit: contain;
   border-radius: 12px;
+}
+
+.about-participants {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-powered-by picture {
+  width: 52px;
+  height: 52px;
+  display: flex;
 }
 
 .about-powered-by {
@@ -212,6 +225,11 @@
   }
 
   .about-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .about-powered-by picture {
     width: 44px;
     height: 44px;
   }

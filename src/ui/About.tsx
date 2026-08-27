@@ -117,12 +117,16 @@ export default React.memo(
             title={t("about.participants")}
             icon="favorite_border"
             description={t("about.participants_description")}
-            content={site.map(({ site }) => (
-              <div className="about-powered-by" key={site.abbr}>
-                <Logo site={site} className="about-logo" />
-                {site.abbr}
+            content={
+              <div className="about-participants">
+                {site.map(({ site }) => (
+                  <div className="about-powered-by" key={site.abbr}>
+                    <Logo site={site} className="about-logo" />
+                    {site.abbr}
+                  </div>
+                ))}
               </div>
-            ))}
+            }
           />
           <Para
             title={t("about.project")}
