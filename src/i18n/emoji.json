@@ -97,6 +97,9 @@
   "download": "💿",
   "redirect_badge": "🔀 Redirect",
   "404_prompt": "Navigate with the sidebar",
+  "404_home": "🏠",
+  "404_list": "😋",
+  "debug_prompt": "🐛 JSON",
   "mirrors_prompt": "Filter (Support regex)",
   "mirrors_count": "{{shown}} / {{total}} 📦 · {{sites}} 🏫",
   "index": {

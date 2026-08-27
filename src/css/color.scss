@@ -60,31 +60,43 @@
   background: color-mix(in srgb, var(--c, var(--text-muted)) 12%, transparent);
 }
 
-/* Per-group / per-site status summary: pills with count + icon */
+/* Per-group / per-site status summary: borderless colored count glyphs;
+   only failure counts keep a pill so problems stand out from the noise */
 .summary {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 11px;
   row-gap: 3px;
   font-size: 12.5px;
 
   > span {
-    @include badge;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-weight: 600;
+    color: var(--c, var(--text-muted));
 
     .material-icons {
-      font-size: 13px;
+      font-size: 14px;
+    }
+
+    &.failed {
+      @include badge;
+      gap: 4px;
     }
   }
 }
 
-/* Per-mirror status line: pill with label, muted time after it */
+/* Per-mirror status line: fixed-width label column so timestamps share one
+   vertical axis regardless of label length */
 .status {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(118px, max-content) auto;
   align-items: center;
-  gap: 7px;
+  column-gap: 10px;
   padding: 2.5px 0;
   font-size: 13.5px;
   color: var(--text-muted);
@@ -94,12 +106,18 @@
   }
 
   > div:first-of-type {
-    @include badge;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    color: var(--text);
+    font-weight: 600;
 
     &::before {
       content: "";
-      width: 6px;
-      height: 6px;
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--c, var(--text-muted));
     }
@@ -108,4 +126,5 @@
 
 .status-time {
   color: var(--text-muted);
+  font-size: 13px;
 }

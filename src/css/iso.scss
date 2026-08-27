@@ -222,6 +222,15 @@
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: thin;
+    scroll-padding: 16px;
+    /* fade clipped pills at the edges instead of cutting them off hard */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent
+    );
   }
 
   .distro a {

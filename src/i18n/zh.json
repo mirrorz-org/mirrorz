@@ -97,6 +97,9 @@
     "years": "年"
   },
   "404_prompt": "请使用侧边栏",
+  "404_home": "返回首页",
+  "404_list": "浏览镜像列表",
+  "debug_prompt": "下载各站点解析后的 JSON 数据（用于调试）。",
   "mirrors_prompt": "搜索（支持正则表达式）",
   "mirrors_count": "{{shown}} / {{total}} 个镜像 · {{sites}} 个站点",
   "index": {
@@ -110,5 +113,5 @@
   },
   "download": "下载",
   "help": "帮助",
-  "redirect_badge": "参与跳转"
+  "redirect_badge": "参与 302 智能分流"
 }

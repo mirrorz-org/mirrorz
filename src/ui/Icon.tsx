@@ -32,7 +32,11 @@ export const Logo = React.memo(
               media="(prefers-color-scheme: dark)"
             />
           )}
-          <img src={logo} title={site.abbr} className={className} />
+          <img
+            src={logo}
+            title={site.abbr}
+            className={className + (logo_darkmode ? "" : " logo-plate")}
+          />
         </picture>
       );
     else

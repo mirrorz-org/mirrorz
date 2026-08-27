@@ -97,6 +97,9 @@
     "years": "years"
   },
   "404_prompt": "Navigate with the sidebar",
+  "404_home": "Go to homepage",
+  "404_list": "Browse mirrors",
+  "debug_prompt": "Download each site's parsed JSON for debugging.",
   "mirrors_prompt": "Filter (Support regex)",
   "mirrors_count": "{{shown}} / {{total}} projects · {{sites}} sites",
   "index": {
@@ -110,5 +113,5 @@
   },
   "download": "Get",
   "help": "Help",
-  "redirect_badge": "Participates in redirects."
+  "redirect_badge": "Participates in 302 redirect dispatch"
 }

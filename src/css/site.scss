@@ -129,7 +129,7 @@
   }
 }
 
-/* Site logo: image in a neutral chip, or initials fallback */
+/* Site logo: bare image (plated in dark via .logo-plate), or initials fallback */
 .logo {
   display: block;
   width: 42px;
@@ -137,12 +137,14 @@
   padding: 5px;
   object-fit: contain;
   border-radius: 9px;
-  background: var(--bg);
-  border: 1px solid var(--border);
 }
 
+/* Definition grid: key stays on one line, value wraps in its own column */
 .meta-line {
   min-width: 0;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 8px;
   font-size: 14px;
 
   a,
@@ -155,7 +157,7 @@
 .meta-left {
   @include sans;
   color: var(--text-muted);
-  margin-right: 8px;
+  white-space: nowrap;
   font-size: 14px;
 }
 
@@ -238,7 +240,6 @@
   }
 
   .meta-left {
-    margin: 0;
     font-size: 13px;
   }
 

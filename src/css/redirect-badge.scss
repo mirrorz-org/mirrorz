@@ -1,9 +1,14 @@
 .redirect-badge {
   display: inline-flex;
   align-items: center;
+  gap: 3px;
   vertical-align: middle;
   margin-left: 7px;
-  padding: 0 6px;
+  padding: 0 6px 0 4px;
+
+  .material-icons {
+    font-size: 13px;
+  }
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
   border-radius: 4px;
   background: var(--accent-tint);

@@ -37,6 +37,11 @@
   --st-next: #7a6400;
   --st-new: #6639ba;
 
+  /* plate behind site logos that publish no dark-mode variant: invisible in
+     light, a white chip in dark so dark-ink logos stay legible */
+  --logo-plate: transparent;
+  --logo-plate-border: transparent;
+
   --radius: 8px;
   --radius-sm: 6px;
 }
@@ -69,5 +74,8 @@
     --st-old: #d98a4a;
     --st-next: #d4a72c;
     --st-new: #b197fc;
+
+    --logo-plate: #ffffff;
+    --logo-plate-border: var(--border);
   }
 }
