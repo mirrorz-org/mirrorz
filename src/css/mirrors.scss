@@ -147,6 +147,10 @@
     color: var(--text);
   }
 
+  > a:hover {
+    text-decoration: none;
+  }
+
   &.group-expanded {
     grid-column: 1 / -1;
   }
