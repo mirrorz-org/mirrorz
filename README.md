@@ -8,8 +8,6 @@ A final site for Mirror sites.
 
 <https://mirrorz.org> and <https://mirrors.cernet.edu.cn/list>
 
-Also legacy webpages (for w3m and noscript users) are provided in <https://mirrorz.org/_/> and <https://mirrors.cernet.edu.cn/_/>
-
 ## Intro
 
 Mirror sites are heterogeneous. It is hard for a single mirror to provide all mirrors, so differences occur.
@@ -141,14 +139,14 @@ To debug one parser from `src/config/parser` with new site json in `src/config/j
 
 ```
 yarn --frozen-lockfile
-yarn half_start
+yarn full_start
 ```
 
 to start a local server. Python3 is required in this case. Note there is no auto-reload feature.
 
-#### Legacy pages
+#### Static files
 
-To use static files, 404 redirection (emulate Github pages) and legacy pages, one may use
+To use static files and 404 redirection (emulate Github pages), one may use
 
 ```
 yarn --frozen-lockfile
@@ -159,22 +157,13 @@ to start a local server. Python3 is required in this case. Note there is no auto
 
 ### Deployment
 
-For dynamic web page part, only
+One may use
 
 ```
 yarn build
 ```
 
-is required.
-
-However if one also wants to deploy the static web page, one may use
-
-```
-yarn build
-yarn legacy_build
-```
-
-Note that `legacy_build` has dependencies on files `yarn build` has made.
+to build the site. `postbuild` is run via `yarn postbuild` (or automatically after `full_start`) to copy static assets.
 
 If one want all parts, one can use the following command to accomplish all the steps above
 

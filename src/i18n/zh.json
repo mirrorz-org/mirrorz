@@ -9,10 +9,10 @@
     "filter": "筛选…"
   },
   "list": {
-    "list": "镜 像<br/>列 表"
+    "list": "列表"
   },
   "site": {
-    "site": "镜 像<br/>站 们",
+    "site": "站点",
     "back": "返回站点列表",
     "url": "网址",
     "name": "名称",
@@ -26,20 +26,43 @@
   },
   "about": {
     "about": "关于",
+    "overview": "本站是什么",
+    "overview_description": "镜像站保存常用开源软件的副本，让你可以从更合适的站点更快地获取文件。MirrorZ 汇总各镜像站的信息并帮助你找到入口；实际文件由相应镜像站提供。",
+    "guide": "如何使用",
+    "guide_description": "根据你要找的内容选择导航栏中的入口。下面介绍每一部分适合做什么。",
+    "guide_download": "下载",
+    "guide_download_description": "需要操作系统安装镜像、应用程序或字体时，从这里开始。先选择类型和项目，再选择一个镜像站提供的下载链接。",
+    "guide_list": "列表",
+    "guide_list_description": "需要配置软件源或查找某个开源项目的仓库时，在这里搜索项目名称并展开结果。成功表示内容通常可用；同步中或失败表示该站点的数据可能暂时不是最新。",
+    "guide_site": "站点",
+    "guide_site_description": "按站点查看它提供的项目、同步状态、主页和联系方式，适合比较不同镜像站或排查某个站点的问题。",
+    "guide_help": "帮助",
+    "guide_help_description": "不知道怎样更换系统或软件的下载源时，请查看这里的分步骤配置说明。帮助文档会在新窗口中打开。",
+    "participants": "参与镜像站",
+    "participants_description": "以下站点共同提供了本站索引的数据和下载内容。它们由不同组织独立维护，因此可用项目和同步进度可能有所不同。",
+    "project": "项目与反馈",
+    "project_description": "MirrorZ 是开源项目。你可以在代码仓库中查看源码、报告网站问题或参与改进。下载内容本身的问题请联系对应的镜像站。",
+    "advanced": "高级功能",
+    "advanced_description": "以下入口适合需要固定链接、运行状态或自动跳转等功能的用户；普通下载通常不需要使用它们。",
     "intro": "简介",
     "repo": "项目地址",
     "logo": "徽标",
     "usage": "用法",
     "valid_urls": "以下所有链接均有效",
-    "legacy": "以下网页为静态网页，可使用 w3m/lynx 浏览",
-    "legacy_usage": "有关静态网页的更多用法，在上述网址中",
+    "valid_urls_description": "这些地址可以直接访问、收藏或分享。地址中的项目名和站点名可替换为你需要的内容。",
     "speedtest": "可用以下的脚本测速（需要系统安装 python3 与 curl）",
     "302_js": "实验性功能： 302 后端",
+    "302_js_description": "访问统一地址后，服务会尝试把请求跳转到合适的镜像站。该功能仍属实验性质，不建议依赖它保存唯一的下载地址。",
     "302_go": "302 跳转后端",
     "302_go_more": "查看镜像帮助文档以使用该后端",
+    "302_go_description": "使用统一的镜像地址，并根据网络位置和站点状态跳转到合适的参与站点。具体配置方法请查看镜像帮助。",
     "search": "实验性功能： 搜索后端",
+    "search_description": "按仓库中的路径查找文件，并跳转到能够提供该文件的镜像站。搜索结果和可用性可能随同步状态变化。",
+    "monitor": "运行状态",
+    "monitor_description": "查看镜像同步和服务运行情况，适合判断某个站点或项目是否出现暂时性故障。",
     "todo": "待办/可办事项",
-    "mirrors_help": "镜像帮助文档"
+    "mirrors_help": "镜像帮助文档",
+    "mirrors_help_description": "提供常见操作系统、软件和开发工具的软件源配置步骤，适合需要把默认下载源切换到镜像站的用户。"
   },
   "status": {
     "S": "成功",
@@ -78,9 +101,6 @@
   "mirrors_count": "{{shown}} / {{total}} 个镜像 · {{sites}} 个站点",
   "index": {
     "javascript": "请启用 Javascript 使得该页面正确显示",
-    "legacy_page_prompt_pre": "或可使用",
-    "legacy_page_prompt_post": "",
-    "legacy_page": "静态网页",
     "loading": "加载中"
   },
   "tag": {
@@ -88,6 +108,7 @@
     "isp": "相同运营商",
     "geo": "地理较近"
   },
-  "help": "镜 像<br/>帮 助",
+  "download": "下载",
+  "help": "帮助",
   "redirect_badge": "参与跳转"
 }

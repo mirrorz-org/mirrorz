@@ -23,6 +23,34 @@ Object.entries(testPages).map(([name, url]) =>
   })
 );
 
+test.describe("home and download routes", () => {
+  test("home and about show the user guide", async ({ page }) => {
+    for (const url of ["/", "/about"]) {
+      await page.goto(baseUrl + url);
+      await expect(page.locator(".about")).toBeVisible();
+      await expect(page.locator(".iso")).toHaveCount(0);
+      await expect(page.locator(".para-description")).toHaveCount(5);
+      await expect(page.locator(".about-guide-item").first()).toBeVisible();
+    }
+  });
+
+  test("download navigation opens and tracks category routes", async ({
+    page,
+  }) => {
+    await page.goto(baseUrl + "/");
+    const download = page.locator('.sidebar a[href="/os"]');
+    await expect(download).toBeVisible();
+    await download.click();
+    await expect(page.locator(".iso")).toBeVisible();
+    await expect(download).toHaveClass(/active/);
+
+    for (const url of ["/app", "/font"]) {
+      await page.goto(baseUrl + url);
+      await expect(download).toHaveClass(/active/);
+    }
+  });
+});
+
 test.describe("mobile responsive layout", () => {
   test.skip(({ isMobile }) => !isMobile, "mobile project only");
 
@@ -44,13 +72,23 @@ test.describe("mobile responsive layout", () => {
   });
 
   test("navigation is a single touch-friendly row", async ({ page }) => {
-    await page.goto(baseUrl + "/");
-    await page.waitForTimeout(1000);
+    for (const width of [320, 390, 402]) {
+      await page.setViewportSize({ width, height: 720 });
+      await page.goto(baseUrl + "/");
+      await page.waitForTimeout(1000);
 
-    const sidebar = await page.locator(".sidebar").boundingBox();
-    const firstLink = await page.locator(".sidebar a").first().boundingBox();
-    expect(sidebar?.height).toBeLessThanOrEqual(60);
-    expect(firstLink?.height).toBeGreaterThanOrEqual(44);
+      const sidebar = await page.locator(".sidebar").boundingBox();
+      const firstLink = await page.locator(".sidebar a").first().boundingBox();
+      const dimensions = await page.locator(".sidebar").evaluate((element) => ({
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
+      }));
+      expect(sidebar?.height).toBeLessThanOrEqual(60);
+      expect(firstLink?.height).toBeGreaterThanOrEqual(44);
+      expect(dimensions.scrollWidth).toBeLessThanOrEqual(
+        dimensions.clientWidth
+      );
+    }
   });
 
   test("active distro is visible in its horizontal selector", async ({
