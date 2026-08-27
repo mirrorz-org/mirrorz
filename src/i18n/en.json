@@ -113,5 +113,6 @@
   },
   "download": "Download",
   "help": "Help",
+  "opens_new_tab": "Opens in a new tab",
   "redirect_badge": "Participates in 302 redirect dispatch"
 }

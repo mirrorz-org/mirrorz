@@ -82,8 +82,6 @@
   padding: 10px 30px 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  /* dense so a full-width expanded group does not orphan its row */
-  grid-auto-flow: row dense;
   gap: 0 36px;
   align-content: start;
 }
@@ -140,10 +138,7 @@
 }
 
 .group {
-  /* Let the header and expanded details participate in the parent grid
-     independently. This keeps the other headers in the same row visible when
-     one group's details span the full width below them. */
-  display: contents;
+  min-width: 0;
 
   a {
     text-decoration: none;
@@ -192,8 +187,7 @@
 
 .group-items {
   display: none;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px 32px;
 
   h3 {

@@ -49,31 +49,61 @@ test.describe("home and download routes", () => {
       await expect(download).toHaveClass(/active/);
     }
   });
+
+  test("help navigation indicates that it opens a new tab", async ({
+    page,
+  }) => {
+    await page.goto(baseUrl + "/");
+    const help = page.locator('.sidebar a[target="_blank"]');
+    await expect(help).toHaveAttribute("title", /.+/);
+    const title = await help.getAttribute("title");
+    await expect(help).toHaveAttribute("aria-label", new RegExp(title!));
+    await expect(help.locator(".external-link-icon")).toHaveText("↗");
+  });
 });
 
 test.describe("desktop list layout", () => {
-  test("expanding a group keeps the other headers in its row visible", async ({
-    page,
-  }) => {
+  test("groups expand independently within their columns", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(baseUrl + "/list/");
     await page.waitForTimeout(1000);
 
     const headers = page.locator(".group-header");
+    const firstId = await headers.nth(0).getAttribute("id");
+    const secondId = await headers.nth(1).getAttribute("id");
+    const firstHeader = page.locator(`#${firstId}`);
+    const secondHeader = page.locator(`#${secondId}`);
     const first = await headers.nth(0).boundingBox();
     const second = await headers.nth(1).boundingBox();
     expect(first).not.toBeNull();
     expect(second).not.toBeNull();
     expect(Math.abs(first!.y - second!.y)).toBeLessThan(2);
 
-    await headers.nth(0).click();
+    await firstHeader.click();
 
     const expandedFirst = await headers.nth(0).boundingBox();
     const expandedSecond = await headers.nth(1).boundingBox();
+    const firstDetails = await firstHeader
+      .locator("xpath=../following-sibling::*[1]")
+      .boundingBox();
     await expect(headers.nth(1)).toBeVisible();
     expect(expandedFirst).not.toBeNull();
     expect(expandedSecond).not.toBeNull();
+    expect(firstDetails).not.toBeNull();
     expect(Math.abs(expandedFirst!.y - expandedSecond!.y)).toBeLessThan(2);
+    expect(firstDetails!.x).toBeGreaterThanOrEqual(expandedFirst!.x);
+    expect(firstDetails!.x + firstDetails!.width).toBeLessThanOrEqual(
+      expandedFirst!.x + expandedFirst!.width
+    );
+
+    await secondHeader.click();
+    await expect(page.locator(".group-expanded")).toHaveCount(2);
+    await expect(firstHeader.locator(".material-icons")).toHaveText(
+      "expand_more"
+    );
+    await expect(secondHeader.locator(".material-icons")).toHaveText(
+      "expand_more"
+    );
   });
 });
 

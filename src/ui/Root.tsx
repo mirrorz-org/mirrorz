@@ -82,9 +82,20 @@ export default React.memo(() => {
               <h2>{t("site.site")}</h2>
             </NavLink>
             {config.mirrors_help_url && (
-              <a href={config.mirrors_help_url} target="_blank" rel="noopener">
+              <a
+                href={config.mirrors_help_url}
+                target="_blank"
+                rel="noopener"
+                title={t("opens_new_tab")}
+                aria-label={`${t("help")}, ${t("opens_new_tab")}`}
+              >
                 <Icon aria-hidden="true">help_outline</Icon>
-                <h2>{t("help")}</h2>
+                <h2>
+                  {t("help")}
+                  <span className="external-link-icon" aria-hidden="true">
+                    ↗
+                  </span>
+                </h2>
               </a>
             )}
           </div>
