@@ -19,6 +19,9 @@
   /* brand */
   --accent: #15658a;
   --accent-strong: #0e5273;
+  /* text on --accent-tint (active nav/list items); needs the brighter
+     accent in dark mode */
+  --accent-active: var(--accent);
   --accent-tint: rgba(21, 101, 138, 0.09);
   --accent-tint-strong: rgba(21, 101, 138, 0.15);
   --link: #0f648c;
@@ -52,6 +55,7 @@
 
     --accent: #5fa8cc;
     --accent-strong: #82bdd9;
+    --accent-active: var(--accent-strong);
     --accent-tint: rgba(95, 168, 204, 0.13);
     --accent-tint-strong: rgba(95, 168, 204, 0.2);
     --link: #6cb4d6;

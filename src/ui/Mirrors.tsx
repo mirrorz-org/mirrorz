@@ -179,7 +179,7 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
           />
           <Icon>search</Icon>
         </div>
-        <span className="result-count">
+        <span className="result-count" role="status">
           {t("mirrors_count", {
             shown: shownCount,
             total: grouped.length,

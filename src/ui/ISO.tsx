@@ -132,11 +132,12 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
       <div className="distro-urls-container">
         <div className="distro-panel">
           <label className="mini-search">
-            <Icon>search</Icon>
+            <Icon aria-hidden="true">search</Icon>
             <input
               value={distroFilter}
               onChange={(ev) => setDistroFilter(ev.target.value)}
               placeholder={t("iso.filter")}
+              aria-label={t("iso.filter")}
             />
           </label>
           <div className="distro" ref={distroList}>

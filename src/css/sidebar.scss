@@ -53,13 +53,7 @@
 .sidebar a.active {
   background-color: var(--accent-tint);
   box-shadow: inset 3px 0 var(--accent);
-  color: var(--accent);
-}
-
-@media (prefers-color-scheme: dark) {
-  .sidebar a.active {
-    color: var(--accent-strong);
-  }
+  color: var(--accent-active);
 }
 
 /* Links on mouse-over */

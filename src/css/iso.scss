@@ -168,16 +168,10 @@
 
 .distro a.active {
   background-color: var(--accent-tint);
-  color: var(--accent);
+  color: var(--accent-active);
 
   h3 {
     font-weight: 700;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .distro a.active {
-    color: var(--accent-strong);
   }
 }
 
@@ -219,7 +213,7 @@
   }
 
   .mini-search {
-    display: none;
+    margin: 8px 12px 4px;
   }
 
   .distro {
