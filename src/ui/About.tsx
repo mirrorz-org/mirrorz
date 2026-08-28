@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Logo } from "./Icon";
+import Icon, { Logo } from "./Icon";
 import { ParsedMirror, Site } from "../schema";
 
 import config from "../config/config.json";
@@ -8,11 +8,13 @@ import config from "../config/config.json";
 const Para = React.memo(
   ({
     title,
+    icon,
     description,
     content,
     html,
   }: {
     title: string;
+    icon: string;
     description: string;
     content?: React.ReactNode;
     html?: string;
@@ -20,7 +22,9 @@ const Para = React.memo(
     return (
       <div className="para">
         <div className="para-title">
-          <div className="para-title-icon">#</div>
+          <div className="para-title-icon">
+            <Icon aria-hidden="true">{icon}</Icon>
+          </div>
           <div className="para-title-text">{title}</div>
         </div>
         <p className="para-description">{description}</p>
@@ -75,120 +79,131 @@ export default React.memo(
 
     return (
       <div className="about">
-        <Para
-          title={t("about.overview")}
-          description={t("about.overview_description")}
-          html={config.intro}
-        />
-        <Para
-          title={t("about.guide")}
-          description={t("about.guide_description")}
-          content={
-            <ul className="about-guide">
-              <GuideItem
-                title={t("about.guide_download")}
-                description={t("about.guide_download_description")}
-              />
-              <GuideItem
-                title={t("about.guide_list")}
-                description={t("about.guide_list_description")}
-              />
-              <GuideItem
-                title={t("about.guide_site")}
-                description={t("about.guide_site_description")}
-              />
-              {config.mirrors_help_url && (
+        <div className="about-col">
+          <Para
+            title={t("about.overview")}
+            icon="info_outline"
+            description={t("about.overview_description")}
+            html={config.intro}
+          />
+          <Para
+            title={t("about.guide")}
+            icon="explore"
+            description={t("about.guide_description")}
+            content={
+              <ul className="about-guide">
                 <GuideItem
-                  title={t("about.guide_help")}
-                  description={t("about.guide_help_description")}
+                  title={t("about.guide_download")}
+                  description={t("about.guide_download_description")}
                 />
-              )}
-            </ul>
-          }
-        />
-        <Para
-          title={t("about.participants")}
-          description={t("about.participants_description")}
-          content={site.map(({ site }) => (
-            <div className="about-powered-by" key={site.abbr}>
-              <Logo site={site} className="about-logo" />
-              {site.abbr}
-            </div>
-          ))}
-        />
-        <Para
-          title={t("about.project")}
-          description={t("about.project_description")}
-          content={
-            <a
-              href="https://github.com/mirrorz-org/mirrorz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://github.com/mirrorz-org/mirrorz
-            </a>
-          }
-        />
-        <Para
-          title={t("about.advanced")}
-          description={t("about.advanced_description")}
-          content={
-            <ul className="about-features">
-              {config.about.includes("mirrors_help") && (
-                <li>
-                  <h3>{t("about.mirrors_help")}</h3>
-                  <p>{t("about.mirrors_help_description")}</p>
-                  <UrlList urls={[config.mirrors_help_url]} />
-                </li>
-              )}
-              <li>
-                <h3>{t("about.valid_urls")}</h3>
-                <p>{t("about.valid_urls_description")}</p>
-                <UrlList urls={validUrls} />
-              </li>
-              {config.about.includes("monitor") && (
-                <li>
-                  <h3>{t("about.monitor")}</h3>
-                  <p>{t("about.monitor_description")}</p>
-                  <UrlList urls={[`${config.url}/monitor`]} />
-                </li>
-              )}
-              {config.about.includes("302-js") && (
-                <li>
-                  <h3>{t("about.302_js")}</h3>
-                  <p>{t("about.302_js_description")}</p>
-                  <UrlList
-                    urls={[
-                      "https://mirrors.mirrorz.org/archlinux",
-                      "https://m.mirrorz.org/centos",
-                    ]}
+                <GuideItem
+                  title={t("about.guide_list")}
+                  description={t("about.guide_list_description")}
+                />
+                <GuideItem
+                  title={t("about.guide_site")}
+                  description={t("about.guide_site_description")}
+                />
+                {config.mirrors_help_url && (
+                  <GuideItem
+                    title={t("about.guide_help")}
+                    description={t("about.guide_help_description")}
                   />
-                </li>
-              )}
-              {config.about.includes("search") && (
-                <li>
-                  <h3>{t("about.search")}</h3>
-                  <p>{t("about.search_description")}</p>
-                  <UrlList
-                    urls={[
-                      "https://search.mirrorz.org/archlinux/",
-                      "https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums",
-                    ]}
-                  />
-                </li>
-              )}
-              {config.about.includes("302-go") && (
-                <li>
-                  <h3>{t("about.302_go")}</h3>
-                  <p>{t("about.302_go_description")}</p>
-                  {config.about.includes("mirrors_help") && (
+                )}
+              </ul>
+            }
+          />
+          <Para
+            title={t("about.participants")}
+            icon="favorite_border"
+            description={t("about.participants_description")}
+            content={
+              <div className="about-participants">
+                {site.map(({ site }) => (
+                  <div className="about-powered-by" key={site.abbr}>
+                    <Logo site={site} className="about-logo" />
+                    {site.abbr}
+                  </div>
+                ))}
+              </div>
+            }
+          />
+          <Para
+            title={t("about.project")}
+            icon="code"
+            description={t("about.project_description")}
+            content={
+              <a
+                href="https://github.com/mirrorz-org/mirrorz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://github.com/mirrorz-org/mirrorz
+              </a>
+            }
+          />
+          <Para
+            title={t("about.advanced")}
+            icon="build"
+            description={t("about.advanced_description")}
+            content={
+              <ul className="about-features">
+                {config.about.includes("mirrors_help") && (
+                  <li>
+                    <h3>{t("about.mirrors_help")}</h3>
+                    <p>{t("about.mirrors_help_description")}</p>
                     <UrlList urls={[config.mirrors_help_url]} />
-                  )}
+                  </li>
+                )}
+                <li>
+                  <h3>{t("about.valid_urls")}</h3>
+                  <p>{t("about.valid_urls_description")}</p>
+                  <UrlList urls={validUrls} />
                 </li>
-              )}
-            </ul>
-          }
-        />
+                {config.about.includes("monitor") && (
+                  <li>
+                    <h3>{t("about.monitor")}</h3>
+                    <p>{t("about.monitor_description")}</p>
+                    <UrlList urls={[`${config.url}/monitor`]} />
+                  </li>
+                )}
+                {config.about.includes("302-js") && (
+                  <li>
+                    <h3>{t("about.302_js")}</h3>
+                    <p>{t("about.302_js_description")}</p>
+                    <UrlList
+                      urls={[
+                        "https://mirrors.mirrorz.org/archlinux",
+                        "https://m.mirrorz.org/centos",
+                      ]}
+                    />
+                  </li>
+                )}
+                {config.about.includes("search") && (
+                  <li>
+                    <h3>{t("about.search")}</h3>
+                    <p>{t("about.search_description")}</p>
+                    <UrlList
+                      urls={[
+                        "https://search.mirrorz.org/archlinux/",
+                        "https://s.mirrorz.org/openwrt/snapshots/targets/zynq/generic/sha256sums",
+                      ]}
+                    />
+                  </li>
+                )}
+                {config.about.includes("302-go") && (
+                  <li>
+                    <h3>{t("about.302_go")}</h3>
+                    <p>{t("about.302_go_description")}</p>
+                    {config.about.includes("mirrors_help") && (
+                      <UrlList urls={[config.mirrors_help_url]} />
+                    )}
+                  </li>
+                )}
+              </ul>
+            }
+          />
+        </div>
       </div>
     );
   }

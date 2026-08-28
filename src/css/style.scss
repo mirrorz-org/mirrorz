@@ -1,3 +1,4 @@
+@use "./tokens.scss" as *;
 @use "./fonts.scss" as *;
 @use "./consts.scss" as *;
 @use "./color.scss" as *;
@@ -9,8 +10,8 @@
 @use "./icon.scss" as *;
 @use "./redirect-badge.scss" as *;
 
-:root {
-  color-scheme: light dark;
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -24,9 +25,11 @@ body {
   width: 100%;
   max-height: 100%;
   max-width: 100%;
-  /* without it, with box-shadow in darkmode scroller would be bright */
-  /* introduced by commit 00b0c2b */
   overflow: hidden;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--bg);
   @include sans;
 }
 
@@ -36,32 +39,30 @@ main {
   max-height: 100%;
   max-width: 100%;
   flex: 0 1 auto;
+  min-width: 0;
 }
 
 a {
-  text-decoration: underline;
-  color: $primary;
-  filter: grayscale(0.5);
-  transition: filter 0.2s ease;
+  color: var(--link);
+  text-decoration: none;
 
   &:hover {
-    filter: none;
+    text-decoration: underline;
   }
 }
 
 h2 {
-  @include monospace;
   margin: 10px 0 5px 0;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 h3 {
   margin: 6px 0 3px 0;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   .material-icons {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -83,7 +84,49 @@ code {
 
 .sidebar-logo {
   display: block;
-  height: 64px;
+  width: 46px;
+  height: 46px;
+}
+
+.debug {
+  padding: 20px 30px 40px;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.debug-prompt {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2px 20px;
+}
+
+a.debug-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+
+  .material-icons {
+    font-size: 16px;
+    color: var(--text-faint);
+  }
+
+  &:hover {
+    background: var(--bg-hover);
+    text-decoration: none;
+  }
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
@@ -105,10 +148,10 @@ code {
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 15px;
   }
 }

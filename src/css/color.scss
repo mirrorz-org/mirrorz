@@ -1,45 +1,132 @@
-@use "./consts.scss" as *;
+/* Status colors and badge shapes. Components keep their status class names
+   (.success, .failed, ...); each class only sets --c, consumed by the badge
+   rules below. */
 
 .success {
-  color: $success;
+  --c: var(--st-success);
 }
 
 .failed {
-  color: $failed;
+  --c: var(--st-failed);
 }
 
 .pending {
-  color: $pending;
+  --c: var(--st-pending);
 }
 
 .syncing {
-  color: $syncing;
+  --c: var(--st-syncing);
 }
 
 .unknown {
-  color: $unknown;
+  --c: var(--st-unknown);
 }
 
 .pause {
-  color: $pause;
+  --c: var(--st-unknown);
 }
 
 .oldsuccess {
-  color: $oldsuccess;
+  --c: var(--st-old);
 }
 
 .next {
-  color: $next;
+  --c: var(--st-next);
 }
 
 .new {
-  color: $new;
+  --c: var(--st-new);
 }
 
 .cache {
-  color: $cache;
+  --c: var(--st-cache);
 }
 
 .proxy {
-  color: $proxy;
+  --c: var(--st-cache);
+}
+
+@mixin badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px 1px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.55;
+  white-space: nowrap;
+  color: var(--c, var(--text-muted));
+  background: color-mix(in srgb, var(--c, var(--text-muted)) 12%, transparent);
+}
+
+/* Per-group / per-site status summary: borderless colored count glyphs;
+   only failure counts keep a pill so problems stand out from the noise */
+.summary {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 11px;
+  row-gap: 3px;
+  font-size: 12.5px;
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-weight: 600;
+    color: var(--c, var(--text-muted));
+
+    .material-icons {
+      font-size: 14px;
+    }
+
+    &.failed {
+      @include badge;
+      gap: 4px;
+    }
+  }
+}
+
+/* Per-mirror status line: fixed-width label column so timestamps share one
+   vertical axis regardless of label length. The time column has a minimum
+   width so shrink-to-fit contexts (Site page rows) resolve to one block
+   width and labels also align across cards. */
+.status {
+  display: grid;
+  grid-template-columns: minmax(118px, max-content) minmax(110px, auto);
+  align-items: center;
+  column-gap: 10px;
+  padding: 2.5px 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+
+  > .material-icons {
+    display: none;
+  }
+
+  > div:first-of-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    color: var(--text);
+    font-weight: 600;
+
+    &::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c, var(--text-muted));
+    }
+  }
+}
+
+.status-time {
+  color: var(--text-muted);
+  font-size: 13px;
 }

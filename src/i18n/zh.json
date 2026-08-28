@@ -1,10 +1,12 @@
 {
   "iso": {
-    "os": "操作系统",
     "os_norm": "操作系统",
     "app": "应用",
     "font": "字体",
-    "prompt": "请从侧边栏选择一个{{category}}"
+    "prompt": "请从左侧列表选择一个{{category}}",
+    "tagline": "就近下载，选择最快的开源镜像",
+    "tagline_sub": "操作系统、应用与字体镜像，由高校与社区镜像站提供。",
+    "filter": "筛选…"
   },
   "list": {
     "list": "列表"
@@ -95,7 +97,11 @@
     "years": "年"
   },
   "404_prompt": "请使用侧边栏",
+  "404_home": "返回首页",
+  "404_list": "浏览镜像列表",
+  "debug_prompt": "下载各站点解析后的 JSON 数据（用于调试）。",
   "mirrors_prompt": "搜索（支持正则表达式）",
+  "mirrors_count": "{{shown}} / {{total}} 个镜像 · {{sites}} 个站点",
   "index": {
     "javascript": "请启用 Javascript 使得该页面正确显示",
     "loading": "加载中"
@@ -107,5 +113,6 @@
   },
   "download": "下载",
   "help": "帮助",
-  "redirect_badge": "参与跳转"
+  "opens_new_tab": "在新标签页中打开",
+  "redirect_badge": "参与 302 智能分流"
 }

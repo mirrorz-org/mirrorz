@@ -32,10 +32,19 @@ export const Logo = React.memo(
               media="(prefers-color-scheme: dark)"
             />
           )}
-          <img src={logo} title={site.abbr} className={className} />
+          <img
+            src={logo}
+            title={site.abbr}
+            className={className + (logo_darkmode ? "" : " logo-plate")}
+          />
         </picture>
       );
-    else return <div></div>;
+    else
+      return (
+        <div className={className + " logo-fallback"} title={site.abbr}>
+          {site.abbr.slice(0, 5)}
+        </div>
+      );
   }
 );
 

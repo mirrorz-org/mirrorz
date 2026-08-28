@@ -51,7 +51,7 @@ const Group = React.memo(
         >
           <div className="group-header" id={group} onClick={toggleCollapse}>
             <h2 className="heading">
-              {collapse ? <Icon>add</Icon> : <Icon>remove</Icon>}
+              {collapse ? <Icon>chevron_right</Icon> : <Icon>expand_more</Icon>}
               {group}
             </h2>
             <div>{summary}</div>
@@ -161,16 +161,31 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   const end = performance.now();
   //console.log(`Sort`, end - begin);
 
+  const shownCount = filtered.filter(({ filtered }) => !filtered).length;
+  const siteCount = useMemo(
+    () => new Set(mirrors.map(({ source }) => source)).size,
+    [mirrors]
+  );
+
   return (
     <div className={"mirrorz"}>
-      <div className="search">
-        <input
-          value={filter}
-          onChange={updateFilter}
-          onKeyDown={uploadFilter}
-          placeholder={t("mirrors_prompt")}
-        />
-        <Icon>search</Icon>
+      <div className="toolbar">
+        <div className="search">
+          <input
+            value={filter}
+            onChange={updateFilter}
+            onKeyDown={uploadFilter}
+            placeholder={t("mirrors_prompt")}
+          />
+          <Icon>search</Icon>
+        </div>
+        <span className="result-count" role="status">
+          {t("mirrors_count", {
+            shown: shownCount,
+            total: grouped.length,
+            sites: siteCount,
+          })}
+        </span>
       </div>
 
       <div className="mirrors">
