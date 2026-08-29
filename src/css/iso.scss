@@ -55,9 +55,12 @@
   border-bottom-color: var(--accent);
 }
 
+.category a:hover {
+  text-decoration: none;
+}
+
 .category a:hover:not(.active) {
   color: var(--text);
-  text-decoration: none;
 }
 
 .distro-urls-container {
@@ -175,9 +178,12 @@
   }
 }
 
+.distro a:hover {
+  text-decoration: none;
+}
+
 .distro a:hover:not(.active) {
   background-color: var(--bg-hover);
-  text-decoration: none;
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
