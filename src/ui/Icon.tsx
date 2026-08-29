@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Site } from "../schema";
 
 export default React.memo(
@@ -14,6 +14,7 @@ export default React.memo(
 
 export const Logo = React.memo(
   ({ site, className }: { site: Site; className: string }) => {
+    const [failed, setFailed] = useState(false);
     let logo_darkmode = null;
     let logo = null;
     if (site.logo_darkmode && site.logo_darkmode !== "") {
@@ -23,7 +24,7 @@ export const Logo = React.memo(
       logo = site.logo;
     }
 
-    if (logo !== null)
+    if (logo !== null && !failed)
       return (
         <picture>
           {logo_darkmode && (
@@ -32,7 +33,12 @@ export const Logo = React.memo(
               media="(prefers-color-scheme: dark)"
             />
           )}
-          <img src={logo} title={site.abbr} className={className} />
+          <img
+            src={logo}
+            title={site.abbr}
+            className={className}
+            onError={() => setFailed(true)}
+          />
         </picture>
       );
     else return <div></div>;
