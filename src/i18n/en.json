@@ -3,7 +3,7 @@
     "os_norm": "OS",
     "app": "Apps",
     "font": "Fonts",
-    "prompt": "Choose from the {{category}} list on the left",
+    "prompt": "Choose from the {{category}} list",
     "tagline": "Download from the fastest mirror near you",
     "tagline_sub": "OS images, applications and fonts from university and community mirror sites.",
     "filter": "Filter…"

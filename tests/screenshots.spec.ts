@@ -63,6 +63,13 @@ test.describe("home and download routes", () => {
     await expect(clear).toBeHidden();
   });
 
+  test("download selection prompt is direction neutral", async ({ page }) => {
+    await page.goto(baseUrl + "/os");
+    const prompt = page.locator(".logo-404 div");
+    await expect(prompt).toBeVisible();
+    await expect(prompt).not.toContainText(/left|左侧/i);
+  });
+
   test("help navigation indicates that it opens a new tab", async ({
     page,
   }) => {

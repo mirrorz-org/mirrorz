@@ -3,7 +3,7 @@
     "os_norm": "操作系统",
     "app": "应用",
     "font": "字体",
-    "prompt": "请从左侧列表选择一个{{category}}",
+    "prompt": "请从{{category}}列表中选择一项",
     "tagline": "就近下载，选择最快的开源镜像",
     "tagline_sub": "操作系统、应用与字体镜像，由高校与社区镜像站提供。",
     "filter": "筛选…"
