@@ -14,6 +14,9 @@
   "site": {
     "site": "Site",
     "back": "Back to site list",
+    "filter": "Filter repositories…",
+    "count": "{{shown}} / {{total}} repositories",
+    "no_results": "No matching repositories.",
     "url": "URL",
     "name": "Name",
     "homepage": "Homepage",
@@ -101,6 +104,7 @@
   "404_list": "Browse mirrors",
   "debug_prompt": "Download each site's parsed JSON for debugging.",
   "mirrors_prompt": "Filter (Support regex)",
+  "clear_filter": "Clear filter",
   "mirrors_count": "{{shown}} / {{total}} projects · {{sites}} sites",
   "index": {
     "javascript": "You need javascript to view this page properly.",

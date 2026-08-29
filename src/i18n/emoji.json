@@ -13,6 +13,9 @@
   },
   "site": {
     "site": "💳",
+    "filter": "🔍 Repositories",
+    "count": "{{shown}} / {{total}} 📦",
+    "no_results": "🤷 No matching repositories.",
     "url": "✨",
     "name": "❤️",
     "homepage": "🏠",
@@ -101,6 +104,7 @@
   "404_list": "😋",
   "debug_prompt": "🐛 JSON",
   "mirrors_prompt": "Filter (Support regex)",
+  "clear_filter": "🧹 Clear filter",
   "mirrors_count": "{{shown}} / {{total}} 📦 · {{sites}} 🏫",
   "index": {
     "javascript": "You need javascript to view this page properly.",

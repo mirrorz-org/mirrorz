@@ -131,7 +131,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
       </header>
       <div className="distro-urls-container">
         <div className="distro-panel">
-          <label className="mini-search">
+          <div className="mini-search">
             <Icon aria-hidden="true">search</Icon>
             <input
               value={distroFilter}
@@ -139,7 +139,17 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
               placeholder={t("iso.filter")}
               aria-label={t("iso.filter")}
             />
-          </label>
+            <button
+              type="button"
+              className="search-clear"
+              onClick={() => setDistroFilter("")}
+              disabled={distroFilter === ""}
+              title={t("clear_filter")}
+              aria-label={t("clear_filter")}
+            >
+              <Icon aria-hidden="true">close</Icon>
+            </button>
+          </div>
           <div className="distro" ref={distroList}>
             {Object.entries(allDistro)
               .sort((a, b) => a[0].localeCompare(b[0]))

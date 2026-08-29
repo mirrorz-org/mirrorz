@@ -100,6 +100,22 @@
   align-items: center;
 }
 
+.site-repo-toolbar {
+  padding: 12px 32px 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-repo-search {
+  flex-basis: 440px;
+}
+
+.site-repo-empty {
+  margin: 24px 32px;
+  color: var(--text-muted);
+}
+
 .site-mirrors {
   padding: 8px 32px 40px;
   display: grid;
@@ -251,6 +267,24 @@
     padding: 0 12px 30px;
     grid-template-columns: 1fr;
     gap: 0;
+  }
+
+  .site-repo-toolbar {
+    padding: 10px 16px 4px;
+    gap: 10px;
+  }
+
+  .site-repo-search {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .site-repo-toolbar .result-count {
+    display: none;
+  }
+
+  .site-repo-empty {
+    margin: 20px 16px;
   }
 
   .site-group {

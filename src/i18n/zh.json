@@ -14,6 +14,9 @@
   "site": {
     "site": "站点",
     "back": "返回站点列表",
+    "filter": "筛选软件仓库…",
+    "count": "{{shown}} / {{total}} 个软件仓库",
+    "no_results": "没有匹配的软件仓库。",
     "url": "网址",
     "name": "名称",
     "homepage": "主页",
@@ -101,6 +104,7 @@
   "404_list": "浏览镜像列表",
   "debug_prompt": "下载各站点解析后的 JSON 数据（用于调试）。",
   "mirrors_prompt": "搜索（支持正则表达式）",
+  "clear_filter": "清空搜索",
   "mirrors_count": "{{shown}} / {{total}} 个镜像 · {{sites}} 个站点",
   "index": {
     "javascript": "请启用 Javascript 使得该页面正确显示",

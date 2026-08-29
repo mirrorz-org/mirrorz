@@ -50,6 +50,19 @@ test.describe("home and download routes", () => {
     }
   });
 
+  test("download filter can be cleared", async ({ page }) => {
+    await page.goto(baseUrl + "/os");
+    const input = page.locator(".mini-search input");
+    const clear = page.locator(".mini-search .search-clear");
+
+    await expect(clear).toBeHidden();
+    await input.fill("ubuntu");
+    await expect(clear).toBeVisible();
+    await clear.click();
+    await expect(input).toHaveValue("");
+    await expect(clear).toBeHidden();
+  });
+
   test("help navigation indicates that it opens a new tab", async ({
     page,
   }) => {
@@ -63,38 +76,55 @@ test.describe("home and download routes", () => {
 });
 
 test.describe("desktop list layout", () => {
-  test("groups expand independently within their columns", async ({ page }) => {
+  test("filter can be cleared from the search field", async ({ page }) => {
+    await page.goto(baseUrl + "/list/");
+    const input = page.locator(".search input");
+    const clear = page.locator(".search-clear");
+
+    await expect(page.locator(".search-leading .material-icons")).toHaveText(
+      "search"
+    );
+    await expect(clear).toBeHidden();
+    await input.fill("ubuntu");
+    await expect(clear).toBeVisible();
+    await clear.click();
+
+    await expect(input).toHaveValue("");
+    await expect(clear).toBeHidden();
+    await expect(page).toHaveURL(/\/list\/?$/);
+  });
+
+  test("groups expand without leaving gaps in other columns", async ({
+    page,
+  }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(baseUrl + "/list/");
     await page.waitForTimeout(1000);
 
-    const headers = page.locator(".group-header");
-    const firstId = await headers.nth(0).getAttribute("id");
-    const secondId = await headers.nth(1).getAttribute("id");
-    const firstHeader = page.locator(`#${firstId}`);
-    const secondHeader = page.locator(`#${secondId}`);
-    const first = await headers.nth(0).boundingBox();
-    const second = await headers.nth(1).boundingBox();
-    expect(first).not.toBeNull();
-    expect(second).not.toBeNull();
-    expect(Math.abs(first!.y - second!.y)).toBeLessThan(2);
+    const columns = page.locator(".mirror-column");
+    await expect(columns).toHaveCount(3);
+    const firstHeader = columns.nth(0).locator(".group-header").nth(0);
+    const secondHeader = columns.nth(1).locator(".group-header").nth(0);
+    const nextInSecondColumn = columns.nth(1).locator(".group-header").nth(1);
+    const secondBefore = await secondHeader.boundingBox();
+    const nextBefore = await nextInSecondColumn.boundingBox();
 
     await firstHeader.click();
 
-    const expandedFirst = await headers.nth(0).boundingBox();
-    const expandedSecond = await headers.nth(1).boundingBox();
+    const expandedFirst = await firstHeader.boundingBox();
     const firstDetails = await firstHeader
       .locator("xpath=../following-sibling::*[1]")
       .boundingBox();
-    await expect(headers.nth(1)).toBeVisible();
+    const secondAfter = await secondHeader.boundingBox();
+    const nextAfter = await nextInSecondColumn.boundingBox();
     expect(expandedFirst).not.toBeNull();
-    expect(expandedSecond).not.toBeNull();
     expect(firstDetails).not.toBeNull();
-    expect(Math.abs(expandedFirst!.y - expandedSecond!.y)).toBeLessThan(2);
     expect(firstDetails!.x).toBeGreaterThanOrEqual(expandedFirst!.x);
     expect(firstDetails!.x + firstDetails!.width).toBeLessThanOrEqual(
       expandedFirst!.x + expandedFirst!.width
     );
+    expect(secondAfter!.y).toBeCloseTo(secondBefore!.y, 1);
+    expect(nextAfter!.y).toBeCloseTo(nextBefore!.y, 1);
 
     await secondHeader.click();
     await expect(page.locator(".group-expanded")).toHaveCount(2);
@@ -104,6 +134,26 @@ test.describe("desktop list layout", () => {
     await expect(secondHeader.locator(".material-icons")).toHaveText(
       "expand_more"
     );
+  });
+});
+
+test.describe("desktop site layout", () => {
+  test("repositories can be filtered and cleared", async ({ page }) => {
+    await page.goto(baseUrl + "/site/CQUPT");
+    const input = page.locator(".site-repo-search input");
+    const clear = page.locator(".site-repo-search .search-clear");
+    const repos = page.locator(".site-group");
+    await expect(repos.first()).toBeVisible();
+    const total = await repos.count();
+
+    await input.fill("__no_such_repository__");
+    await expect(repos).toHaveCount(0);
+    await expect(page.locator(".site-repo-empty")).toBeVisible();
+    await clear.click();
+
+    await expect(input).toHaveValue("");
+    await expect(repos).toHaveCount(total);
+    await expect(clear).toBeHidden();
   });
 });
 
