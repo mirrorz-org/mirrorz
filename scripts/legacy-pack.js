@@ -1,10 +1,10 @@
 // pack legacy json into one file
 // adapted from mirrorz-legacy/generator.js
-config = require("../src/config/config.json");
+const config = require("../src/config/config.json");
 
 let sites = [];
 
-for (const abbr of config.mirrors) {
+for (const abbr of [...(config.legacy_pack ?? []), ...config.mirrors]) {
   try {
     sites.push(require(`../static/json/legacy/${abbr}.json`));
   } catch (e) {
