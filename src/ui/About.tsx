@@ -59,6 +59,26 @@ const UrlList = React.memo(({ urls }: { urls: string[] }) => (
   </ul>
 ));
 
+const redirectUrl = (label: string) => {
+  const url = new URL(config.url);
+  url.hostname = `${label}.${url.hostname}`;
+  return url.toString();
+};
+
+const RedirectPattern = React.memo(
+  ({ label, description }: { label: string; description: string }) => {
+    const url = redirectUrl(label);
+    return (
+      <li>
+        <a href={url}>
+          <code>{new URL(url).hostname}</code>
+        </a>
+        <p>{description}</p>
+      </li>
+    );
+  }
+);
+
 export default React.memo(
   ({ site }: { site: { site: Site; parsed: ParsedMirror[] }[] }) => {
     const { t } = useTranslation();
@@ -196,9 +216,21 @@ export default React.memo(
                   <li>
                     <h3>{t("about.302_go")}</h3>
                     <p>{t("about.302_go_description")}</p>
-                    {config.about.includes("mirrors_help") && (
-                      <UrlList urls={[config.mirrors_help_url]} />
-                    )}
+                    <p>{t("about.302_go_preferences")}</p>
+                    <ul className="about-redirect-patterns">
+                      <RedirectPattern
+                        label="tuna"
+                        description={t("about.302_go_prefer_one")}
+                      />
+                      <RedirectPattern
+                        label="tuna-ustc"
+                        description={t("about.302_go_prefer_multiple")}
+                      />
+                      <RedirectPattern
+                        label="avoidtuna"
+                        description={t("about.302_go_avoid")}
+                      />
+                    </ul>
                   </li>
                 )}
               </ul>
