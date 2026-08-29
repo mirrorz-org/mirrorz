@@ -80,6 +80,7 @@ export default React.memo(
     return (
       <div className="about">
         <div className="about-col">
+          <h1 className="about-title">{config.display || "MirrorZ"}</h1>
           <Para
             title={t("about.overview")}
             icon="info_outline"
