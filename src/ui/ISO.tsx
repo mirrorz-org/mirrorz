@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
-import { Logo404 } from "./Icon";
+import Icon, { Logo404 } from "./Icon";
 import { Info, Site } from "../schema";
 import { Page404 } from "./404";
 import { RedirectBadge } from "./RedirectBadge";
@@ -67,6 +67,7 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
   const category = params.category ?? "os",
     distro = params.distro ?? (params.category ? "" : "ubuntu");
   const distroList = useRef<HTMLDivElement>(null);
+  const [distroFilter, setDistroFilter] = useState("");
 
   const priority = (c: string) => {
     if (c === "os") {
@@ -108,48 +109,71 @@ export default React.memo(({ isoinfo }: { isoinfo: IsoInfo }) => {
 
   return allCat.has(category) ? (
     <div className="iso">
-      <div className="category">
-        {Array.from(allCat)
-          .sort((l, r) => priority(l) - priority(r))
-          .map((c, idx) => (
-            <Link
-              to={`/${c.replace(/\s/g, "")}`}
-              key={idx + c}
-              className={c.replace(/\s/g, "") == category ? "active" : ""}
-              aria-current={
-                c.replace(/\s/g, "") == category ? "page" : undefined
-              }
-            >
-              {c == "os" ? (
-                <>
-                  <h2 className="category-label-desktop">{t("iso." + c, c)}</h2>
-                  <h2 className="category-label-mobile">{t("iso.os_norm")}</h2>
-                </>
-              ) : (
-                <h2>{t("iso." + c, c)}</h2>
-              )}
-            </Link>
-          ))}
-      </div>
+      <header className="page-head">
+        <h1 className="tagline">{t("iso.tagline")}</h1>
+        <p className="tagline-sub">{t("iso.tagline_sub")}</p>
+        <div className="category">
+          {Array.from(allCat)
+            .sort((l, r) => priority(l) - priority(r))
+            .map((c, idx) => (
+              <Link
+                to={`/${c.replace(/\s/g, "")}`}
+                key={idx + c}
+                className={c.replace(/\s/g, "") == category ? "active" : ""}
+                aria-current={
+                  c.replace(/\s/g, "") == category ? "page" : undefined
+                }
+              >
+                <h2>{c == "os" ? t("iso.os_norm") : t("iso." + c, c)}</h2>
+              </Link>
+            ))}
+        </div>
+      </header>
       <div className="distro-urls-container">
-        <div className="distro" ref={distroList}>
-          {Object.entries(allDistro)
-            .sort((a, b) => a[0].localeCompare(b[0]))
-            .filter(([_, c]) => c.replace(/\s/g, "") === category)
-            .map(([d, c], idx) => {
-              const nc = c.replace(/\s/g, "");
-              const nd = d.replace(/\s/g, "");
-              return (
-                <Link
-                  to={`/${nc}/${nd}`}
-                  key={idx + nd}
-                  className={nd == distro ? "active" : ""}
-                  aria-current={nd == distro ? "page" : undefined}
-                >
-                  <h3>{d}</h3>
-                </Link>
-              );
-            })}
+        <div className="distro-panel">
+          <div className="mini-search">
+            <Icon aria-hidden="true">search</Icon>
+            <input
+              value={distroFilter}
+              onChange={(ev) => setDistroFilter(ev.target.value)}
+              placeholder={t("iso.filter")}
+              aria-label={t("iso.filter")}
+            />
+            <button
+              type="button"
+              className="search-clear"
+              onClick={() => setDistroFilter("")}
+              disabled={distroFilter === ""}
+              title={t("clear_filter")}
+              aria-label={t("clear_filter")}
+            >
+              <Icon aria-hidden="true">close</Icon>
+            </button>
+          </div>
+          <div className="distro" ref={distroList}>
+            {Object.entries(allDistro)
+              .sort((a, b) => a[0].localeCompare(b[0]))
+              .filter(([_, c]) => c.replace(/\s/g, "") === category)
+              .filter(
+                ([d, _]) =>
+                  distroFilter === "" ||
+                  d.toLowerCase().includes(distroFilter.toLowerCase())
+              )
+              .map(([d, c], idx) => {
+                const nc = c.replace(/\s/g, "");
+                const nd = d.replace(/\s/g, "");
+                return (
+                  <Link
+                    to={`/${nc}/${nd}`}
+                    key={idx + nd}
+                    className={nd == distro ? "active" : ""}
+                    aria-current={nd == distro ? "page" : undefined}
+                  >
+                    <h3>{d}</h3>
+                  </Link>
+                );
+              })}
+          </div>
         </div>
         <div className="urls">
           <Urls isoinfo={isoinfo} category={category} distro={distro} />

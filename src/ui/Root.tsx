@@ -45,11 +45,18 @@ export default React.memo(() => {
       <Router>
         <div id="app-container">
           <div className="sidebar">
-            <NavLink to="/" activeClassName="active" exact>
+            <NavLink
+              to="/"
+              className="sidebar-brand"
+              activeClassName="active"
+              isActive={(_, location) =>
+                location.pathname === "/" || location.pathname === "/about"
+              }
+            >
               <img
                 src="/static/img/mirrorz.svg"
                 className="sidebar-logo"
-                alt="MirrorZ"
+                alt={config.display || "MirrorZ"}
               />
             </NavLink>
             <NavLink
@@ -67,17 +74,28 @@ export default React.memo(() => {
               <h2>{t("download")}</h2>
             </NavLink>
             <NavLink to="/list" activeClassName="active">
-              <Icon aria-hidden="true">view_list</Icon>
+              <Icon aria-hidden="true">list_alt</Icon>
               <h2>{t("list.list")}</h2>
             </NavLink>
             <NavLink to="/site" activeClassName="active">
-              <Icon aria-hidden="true">public</Icon>
+              <Icon aria-hidden="true">dns</Icon>
               <h2>{t("site.site")}</h2>
             </NavLink>
             {config.mirrors_help_url && (
-              <a href={config.mirrors_help_url} target="_blank" rel="noopener">
+              <a
+                href={config.mirrors_help_url}
+                target="_blank"
+                rel="noopener"
+                title={t("opens_new_tab")}
+                aria-label={`${t("help")}, ${t("opens_new_tab")}`}
+              >
                 <Icon aria-hidden="true">help_outline</Icon>
-                <h2>{t("help")}</h2>
+                <h2>
+                  {t("help")}
+                  <span className="external-link-icon" aria-hidden="true">
+                    ↗
+                  </span>
+                </h2>
               </a>
             )}
           </div>

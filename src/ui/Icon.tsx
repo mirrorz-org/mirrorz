@@ -36,12 +36,17 @@ export const Logo = React.memo(
           <img
             src={logo}
             title={site.abbr}
-            className={className}
+            className={className + (logo_darkmode ? "" : " logo-plate")}
             onError={() => setFailed(true)}
           />
         </picture>
       );
-    else return <div></div>;
+    else
+      return (
+        <div className={className + " logo-fallback"} title={site.abbr}>
+          {site.abbr.slice(0, 5)}
+        </div>
+      );
   }
 );
 

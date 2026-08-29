@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   generatePath,
@@ -64,6 +64,10 @@ const Meta = React.memo(
     const tag = score ? TagFromScore(score) : "";
     return (
       <div className="site-meta">
+        <h1 className="site-title">
+          {site.abbr}
+          <RedirectBadge abbr={site.abbr} />
+        </h1>
         {site.url && (
           <MetaLine left={t("site.url")} right={site.url} link={true} />
         )}
@@ -93,6 +97,107 @@ const Meta = React.memo(
 
 const siteUrl = (path: string, site: Site) =>
   generatePath(path, { siteSlug: site.abbr.replace(/\s/g, "") });
+
+const SiteDetails = React.memo(
+  ({
+    site,
+    parsed,
+    score,
+    statusFilter,
+  }: {
+    site: Site;
+    parsed: ParsedMirror[];
+    score?: RepoScoring;
+    statusFilter?: string;
+  }) => {
+    const { t } = useTranslation();
+    const [repoFilter, setRepoFilter] = useState("");
+    const repos = useMemo(
+      () =>
+        parsed
+          .filter(
+            (mirror) =>
+              statusFilter === undefined ||
+              !mirror.status ||
+              mirror.status.indexOf(statusFilter) !== -1
+          )
+          .sort((a, b) => a.cname.localeCompare(b.cname)),
+      [parsed, statusFilter]
+    );
+    const filteredRepos = useMemo(() => {
+      const query = repoFilter.trim().toLowerCase();
+      if (query === "") return repos;
+      return repos.filter(
+        ({ cname, upstream }) =>
+          cname.toLowerCase().includes(query) ||
+          upstream?.toLowerCase().includes(query)
+      );
+    }, [repoFilter, repos]);
+
+    return (
+      <div className="site-content">
+        <div className="site-mobile-header">
+          <Link to="/site" aria-label={t("site.back")}>
+            <Icon>arrow_back</Icon>
+            <span>{site.abbr}</span>
+          </Link>
+        </div>
+        <Meta site={site} score={score} />
+        <div className="site-repo-toolbar">
+          <div className="search site-repo-search">
+            <span
+              className={"search-leading" + (repoFilter === "" ? " empty" : "")}
+            >
+              <Icon aria-hidden="true">search</Icon>
+            </span>
+            <input
+              value={repoFilter}
+              onChange={(event) => setRepoFilter(event.target.value)}
+              placeholder={t("site.filter")}
+              aria-label={t("site.filter")}
+            />
+            <button
+              type="button"
+              className="search-clear"
+              onClick={() => setRepoFilter("")}
+              disabled={repoFilter === ""}
+              title={t("clear_filter")}
+              aria-label={t("clear_filter")}
+            >
+              <Icon aria-hidden="true">close</Icon>
+            </button>
+          </div>
+          <span className="result-count" role="status">
+            {t("site.count", {
+              shown: filteredRepos.length,
+              total: repos.length,
+            })}
+          </span>
+        </div>
+        {filteredRepos.length === 0 ? (
+          <p className="site-repo-empty">{t("site.no_results")}</p>
+        ) : (
+          <div className="site-mirrors">
+            {filteredRepos.map(({ cname, status, upstream }, idx) => (
+              <div className="site-group" key={idx}>
+                <h2 className="heading">{cname}</h2>
+                <div>
+                  {statusFilter && upstream && (
+                    <div className="upstream">
+                      <Icon>outbound</Icon>
+                      {upstream}
+                    </div>
+                  )}
+                  {status && <StatusList mapper={statusMapper(status)} />}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
 export default React.memo(
   ({
@@ -138,40 +243,13 @@ export default React.memo(
         {site
           .filter((s) => s.site.abbr.replace(/\s/g, "") === curr)
           .map(({ site, parsed, score }) => (
-            <div className="site-content" key={site.abbr}>
-              <div className="site-mobile-header">
-                <Link to="/site" aria-label={t("site.back")}>
-                  <Icon>arrow_back</Icon>
-                  <span>{site.abbr}</span>
-                </Link>
-              </div>
-              <Meta site={site} score={score} />
-              <div className="site-mirrors">
-                {parsed
-                  .sort((a, b) => a.cname.localeCompare(b.cname))
-                  // Status filter from URL
-                  .filter(
-                    (m) =>
-                      stat === undefined ||
-                      !m.status ||
-                      m.status.indexOf(stat) !== -1
-                  )
-                  .map(({ cname, status, upstream }, idx) => (
-                    <div className="site-group" key={idx}>
-                      <h2 className="heading">{cname}</h2>
-                      <div>
-                        {stat && upstream && (
-                          <div className="upstream">
-                            <Icon>outbound</Icon>
-                            {upstream}
-                          </div>
-                        )}
-                        {status && <StatusList mapper={statusMapper(status)} />}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
+            <SiteDetails
+              key={site.abbr}
+              site={site}
+              parsed={parsed}
+              score={score}
+              statusFilter={stat}
+            />
           ))}
       </div>
     );

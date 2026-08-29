@@ -1,4 +1,10 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, {
+  useState,
+  useMemo,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { useTranslation } from "react-i18next";
 import {
   Link,
@@ -18,16 +24,20 @@ const Group = React.memo(
     group,
     entries,
     filtered,
-    defaultCollapse = true,
+    expanded,
+    onToggle,
   }: {
     group: string;
     entries: ParsedMirror[];
     filtered: boolean;
-    defaultCollapse?: boolean;
+    expanded: boolean;
+    onToggle: (group: string) => void;
   }) => {
     const match = useRouteMatch();
-    const [collapse, setCollapse] = useState(defaultCollapse);
-    const toggleCollapse = useCallback(() => setCollapse((c) => !c), []);
+    const toggleExpanded = useCallback(
+      () => onToggle(group),
+      [group, onToggle]
+    );
 
     const summary = useMemo(
       () => (
@@ -43,22 +53,22 @@ const Group = React.memo(
         className={
           "group" +
           (filtered ? " filtered" : "") +
-          (collapse ? "" : " group-expanded")
+          (expanded ? " group-expanded" : "")
         }
       >
         <Link
           to={generatePath(match.path, { filter: encodeURIComponent(group) })}
         >
-          <div className="group-header" id={group} onClick={toggleCollapse}>
+          <div className="group-header" id={group} onClick={toggleExpanded}>
             <h2 className="heading">
-              {collapse ? <Icon>add</Icon> : <Icon>remove</Icon>}
+              {expanded ? <Icon>expand_more</Icon> : <Icon>chevron_right</Icon>}
               {group}
             </h2>
             <div>{summary}</div>
           </div>
         </Link>
         <div className="group-items">
-          {collapse == false &&
+          {expanded &&
             entries
               .sort((a, b) => a.source.localeCompare(b.source))
               .map(
@@ -113,6 +123,39 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
     match = useRouteMatch(),
     params = useParams() as { filter?: string };
   const [filter, setFilter] = useState(params.filter ?? "");
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
+    () => new Set(params.filter ? [params.filter] : [])
+  );
+  const [columnCount, setColumnCount] = useState(1);
+  const mirrorsRef = useRef<HTMLDivElement>(null);
+
+  const toggleGroup = useCallback((group: string) => {
+    setExpandedGroups((current) => {
+      const next = new Set(current);
+      if (next.has(group)) next.delete(group);
+      else next.add(group);
+      return next;
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    const mirrorsElement = mirrorsRef.current;
+    if (!mirrorsElement) return;
+
+    const updateColumnCount = () => {
+      const style = getComputedStyle(mirrorsElement);
+      const width =
+        mirrorsElement.clientWidth -
+        parseFloat(style.paddingLeft) -
+        parseFloat(style.paddingRight);
+      setColumnCount(Math.max(1, Math.floor((width + 36) / (380 + 36))));
+    };
+    updateColumnCount();
+
+    const observer = new ResizeObserver(updateColumnCount);
+    observer.observe(mirrorsElement);
+    return () => observer.disconnect();
+  }, []);
 
   // Clustering
   const grouped = useMemo(
@@ -124,6 +167,10 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   );
 
   const updateFilter = useCallback((ev) => setFilter(ev.target.value), []);
+  const clearFilter = useCallback(() => {
+    setFilter("");
+    history.push(generatePath(match.path, {}));
+  }, [history, match.path]);
   const uploadFilter = useCallback((ev) => {
     if (ev.key === "Enter")
       history.push(generatePath(match.path, { filter: ev.target.value }));
@@ -152,7 +199,7 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
         filtered = m === null;
         if (!filtered) index = m!.index;
       }
-      return { ...e, filtered, index, defaultCollapse: filter !== e.group };
+      return { ...e, filtered, index };
     })
     .sort((a, b) => {
       if (a.index == b.index) return a.sortKey.localeCompare(b.sortKey);
@@ -161,30 +208,68 @@ export default React.memo(({ mirrors }: { mirrors: ParsedMirror[] }) => {
   const end = performance.now();
   //console.log(`Sort`, end - begin);
 
+  const shownCount = filtered.filter(({ filtered }) => !filtered).length;
+  const siteCount = useMemo(
+    () => new Set(mirrors.map(({ source }) => source)).size,
+    [mirrors]
+  );
+  const visibleGroups = filtered.filter(({ filtered }) => !filtered);
+  const columns = Array.from(
+    { length: columnCount },
+    () => [] as typeof visibleGroups
+  );
+  visibleGroups.forEach((group, index) =>
+    columns[index % columnCount].push(group)
+  );
+
   return (
     <div className={"mirrorz"}>
-      <div className="search">
-        <input
-          value={filter}
-          onChange={updateFilter}
-          onKeyDown={uploadFilter}
-          placeholder={t("mirrors_prompt")}
-        />
-        <Icon>search</Icon>
+      <div className="toolbar">
+        <div className="search">
+          <span className={"search-leading" + (filter === "" ? " empty" : "")}>
+            <Icon aria-hidden="true">search</Icon>
+          </span>
+          <input
+            value={filter}
+            onChange={updateFilter}
+            onKeyDown={uploadFilter}
+            placeholder={t("mirrors_prompt")}
+          />
+          <button
+            type="button"
+            className="search-clear"
+            onClick={clearFilter}
+            disabled={filter === ""}
+            title={t("clear_filter")}
+            aria-label={t("clear_filter")}
+          >
+            <Icon aria-hidden="true">close</Icon>
+          </button>
+        </div>
+        <span className="result-count" role="status">
+          {t("mirrors_count", {
+            shown: shownCount,
+            total: grouped.length,
+            sites: siteCount,
+          })}
+        </span>
       </div>
 
-      <div className="mirrors">
-        {filtered
-          .filter(({ filtered }) => !filtered)
-          .map(({ group, entries, filtered, defaultCollapse }) => (
-            <Group
-              key={group}
-              filtered={filtered}
-              group={group}
-              entries={entries}
-              defaultCollapse={defaultCollapse}
-            />
-          ))}
+      <div className="mirrors" ref={mirrorsRef}>
+        {columns.map((column, columnIndex) => (
+          <div className="mirror-column" key={columnIndex}>
+            {column.map(({ group, entries, filtered }) => (
+              <Group
+                key={group}
+                filtered={filtered}
+                group={group}
+                entries={entries}
+                expanded={expandedGroups.has(group)}
+                onToggle={toggleGroup}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

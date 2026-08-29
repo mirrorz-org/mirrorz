@@ -7,64 +7,67 @@
   height: 100%;
 }
 
+.page-head {
+  flex: 0 0 auto;
+  padding: 20px 30px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tagline {
+  margin: 0 0 2px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.tagline-sub {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+}
+
+/* Category tabs */
 .category {
-  flex: 0 0 $category;
-  height: $category;
-  background-color: $bar-bg;
-  width: 100%;
-  z-index: 2;
-  box-shadow: $shadow 0 3px 6px;
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .category h2 {
   margin: 0;
-  line-height: 1.8em;
-}
-
-.category-label-mobile {
-  display: none;
-}
-
-.category-label-desktop {
-  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: inherit;
 }
 
 .category a {
-  filter: none;
   display: block;
-  color: $bar-text;
+  padding: 8px 2px 9px;
+  color: var(--text-muted);
   text-decoration: none;
-  margin: 0;
-  float: left;
-  width: auto;
-  min-width: $category;
-  height: $category;
-  padding: 0 24px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
 }
 
-/* Active/current link */
 .category a.active {
-  background-color: $primary;
-  color: $bar-text-hover;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
-/* Links on mouse-over */
 .category a:hover:not(.active) {
-  background-color: $bar-bg-hover;
-  color: $bar-text-hover;
+  color: var(--text);
+  text-decoration: none;
 }
 
 .distro-urls-container {
-  height: calc(100% - #{$category});
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .urls {
@@ -74,99 +77,125 @@
   max-height: 100%;
   overflow-y: auto;
   margin: 0;
+  padding: 10px 30px 40px;
 }
 
 .urls ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.urls li {
-  flex-basis: $flexbox-wide-group;
-  flex-grow: 1;
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 3px 28px;
 }
 
 .urls a {
-  font-size: 18px;
-  line-height: 20px;
-  margin-top: 3px;
-  margin-bottom: 2px;
-
-  text-decoration: none;
+  font-size: 14.5px;
 }
 
 .urls h3 {
-  padding-left: 20px;
-  margin-top: 10px;
+  margin: 16px 0 6px;
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.distro-panel {
+  flex: 0 0 $distro;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background-color: var(--bg);
+}
+
+.mini-search {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 14px 8px;
+  padding: 5px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-faint);
+
+  &:focus-within {
+    border-color: var(--accent);
+  }
+
+  .material-icons {
+    font-size: 16px;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    font-size: 13.5px;
+    color: var(--text);
+
+    &::placeholder {
+      color: var(--text-faint);
+    }
+  }
 }
 
 .distro {
-  flex: 0 0 $distro;
-  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
-  background-color: $bar-bg;
-  width: $distro;
-  z-index: 1;
-  box-shadow: $shadow 3px 0 6px;
+  padding: 2px 8px 12px;
 }
 
 .distro h3 {
   margin: 0;
+  font-size: 14.5px;
+  font-weight: inherit;
 }
 
 .distro a {
-  filter: none;
   display: block;
-  color: $bar-text;
+  color: var(--text);
   text-decoration: none;
-  margin: 0;
-  padding: 0;
-  float: top;
-  padding: 25px;
+  margin: 1px 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
 }
 
-/* Active/current link */
 .distro a.active {
-  background-color: $primary;
-  color: $bar-text-hover;
+  background-color: var(--accent-tint);
+  color: var(--accent-active);
+
+  h3 {
+    font-weight: 700;
+  }
 }
 
-/* Links on mouse-over */
 .distro a:hover:not(.active) {
-  background-color: $bar-bg-hover;
-  color: $bar-text-hover;
+  background-color: var(--bg-hover);
+  text-decoration: none;
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
+  .page-head {
+    padding: 12px 16px 0;
+  }
+
+  .tagline {
+    font-size: 17px;
+  }
+
+  .tagline-sub {
+    font-size: 13.5px;
+    margin-bottom: 8px;
+  }
+
   .category {
-    flex: 0 0 52px;
-    height: 52px;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: thin;
-  }
-
-  .category a {
-    float: none;
-    width: auto;
-    min-width: 72px;
-    height: 52px;
-    padding: 0 12px;
-    flex: 0 0 auto;
-  }
-
-  .category h2 {
-    font-size: 18px;
-  }
-
-  .category-label-desktop {
-    display: none;
-  }
-
-  .category-label-mobile {
-    display: block;
-    white-space: nowrap;
+    gap: 20px;
   }
 
   .distro-urls-container {
@@ -176,24 +205,40 @@
     flex-direction: column;
   }
 
+  .distro-panel {
+    flex: 0 0 auto;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mini-search {
+    margin: 8px 12px 4px;
+  }
+
   .distro {
-    width: 100%;
-    height: 52px;
     display: flex;
-    flex: 0 0 52px;
+    padding: 6px 8px;
     overflow-x: auto;
     overflow-y: hidden;
-    box-shadow: $shadow 0 3px 6px;
     scrollbar-width: thin;
+    scroll-padding: 16px;
+    /* fade clipped pills at the edges instead of cutting them off hard */
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 16px,
+      #000 calc(100% - 16px),
+      transparent
+    );
   }
 
   .distro a {
-    min-width: max-content;
-    min-height: 52px;
-    padding: 0 16px;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    flex: 0 0 auto;
+    min-height: 36px;
+    padding: 0 14px;
   }
 
   .distro h3 {
@@ -203,18 +248,20 @@
   .urls {
     min-width: 0;
     min-height: 0;
+    padding: 4px 16px 30px;
   }
 
   .urls ul {
-    padding-left: 36px;
+    grid-template-columns: 1fr;
   }
 
-  .urls li {
+  .urls li,
+  .urls a {
     min-width: 0;
     overflow-wrap: anywhere;
   }
 
   .urls h3 {
-    padding: 8px 16px 0;
+    margin-top: 12px;
   }
 }

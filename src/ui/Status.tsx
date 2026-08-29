@@ -159,10 +159,8 @@ export const StatusList = React.memo(
                 <div>{t("status." + s)}</div>
                 {mapper[s] !== 0 && (
                   <div className="status-time">
-                    {/*<div>{"| " + absoluteFormat(new Date(mapper[s] * 1000))}</div>*/}
-                    <div>
-                      {"| " + relativeFormat(new Date(mapper[s] * 1000), t)}
-                    </div>
+                    {/*<div>{absoluteFormat(new Date(mapper[s] * 1000))}</div>*/}
+                    <div>{relativeFormat(new Date(mapper[s] * 1000), t)}</div>
                   </div>
                 )}
               </div>

@@ -1,16 +1,21 @@
 {
   "iso": {
-    "os": "💿",
     "os_norm": "💿",
     "app": "📱",
     "font": "🗛",
-    "prompt": "👈 {{category}}"
+    "prompt": "👈 {{category}}",
+    "tagline": "🚀🪞",
+    "tagline_sub": "💿📱🗛",
+    "filter": "🔍"
   },
   "list": {
     "list": "😋"
   },
   "site": {
     "site": "💳",
+    "filter": "🔍 Repositories",
+    "count": "{{shown}} / {{total}} 📦",
+    "no_results": "🤷 No matching repositories.",
     "url": "✨",
     "name": "❤️",
     "homepage": "🏠",
@@ -95,7 +100,12 @@
   "download": "💿",
   "redirect_badge": "🔀 Redirect",
   "404_prompt": "Navigate with the sidebar",
+  "404_home": "🏠",
+  "404_list": "😋",
+  "debug_prompt": "🐛 JSON",
   "mirrors_prompt": "Filter (Support regex)",
+  "clear_filter": "🧹 Clear filter",
+  "mirrors_count": "{{shown}} / {{total}} 📦 · {{sites}} 🏫",
   "index": {
     "javascript": "You need javascript to view this page properly.",
     "loading": "Loading..."
