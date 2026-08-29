@@ -28,7 +28,8 @@
 /* Category tabs */
 .category {
   display: flex;
-  gap: 26px;
+  gap: 0;
+  margin: 0 -13px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -42,7 +43,7 @@
 
 .category a {
   display: block;
-  padding: 8px 2px 9px;
+  padding: 8px 15px 9px;
   color: var(--text-muted);
   text-decoration: none;
   border-bottom: 2px solid transparent;
@@ -164,8 +165,8 @@
   display: block;
   color: var(--text);
   text-decoration: none;
-  margin: 1px 4px;
-  padding: 6px 12px;
+  margin: 0 4px;
+  padding: 7px 12px;
   border-radius: var(--radius-sm);
 }
 
@@ -201,7 +202,12 @@
   }
 
   .category {
-    gap: 20px;
+    margin: 0 -10px;
+  }
+
+  .category a {
+    padding-right: 12px;
+    padding-left: 12px;
   }
 
   .distro-urls-container {
@@ -243,7 +249,7 @@
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    min-height: 36px;
+    min-height: 38px;
     padding: 0 14px;
   }
 
