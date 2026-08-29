@@ -98,6 +98,11 @@
     "years": "years"
   },
   "download": "💿",
+  "theme": "🌓",
+  "settings": "⚙️",
+  "system_theme": "💻",
+  "light_theme": "☀️",
+  "dark_theme": "🌙",
   "redirect_badge": "🔀 Redirect",
   "404_prompt": "Navigate with the sidebar",
   "404_home": "🏠",

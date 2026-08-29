@@ -117,6 +117,11 @@
   },
   "download": "下载",
   "help": "帮助",
+  "theme": "主题",
+  "settings": "设置",
+  "system_theme": "跟随系统",
+  "light_theme": "亮色",
+  "dark_theme": "暗色",
   "opens_new_tab": "在新标签页中打开",
   "redirect_badge": "参与 302 智能分流"
 }

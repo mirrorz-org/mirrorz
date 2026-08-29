@@ -24,6 +24,54 @@ Object.entries(testPages).map(([name, url]) =>
 );
 
 test.describe("home and download routes", () => {
+  test("theme can be toggled and persists across reloads", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.goto(baseUrl + "/");
+    await page.evaluate(() => localStorage.removeItem("mirrorz-theme"));
+    await page.reload();
+
+    const settings = page.locator(".settings-toggle");
+    const system = page.locator('.theme-option[data-theme="system"]');
+    const dark = page.locator('.theme-option[data-theme="dark"]');
+    await settings.click();
+    await expect(page.locator(".settings-panel")).toBeVisible();
+    await expect(system).toHaveAttribute("aria-checked", "true");
+    await dark.click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await expect(dark).toHaveAttribute("aria-checked", "true");
+    expect(
+      await page.evaluate(() =>
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--bg")
+          .trim()
+      )
+    ).toBe("#17191c");
+
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await settings.click();
+    await expect(dark).toHaveAttribute("aria-checked", "true");
+    await system.click();
+    expect(await page.locator("html").getAttribute("data-theme")).toBeNull();
+    await expect(system).toHaveAttribute("aria-checked", "true");
+    expect(
+      await page.evaluate(() => localStorage.getItem("mirrorz-theme"))
+    ).toBe(null);
+    await page.emulateMedia({ colorScheme: "dark" });
+    await expect
+      .poll(() =>
+        page.evaluate(() =>
+          getComputedStyle(document.documentElement)
+            .getPropertyValue("--bg")
+            .trim()
+        )
+      )
+      .toBe("#17191c");
+    await page.keyboard.press("Escape");
+    await expect(page.locator(".settings-panel")).toBeHidden();
+    await expect(settings).toBeFocused();
+  });
+
   test("home and about show the user guide", async ({ page }) => {
     for (const url of ["/", "/about"]) {
       await page.goto(baseUrl + url);
@@ -192,12 +240,17 @@ test.describe("mobile responsive layout", () => {
 
       const sidebar = await page.locator(".sidebar").boundingBox();
       const firstLink = await page.locator(".sidebar a").first().boundingBox();
+      const settingsToggle = await page
+        .locator(".settings-toggle")
+        .boundingBox();
       const dimensions = await page.locator(".sidebar").evaluate((element) => ({
         clientWidth: element.clientWidth,
         scrollWidth: element.scrollWidth,
       }));
       expect(sidebar?.height).toBeLessThanOrEqual(60);
       expect(firstLink?.height).toBeGreaterThanOrEqual(44);
+      expect(settingsToggle?.width).toBeGreaterThanOrEqual(44);
+      expect(settingsToggle?.height).toBeGreaterThanOrEqual(44);
       expect(dimensions.scrollWidth).toBeLessThanOrEqual(
         dimensions.clientWidth
       );

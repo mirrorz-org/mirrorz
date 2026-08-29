@@ -117,6 +117,11 @@
   },
   "download": "Download",
   "help": "Help",
+  "theme": "Theme",
+  "settings": "Settings",
+  "system_theme": "System",
+  "light_theme": "Light",
+  "dark_theme": "Dark",
   "opens_new_tab": "Opens in a new tab",
   "redirect_badge": "Participates in 302 redirect dispatch"
 }

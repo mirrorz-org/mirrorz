@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Site } from "../schema";
+import { ThemeContext } from "./theme";
 
 export default React.memo(
   ({
@@ -14,6 +15,7 @@ export default React.memo(
 
 export const Logo = React.memo(
   ({ site, className }: { site: Site; className: string }) => {
+    const theme = useContext(ThemeContext);
     const [failed, setFailed] = useState(false);
     let logo_darkmode = null;
     let logo = null;
@@ -24,13 +26,15 @@ export const Logo = React.memo(
       logo = site.logo;
     }
 
+    useEffect(() => setFailed(false), [logo, logo_darkmode, theme]);
+
     if (logo !== null && !failed)
       return (
         <picture>
           {logo_darkmode && (
             <source
               srcSet={logo_darkmode}
-              media="(prefers-color-scheme: dark)"
+              media={theme === "dark" ? "all" : "not all"}
             />
           )}
           <img

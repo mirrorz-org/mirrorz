@@ -8,6 +8,14 @@
     <each loop="v, k in meta">
       <meta property="{{ k }}" content="{{ v }}" />
     </each>
+    <script>
+      try {
+        const theme = localStorage.getItem("mirrorz-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (_) {}
+    </script>
     <link rel="stylesheet" href="./src/css/style.scss" />
     <link rel="icon" type="image/svg+xml" href="/static/img/mirrorz.svg" />
     <!-- <link rel="preload" as="stylesheet" href="./src/css/deferred.scss"> -->

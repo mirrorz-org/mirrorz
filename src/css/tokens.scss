@@ -2,7 +2,7 @@
    dark mode only re-declares them, so no per-component dark overrides exist. */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* surfaces */
   --bg: #ffffff;
@@ -46,36 +46,46 @@
   --radius-sm: 6px;
 }
 
+@mixin dark-tokens {
+  color-scheme: dark;
+
+  --bg: #17191c;
+  --bg-subtle: #1e2226;
+  --bg-hover: #262b30;
+  --border: #2c3238;
+  --border-strong: #3d454d;
+
+  --text: #e4e8ea;
+  --text-muted: #9aa6ae;
+  --text-faint: #737f88;
+
+  --accent: #5fa8cc;
+  --accent-strong: #82bdd9;
+  --accent-active: var(--accent-strong);
+  --accent-tint: rgba(95, 168, 204, 0.13);
+  --accent-tint-strong: rgba(95, 168, 204, 0.2);
+  --link: #6cb4d6;
+
+  --st-success: #4ac26b;
+  --st-syncing: #58a6ff;
+  --st-pending: #39c5cf;
+  --st-failed: #f47067;
+  --st-cache: #d4a72c;
+  --st-unknown: #8b949e;
+  --st-old: #d98a4a;
+  --st-next: #d4a72c;
+  --st-new: #b197fc;
+
+  --logo-plate: #ffffff;
+  --logo-plate-border: var(--border);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #17191c;
-    --bg-subtle: #1e2226;
-    --bg-hover: #262b30;
-    --border: #2c3238;
-    --border-strong: #3d454d;
-
-    --text: #e4e8ea;
-    --text-muted: #9aa6ae;
-    --text-faint: #737f88;
-
-    --accent: #5fa8cc;
-    --accent-strong: #82bdd9;
-    --accent-active: var(--accent-strong);
-    --accent-tint: rgba(95, 168, 204, 0.13);
-    --accent-tint-strong: rgba(95, 168, 204, 0.2);
-    --link: #6cb4d6;
-
-    --st-success: #4ac26b;
-    --st-syncing: #58a6ff;
-    --st-pending: #39c5cf;
-    --st-failed: #f47067;
-    --st-cache: #d4a72c;
-    --st-unknown: #8b949e;
-    --st-old: #d98a4a;
-    --st-next: #d4a72c;
-    --st-new: #b197fc;
-
-    --logo-plate: #ffffff;
-    --logo-plate-border: var(--border);
+  :root:not([data-theme="light"]) {
+    @include dark-tokens;
   }
+}
+
+:root[data-theme="dark"] {
+  @include dark-tokens;
 }
