@@ -72,6 +72,34 @@ test.describe("home and download routes", () => {
     await expect(settings).toBeFocused();
   });
 
+  test("language can be changed and persists across reloads", async ({
+    page,
+  }) => {
+    await page.goto(baseUrl + "/");
+    await page.evaluate(() => localStorage.removeItem("mirrorz-language"));
+    await page.reload();
+
+    const settings = page.locator(".settings-toggle");
+    const chinese = page.locator('.language-option[data-language="zh"]');
+    const english = page.locator('.language-option[data-language="en"]');
+    await expect(page.locator(".language-option")).toHaveCount(2);
+    await settings.click();
+    await chinese.click();
+    await expect(chinese).toHaveAttribute("aria-checked", "true");
+    await expect(page.locator("html")).toHaveAttribute("lang", "zh");
+    expect(
+      await page.evaluate(() => localStorage.getItem("mirrorz-language"))
+    ).toBe("zh");
+
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("lang", "zh");
+    await settings.click();
+    await expect(chinese).toHaveAttribute("aria-checked", "true");
+    await english.click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator(".settings-panel-title")).toHaveText("Settings");
+  });
+
   test("home and about show the user guide", async ({ page }) => {
     for (const url of ["/", "/about"]) {
       await page.goto(baseUrl + url);

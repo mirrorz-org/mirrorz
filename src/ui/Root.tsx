@@ -26,6 +26,8 @@ import config from "../config/config.json";
 import { RedirectSitesContext } from "./RedirectBadge";
 import { Theme, ThemeContext, ThemePreference } from "./theme";
 
+type Language = "en" | "zh";
+
 const getSystemTheme = (): Theme =>
   window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
@@ -43,6 +45,7 @@ export default React.memo(() => {
   );
   const [systemTheme, setSystemTheme] = useState<Theme>(getSystemTheme);
   const theme = themePreference === "system" ? systemTheme : themePreference;
+  const language: Language = i18n.language.startsWith("zh") ? "zh" : "en";
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsButton = useRef<HTMLButtonElement>(null);
   const settingsPanel = useRef<HTMLDivElement>(null);
@@ -102,6 +105,14 @@ export default React.memo(() => {
       else localStorage.setItem("mirrorz-theme", preference);
     } catch (_) {}
     setThemePreference(preference);
+  };
+
+  const selectLanguage = (nextLanguage: Language) => {
+    try {
+      localStorage.setItem("mirrorz-language", nextLanguage);
+    } catch (_) {}
+    document.documentElement.lang = nextLanguage;
+    i18n.changeLanguage(nextLanguage);
   };
 
   return (
@@ -191,7 +202,7 @@ export default React.memo(() => {
                     <strong>{t("theme")}</strong>
                   </div>
                   <div
-                    className="theme-options"
+                    className="settings-options theme-options"
                     role="radiogroup"
                     aria-label={t("theme")}
                   >
@@ -205,7 +216,7 @@ export default React.memo(() => {
                       <button
                         type="button"
                         className={
-                          "theme-option" +
+                          "settings-choice theme-option" +
                           (themePreference === preference ? " active" : "")
                         }
                         data-theme={preference}
@@ -215,6 +226,40 @@ export default React.memo(() => {
                         key={preference}
                       >
                         <Icon aria-hidden="true">{icon}</Icon>
+                        <span>{label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="settings-section">
+                  <div className="settings-section-label">
+                    <Icon aria-hidden="true">language</Icon>
+                    <strong>{t("language")}</strong>
+                  </div>
+                  <div
+                    className="settings-options language-options"
+                    role="radiogroup"
+                    aria-label={t("language")}
+                  >
+                    {(
+                      [
+                        ["en", "EN", t("english")],
+                        ["zh", "中", t("chinese")],
+                      ] as [Language, string, string][]
+                    ).map(([nextLanguage, symbol, label]) => (
+                      <button
+                        type="button"
+                        className={
+                          "settings-choice language-option" +
+                          (language === nextLanguage ? " active" : "")
+                        }
+                        data-language={nextLanguage}
+                        role="radio"
+                        aria-checked={language === nextLanguage}
+                        onClick={() => selectLanguage(nextLanguage)}
+                        key={nextLanguage}
+                      >
+                        <strong aria-hidden="true">{symbol}</strong>
                         <span>{label}</span>
                       </button>
                     ))}

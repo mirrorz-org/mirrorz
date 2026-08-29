@@ -122,6 +122,9 @@
   "system_theme": "System",
   "light_theme": "Light",
   "dark_theme": "Dark",
+  "language": "Language",
+  "english": "English",
+  "chinese": "中文",
   "opens_new_tab": "Opens in a new tab",
   "redirect_badge": "Participates in 302 redirect dispatch"
 }

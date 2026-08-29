@@ -122,6 +122,9 @@
   "system_theme": "跟随系统",
   "light_theme": "亮色",
   "dark_theme": "暗色",
+  "language": "语言",
+  "english": "English",
+  "chinese": "中文",
   "opens_new_tab": "在新标签页中打开",
   "redirect_badge": "参与 302 智能分流"
 }
