@@ -106,7 +106,7 @@ A `mirrorz.json` in the following format describes all the data of one mirror si
     - `U`: unknown
     - `X1600000000`: (auxiliary) next scheduled sync unix timestamp
     - `N1600000000`: (auxiliary) new mirror. (optional) unix timestamp the repo added
-    - `O1600000000`: (auxiliary) old successful timestamp, used only when it is syncing or failed
+    - `O1600000000`: (auxiliary) old successful timestamp, used only when it is syncing, pending or failed
   - `mirrors.help` may be empty, or the same rule as `mirrors.url`
   - `mirrors.upstream`, `mirrors.size`, `mirrors.disable` may be empty
 
