@@ -270,7 +270,10 @@ export default React.memo(() => {
             <main>
               <Switch>
                 <Route path="/list/:filter?" exact>
-                  <Mirrors mirrors={mirrorsList} />
+                  <Mirrors
+                    mirrors={mirrorsList}
+                    scoringSites={scoring?.scores ?? []}
+                  />
                 </Route>
                 <Route path="/site/:siteSlug?/:statusFilter?" exact>
                   <Site site={siteList} />
