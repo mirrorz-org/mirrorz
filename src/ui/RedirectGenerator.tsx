@@ -22,26 +22,16 @@ export default React.memo(
     const { t } = useTranslation();
     const [preference, setPreference] = React.useState("");
     const [exclusion, setExclusion] = React.useState("");
-    const labelsByAbbr = new Map(
-      scoringSites.map(({ abbr, label }) => [abbr, label])
+    const availableLabels = [
+      ...new Set(scoringSites.map(({ label }) => label)),
+    ].filter(
+      (label) => !preferences.includes(label) && !excluded.includes(label)
     );
-    const availableSites = scoringSites.filter(
-      ({ abbr }) => !preferences.includes(abbr) && !excluded.includes(abbr)
-    );
-    const canAddPreference = availableSites.some(
-      (site) => site.abbr === preference
-    );
-    const canAddExclusion = availableSites.some(
-      (site) => site.abbr === exclusion
-    );
-    const prefixParts = [
-      ...preferences.map((abbr) => labelsByAbbr.get(abbr)),
-      ...excluded.map((abbr) => {
-        const label = labelsByAbbr.get(abbr);
-        return label ? `avoid${label}` : undefined;
-      }),
-    ].filter((label): label is string => !!label);
-    const prefix = [...new Set(prefixParts)].join("-");
+    const canAddPreference = availableLabels.includes(preference);
+    const canAddExclusion = availableLabels.includes(exclusion);
+    const prefix = [
+      ...new Set([...preferences, ...excluded.map((label) => `avoid${label}`)]),
+    ].join("-");
     const base = new URL(config.url);
     const hostname = prefix ? `${prefix}.${base.hostname}` : base.hostname;
     const validAddress = prefix.length <= 63;
@@ -71,10 +61,10 @@ export default React.memo(
         return next;
       });
     };
-    const removeFrom = (list: "preference" | "excluded", abbr: string) => {
+    const removeFrom = (list: "preference" | "excluded", label: string) => {
       if (list === "preference")
-        setPreferences((current) => current.filter((item) => item !== abbr));
-      else setExcluded((current) => current.filter((item) => item !== abbr));
+        setPreferences((current) => current.filter((item) => item !== label));
+      else setExcluded((current) => current.filter((item) => item !== label));
     };
 
     return (
@@ -91,9 +81,9 @@ export default React.memo(
                 onChange={(event) => setPreference(event.target.value)}
               >
                 <option value="">{t("about.302_go_generator_choose")}</option>
-                {availableSites.map(({ abbr }) => (
-                  <option key={abbr} value={abbr}>
-                    {abbr}
+                {availableLabels.map((label) => (
+                  <option key={label} value={label}>
+                    {label}
                   </option>
                 ))}
               </select>
@@ -105,9 +95,9 @@ export default React.memo(
                 {t("about.302_go_generator_add")}
               </button>
               <ol className="redirect-generator-list">
-                {preferences.map((abbr, index) => (
-                  <li key={abbr}>
-                    <code>{abbr}</code>
+                {preferences.map((label, index) => (
+                  <li key={label}>
+                    <code>{label}</code>
                     <button
                       type="button"
                       onClick={() => movePreference(index, -1)}
@@ -126,7 +116,7 @@ export default React.memo(
                     </button>
                     <button
                       type="button"
-                      onClick={() => removeFrom("preference", abbr)}
+                      onClick={() => removeFrom("preference", label)}
                       aria-label={t("about.302_go_generator_remove")}
                     >
                       ×
@@ -147,9 +137,9 @@ export default React.memo(
                 onChange={(event) => setExclusion(event.target.value)}
               >
                 <option value="">{t("about.302_go_generator_choose")}</option>
-                {availableSites.map(({ abbr }) => (
-                  <option key={abbr} value={abbr}>
-                    {abbr}
+                {availableLabels.map((label) => (
+                  <option key={label} value={label}>
+                    {label}
                   </option>
                 ))}
               </select>
@@ -161,12 +151,12 @@ export default React.memo(
                 {t("about.302_go_generator_add")}
               </button>
               <ul className="redirect-generator-list">
-                {excluded.map((abbr) => (
-                  <li key={abbr}>
-                    <code>{abbr}</code>
+                {excluded.map((label) => (
+                  <li key={label}>
+                    <code>{label}</code>
                     <button
                       type="button"
-                      onClick={() => removeFrom("excluded", abbr)}
+                      onClick={() => removeFrom("excluded", label)}
                       aria-label={t("about.302_go_generator_remove")}
                     >
                       ×

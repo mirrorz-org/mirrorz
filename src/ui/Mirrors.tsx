@@ -30,7 +30,7 @@ const Group = React.memo(
     filtered,
     expanded,
     onToggle,
-    redirectableSites,
+    redirectLabels,
     preferences,
     excluded,
     onQuickPreference,
@@ -41,11 +41,11 @@ const Group = React.memo(
     filtered: boolean;
     expanded: boolean;
     onToggle: (group: string) => void;
-    redirectableSites: Set<string>;
+    redirectLabels: Map<string, string>;
     preferences: string[];
     excluded: string[];
-    onQuickPreference: (abbr: string) => void;
-    onQuickExclusion: (abbr: string) => void;
+    onQuickPreference: (label: string) => void;
+    onQuickExclusion: (label: string) => void;
   }) => {
     const match = useRouteMatch();
     const { t } = useTranslation();
@@ -90,59 +90,66 @@ const Group = React.memo(
                 (
                   { full, help, upstream, desc, status, source, size, note },
                   idx
-                ) => (
-                  <div key={idx}>
-                    <h3>
-                      <a className="mirror-source" href={full} target="_blank">
-                        {source}
-                        <RedirectBadge abbr={source} />
-                      </a>
-                      {redirectableSites.has(source) && (
-                        <span className="redirect-quick-actions">
-                          <button
-                            type="button"
-                            disabled={preferences.includes(source)}
-                            onClick={() => onQuickPreference(source)}
-                          >
-                            {t("redirect_prefer")}
-                          </button>
-                          <button
-                            type="button"
-                            disabled={excluded.includes(source)}
-                            onClick={() => onQuickExclusion(source)}
-                          >
-                            {t("redirect_exclude")}
-                          </button>
-                        </span>
-                      )}
-                      {help && (
-                        <a className="help" href={help} target="_blank">
-                          <Icon title="Help">help</Icon>
+                ) => {
+                  const redirectLabel = redirectLabels.get(source);
+                  return (
+                    <div key={idx}>
+                      <h3>
+                        <a
+                          className="mirror-source"
+                          href={full}
+                          target="_blank"
+                        >
+                          {source}
+                          <RedirectBadge abbr={source} />
                         </a>
+                        {redirectLabel && (
+                          <span className="redirect-quick-actions">
+                            <button
+                              type="button"
+                              disabled={preferences.includes(redirectLabel)}
+                              onClick={() => onQuickPreference(redirectLabel)}
+                            >
+                              {t("redirect_prefer")}
+                            </button>
+                            <button
+                              type="button"
+                              disabled={excluded.includes(redirectLabel)}
+                              onClick={() => onQuickExclusion(redirectLabel)}
+                            >
+                              {t("redirect_exclude")}
+                            </button>
+                          </span>
+                        )}
+                        {help && (
+                          <a className="help" href={help} target="_blank">
+                            <Icon title="Help">help</Icon>
+                          </a>
+                        )}
+                      </h3>
+                      {upstream && (
+                        <div className="upstream">
+                          <Icon>outbound</Icon>
+                          {upstream}
+                        </div>
                       )}
-                    </h3>
-                    {upstream && (
-                      <div className="upstream">
-                        <Icon>outbound</Icon>
-                        {upstream}
-                      </div>
-                    )}
-                    {status && <StatusList mapper={statusMapper(status)} />}
-                    {size && (
-                      <div className="size">
-                        <Icon>save</Icon>
-                        {size}
-                      </div>
-                    )}
-                    {note && (
-                      <div className="note">
-                        <Icon>note</Icon>
-                        {note}
-                      </div>
-                    )}
-                    {desc && <div className="desc">{desc}</div>}
-                  </div>
-                )
+                      {status && <StatusList mapper={statusMapper(status)} />}
+                      {size && (
+                        <div className="size">
+                          <Icon>save</Icon>
+                          {size}
+                        </div>
+                      )}
+                      {note && (
+                        <div className="note">
+                          <Icon>note</Icon>
+                          {note}
+                        </div>
+                      )}
+                      {desc && <div className="desc">{desc}</div>}
+                    </div>
+                  );
+                }
               )}
         </div>
       </div>
@@ -260,21 +267,21 @@ export default React.memo(
       () => new Set(mirrors.map(({ source }) => source)).size,
       [mirrors]
     );
-    const redirectableSites = useMemo(
-      () => new Set(scoringSites.map(({ abbr }) => abbr)),
+    const redirectLabels = useMemo(
+      () => new Map(scoringSites.map(({ abbr, label }) => [abbr, label])),
       [scoringSites]
     );
-    const addQuickPreference = useCallback((abbr: string) => {
+    const addQuickPreference = useCallback((label: string) => {
       setPreferences((current) =>
-        current.includes(abbr) ? current : [...current, abbr]
+        current.includes(label) ? current : [...current, label]
       );
-      setExcluded((current) => current.filter((item) => item !== abbr));
+      setExcluded((current) => current.filter((item) => item !== label));
     }, []);
-    const addQuickExclusion = useCallback((abbr: string) => {
+    const addQuickExclusion = useCallback((label: string) => {
       setExcluded((current) =>
-        current.includes(abbr) ? current : [...current, abbr]
+        current.includes(label) ? current : [...current, label]
       );
-      setPreferences((current) => current.filter((item) => item !== abbr));
+      setPreferences((current) => current.filter((item) => item !== label));
     }, []);
     const visibleGroups = filtered.filter(({ filtered }) => !filtered);
     const columns = Array.from(
@@ -350,7 +357,7 @@ export default React.memo(
                   entries={entries}
                   expanded={expandedGroups.has(group)}
                   onToggle={toggleGroup}
-                  redirectableSites={redirectableSites}
+                  redirectLabels={redirectLabels}
                   preferences={preferences}
                   excluded={excluded}
                   onQuickPreference={addQuickPreference}
