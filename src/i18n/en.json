@@ -63,6 +63,16 @@
     "302_go_prefer_one": "Prefer TUNA; if it cannot be used, another candidate may still be selected.",
     "302_go_prefer_multiple": "Set an ordered preference list: prefer USTC, then TUNA. Labels farther to the right have higher priority.",
     "302_go_avoid": "Exclude TUNA completely and select from the remaining candidates, rather than merely lowering its priority.",
+    "302_go_generator_too_long": "The domain prefix exceeds 63 characters. Remove some sites.",
+    "302_go_generator_preference": "Preferences (right first)",
+    "302_go_generator_exclusion": "Exclude sites",
+    "302_go_generator_choose": "Choose a site…",
+    "302_go_generator_add": "Add",
+    "302_go_generator_move_up": "Lower priority",
+    "302_go_generator_move_down": "Raise priority",
+    "302_go_generator_remove": "Remove",
+    "302_go_generator_result": "Generated address",
+    "302_go_generator_select_repository": "Click a repository below to generate its address",
     "search": "Experimental Feature: Search Backend",
     "search_description": "Search for a file path inside a repository and continue to a mirror site that provides it. Results and availability can vary with synchronization status.",
     "monitor": "Service status",
@@ -130,5 +140,7 @@
   "english": "English",
   "chinese": "中文",
   "opens_new_tab": "Opens in a new tab",
-  "redirect_badge": "Participates in 302 redirect dispatch"
+  "redirect_badge": "Participates in 302 redirect dispatch",
+  "redirect_prefer": "Prefer",
+  "redirect_exclude": "Exclude"
 }
