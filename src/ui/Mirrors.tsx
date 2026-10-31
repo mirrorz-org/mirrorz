@@ -268,7 +268,7 @@ export default React.memo(
       [mirrors]
     );
     const redirectLabels = useMemo(
-      () => new Map(scoringSites.map(({ abbr, label }) => [abbr, label])),
+      () => new Map(scoringSites.map(({ abbr, site }) => [abbr, site])),
       [scoringSites]
     );
     const addQuickPreference = useCallback((label: string) => {

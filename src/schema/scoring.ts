@@ -5,6 +5,7 @@ export type RepoScoring = {
   isp: number;
   delta: number;
   abbr: string;
+  site: string;
   label: string;
   resolve: string;
   repo: string;

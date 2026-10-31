@@ -23,7 +23,7 @@ export default React.memo(
     const [preference, setPreference] = React.useState("");
     const [exclusion, setExclusion] = React.useState("");
     const availableLabels = [
-      ...new Set(scoringSites.map(({ label }) => label)),
+      ...new Set(scoringSites.map(({ site }) => site)),
     ].filter(
       (label) => !preferences.includes(label) && !excluded.includes(label)
     );
